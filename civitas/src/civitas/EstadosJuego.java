@@ -1,8 +1,6 @@
 package civitas;
 
 
-
-
 enum EstadosJuego {
   INICIO_TURNO,
   DESPUES_CARCEL,

@@ -1,6 +1,6 @@
 # encoding:utf-8
 
-module Civitas
+module civitas
     module TipoSorpresa
       IRCARCEL=:ircarcel
       IRCASILLA=:ircasilla

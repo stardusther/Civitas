@@ -1,6 +1,6 @@
 # encoding:utf-8
 
-class EstadosJuego
+class Tablero
   def initialize
     
   end

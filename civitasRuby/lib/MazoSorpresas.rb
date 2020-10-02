@@ -1,6 +1,4 @@
-# encoding:utf-8
-
-class Diario
+class MazoSorpresas
   def initialize
     
   end

@@ -1,9 +1,15 @@
 package civitas;
 
 /**
- *
- * @author yese
+ * @author Yesenia González Dávila
+ * @author Esther García Gallego
+ * Grupo B.3
  */
+
 public enum TipoCasilla {
-    CALLE, SORPRESA, JUEZ, IMPUESTO, DESCANSO;
+    CALLE, 
+    SORPRESA, 
+    JUEZ, 
+    IMPUESTO, 
+    DESCANSO
 }

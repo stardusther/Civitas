@@ -1,4 +1,4 @@
-module civitas
+module Civitas
   module EstadosJuego
 		INICIO_TURNO = :inicio_turno  
 		DESPUES_CARCEL = :despues_carcel

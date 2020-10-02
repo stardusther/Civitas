@@ -1,6 +1,6 @@
 # encoding:utf-8
 
-module civitas
+module Civitas
     module TipoCasilla
       CALLE=:calle
       SORPRESA=:sorpresa

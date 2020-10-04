@@ -22,7 +22,7 @@ public class Tablero {
 
       casillas = new ArrayList<> ();
 
-      Casilla casillaSalida = new Casilla ("Salida");   // i think so? :_D
+      Casilla casillaSalida = new Casilla ("Salida");   // i think so? :_D E:No entiendo pq reservas memoria
       casillas.add (casillaSalida);
 
       //for (int i=0 ; i < nCasillas ; i++)       // Inicializa el array a vacío

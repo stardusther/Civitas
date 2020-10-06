@@ -64,8 +64,8 @@ public class MazoSorpresas {
 
       for (int i=0; i < sorpresas.size() && !found; i++)
         if(sorpresa == sorpresas.get(i)){                 //Si está en el mazo
-          cartasEspeciales.add(sorpresa);              //Se añade a cartasEspeciales
-          sorpresas.remove(i);                            //E: Supongo que existirá un método para borrar una carta
+          cartasEspeciales.add(sorpresa);                 //Se añade a cartasEspeciales
+          sorpresas.remove(i);
           Diario diario = diario.getInstance();           //E: Not sure
           diario.ocurreEvento("Se ha inhabilitado una carta especial");
           //diario.leerEvento();

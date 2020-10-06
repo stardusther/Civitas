@@ -1,5 +1,5 @@
 package civitas;
-import java.util.ArrayList; // import the ArrayList class
+import java.util.ArrayList;                     // import the ArrayList class
 
 /**
  * @author Yesenia González Dávila
@@ -14,6 +14,8 @@ public class Tablero {
     private int porSalida;                        // Veces que se pasa por salida
     private boolean tieneJuez;                    // Determina si el tablero tiene juez
 
+    //Poner init? 
+    
     Tablero (int indice){
       if (indice >= 1)
         numCasillaCarcel = indice;
@@ -22,11 +24,8 @@ public class Tablero {
 
       casillas = new ArrayList<> ();
 
-      Casilla casillaSalida = new Casilla ("Salida");   // i think so? :_D E:No entiendo pq reservas memoria
-      casillas.add (casillaSalida);
-
-      //for (int i=0 ; i < nCasillas ; i++)       // Inicializa el array a vacío
-      //casillas[i]="";
+      //Casilla casillaSalida = new Casilla ("Salida");   // i think so? :_D E:No entiendo pq reservas memoria
+      casillas.add (new Casilla ("Salida"));
 
       porSalida=0;
       tieneJuez=false;
@@ -67,7 +66,6 @@ public class Tablero {
         añadeCarcel ();
     }
 
-    //Metodo auxiliar privado para no repetir código ????? (arriba se tendria que poner 2 veces)
     private void añadeCarcel () {
         if (casillas.size() == numCasillaCarcel) {
             Casilla carcel = new Casilla ("Cárcel");
@@ -85,9 +83,7 @@ public class Tablero {
 
     Casilla getCasilla (int numCasilla){
       if (correcto(numCasilla))
-        // return casillas[numCasilla]; esto me da error ???? E: no tendrá operador de indexación
         return casillas.get(numCasilla);
-
       else
         return null;
     }

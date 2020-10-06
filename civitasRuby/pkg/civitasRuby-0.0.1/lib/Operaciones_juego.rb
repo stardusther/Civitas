@@ -1,3 +1,10 @@
+
+=begin 
+Authors: Esther García Gallego
+         Yesenia Glez Dávila
+         Grupo B3
+=end
+
 module Civitas
   module OPERACIONES_JUEGO
       AVANZAR = :avanzar

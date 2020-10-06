@@ -22,39 +22,43 @@ public class MazoSorpresas {
        barajada = false;
        usadas = 0;
      }
+     
+     MazoSorpresas(){
+       init();
+       debug = false;
+     }
 
      MazoSorpresas(Boolean _debug){
        debug = _debug;
        init();
 
        if(debug){
-          Diario diario = diario.getInstance();
-          diario.ocurreEvento("Modo Debug Activo");
-          //diario.leerEvento();      E: not sure :/
+          //Diario diario = diario.getInstance();                 Y: Esto da error de compilacion :(
+          // diario.ocurreEvento("Modo Debug Activo");    
+          
+          Diario.getInstance().ocurreEvento ("Modo debug activo");
+          //diario.leerEvento();      E: not sure :/        Y: creo que no hace falta
        }
      }
 
-     MazoSorpresas(){
-       init();
-       debug = false;
-     }
-
     void alMazo(Sorpresa s){
-      if(!barajada){
+      if (!barajada)
         sorpresas.add(s);
-      }
     }
 
     Sorpresa siguiente (){
-      if((!barajada || usadas == sorpresas.size()) && !debug){
-        Collections.shuffle(sorpresas);                   //baraja el mazo de sorpresas
+      if ( (!barajada || usadas == sorpresas.size()) && !debug){
+        Collections.shuffle (sorpresas);                   //Baraja el mazo de sorpresas
         usadas = 0;
-        barajadas = true;
+        barajada = true;
       }
 
       usadas++;
       ultimaSorpresa = sorpresas.get(0);
       sorpresas.remove(0);
+      
+      //Creo que falta esto   (...se quita la primera carta, se añade al final de la misma,...)
+      sorpresas.add(ultimaSorpresa);
 
       return ultimaSorpresa;
     }
@@ -63,12 +67,16 @@ public class MazoSorpresas {
       Boolean found = false;
 
       for (int i=0; i < sorpresas.size() && !found; i++)
-        if(sorpresa == sorpresas.get(i)){                 //Si está en el mazo
-          cartasEspeciales.add(sorpresa);                 //Se añade a cartasEspeciales
-          sorpresas.remove(i);
-          Diario diario = diario.getInstance();           //E: Not sure
-          diario.ocurreEvento("Se ha inhabilitado una carta especial");
+          
+        if (sorpresa == sorpresas.get(i)){                // Si está en el mazo:
+          cartasEspeciales.add(sorpresa);                     // Se añade a cartasEspeciales
+          sorpresas.remove(i);                                // Se elimina del mazo
+          
+          //Diario diario = diario.getInstance();    
+          //diario.ocurreEvento("Se ha inhabilitado una carta especial");
           //diario.leerEvento();
+          Diario.getInstance().ocurreEvento ("Se ha inhabilitado una carta especial");
+          
           found = true;
         }
     }
@@ -77,13 +85,17 @@ public class MazoSorpresas {
       Boolean found = false;
 
       for (int i=0; i < cartasEspeciales.size() && !found; i++)
-        if(sorpresa == cartasEspeciales.get(i)){    //Si está en cartas cartasEspeciales
-          sorpresas.alMazo(sorpresa);               //Se añade al mazo de sorpresas
-          cartasEspeciales.remove(i);               //Se elimina de cartasEspeciales
-          diario.ocurreEvento("Se ha habilitado una carta especial");
-          //diario.leerEvento();
-          found = true;
+          
+        if(sorpresa == cartasEspeciales.get(i)){          // Si está en cartas cartasEspeciales
+            //Y: alMazo es un metodo de MazoSorpresas no Sorpresas jeje   (sorpresas.alMazo(sorpresa); )                         
+            sorpresas.add(sorpresa);                            // Se añade al mazo de sorpresas
+            cartasEspeciales.remove(i);                         // Se elimina de cartasEspeciales
+          
+            //diario.ocurreEvento("Se ha habilitado una carta especial");
+            Diario.getInstance().ocurreEvento ("Se ha habilitado una carta especial");
+        
+            found = true;
         }
     }
 
-   }
+}

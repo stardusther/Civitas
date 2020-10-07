@@ -47,7 +47,13 @@ module Civitas
         @debug = d
         modo = "Debug off (dado)"
 
-    end
+        if @debug
+          modo = "Debug on (dado)"
+        end
 
+        Diario.instance.ocurreEvento(modo)
+
+      end
+    end
 
   end

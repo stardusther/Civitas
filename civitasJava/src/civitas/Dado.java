@@ -53,7 +53,7 @@ public class Dado {
             debug = d;
             String modo = "Debug off (dado)";
 
-            if (debug = true)
+            if (debug)
                 modo = "Debug on (dado)";
 
             Diario.getInstance().ocurreEvento(modo);

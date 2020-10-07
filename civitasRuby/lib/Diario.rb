@@ -1,3 +1,9 @@
+=begin
+Authors: Esther García Gallego
+         Yesenia Glez Dávila
+         Grupo B3
+=end
+
 require 'singleton'
 module Civitas
   class Diario

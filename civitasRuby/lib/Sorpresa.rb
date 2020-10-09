@@ -4,6 +4,8 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
+# Vacía para esta práctica
+
 class Sorpresa
   def initialize
     

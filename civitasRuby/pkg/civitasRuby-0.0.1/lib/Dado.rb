@@ -8,7 +8,6 @@ require 'singleton'
 module Civitas
   class Dado
     include Singleton
-
                                   #En ruby no se necesita la instancia
     @@SalidaCarcel                #Los atributos son privados por defecto
 
@@ -25,6 +24,7 @@ module Civitas
         @ultimoResultado = 1
       else
         @ultimoResultado = rand(6) + 1  #Roll a 6 sided die, rand(6) returns a number from 0 to 5 inclusive
+      end
     end
 
     def salgoDeLaCarcel
@@ -46,8 +46,7 @@ module Civitas
       if d != @debug
         @debug = d
         modo = "Debug off (dado)"
-
+      end
     end
-
-
   end
+end

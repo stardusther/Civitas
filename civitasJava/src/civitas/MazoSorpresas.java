@@ -1,12 +1,20 @@
-package civitas;
-import java.util.ArrayList;
-import java.util.Collections;                //Para hacer el shuffle
-
 /**
+ * @file MazoSopresas.java
  * @author Yesenia González Dávila
  * @author Esther García Gallego
- * Grupo B.3
- */
+ * @note Grupo B.3
+*/
+
+package civitas;
+import java.util.ArrayList;
+import java.util.Collections;       //Para hacer el shuffle
+
+/**
+ * @class MazoSopresas
+ * @brief Además de almacenar las cartas, las instancias de esta clase velan por que el mazo
+ * se mantenga consistente a lo largo del juego y para que se produzcan las operaciones de barajado
+ * cuando se han usado ya todas las cartas.
+*/
 
 public class MazoSorpresas {
      private ArrayList<Sorpresa> sorpresas;               //Almacena cartas de sorpresa
@@ -16,6 +24,9 @@ public class MazoSorpresas {
      private ArrayList<Sorpresa> cartasEspeciales;        //Almacena SALIRCARCEL mientras está fuera del MazoSorpresas
      Sorpresa ultimaSorpresa;                             //Almacena la última carta de sorpresa que ha salido
 
+     /**
+     * @brief Inicializa los atributos de la clase MazoSorpresas
+     */
      private void init(){
        sorpresas = new ArrayList<> ();
        cartasEspeciales = new ArrayList<> ();
@@ -23,26 +34,40 @@ public class MazoSorpresas {
        usadas = 0;
      }
 
+     /**
+     * @brief Constructor sin parámetros de la clase MazoSopresas
+     */
      MazoSorpresas(){
        init();
        debug = false;
      }
 
+     /**
+     * @brief Constructor con parámetros de la clase MazoSopresas
+     * @param _debug Un booleano
+     */
      MazoSorpresas(Boolean _debug){
        debug = _debug;
        init();
 
        if(debug)
           Diario.getInstance().ocurreEvento ("Modo debug activo");
-
      }
 
-    void alMazo(Sorpresa s){
+     /**
+     * @brief Añade al mazo de sorpresas una carta
+     * @param s Una carta de sorpresa
+     */
+     void alMazo(Sorpresa s){
       if (!barajada)
         sorpresas.add(s);
-    }
+     }
 
-    Sorpresa siguiente (){
+     /**
+     * @brief Descarta la sorpresa actual y pasa a la siguiente
+     * @return ultimaSorpresa La última carta de sorpresa usada
+     */
+     Sorpresa siguiente (){
       if ( (!barajada || usadas == sorpresas.size()) && !debug){
         Collections.shuffle (sorpresas);                               //Baraja el mazo de sorpresas
         usadas = 0;
@@ -57,6 +82,10 @@ public class MazoSorpresas {
       return ultimaSorpresa;
     }
 
+    /**
+    * @brief Inhabilita la carta pasada como parámetro
+    * @param sorpresa Carta de sorpresa
+    */
     void inhabilitarCartaEspecial (Sorpresa sorpresa){        //E: habrá que comprobar si es una cartaEspecial ???
         if(cartasEspeciales.contains(sorpresa)){              // Si está en el mazo:
           cartasEspeciales.add(sorpresa);                     // Se añade a cartasEspeciales
@@ -66,6 +95,10 @@ public class MazoSorpresas {
         }
     }
 
+    /**
+    * @brief Habilita la carta pasada como parámetro
+    * @param sorpresa Carta de sorpresa
+    */
     void habilitarCartaEspecial (Sorpresa sorpresa){
       if(cartasEspeciales.contains(sorpresa)){                // Si está en cartas cartasEspeciales
           sorpresas.add(sorpresa);                            // Se añade al mazo de sorpresas

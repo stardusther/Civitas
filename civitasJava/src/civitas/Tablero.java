@@ -1,11 +1,17 @@
+/**
+ * @file Tablero.java
+ * @author Yesenia González Dávila
+ * @author Esther García Gallego
+ * @note Grupo B.3
+*/
+
 package civitas;
 import java.util.ArrayList;                     // import the ArrayList class
 
 /**
- * @author Yesenia González Dávila
- * @author Esther García Gallego
- * Grupo B.3
- */
+ * @class Tablero
+ * @brief Representa el tablero de juego imponiendo las restricciones existentes sobre el mismo en las reglas de juego
+*/
 
 public class Tablero {
 
@@ -14,8 +20,11 @@ public class Tablero {
     private int porSalida;                        // Veces que se pasa por salida
     private boolean tieneJuez;                    // Determina si el tablero tiene juez
 
-    //Poner init? 
-    
+
+    /**
+    * @brief Constructor de la clase tablero
+    * @param indice número de la casilla en la que se encuentra la cárcel
+    */
     Tablero (int indice){
       if (indice >= 1)
         numCasillaCarcel = indice;
@@ -23,14 +32,16 @@ public class Tablero {
         numCasillaCarcel = 1;
 
       casillas = new ArrayList<> ();
-
-      //Casilla casillaSalida = new Casilla ("Salida");   // i think so? :_D E:No entiendo pq reservas memoria
       casillas.add (new Casilla ("Salida"));
 
       porSalida=0;
       tieneJuez=false;
     }
 
+    /**
+    * @brief Comprueba si el tablero es correcto
+    * @return @retval true si el tablero es correcto, @retval false si no lo es
+    */
     private boolean correcto () {
         boolean correct = false;
 
@@ -40,6 +51,11 @@ public class Tablero {
         return correct;
     }
 
+    /**
+    * @brief Dado un entero, comprueba si el tablero es correcto
+    * @param numCasilla ínidice válido de la casilla cárcel
+    * @return @retval true si el tablero es correcto, @retval false si no lo es
+    */
     private boolean correcto (int numCasilla) {
         boolean correct = false;
 
@@ -49,10 +65,18 @@ public class Tablero {
         return correct;
     }
 
+    /**
+    * @brief Consultor del atributo numCasillaCarcel
+    * @return la casilla en la que se encuentra la cárcel
+    */
     int getCarcel (){
       return numCasillaCarcel;
     }
 
+    /**
+    * @brief Consultor del atributo porSalida
+    * @return número de veces que se ha pasado por la casilla de salida
+    */
     int getPorSalida (){
         int devuelve = porSalida;
         if (porSalida > 0)
@@ -60,12 +84,20 @@ public class Tablero {
         return devuelve;
     }
 
+    /**
+    * @brief Dada una casilla, la añade al tablero
+    * @param casilla objeto de la clase casilla
+    */
     void añadeCasilla (Casilla casilla){
         añadeCarcel ();
         casillas.add (casilla);
         añadeCarcel ();
     }
 
+    /**
+    * @brief Añade al tablero una casilla de cárcel
+    * @note Método propio para no repetir código
+    */
     private void añadeCarcel () {
         if (casillas.size() == numCasillaCarcel) {
             Casilla carcel = new Casilla ("Cárcel");
@@ -73,6 +105,9 @@ public class Tablero {
         }
     }
 
+    /**
+    * @brief Añade al tablero una casilla de juez y actualiza el atributo tieneJuez
+    */
     void añadeJuez(){
       if (!tieneJuez) {
         Casilla casillaJuez = new Casilla ("Juez");
@@ -81,6 +116,10 @@ public class Tablero {
       }
     }
 
+    /**
+    * @brief Consultor con parámetros del array casillas
+    * @param numCasilla Índice de una casilla
+    */
     Casilla getCasilla (int numCasilla){
       if (correcto(numCasilla))
         return casillas.get(numCasilla);
@@ -88,6 +127,12 @@ public class Tablero {
         return null;
     }
 
+    /**
+    * @brief Consultor con parámetros del array casillas
+    * @param actual casilla actual
+    * @param tirada número de casillas avanzadas
+    * @return posicion La casilla final
+    */
     int nuevaPosicion (int actual, int tirada){
       int posicion = -1;
 
@@ -101,6 +146,11 @@ public class Tablero {
       return posicion;
     }
 
+    /**
+    * @brief Calcula lo que debería salir en el dado para ir desde el origen al destino
+    * @param origen Posición inicial
+    * @param destino Posición final
+    */
     int calcularTirada (int origen, int destino){
       int result = destino-origen;
 

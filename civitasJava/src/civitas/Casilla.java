@@ -1,29 +1,27 @@
-/**
- * @author Yesenia González Dávila
- * @author Esther García Gallego
- * Grupo B.3
- */
-
 package civitas;
 
 /**
+ * @author Yesenia González Dávila
+ * @author Esther García Gallego
+ * @note Grupo B.3
+ */
+
+/**
  * @class Casilla
- * @brief Crea las casillas del tablero
+ * @brief Crea las casillas del tablero.
  * @warning Not fully implemented. Clase temporal
 */
 public class Casilla {
 
     private String nombre;
 
-    /*
-    * @brief Constructor de la clase casilla
+    /**Constructor de la clase casilla.
     */
     Casilla (String n) {
         nombre = n;
     }
 
-    /*
-    * @brief Consultor del atributo getNombre
+    /** Consultor del atributo getNombre.
     */
     String getNombre () {
         return nombre;

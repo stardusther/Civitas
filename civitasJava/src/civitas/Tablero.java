@@ -1,12 +1,12 @@
+package civitas;
+import java.util.ArrayList;                     // import the ArrayList class
+
 /**
  * @file Tablero.java
  * @author Yesenia González Dávila
  * @author Esther García Gallego
  * @note Grupo B.3
 */
-
-package civitas;
-import java.util.ArrayList;                     // import the ArrayList class
 
 /**
  * @class Tablero
@@ -51,8 +51,7 @@ public class Tablero {
         return correct;
     }
 
-    /**
-    * Dado un entero, comprueba si el tablero es correcto
+    /** Dado un entero, comprueba si el tablero es correcto.
     * @param numCasilla ínidice válido de la casilla cárcel
     * @return @retval true si el tablero es correcto, @retval false si no lo es
     */
@@ -65,16 +64,14 @@ public class Tablero {
         return correct;
     }
 
-    /**
-    * Consultor del atributo numCasillaCarcel
+    /** Consultor del atributo numCasillaCarcel.
     * @return la casilla en la que se encuentra la cárcel
     */
     int getCarcel (){
       return numCasillaCarcel;
     }
 
-    /**
-    * Consultor del atributo porSalida
+    /** Consultor del atributo porSalida.
     * @return número de veces que se ha pasado por la casilla de salida
     */
     int getPorSalida (){
@@ -84,8 +81,7 @@ public class Tablero {
         return devuelve;
     }
 
-    /**
-    * Dada una casilla, la añade al tablero
+    /** Dada una casilla, la añade al tablero
     * @param casilla objeto de la clase casilla
     */
     void añadeCasilla (Casilla casilla){
@@ -94,8 +90,7 @@ public class Tablero {
         añadeCarcel ();
     }
 
-    /**
-    * Añade al tablero una casilla de cárcel
+    /** Añade al tablero una casilla de cárcel
     * @note Método propio para no repetir código
     */
     private void añadeCarcel () {
@@ -105,8 +100,7 @@ public class Tablero {
         }
     }
 
-    /**
-    * Añade al tablero una casilla de juez y actualiza el atributo tieneJuez
+    /** Añade al tablero una casilla de juez y actualiza el atributo tieneJuez
     */
     void añadeJuez(){
       if (!tieneJuez) {
@@ -116,8 +110,7 @@ public class Tablero {
       }
     }
 
-    /**
-    * Consultor con parámetros del array casillas
+    /** Consultor con parámetros del array casillas
     * @param numCasilla Índice de una casilla
     */
     Casilla getCasilla (int numCasilla){
@@ -127,8 +120,7 @@ public class Tablero {
         return null;
     }
 
-    /**
-    * Consultor con parámetros del array casillas
+    /** Consultor con parámetros del array casillas
     * @param actual casilla actual
     * @param tirada número de casillas avanzadas
     * @return posicion La casilla final
@@ -146,8 +138,7 @@ public class Tablero {
       return posicion;
     }
 
-    /**
-    * Calcula lo que debería salir en el dado para ir desde el origen al destino
+    /** Calcula lo que debería salir en el dado para ir desde el origen al destino
     * @param origen Posición inicial
     * @param destino Posición final
     */

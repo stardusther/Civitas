@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['tablero_2ejava_21',['Tablero.java',['../_tablero_8java.html',1,'']]]
+  ['casilla_2ejava',['Casilla.java',['../Casilla_8java.html',1,'']]],
+  ['civitas_2ejava',['Civitas.java',['../Civitas_8java.html',1,'']]]
 ];

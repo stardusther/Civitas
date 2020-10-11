@@ -1,17 +1,17 @@
-package civitas;
-import java.util.ArrayList;                     // import the ArrayList class
-
 /**
- * @file Tablero.java
+ * @file MazoSopresas.java
  * @author Yesenia González Dávila
  * @author Esther García Gallego
  * @note Grupo B.3
 */
 
+package civitas;
+import java.util.ArrayList;                     // import the ArrayList class
+
 /**
- * @class Tablero
- * @brief Representa el tablero de juego imponiendo las restricciones existentes sobre el mismo en las reglas de juego
-*/
+ * @class Tablero 
+ * @brief Representa el tablero de juego imponiendo las restricciones existentes
+ */
 
 public class Tablero {
 
@@ -22,9 +22,9 @@ public class Tablero {
 
 
     /**
-    * Constructor de la clase tablero
-    * @param indice número de la casilla en la que se encuentra la cárcel
-    */
+      * @brief Constructor de la clase trablero
+      * @param indice de la casilla en la que se encuentra la cárcel
+      */
     Tablero (int indice){
       if (indice >= 1)
         numCasillaCarcel = indice;
@@ -38,8 +38,9 @@ public class Tablero {
       tieneJuez=false;
     }
 
+    
     /**
-    * Comprueba si el tablero es correcto
+    * @brief Comprueba si el tablero es correcto
     * @return @retval true si el tablero es correcto, @retval false si no lo es
     */
     private boolean correcto () {
@@ -51,9 +52,10 @@ public class Tablero {
         return correct;
     }
 
-    /** Dado un entero, comprueba si el tablero es correcto.
-    * @param numCasilla ínidice válido de la casilla cárcel
-    * @return @retval true si el tablero es correcto, @retval false si no lo es
+    
+    /** Comprueba si el tablero es correcto y si su parametro es un indice valido
+    * @param numCasilla índice para acceder a elementos de casillas
+    * @return @retval true si el tablero e indice son correctos, @retval false si no es el caso
     */
     private boolean correcto (int numCasilla) {
         boolean correct = false;
@@ -64,6 +66,7 @@ public class Tablero {
         return correct;
     }
 
+    
     /** Consultor del atributo numCasillaCarcel.
     * @return la casilla en la que se encuentra la cárcel
     */
@@ -71,6 +74,7 @@ public class Tablero {
       return numCasillaCarcel;
     }
 
+    
     /** Consultor del atributo porSalida.
     * @return número de veces que se ha pasado por la casilla de salida
     */
@@ -81,6 +85,7 @@ public class Tablero {
         return devuelve;
     }
 
+    
     /** Dada una casilla, la añade al tablero
     * @param casilla objeto de la clase casilla
     */
@@ -90,8 +95,9 @@ public class Tablero {
         añadeCarcel ();
     }
 
-    /** Añade al tablero una casilla de cárcel
-    * @note Método propio para no repetir código
+    
+    /** Añade al tablero la casilla de cárcel
+    * @note Método auxiliar propio para no repetir código
     */
     private void añadeCarcel () {
         if (casillas.size() == numCasillaCarcel) {
@@ -100,6 +106,7 @@ public class Tablero {
         }
     }
 
+    
     /** Añade al tablero una casilla de juez y actualiza el atributo tieneJuez
     */
     void añadeJuez(){
@@ -110,8 +117,9 @@ public class Tablero {
       }
     }
 
-    /** Consultor con parámetros del array casillas
-    * @param numCasilla Índice de una casilla
+    
+    /** Consultor con parámetro del array casillas
+    * @param numCasilla índice de una casilla
     */
     Casilla getCasilla (int numCasilla){
       if (correcto(numCasilla))
@@ -120,10 +128,11 @@ public class Tablero {
         return null;
     }
 
-    /** Consultor con parámetros del array casillas
+    
+    /** Calcula la nueva posicion en el tablero
     * @param actual casilla actual
     * @param tirada número de casillas avanzadas
-    * @return posicion La casilla final
+    * @return @retval posicion La casilla final, @retval -1 si el tablero no es correcto
     */
     int nuevaPosicion (int actual, int tirada){
       int posicion = -1;
@@ -138,9 +147,11 @@ public class Tablero {
       return posicion;
     }
 
+    
     /** Calcula lo que debería salir en el dado para ir desde el origen al destino
     * @param origen Posición inicial
     * @param destino Posición final
+    * @return devuelve la tirada necesaria para ir de origen a destino.
     */
     int calcularTirada (int origen, int destino){
       int result = destino-origen;
@@ -149,5 +160,4 @@ public class Tablero {
         result += casillas.size();
       return result;
     }
-
 }

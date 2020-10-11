@@ -53,7 +53,7 @@ class Tablero
     if (correcto(numCasilla))
       @casillas[numCasilla]
     else
-      nil      # Y: not sure :/ #E: en ruby es nil. no null
+      nil     
     end
   end
 

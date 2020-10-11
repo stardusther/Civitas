@@ -1,0 +1,174 @@
+\hypertarget{classcivitas_1_1Dado}{}\section{Referencia de la Clase civitas.\+Dado}
+\label{classcivitas_1_1Dado}\index{civitas.\+Dado@{civitas.\+Dado}}
+
+
+Se encarga de todas las decisiones del juego relacionadas con el azar.  
+
+
+
+
+Diagrama de colaboración para civitas.\+Dado\+:
+% FIG 0
+\subsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classcivitas_1_1Dado}{Dado} \hyperlink{classcivitas_1_1Dado_a09462f46d46e9555b8cc92ba6a3adc92}{get\+Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Funciones del \textquotesingle{}package\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcivitas_1_1Dado_aab64a2f030d463362b5ec30c8a9a21c8}{Dado} ()
+\item 
+int \hyperlink{classcivitas_1_1Dado_a178066d320c6cd7c79ac3a5863702fb8}{tirar} ()
+\item 
+boolean \hyperlink{classcivitas_1_1Dado_ad251122d68a0c513c533c508c9a004d5}{salgo\+De\+La\+Carcel} ()
+\item 
+int \hyperlink{classcivitas_1_1Dado_afac7574436f47c7a4d5f019b5a43c5bf}{quien\+Empieza} (int n)
+\item 
+void \hyperlink{classcivitas_1_1Dado_aa12af1adaeed10bfb47e314712bf3b7f}{set\+Debug} (boolean d)
+\item 
+int \hyperlink{classcivitas_1_1Dado_a7ed26455a30faedfff9878177cf72861}{get\+Ultimo\+Resultado} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+Random \hyperlink{classcivitas_1_1Dado_a1f8317d37f9ce44ed673e933b3967811}{random}
+\item 
+int \hyperlink{classcivitas_1_1Dado_abc53f914b4a8564f59a760e16f0a09ce}{ultimo\+Resultado}
+\item 
+boolean \hyperlink{classcivitas_1_1Dado_abcc67206a87c44e0960408d447b4cccb}{debug}
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classcivitas_1_1Dado}{Dado} \hyperlink{classcivitas_1_1Dado_a579634749a6f9f18f964cc04e181b002}{instance} = new \hyperlink{classcivitas_1_1Dado}{Dado} ()
+\item 
+static final int \hyperlink{classcivitas_1_1Dado_a534213cedc8582a460c56c5ef47cc4b1}{Salida\+Carcel} = 5
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Se encarga de todas las decisiones del juego relacionadas con el azar. 
+
+\begin{DoxyNote}{Nota}
+Sigue el patrón singleton 
+\end{DoxyNote}
+
+
+\subsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classcivitas_1_1Dado_aab64a2f030d463362b5ec30c8a9a21c8}\label{classcivitas_1_1Dado_aab64a2f030d463362b5ec30c8a9a21c8}} 
+\index{civitas\+::\+Dado@{civitas\+::\+Dado}!Dado@{Dado}}
+\index{Dado@{Dado}!civitas\+::\+Dado@{civitas\+::\+Dado}}
+\subsubsection{\texorpdfstring{Dado()}{Dado()}}
+{\footnotesize\ttfamily civitas.\+Dado.\+Dado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Constructor de la clase. \begin{DoxyPostcond}{Postcondición}
+Deja debug a false e inicializa random 
+\end{DoxyPostcond}
+\begin{DoxyWarning}{Atención}
+Y\+: ultimo\+Resultado a -\/1 o tirada valida? 
+\end{DoxyWarning}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classcivitas_1_1Dado_a09462f46d46e9555b8cc92ba6a3adc92}\label{classcivitas_1_1Dado_a09462f46d46e9555b8cc92ba6a3adc92}} 
+\index{civitas\+::\+Dado@{civitas\+::\+Dado}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!civitas\+::\+Dado@{civitas\+::\+Dado}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily static \hyperlink{classcivitas_1_1Dado}{Dado} civitas.\+Dado.\+get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Método de clase para obtener la instancia. \begin{DoxyNote}{Nota}
+Para acceder a ella\+: \hyperlink{classcivitas_1_1Dado_a09462f46d46e9555b8cc92ba6a3adc92}{Dado.\+get\+Instance()} 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcivitas_1_1Dado_a7ed26455a30faedfff9878177cf72861}\label{classcivitas_1_1Dado_a7ed26455a30faedfff9878177cf72861}} 
+\index{civitas\+::\+Dado@{civitas\+::\+Dado}!get\+Ultimo\+Resultado@{get\+Ultimo\+Resultado}}
+\index{get\+Ultimo\+Resultado@{get\+Ultimo\+Resultado}!civitas\+::\+Dado@{civitas\+::\+Dado}}
+\subsubsection{\texorpdfstring{get\+Ultimo\+Resultado()}{getUltimoResultado()}}
+{\footnotesize\ttfamily int civitas.\+Dado.\+get\+Ultimo\+Resultado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Consultor del atributo ultimo\+Resultado \begin{DoxyReturn}{Devuelve}
+ultimo\+Resultado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Dado_afac7574436f47c7a4d5f019b5a43c5bf}\label{classcivitas_1_1Dado_afac7574436f47c7a4d5f019b5a43c5bf}} 
+\index{civitas\+::\+Dado@{civitas\+::\+Dado}!quien\+Empieza@{quien\+Empieza}}
+\index{quien\+Empieza@{quien\+Empieza}!civitas\+::\+Dado@{civitas\+::\+Dado}}
+\subsubsection{\texorpdfstring{quien\+Empieza()}{quienEmpieza()}}
+{\footnotesize\ttfamily int civitas.\+Dado.\+quien\+Empieza (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Genera un numero aleatorio entre 0 y n-\/1 para decidir quien empieza. 
+\begin{DoxyParams}{Parámetros}
+{\em n} & numero de jugadores \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+índice del jugador que empieza 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Dado_ad251122d68a0c513c533c508c9a004d5}\label{classcivitas_1_1Dado_ad251122d68a0c513c533c508c9a004d5}} 
+\index{civitas\+::\+Dado@{civitas\+::\+Dado}!salgo\+De\+La\+Carcel@{salgo\+De\+La\+Carcel}}
+\index{salgo\+De\+La\+Carcel@{salgo\+De\+La\+Carcel}!civitas\+::\+Dado@{civitas\+::\+Dado}}
+\subsubsection{\texorpdfstring{salgo\+De\+La\+Carcel()}{salgoDeLaCarcel()}}
+{\footnotesize\ttfamily boolean civitas.\+Dado.\+salgo\+De\+La\+Carcel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Se tira el dado y se determina si el jugador puede salir de la carcel con el valor obtenido \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el numero obtenido le permite salir, \\
+\hline
+{\em false} & si no es el caso \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Dado_aa12af1adaeed10bfb47e314712bf3b7f}\label{classcivitas_1_1Dado_aa12af1adaeed10bfb47e314712bf3b7f}} 
+\index{civitas\+::\+Dado@{civitas\+::\+Dado}!set\+Debug@{set\+Debug}}
+\index{set\+Debug@{set\+Debug}!civitas\+::\+Dado@{civitas\+::\+Dado}}
+\subsubsection{\texorpdfstring{set\+Debug()}{setDebug()}}
+{\footnotesize\ttfamily void civitas.\+Dado.\+set\+Debug (\begin{DoxyParamCaption}\item[{boolean}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Activa o desactiva el modo debug \mbox{\Hypertarget{classcivitas_1_1Dado_a178066d320c6cd7c79ac3a5863702fb8}\label{classcivitas_1_1Dado_a178066d320c6cd7c79ac3a5863702fb8}} 
+\index{civitas\+::\+Dado@{civitas\+::\+Dado}!tirar@{tirar}}
+\index{tirar@{tirar}!civitas\+::\+Dado@{civitas\+::\+Dado}}
+\subsubsection{\texorpdfstring{tirar()}{tirar()}}
+{\footnotesize\ttfamily int civitas.\+Dado.\+tirar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Genera un numero aleatorio entre 1 y 6 si el modo debug está desactivado, o 1 si está activado. \begin{DoxyReturn}{Devuelve}
+ultimo\+Resultado 
+\end{DoxyReturn}
+
+
+\subsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classcivitas_1_1Dado_abcc67206a87c44e0960408d447b4cccb}\label{classcivitas_1_1Dado_abcc67206a87c44e0960408d447b4cccb}} 
+\index{civitas\+::\+Dado@{civitas\+::\+Dado}!debug@{debug}}
+\index{debug@{debug}!civitas\+::\+Dado@{civitas\+::\+Dado}}
+\subsubsection{\texorpdfstring{debug}{debug}}
+{\footnotesize\ttfamily boolean civitas.\+Dado.\+debug\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Dado_a579634749a6f9f18f964cc04e181b002}\label{classcivitas_1_1Dado_a579634749a6f9f18f964cc04e181b002}} 
+\index{civitas\+::\+Dado@{civitas\+::\+Dado}!instance@{instance}}
+\index{instance@{instance}!civitas\+::\+Dado@{civitas\+::\+Dado}}
+\subsubsection{\texorpdfstring{instance}{instance}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1Dado}{Dado} civitas.\+Dado.\+instance = new \hyperlink{classcivitas_1_1Dado}{Dado} ()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Dado_a1f8317d37f9ce44ed673e933b3967811}\label{classcivitas_1_1Dado_a1f8317d37f9ce44ed673e933b3967811}} 
+\index{civitas\+::\+Dado@{civitas\+::\+Dado}!random@{random}}
+\index{random@{random}!civitas\+::\+Dado@{civitas\+::\+Dado}}
+\subsubsection{\texorpdfstring{random}{random}}
+{\footnotesize\ttfamily Random civitas.\+Dado.\+random\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Dado_a534213cedc8582a460c56c5ef47cc4b1}\label{classcivitas_1_1Dado_a534213cedc8582a460c56c5ef47cc4b1}} 
+\index{civitas\+::\+Dado@{civitas\+::\+Dado}!Salida\+Carcel@{Salida\+Carcel}}
+\index{Salida\+Carcel@{Salida\+Carcel}!civitas\+::\+Dado@{civitas\+::\+Dado}}
+\subsubsection{\texorpdfstring{Salida\+Carcel}{SalidaCarcel}}
+{\footnotesize\ttfamily final int civitas.\+Dado.\+Salida\+Carcel = 5\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Dado_abc53f914b4a8564f59a760e16f0a09ce}\label{classcivitas_1_1Dado_abc53f914b4a8564f59a760e16f0a09ce}} 
+\index{civitas\+::\+Dado@{civitas\+::\+Dado}!ultimo\+Resultado@{ultimo\+Resultado}}
+\index{ultimo\+Resultado@{ultimo\+Resultado}!civitas\+::\+Dado@{civitas\+::\+Dado}}
+\subsubsection{\texorpdfstring{ultimo\+Resultado}{ultimoResultado}}
+{\footnotesize\ttfamily int civitas.\+Dado.\+ultimo\+Resultado\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+src/civitas/\hyperlink{Dado_8java}{Dado.\+java}\end{DoxyCompactItemize}

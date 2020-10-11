@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operacionesjuego_15',['OperacionesJuego',['../enumcivitas_1_1_operaciones_juego.html',1,'civitas']]]
+  ['estadosjuego',['EstadosJuego',['../enumcivitas_1_1EstadosJuego.html',1,'civitas']]]
 ];

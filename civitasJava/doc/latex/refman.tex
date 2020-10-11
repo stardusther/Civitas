@@ -1,17 +1,10 @@
-\let\mypdfximage\pdfximage\def\pdfximage{\immediate\mypdfximage}\documentclass[twoside]{book}
+\documentclass[twoside]{book}
 
-%% moved from doxygen.sty due to workaround for LaTex 2019 version and unmaintained tabu package
-\usepackage{ifthen}
-\ifx\requestedLaTeXdate\undefined
-\usepackage{array}
-\else
-\usepackage{array}[=2016-10-06]
-\fi
-%%
 % Packages required by doxygen
 \usepackage{fixltx2e}
 \usepackage{calc}
 \usepackage{doxygen}
+\usepackage[export]{adjustbox} % also loads graphicx
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage{makeidx}
@@ -21,7 +14,6 @@
 \usepackage{textcomp}
 \usepackage[nointegrals]{wasysym}
 \usepackage[table]{xcolor}
-\usepackage{ifpdf,ifxetex}
 
 % NLS support packages
 \usepackage[spanish]{babel}
@@ -29,9 +21,9 @@
 \usepackage[T1]{fontenc}
 \usepackage[scaled=.90]{helvet}
 \usepackage{courier}
-\renewcommand{\familydefault}{\sfdefault}
 \usepackage{amssymb}
 \usepackage{sectsty}
+\renewcommand{\familydefault}{\sfdefault}
 \allsectionsfont{%
   \fontseries{bc}\selectfont%
   \color{darkgray}%
@@ -42,13 +34,6 @@
 }
 \newcommand{\+}{\discretionary{\mbox{\scriptsize$\hookleftarrow$}}{}{}}
 
-% Arguments of doxygenemoji:
-% 1) ':<text>:' form of the emoji, already "LaTeX"-escaped
-% 2) file with the name of the emoji without the .png extension
-% in case image exist use this otherwise use the ':<text>:' form
-\newcommand{\doxygenemoji}[2]{%
-  \IfFileExists{./#2.png}{\raisebox{-0.1em}{\includegraphics[height=0.9em]{./#2.png}}}{#1}%
-}
 % Page & text layout
 \usepackage{geometry}
 \geometry{%
@@ -63,9 +48,7 @@
 \hbadness=750
 \setlength{\emergencystretch}{15pt}
 \setlength{\parindent}{0cm}
-\newcommand{\doxynormalparskip}{\setlength{\parskip}{3ex plus 2ex minus 2ex}}
-\newcommand{\doxytocparskip}{\setlength{\parskip}{1ex plus 0ex minus 0ex}}
-\doxynormalparskip
+\setlength{\parskip}{3ex plus 2ex minus 2ex}
 \makeatletter
 \renewcommand{\paragraph}{%
   \@startsection{paragraph}{4}{0ex}{-1.0ex}{1.0ex}{%
@@ -77,10 +60,6 @@
     \normalfont\normalsize\bfseries\SS@subparafont%
   }%
 }
-\makeatother
-
-\makeatletter
-\newcommand\hrulefilll{\leavevmode\leaders\hrule\hskip 0pt plus 1filll\kern\z@}
 \makeatother
 
 % Headers & footers
@@ -113,22 +92,13 @@
 \setcounter{secnumdepth}{5}
 \makeindex
 
-\usepackage{newunicodechar}
-  \newunicodechar{⁻}{${}^{-}$}% Superscript minus
-  \newunicodechar{²}{${}^{2}$}% Superscript two
-  \newunicodechar{³}{${}^{3}$}% Superscript three
-
 % Hyperlinks (required, but should be loaded last)
+\usepackage{ifpdf}
 \ifpdf
   \usepackage[pdftex,pagebackref=true]{hyperref}
 \else
-  \ifxetex
-    \usepackage[pagebackref=true]{hyperref}
-  \else
-    \usepackage[ps2pdf,pagebackref=true]{hyperref}
-  \fi
+  \usepackage[ps2pdf,pagebackref=true]{hyperref}
 \fi
-
 \hypersetup{%
   colorlinks=true,%
   linkcolor=blue,%
@@ -144,9 +114,6 @@
 \usepackage{caption}
 \captionsetup{labelsep=space,justification=centering,font={bf},singlelinecheck=off,skip=4pt,position=top}
 
-\usepackage{etoc}
-\etocsettocstyle{\doxytocparskip}{\doxynormalparskip}
-\renewcommand{\numberline}[1]{#1~}
 %===== C O N T E N T S =====
 
 \begin{document}
@@ -160,9 +127,9 @@
 \begin{titlepage}
 \vspace*{7cm}
 \begin{center}%
-{\Large Civitas Java \\[1ex]\large 1.\+0 }\\
+{\Large Civitas }\\
 \vspace*{1cm}
-{\large Generado por Doxygen 1.8.20}\\
+{\large Generado por Doxygen 1.8.13}\\
 \end{center}
 \end{titlepage}
 \clearemptydoublepage
@@ -182,17 +149,29 @@
 \chapter{Documentación de namespaces}
 \input{namespacecivitas}
 \chapter{Documentación de las clases}
-\input{classcivitas_1_1_casilla}
-\input{classcivitas_1_1_civitas}
-\input{classcivitas_1_1_dado}
-\input{classcivitas_1_1_diario}
-\input{enumcivitas_1_1_operaciones_juego}
-\input{classcivitas_1_1_sorpresa}
-\input{classcivitas_1_1_tablero}
-\input{enumcivitas_1_1_tipo_casilla}
-\input{enumcivitas_1_1_tipo_sorpresa}
+\input{classcivitas_1_1Casilla}
+\input{classcivitas_1_1Civitas}
+\input{classcivitas_1_1Dado}
+\input{classcivitas_1_1Diario}
+\input{enumcivitas_1_1EstadosJuego}
+\input{classcivitas_1_1MazoSorpresas}
+\input{enumcivitas_1_1OperacionesJuego}
+\input{classcivitas_1_1Sorpresa}
+\input{classcivitas_1_1Tablero}
+\input{enumcivitas_1_1TipoCasilla}
+\input{enumcivitas_1_1TipoSorpresa}
 \chapter{Documentación de archivos}
-\input{_tablero_8java}
+\input{Casilla_8java}
+\input{Civitas_8java}
+\input{Dado_8java}
+\input{Diario_8java}
+\input{EstadosJuego_8java}
+\input{MazoSorpresas_8java}
+\input{OperacionesJuego_8java}
+\input{Sorpresa_8java}
+\input{Tablero_8java}
+\input{TipoCasilla_8java}
+\input{TipoSorpresa_8java}
 %--- End generated contents ---
 
 % Index
@@ -200,7 +179,7 @@
 \newpage
 \phantomsection
 \clearemptydoublepage
-\addcontentsline{toc}{chapter}{\indexname}
+\addcontentsline{toc}{chapter}{Índice}
 \printindex
 
 \end{document}

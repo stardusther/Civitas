@@ -3,7 +3,8 @@ package civitas;
 /**
  * @author Yesenia González Dávila
  * @author Esther García Gallego
- * Grupo B.3
+ * @brief Almacena todos los tipos de casilla posibles en el juego
+ * @note Grupo B.3
  */
 
 public enum TipoCasilla {

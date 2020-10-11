@@ -3,7 +3,8 @@ package civitas;
 /**
  * @author Yesenia González Dávila
  * @author Esther García Gallego
- * Grupo B.3
+ * @brief Enumera las distintas operaciones del juego
+ * @note Grupo B.3
  */
 
 public enum OperacionesJuego {

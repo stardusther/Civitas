@@ -50,9 +50,9 @@ class Tablero
 
   def getCasilla (numCasilla)
     if (correcto(numCasilla))
-      @casillas[numCasilla]
+      return @casillas[numCasilla]
     else
-      nil     
+      return nil
     end
   end
 

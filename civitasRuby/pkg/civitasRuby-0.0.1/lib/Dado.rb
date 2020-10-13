@@ -39,7 +39,7 @@ module Civitas
     end
 
     def quienEmpieza (n)
-      Random.new.rand(0..(n-1))         #E: no dé di hay que incluir algún paquete
+      rand(n)         #E: no dé di hay que incluir algún paquete
     end
 
     def setDebug (d)

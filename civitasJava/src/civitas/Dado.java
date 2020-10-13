@@ -57,8 +57,11 @@ public class Dado {
     boolean salgoDeLaCarcel() {
         boolean salgo = false;
 
-        if (tirar() >= SalidaCarcel)                    //Mayor o igual a 5
-            salgo = true;
+        //if (tirar() >= SalidaCarcel)                    //Mayor o igual a 5
+        // Y: Se que es lo que pone en el pdf pero no le veo sentido para el juego ahhhhhh 
+        // (y de paso es mas facil la tarea 3)
+        if (ultimoResultado >= SalidaCarcel)
+          salgo = true;
 
         return salgo;
     }

@@ -37,7 +37,6 @@ class Tablero
   def añadeCasilla (casilla)
     añadeCarcel()
     @casillas.push(casilla)
-    #casillas.add(casilla) E:esto es en java
     añadeCarcel()
   end
 

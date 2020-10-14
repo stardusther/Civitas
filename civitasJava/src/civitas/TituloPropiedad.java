@@ -60,7 +60,82 @@ public class TituloPropiedad {
         
     }
     
+    boolean esEsteElPropietario (Jugador jugador) {
+        
+    }
     
+    boolean getHipotecado () {
+        
+    }
     
+    float getImporteCancelarHipoteca () {
+        
+    }
+    
+    float getImporteHipoteca () {
+        
+    }
+    
+    String getNombre() {
+        
+    }
+    
+    int getNumCasas() {
+        
+    }
+    
+    int getNumHoteles() {
+        
+    }
+    
+    float getPrecioAlquiler() {
+        
+    }
+    
+    float getPrecioCompra () {
+        
+    }
+    
+    float getPrecioEdificar () {
+        
+    }
+    
+    float getPrecioVenta () {
+        
+    }
+    
+    Jugador getPropietario () {
+        
+    }
+    
+    boolean hipotecar (Jugador jugador) {
+        
+    }
+    
+    boolean propietarioEncarcelado () {
+        
+    }
+    
+    boolean tienePropietario() {
+        
+    }
+    
+    TituloPropiedad (String nombre, float ab, float fr, float hb, float pc, float pe) {
+        
+    }
+    
+    String toString() {
+        
+    }
+    
+    void tramitarAlquiler (Jugador jugador) {
+        
+    }
+    
+    boolean vender (Jugador jugador) {
+        
+    }
     
 }
+
+

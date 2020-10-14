@@ -1,12 +1,51 @@
 package civitas;
 
 /**
+ * @file Sorpresa.java
  * @author Yesenia González Dávila
  * @author Esther García Gallego
- * @warning clase vacía hasta la practica 2
- * Grupo B.3
- */
+ * @note Grupo B.3
+*/
 
 public class Sorpresa{
-  //vacía hasta la práctica 2
+    private String texto;
+    private int valor;
+    
+    private Tablero tablero;
+    private TipoSorpresa sorpresa;
+    private MazoSorpresas mazo;
+    
+    /**
+     * @bief Constructor para sorpresa que envia a la carcel
+     */
+    Sorpresa (TipoSorpresa sor, Tablero tab) {
+        init();
+    }
+    
+    /**
+     * @brief Constructor para sorpresa que envia al jugador a otra casilla
+     */
+    Sorpresa (TipoSorpresa sor, Tablero tab, int valor) {
+        init();
+    }    
+    
+    /**
+     * @brief Constructor para sorpresa que evita la carcel
+     */
+    Sorpresa (TipoSorpresa sor, MazoSorpresas _mazo) {
+       init(); 
+    }    
+    
+    /**
+     * @brief Constructor para el resto de sorpresas
+     */
+    Sorpresa (TipoSorpresa sor) {
+        init();
+    }
+    
+    private void init() {
+        valor = -1;
+        tablero = null;
+        mazo = null;
+    }
 }

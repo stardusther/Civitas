@@ -1,5 +1,5 @@
 /**
- * @file MazoSopresas.java
+ * @file Tablero.java
  * @author Yesenia González Dávila
  * @author Esther García Gallego
  * @note Grupo B.3

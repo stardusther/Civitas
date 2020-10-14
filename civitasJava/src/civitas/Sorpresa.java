@@ -48,4 +48,43 @@ public class Sorpresa{
         tablero = null;
         mazo = null;
     }
+    
+    void aplicarAJugador (int actual, Jugador todos[]) {
+        
+    }
+    
+    void aplicarAJugador_irACasilla (int actual, Jugador todos[]) {
+        
+    }
+    
+    void aplicarAJugador_pagarCobrar (int actual, Jugador todos[]) {
+        
+    }
+    
+    void aplicarAJugador_porCasaHotel (int actual, Jugador todos[]) {
+        
+    }
+    
+    void aplicarAJugador_porJugador (int actual, Jugador todos[]) {
+        
+    }
+    
+    void aplicarAJugador_salirCarcel (int actual, Jugador todos[]) {
+        
+    }
+    
+    void informe (int actual, Jugador todos[]) {
+        
+    }
+    
+    boolean jugadorCOrrecto (int actual, Jugador todos[]) {
+        return true;
+    }
+    
+    void salirDelMazo () {
+        
+    }
+    
+    
+    
 }

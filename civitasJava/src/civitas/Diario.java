@@ -37,9 +37,8 @@ public class Diario {
 
   public String leerEvento () {
     String salida = "";
-    if (!eventos.isEmpty()) {
+    if (!eventos.isEmpty()) 
       salida = eventos.remove(0);
-    }
     return salida;
   }
 }

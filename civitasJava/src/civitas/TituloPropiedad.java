@@ -23,7 +23,6 @@ public class TituloPropiedad {
     private int numHoteles;
 
     private Jugador propietario;
-    private static String no_propietario = "NO_PROPIETARIO";
 
     /**
      * Constructor de la clase.
@@ -40,7 +39,7 @@ public class TituloPropiedad {
         precioEdificar = pe;
 
         hipotecado = false;
-        propietario = new Jugador (no_propietario); 
+        propietario = null;
         numCasas = 0;
         numHoteles = 0;
         factorInteresesHipoteca = 1.1f ;
@@ -176,7 +175,7 @@ public class TituloPropiedad {
 
     boolean propietarioEncarcelado () {
         boolean encarcelado = false;
-        if (propietario.getNombre() != no_propietario && propietario.isEncarcelado())
+        if (propietario != null && propietario.isEncarcelado())
             encarcelado = true;
         
         return encarcelado;
@@ -206,7 +205,7 @@ public class TituloPropiedad {
     }
 
     void tramitarAlquiler (Jugador jugador) {
-        if (propietario.getNombre() != no_propietario && jugador != propietario) {
+        if (propietario.getNombre() != null && jugador != propietario) {
             jugador.pagaAlquiler(alquilerBase);
             propietario.recibe(alquilerBase);
         }

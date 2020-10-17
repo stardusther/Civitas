@@ -7,12 +7,13 @@ package civitas;
  * @note Grupo B.3
 */
 import java.util.Collection;    //Para hacer el isEmpty()
+import java.util.ArrayList; 
 
 public class Jugador implements Comparable<Jugador>{
 
     protected static int CasasMax = 4;                  // Número de casas máximo que se puede edificar por casilla
     protected static int CasasPorHotel = 4;             // Número de casas que se deben tener para poder intercambiarse por un hotel
-    protected Boolean encarcelado;                      // Determina si el jugador está encarcelado o no
+    protected boolean encarcelado;                      // Determina si el jugador está encarcelado o no
     protected int HotelesMax = 4;                       // Número de hoteles máximo que se puede edificar por casilla
     protected static float PasoPorSalida = 1000;        // Precio a cobrar por pasar por la casilla de salida
     protected static float PrecioLibertad = 200;        // Precio a pagar por salir de la cárcel
@@ -68,7 +69,7 @@ public class Jugador implements Comparable<Jugador>{
     /** Consultor privado del atributo HotelesMax.
      * @return HotelesMax Número máximo de hoteles que se puede edificar por casilla
      */
-    private int getHotelesMax ()}{
+    private int getHotelesMax () {
       return HotelesMax;
     }
 
@@ -103,13 +104,13 @@ public class Jugador implements Comparable<Jugador>{
     /** Consultor protegido del atributo propiedades.
      * @return propiedades Array que contiene el conjunto de propiedades del jugador
      */
-    protected TituloPropiedad getPropiedades(){
-      return propiedades;           //E:  return propiedades[]  ?????????
+    protected ArrayList <TituloPropiedad> getPropiedades(){
+      return propiedades;           //Y: era el tipo que devolvia, ahora si se puede devolver un array :)
     }
 
     /** Conmuta la cantidad total de edificaciones en las propiedades del jugador.
      * @return casasHoteles Número total de edificaciones que existen en el array propiedades
-     * @warning no sé si está correcto
+     * @warning no sé si está correcto Y: po yo creo que si
      */
     int cantidadCasasHoteles(){ 
       TituloPropiedad propiedad;
@@ -141,7 +142,7 @@ public class Jugador implements Comparable<Jugador>{
      * @return @retval true si el jugador está encarcelado o @retval false en caso contrario
      */
     public boolean isEncarcelado(){
-      return encarcelado
+      return encarcelado;
     }
 
     /** Determina si un jugador debe ser encarcelado y, en caso afirmativo, se comunica en el diario.
@@ -329,7 +330,7 @@ public class Jugador implements Comparable<Jugador>{
       boolean tiene = true;
 
       if (propiedades.isEmpty())
-        tiene = false
+        tiene = false;
 
       return tiene;
     }
@@ -380,41 +381,42 @@ public class Jugador implements Comparable<Jugador>{
      */
     boolean pasaPorSalida (){
       modificarSaldo(getPremioPasoSalida());
+      //return modificarSaldo(...) ??
     }
 
     /**
      * @warning por implementar
      */
     boolean cancelarHipoteca(int ip){ //SIGUIENTE PRÁCTICA------------------------------------------
-
+        return true;    //(para que deje compilar :D )
     }
 
     /**
      * @warning por implementar
      */
     boolean comprar (TituloPropiedad titulo){ //SIGUIENTE PRÁCTICA
-
+        return true;    //compilar
     }
 
     /**
      * @warning por implementar
      */
     boolean construirCasa (int ip){ //SIGUIENTE PRÁCTICA
-
+        return true;    //compilar
     }
 
     /**
      * @warning por implementar
      */
     boolean construirHotel (int ip){  //SIGUIENTE PRÁCTICA
-
+        return true;    //compilar
     }
 
     /**
      * @warning por implementar
      */
     boolean hipotecar (int ip){ //SIGUIENTE PRÁCTICA
-
+        return true;    //compilar
     }
 
     /** Determina si el jugador está en bancarrota.
@@ -423,7 +425,7 @@ public class Jugador implements Comparable<Jugador>{
     boolean enBancarrota (){
       boolean cero = false;
 
-      if (getSaldo >= 0)
+      if (getSaldo() >= 0)
         cero = true;
 
       return cero;

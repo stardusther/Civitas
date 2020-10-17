@@ -10,25 +10,25 @@ import java.util.Collection;    //Para hacer el isEmpty()
 
 public class Jugador implements Comparable<Jugador>{
 
-    protected int CasasMax = 4;                         // Número de casas máximo que se puede edificar por casilla
-    protected int CasasPorHotel = 4;                    // Número de casas que se deben tener para poder intercambiarse por un hotel
+    protected static int CasasMax = 4;                  // Número de casas máximo que se puede edificar por casilla
+    protected static int CasasPorHotel = 4;             // Número de casas que se deben tener para poder intercambiarse por un hotel
     protected Boolean encarcelado;                      // Determina si el jugador está encarcelado o no
     protected int HotelesMax = 4;                       // Número de hoteles máximo que se puede edificar por casilla
-    protected float PasoPorSalida = 1000;               // Precio a cobrar por pasar por la casilla de salida
-    protected float PrecioLibertad = 200;               // Precio a pagar por salir de la cárcel
+    protected static float PasoPorSalida = 1000;        // Precio a cobrar por pasar por la casilla de salida
+    protected static float PrecioLibertad = 200;        // Precio a pagar por salir de la cárcel
 
     private String nombre;                              // Nombre del Jugador
     private int numCasillaActual;                       // Número de la casilla en la que se encuentra el Jugador
     private Boolean puedeComprar;                       // Determina si el jugador está en condiciones de comprar una propiedad
     private float saldo;                                // Saldo del jugador
-    private float SaldoInicial = 7500;                  // Saldo con el que comienzan todos los jugadores
+    private static float SaldoInicial = 7500;           // Saldo con el que comienzan todos los jugadores
     private Sorpresa salvoconducto;                     // Almacena el salvoconducto para salir de la cárcel
     private ArrayList<TituloPropiedad> propiedades;     // Conjunto de propiedades del jugador
 
     /** Constructor básico de la clase Jugador.
      * @param nombre El nombre del nuevo Jugador
      */
-    Jugador (String _nombre){  //IMPLEMENTAR
+    Jugador (String _nombre){
       nombre = _nombre;
       saldo = SaldoInicial;
       puedeComprar = true;
@@ -41,14 +41,14 @@ public class Jugador implements Comparable<Jugador>{
     /** Constructor de copia de la clase Jugador.
      * @param otro El otro jugador que queremos copiar
      */
-    protected Jugador (Jugador otro){ //IMPLEMENTAR
+    protected Jugador (Jugador otro){
       nombre = otro.getNombre();
       saldo = otro.getSaldo();
       encarcelado = otro.isEncarcelado();
       puedeComprar = otro.getPuedeComprar();
       numCasillaActual = otro.getNumCasillaActual();
 
-      propiedades = new ArrayList<TituloPropiedad> (otro.getPropiedades());
+      propiedades = new ArrayList<TituloPropiedad> (otro.getPropiedades()); //E: (ArrayList) otro.getPropiedades().clone()
     }
 
     /** Consultor privado del atributo CasasMax.
@@ -107,12 +107,19 @@ public class Jugador implements Comparable<Jugador>{
       return propiedades;           //E:  return propiedades[]  ?????????
     }
 
-    /** No tengo ni idea de qué es esto.
+    /** Obtiene el número total de edificaciones en las propiedades del jugador
      * @return CasasPorHotel Array que contiene el conjunto de propiedades del jugador
-     * @warning sin implementar
+     * @warning no es seguro que esté correcto
      */
-    int cantidadCasasHoteles(){ //E: no puede ser esto pero tampoco explican nada
-      return CasasPorHotel;
+    int cantidadCasasHoteles(){
+      int casasHoteles = 0;
+      TituloPropiedad propiedad;
+
+      for (int i=0; i < propiedades.size(); i++){
+        propiedad = propiedades.get(i);
+        casasHoteles += propiedad.getNumHoteles() + getNumCasas();
+      }
+        return casasHoteles;
     }
 
     /** Consultor del atributo puedeComprar.
@@ -180,11 +187,11 @@ public class Jugador implements Comparable<Jugador>{
       return obtiene;
     }
 
-    /** Elimina la referencia al salvoconducto.
+    /** Elimina la referencia al salvoconducto porque ha sido usado.
      *
      */
     private void perderSalvoconducto(){
-      salvoconducto.usada();  //E: npi de cuál es este método ni cómo se usa
+      salvoconducto.usada();
       salvoconducto = null;
     }
 
@@ -301,15 +308,17 @@ public class Jugador implements Comparable<Jugador>{
      * @param ip Número de casilla de la propiedad que se va a vender
      * @return @retval true si se ha realizado la acción con éxito o @false en caso contrario
      */
-    boolean vender (int ip){  //Terminar
-      boolean puedo = true;
+    boolean vender (int ip){
+      boolean puedo = false;
 
-      if(isEncarcelado())
-        puedo = false;
-      else if (existeLaPropiedad(ip)){
-        propiedades[ip].vendida(*this);
-      }
+      if(!isEncarcelado() && existeLaPropiedad(propiedades.get(ip)))                              // Si no está encarcelado y existe la propiedad
+        if (propiedades[ip].vender(*this)){                                                       // Si se ha podido vender la propiedad
+          propiedades.remove(ip);
+          Diario.getInstance().ocurreEvento("Se ha vendido la propiedad de la casilla " + ip);
+          puedo = true;
+        }                                                                                         // En cualquier otro caso se devuelve false
 
+        return puedo;
     }
 
     /** Determina si el jugador tiene propiedades.
@@ -426,31 +435,47 @@ public class Jugador implements Comparable<Jugador>{
     private boolean existeLaPropiedad (int ip){
       boolean existe = false;
 
-      if(propiedades.contains(ip))  //E: esto está mal porque las propiedades no tienen una ip asociada
+      if(propiedades.contains(propiedades.get(ip)))  //E: esto está mal. No entiendo el método
         existe = true;
       return existe;
     }
 
-    /**
-     * @warning por implementar
+    /** Determina si el jugador puede edificar una casa en una determinada propiedad
+     * @param propiedad La propiedad en la que queremos edificar la casa
      */
-    private boolean puedoEdificarCasa (TituloPropiedad propiedad){  //IMPLEMENTAR
+    private boolean puedoEdificarCasa (TituloPropiedad propiedad){
+      boolean puede = false;
 
+      if (propiedades.contains("propiedad") && propiedad.getNumCasas() < getCasasMax() && getPuedeComprar() && puedoGastar(propiedad.getPrecioEdificar()))  // Si el jugador posee la propiedad, el número de casas edificadas es menor a 4,
+                                                                                                                                                            // el jugador puede comprar y puede gastar lo que cuesta la ediificación en esa casilla
+        puede = true;
+
+        return puede;
     }
 
-    /**
-     * @warning por implementar
+    /** Determina si el jugador puede edificar un hotel en una determinada propiedad
+     * @param propiedad La propiedad en la que queremos edificar el hotel
      */
     private boolean puedoEdificarHotel (TituloPropiedad propiedad){ //IMPLEMENTAR
+      boolean puede = false;
 
+      if (propiedades.contains("propiedad") && propiedad.getNumHoteles() < getHotelesMax() && (propiedad.getNumCasas == getCasasPorHotel) && getPuedeComprar() && puedoGastar(propiedad.getPrecioEdificar()))  // Si el jugador posee la propiedad, el número de hoteles edificados es menor a 4,
+                                                                                                                                                                                                              // hay 4 casas edificadas, el jugador puede comprar y puede gastar lo que cuesta la ediificación en esa casilla
+        puede = true;
+
+        return puede;
     }
 
-    /**
+    /** Imprime por pantalla las características del jugador
      * @warning por implementar
      */
     @Override
-    public String toString(){ //IMPLEMENTAR
+    public String toString(){
+      String s;
 
+      s = "\nEl jugador de nombre " + getNombre() + " tiene un saldo de " + getSaldo() + "€, tiene " + propiedades.size() +" propiedades y un total de " + cantidadCasasHoteles() " edificaciones.";
+
+      return s;
     }
 
     /** Compara los saldos de dos Jugadores.
@@ -459,7 +484,7 @@ public class Jugador implements Comparable<Jugador>{
      * @note Si es positivo, el saldo de J1 es superior al saldo del otro jugador y negativo en caso contrario.
      */
     public int compareTo (Jugador otro){
-      return getSaldo()-otro.getSaldo();
+      return getSaldo() - otro.getSaldo();
     }
 
 }

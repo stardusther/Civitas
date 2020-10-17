@@ -107,19 +107,20 @@ public class Jugador implements Comparable<Jugador>{
       return propiedades;           //E:  return propiedades[]  ?????????
     }
 
-    /** Obtiene el número total de edificaciones en las propiedades del jugador
-     * @return CasasPorHotel Array que contiene el conjunto de propiedades del jugador
-     * @warning no es seguro que esté correcto
+    /** Conmuta la cantidad total de edificaciones en las propiedades del jugador.
+     * @return casasHoteles Número total de edificaciones que existen en el array propiedades
+     * @warning no sé si está correcto
      */
-    int cantidadCasasHoteles(){
-      int casasHoteles = 0;
+    int cantidadCasasHoteles(){ //E: no puede ser esto pero tampoco explican nada
       TituloPropiedad propiedad;
+      int casasHoteles = 0;
 
       for (int i=0; i < propiedades.size(); i++){
         propiedad = propiedades.get(i);
-        casasHoteles += propiedad.getNumHoteles() + getNumCasas();
+        casasHoteles += propiedad.getNumCasas() + propiedad.getNumHoteles();
       }
-        return casasHoteles;
+
+      return casasHoteles;
     }
 
     /** Consultor del atributo puedeComprar.
@@ -473,7 +474,7 @@ public class Jugador implements Comparable<Jugador>{
     public String toString(){
       String s;
 
-      s = "\nEl jugador de nombre " + getNombre() + " tiene un saldo de " + getSaldo() + "€, tiene " + propiedades.size() +" propiedades y un total de " + cantidadCasasHoteles() " edificaciones.";
+      s = "\nEl jugador de nombre " + getNombre() + " tiene un saldo de " + getSaldo() + "€, tiene " + propiedades.size() +" propiedades y un total de " + cantidadCasasHoteles() + " edificaciones";
 
       return s;
     }

@@ -16,7 +16,7 @@ import java.util.Collections;       //Para hacer el shuffle
  * cuando se han usado todas las cartas.
 */
 public class MazoSorpresas {
-    
+
      private ArrayList<Sorpresa> sorpresas;               //Almacena cartas de sorpresa
      private Boolean barajada;                            //Determina si el mazo de cartas ha sido barajado
      private int usadas;                                  //Número de cartas del mazo usadas
@@ -24,13 +24,13 @@ public class MazoSorpresas {
      private ArrayList<Sorpresa> cartasEspeciales;        //Almacena SALIRCARCEL mientras está fuera del MazoSorpresas
      Sorpresa ultimaSorpresa;                             //Almacena la última carta de sorpresa que ha salido
 
-     /** 
+     /**
       * @brief Inicializa los atributos de la clase MazoSorpresas
       * @post inicializa los vectores sorpresas y cartasEspeciales, deja barajada a false y usadas a 0
       */
      private void init(){
        sorpresas = new ArrayList<> ();
-       cartasEspeciales = new ArrayList<> ();
+       cartasEspeciales = new ArrayList<Sorpresa> ();
        barajada = false;
        usadas = 0;
      }
@@ -90,7 +90,7 @@ public class MazoSorpresas {
     * @param sorpresa Carta de sorpresa
     * @warning E: comprobar si es una carta especial?
     */
-    void inhabilitarCartaEspecial (Sorpresa sorpresa){          
+    void inhabilitarCartaEspecial (Sorpresa sorpresa){
         if (cartasEspeciales.contains(sorpresa)){               // Si está en el mazo:
             cartasEspeciales.add(sorpresa);                        // Se añade a cartasEspeciales
             sorpresas.remove(sorpresa);                            // Se elimina del mazo

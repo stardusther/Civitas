@@ -10,45 +10,135 @@ import java.util.Collection;    //Para hacer el isEmpty()
 
 public class Jugador implements Comparable<Jugador>{
 
-    protected int CasasMax = 4;                         //Número de casas máximo que se pudede tener
-    protected int CasasPorHotel = 4;                    //
-    protected Boolean encarcelado;                      //
-    protected int HotelesMax = 4;                       //
-    protected float PasoPorSalida = 1000;               //
-    protected float PrecioLibertad = 200;               //
+    protected int CasasMax = 4;                         // Número de casas máximo que se puede edificar por casilla
+    protected int CasasPorHotel = 4;                    // Número de casas que se deben tener para poder intercambiarse por un hotel
+    protected Boolean encarcelado;                      // Determina si el jugador está encarcelado o no
+    protected int HotelesMax = 4;                       // Número de hoteles máximo que se puede edificar por casilla
+    protected float PasoPorSalida = 1000;               // Precio a cobrar por pasar por la casilla de salida
+    protected float PrecioLibertad = 200;               // Precio a pagar por salir de la cárcel
 
-    private String nombre;                              //
-    private int numCasillaActual;                       //
-    private Boolean puedeComprar;                       //
-    private float saldo;                                //
-    private float SaldoInicial = 7500;                  //
-    private Sorpresa salvoconducto;
-    private ArrayList<TituloPropiedad> propiedades;
+    private String nombre;                              // Nombre del Jugador
+    private int numCasillaActual;                       // Número de la casilla en la que se encuentra el Jugador
+    private Boolean puedeComprar;                       // Determina si el jugador está en condiciones de comprar una propiedad
+    private float saldo;                                // Saldo del jugador
+    private float SaldoInicial = 7500;                  // Saldo con el que comienzan todos los jugadores
+    private Sorpresa salvoconducto;                     // Almacena el salvoconducto para salir de la cárcel
+    private ArrayList<TituloPropiedad> propiedades;     // Conjunto de propiedades del jugador
 
-    boolean cancelarHipoteca(int ip){ //SIGUIENTE PRÁCTICA
+    /** Constructor básico de la clase Jugador.
+     * @param nombre El nombre del nuevo Jugador
+     */
+    Jugador (String _nombre){  //IMPLEMENTAR
+      nombre = _nombre;
+      saldo = SaldoInicial;
+      puedeComprar = true;
+      encarcelado = false;
+      numCasillaActual = 0;
 
+      propiedades = new ArrayList<TituloPropiedad> ();
     }
 
-    int cantidadCasasHoteles(){
+    /** Constructor de copia de la clase Jugador.
+     * @param otro El otro jugador que queremos copiar
+     */
+    protected Jugador (Jugador otro){ //IMPLEMENTAR
+      nombre = otro.getNombre();
+      saldo = otro.getSaldo();
+      encarcelado = otro.isEncarcelado();
+      puedeComprar = otro.getPuedeComprar();
+      numCasillaActual = otro.getNumCasillaActual();
+
+      propiedades = new ArrayList<TituloPropiedad> (otro.getPropiedades());
+    }
+
+    /** Consultor privado del atributo CasasMax.
+     * @return CasasMax Número máximo de casas que se puede edificar por casilla
+     */
+    private int getCasasMax (){
+      return CasasMax;
+    }
+
+    /** Consultor del atributo CasasPorHotel.
+     * @return CasasPorHotel Número de casas que se deben tener para poder intercambiarse por un hotel
+     */
+    int getCasasPorHotel (){
       return CasasPorHotel;
     }
 
-    public int compareTo (Jugador otro){
-
+    /** Consultor privado del atributo HotelesMax.
+     * @return HotelesMax Número máximo de hoteles que se puede edificar por casilla
+     */
+    private int getHotelesMax ()}{
+      return HotelesMax;
     }
 
-    boolean comprar (TituloPropiedad titulo){ //SIGUIENTE PRÁCTICA
-
+    /** Consultor protegido del atributo nombre.
+     * @return nombre El nombre del Jugador
+     */
+    protected String getNombre (){
+      return nombre;
     }
 
-    boolean construirCasa (int ip){ //SIGUIENTE PRÁCTICA
-
+    /** Consultor del atributo numCasillaActual.
+     * @return numCasillaActual Número de la casilla en la que se encuentra el Jugador
+     */
+    int getNumCasillaActual (){
+      return numCasillaActual;
     }
 
-    boolean construirHotel (int ip){  //SIGUIENTE PRÁCTICA
-
+    /** Consultor privado del atributo PrecioLibertad.
+     * @return PrecioLibertad Precio a pagar por salir de la cárcel
+     */
+    private float getPrecioLibertad (){
+      return PrecioLibertad;
     }
 
+    /** Consultor privado del atributo PasoPorSalida.
+     * @return PasoPorSalida Precio a cobrar por pasar por la casilla de salida
+     */
+    private float getPremioPasoSalida (){
+      return PasoPorSalida;
+    }
+
+    /** Consultor protegido del atributo propiedades.
+     * @return propiedades Array que contiene el conjunto de propiedades del jugador
+     */
+    protected TituloPropiedad getPropiedades(){
+      return propiedades;           //E:  return propiedades[]  ?????????
+    }
+
+    /** No tengo ni idea de qué es esto.
+     * @return CasasPorHotel Array que contiene el conjunto de propiedades del jugador
+     * @warning sin implementar
+     */
+    int cantidadCasasHoteles(){ //E: no puede ser esto pero tampoco explican nada
+      return CasasPorHotel;
+    }
+
+    /** Consultor del atributo puedeComprar.
+     * @return @retval true si el jugador puede comprar una propiedad o @retval false en caso contrario
+     */
+    boolean getPuedeComprar(){
+      return puedeComprar;
+    }
+
+    /** Consultor protegido del atributo saldo.
+     * @return saldo Cantidad de dinero del jugador
+     */
+    protected float getSaldo(){
+      return saldo;
+    }
+
+    /** Consultor público del atributo encarcelado.
+     * @return @retval true si el jugador está encarcelado o @retval false en caso contrario
+     */
+    public boolean isEncarcelado(){
+      return encarcelado
+    }
+
+    /** Determina si un jugador debe ser encarcelado y, en caso afirmativo, se comunica en el diario.
+     * @return @retval true si el jugador debe ser encarcelado o @retval false en caso contrario
+     */
     protected boolean debeSerEncarcelado (){
       boolean carcel = false;
 
@@ -61,15 +151,6 @@ public class Jugador implements Comparable<Jugador>{
         }
 
       return carcel;
-    }
-
-    boolean enBancarrota (){
-      boolean cero = false;
-
-      if (getSaldo >= 0)
-        cero = true;
-
-      return cero;
     }
 
     /** Encarcela al jugador que llame a la función si es necesario e informa al diario.
@@ -85,70 +166,97 @@ public class Jugador implements Comparable<Jugador>{
       return isEncarcelado();
     }
 
-    private boolean existeLaPropiedad (int ip){
-      boolean existe = false;
+    /** Guarda la referencia al parámetro en el atributo salvovconducto si el jugador no está en la cárcel.
+     * @return @retval true si el jugador ha obtenido el salvoconducto y @retval false si no es el caso
+     */
+    boolean obtenerSalvoconducto (Sorpresa s){
+      boolean obtiene = true;
 
-      if(propiedades.contains(ip))  //E: esto está mal porque las propiedades no tienen una ip asociada
-        existe = true;
-      return existe;
+      if (isEncarcelado())
+        obtiene = false;
+      else
+        salvoconducto = s;
+
+      return obtiene;
     }
 
-    private int getCasasMax (){
-      return CasasMax;
+    /** Elimina la referencia al salvoconducto.
+     *
+     */
+    private void perderSalvoconducto(){
+      salvoconducto.usada();  //E: npi de cuál es este método ni cómo se usa
+      salvoconducto = null;
     }
 
-    int getCasasPorHotel (){
-      return CasasPorHotel;
+    /** Determina si el jugador tiene salvoconducto.
+     * @return @retval true si el jugador tiene salvoconducto y @retval false si no es el caso
+     */
+    boolean tieneSalvoconducto (){
+      boolean tiene = true;
+
+      if (salvoconducto == null)
+        tiene = false;
+
+      return tiene;
     }
 
-    private int getHotelesMax ()}{
-      return HotelesMax;
+    /** Determina si el jugador puede comprar una propiedad.
+     * @return @retval true si el jugador puede comprar la casilla y @retval false si no es el caso
+     */
+    boolean puedeComprarCasilla(){
+      if(isEncarcelado())
+        puedeComprar = false;
+      else
+        puedeComprar = true;
+
+      return getPuedeComprar();
     }
 
-    protected String getNombre (){
-      return nombre;
+    /** Realiza la acción de pagar en el juego.
+     * @param cantidad Dinero a pagar
+     * @return @retval true si el jugador ha pagado y @retval false si no es el caso
+     */
+    boolean paga (float cantidad){
+      return modificarSaldo(cantidad * -1);
     }
 
-    int getNumCasillaActual (){
-      return numCasillaActual;
+    /** Realiza la acción de pagar por sacar una sopresa que te obliga a pagar un impuesto.
+     * @param cantidad Dinero a pagar
+     * @return @retval true si el jugador ha pagado y @retval false si no es el caso
+     */
+    boolean pagaImpuesto (float cantidad){
+      if (isEncarcelado())
+        return false;
+      else
+        return paga(cantidad);
     }
 
-    private float getPrecioLibertad (){
-      return PrecioLibertad;
+    /** Realiza la acción de pagar por caer en una propiedad de otro jugador.
+     * @param cantidad Dinero a pagar
+     * @return @retval true si el jugador ha pagado y @retval false si no es el caso
+     */
+    boolean pagaAlquiler (float cantidad){
+      if (isEncarcelado())
+        return false;
+      else
+        return paga(cantidad);
     }
 
-    private float getPremioPasoSalida (){
-      return PasoPorSalida;
+    /** Incrementa el saldo en el juego.
+     * @param cantidad Dinero a pagar
+     * @return @retval true si el jugador ha recibido el dinero y @retval false si no es el caso
+     */
+    boolean recibe (float cantidad){
+      if (isEncarcelado())
+        return false;
+      else
+        return modificarSaldo(cantidad);
     }
 
-    protected TituloPropiedad getPropiedades(){
-      return propiedades;           //E:  return propiedades[]  ?????????
-    }
-
-    boolean getPuedeComprar(){
-      return puedeComprar;
-    }
-
-    protected float getSaldo(){
-      return saldo;
-    }
-
-    boolean hipotecar (int ip){ //PRÁCTICA SIGUIENTE
-
-    }
-
-    public boolean isEncarcelado(){
-      return encarcelado
-    }
-
-    Jugador (String nombre){  //IMPLEMENTAR
-
-    }
-
-    protected Jugador (Jugador otro){ //IMPLEMENTAR
-
-    }
-
+    /** Modifica el saldo en el juego.
+     * @param cantidad Dinero que incrementa/disminuye el saldo
+     * @return @retval true siempre
+     */
     boolean modificarSaldo (float cantidad){
       saldo += cantidad;
       Diario.getInstance().ocurreEvento ("Se ha incrementado el saldo");
@@ -156,6 +264,10 @@ public class Jugador implements Comparable<Jugador>{
       return true;
     }
 
+    /** Modifica la posición de un jugador.
+     * @param numCasilla Casilla a la que se va a mover al jugador
+     * @return @retval true si se ha realizado la acción con éxito o @false en caso contrario
+     */
     boolean moverACasilla (int numCasilla){
       boolean mover = true;
 
@@ -170,70 +282,10 @@ public class Jugador implements Comparable<Jugador>{
       return mover;
     }
 
-    boolean obtenerSalvoconducto (Sorpresa s){
-      boolean obtiene = true;
-
-      if (isEncarcelado())
-        obtiene = false;
-      else
-        salvoconducto = s;
-
-      return obtiene;
-    }
-
-    boolean paga (float cantidad){
-      return modificarSaldo(cantidad * -1);
-    }
-
-    boolean pagaAlquiler (float cantidad){
-      if (isEncarcelado())
-        return false;
-      else
-        return paga(cantidad);
-    }
-
-    boolean pagaImpuesto (float cantidad){
-      if (isEncarcelado())
-        return false;
-      else
-        return paga(cantidad);
-    }
-
-    boolean pasaPorSalida (){
-      modificarSaldo(getPremioPasoSalida());
-    }
-
-    private void perderSalvoconducto(){
-      salvoconducto.usada();  //E: npi de cuál es este método ni cómo se usada
-      salvoconducto = null;
-    }
-
-    boolean puedeComprarCasilla(){
-      if(isEncarcelado())
-        puedeComprar = false;
-      else
-        puedeComprar = true;
-
-      return getPuedeComprar();
-    }
-
-    private boolean puedeSalirCarcelPagando(){
-      boolean salir = false;
-
-      if(getSaldo() >= getPrecioLibertad())
-        salir = true;
-
-        return salir;
-    }
-
-    private boolean puedoEdificarCasa (TituloPropiedad propiedad){  //IMPLEMENTAR
-
-    }
-
-    private boolean puedoEdificarHotel (TituloPropiedad propiedad){ //IMPLEMENTAR
-
-    }
-
+    /** Determina si el jugador tiene el saldo suficiente para pagar.
+     * @param precio Dinero a pagar
+     * @return @retval true si se lo puede permitir o @false en caso contrario
+     */
     private boolean puedoGastar (float precio){
       boolean puedo = true;
 
@@ -245,13 +297,48 @@ public class Jugador implements Comparable<Jugador>{
       return puedo;
     }
 
-    boolean recibe (float cantidad){
-      if (isEncarcelado())
-        return false;
-      else
-        return modificarSaldo(cantidad);
+    /** Vende una propiedad de un jugador.
+     * @param ip Número de casilla de la propiedad que se va a vender
+     * @return @retval true si se ha realizado la acción con éxito o @false en caso contrario
+     */
+    boolean vender (int ip){  //Terminar
+      boolean puedo = true;
+
+      if(isEncarcelado())
+        puedo = false;
+      else if (existeLaPropiedad(ip)){
+        propiedades[ip].vendida(*this);
+      }
+
     }
 
+    /** Determina si el jugador tiene propiedades.
+     * @return @retval true si el jugador posee propiedades o @false en caso contrario
+     */
+    boolean tieneAlgoQueGestionar (){
+      boolean tiene = true;
+
+      if (propiedades.isEmpty())
+        tiene = false
+
+      return tiene;
+    }
+
+    /** Determina si el jugador puede salir de la cárcel pagando.
+     * @return @retval true si el jugador puede pagar el precio por su libertad o @false en caso contrario
+     */
+    private boolean puedeSalirCarcelPagando(){
+      boolean salir = false;
+
+      if(getSaldo() >= getPrecioLibertad())
+        salir = true;
+
+        return salir;
+    }
+
+    /** Libera al jugador de la cárcel tras pagar.
+     * @return @retval true si el jugador ha sido liberado o @false en caso contrario
+     */
     boolean salirCarcelPagando (){
       boolean salir = false;
 
@@ -266,6 +353,9 @@ public class Jugador implements Comparable<Jugador>{
       return salir;
     }
 
+    /** Libera al jugador de la cárcel tras tirar.
+     * @return @retval true si el jugador ha sido liberado o @false en caso contrario
+     */
     boolean salirCarcelTirando (){
       if(Dado.getInstance().salgoDeLaCarcel()){
         encarcelado = false;
@@ -275,38 +365,101 @@ public class Jugador implements Comparable<Jugador>{
         return isEncarcelado();
     }
 
-    boolean tieneAlgoQueGestionar (){
-      boolean tiene = true;
-
-      if (propiedades.isEmpty())
-        tiene = false
-
-      return tiene;
+    /** Modifica el saldo por haber pasado por la casilla de salida.
+     * @return @retval true si se ha realizado la acción con éxito o @false en caso contrario
+     */
+    boolean pasaPorSalida (){
+      modificarSaldo(getPremioPasoSalida());
     }
 
-    boolean tieneSalvoconducto (){
-      boolean tiene = true;
+    /**
+     * @warning por implementar
+     */
+    boolean cancelarHipoteca(int ip){ //SIGUIENTE PRÁCTICA------------------------------------------
 
-      if (salvoconducto == null)
-        tiene = false;
-
-      return tiene;
     }
 
+    /**
+     * @warning por implementar
+     */
+    boolean comprar (TituloPropiedad titulo){ //SIGUIENTE PRÁCTICA
+
+    }
+
+    /**
+     * @warning por implementar
+     */
+    boolean construirCasa (int ip){ //SIGUIENTE PRÁCTICA
+
+    }
+
+    /**
+     * @warning por implementar
+     */
+    boolean construirHotel (int ip){  //SIGUIENTE PRÁCTICA
+
+    }
+
+    /**
+     * @warning por implementar
+     */
+    boolean hipotecar (int ip){ //SIGUIENTE PRÁCTICA
+
+    }
+
+    /** Determina si el jugador está en bancarrota.
+     * @return @retval true si se el saldo del jugador ha llegado a 0 o inferior o @false en caso contrario
+     */
+    boolean enBancarrota (){
+      boolean cero = false;
+
+      if (getSaldo >= 0)
+        cero = true;
+
+      return cero;
+    }
+
+    /** Determina si una propiedad dada existe.
+     * @param ip Número de la casilla en la que se encuentra la propiedad
+     * @return @retval true si se la propiedad existe o @false en caso contrario
+     */
+    private boolean existeLaPropiedad (int ip){
+      boolean existe = false;
+
+      if(propiedades.contains(ip))  //E: esto está mal porque las propiedades no tienen una ip asociada
+        existe = true;
+      return existe;
+    }
+
+    /**
+     * @warning por implementar
+     */
+    private boolean puedoEdificarCasa (TituloPropiedad propiedad){  //IMPLEMENTAR
+
+    }
+
+    /**
+     * @warning por implementar
+     */
+    private boolean puedoEdificarHotel (TituloPropiedad propiedad){ //IMPLEMENTAR
+
+    }
+
+    /**
+     * @warning por implementar
+     */
     @Override
     public String toString(){ //IMPLEMENTAR
 
     }
 
-    boolean vender (int ip){
-      boolean puedo = true;
-
-      if(isEncarcelado())
-        puedo = false;
-      else if (existeLaPropiedad(ip)){
-        propiedades[ip].vendida()
-      }
-
+    /** Compara los saldos de dos Jugadores.
+     * @param otro El jugador con el que se compara
+     * @return diferencia Diferencia entre ambos saldos
+     * @note Si es positivo, el saldo de J1 es superior al saldo del otro jugador y negativo en caso contrario.
+     */
+    public int compareTo (Jugador otro){
+      return getSaldo()-otro.getSaldo();
     }
 
 }

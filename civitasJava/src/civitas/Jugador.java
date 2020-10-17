@@ -111,7 +111,7 @@ public class Jugador implements Comparable<Jugador>{
      * @return casasHoteles Número total de edificaciones que existen en el array propiedades
      * @warning no sé si está correcto
      */
-    int cantidadCasasHoteles(){ //E: no puede ser esto pero tampoco explican nada
+    int cantidadCasasHoteles(){ 
       TituloPropiedad propiedad;
       int casasHoteles = 0;
 

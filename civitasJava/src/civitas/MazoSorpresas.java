@@ -22,7 +22,7 @@ public class MazoSorpresas {
      private int usadas;                                  //Número de cartas del mazo usadas
      private Boolean debug;                               //Activa o desactiva el modo debug
      private ArrayList<Sorpresa> cartasEspeciales;        //Almacena SALIRCARCEL mientras está fuera del MazoSorpresas
-     Sorpresa ultimaSorpresa;                             //Almacena la última carta de sorpresa que ha salido
+     private Sorpresa ultimaSorpresa;                     //Almacena la última carta de sorpresa que ha salido
 
      /**
       * @brief Inicializa los atributos de la clase MazoSorpresas

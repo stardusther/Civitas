@@ -101,7 +101,7 @@ public class TituloPropiedad {
 
     
     /** Comprueba si el jugador pasado como parámetro es el propietario del título. */
-    boolean esEsteElPropietario (Jugador jugador) {
+    private boolean esEsteElPropietario (Jugador jugador) {
         return (jugador == propietario);                                        //Y: Idem ^ 
     }
     
@@ -145,7 +145,8 @@ public class TituloPropiedad {
     
     
     // ----------------- Consultores ------------------- //
-    boolean getHipotecado () {
+    
+    public boolean getHipotecado () {
         return hipotecado;
     }
 
@@ -203,7 +204,7 @@ public class TituloPropiedad {
         return (propietario != null);
     }
     
-    boolean propietarioEncarcelado () {
+    private boolean propietarioEncarcelado () {
         return (tienePropietario() && propietario.isEncarcelado());
     }
 

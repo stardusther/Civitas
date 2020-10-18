@@ -312,13 +312,18 @@ public class Jugador implements Comparable<Jugador>{
      */
     boolean vender (int ip){
       boolean puedo = false;
+      
+      propiedades.get(ip).vender(this);
 
-      if(!isEncarcelado() && existeLaPropiedad(propiedades.get(ip)))                              // Si no está encarcelado y existe la propiedad
-        if (propiedades[ip].vender(*this)){                                                       // Si se ha podido vender la propiedad
+      //if(!isEncarcelado() && existeLaPropiedad (propiedades.get(ip)))                               
+      // Y: parametro pasado a existePropiedad (int) --> 
+      if (!isEncarcelado() && existeLaPropiedad(ip))                            // Si no está encarcelado y existe la propiedad
+        //if (propiedades.get(ip).vender(*this))   Y: Sin el puntero -->        // Si se ha podido vender la propiedad
+        if (propiedades.get(ip).vender(this)) {     
           propiedades.remove(ip);
           Diario.getInstance().ocurreEvento("Se ha vendido la propiedad de la casilla " + ip);
           puedo = true;
-        }                                                                                         // En cualquier otro caso se devuelve false
+        }                                                                       // En cualquier otro caso se devuelve false
 
         return puedo;
     }
@@ -381,6 +386,7 @@ public class Jugador implements Comparable<Jugador>{
      */
     boolean pasaPorSalida (){
       modificarSaldo(getPremioPasoSalida());
+      return true; //(para que compile :D)
       //return modificarSaldo(...) ??
     }
 
@@ -437,7 +443,6 @@ public class Jugador implements Comparable<Jugador>{
      */
     private boolean existeLaPropiedad (int ip){
       boolean existe = false;
-
       if(propiedades.contains(propiedades.get(ip)))  //E: esto está mal. No entiendo el método
         existe = true;
       return existe;
@@ -462,7 +467,7 @@ public class Jugador implements Comparable<Jugador>{
     private boolean puedoEdificarHotel (TituloPropiedad propiedad){ //IMPLEMENTAR
       boolean puede = false;
 
-      if (propiedades.contains("propiedad") && propiedad.getNumHoteles() < getHotelesMax() && (propiedad.getNumCasas == getCasasPorHotel) && getPuedeComprar() && puedoGastar(propiedad.getPrecioEdificar()))  // Si el jugador posee la propiedad, el número de hoteles edificados es menor a 4,
+      if (propiedades.contains("propiedad") && propiedad.getNumHoteles() < getHotelesMax() && (propiedad.getNumCasas() == getCasasPorHotel()) && getPuedeComprar() && puedoGastar(propiedad.getPrecioEdificar()))  // Si el jugador posee la propiedad, el número de hoteles edificados es menor a 4,
                                                                                                                                                                                                               // hay 4 casas edificadas, el jugador puede comprar y puede gastar lo que cuesta la ediificación en esa casilla
         puede = true;
 
@@ -487,7 +492,7 @@ public class Jugador implements Comparable<Jugador>{
      * @note Si es positivo, el saldo de J1 es superior al saldo del otro jugador y negativo en caso contrario.
      */
     public int compareTo (Jugador otro){
-      return getSaldo() - otro.getSaldo();
+      return (int)(getSaldo() - otro.getSaldo()) ;
     }
 
 }

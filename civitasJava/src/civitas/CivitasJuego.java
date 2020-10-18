@@ -1,4 +1,5 @@
 package civitas;
+import java.util.ArrayList;         
 
 /**
  * @author Yesenia González Dávila
@@ -10,35 +11,61 @@ public class CivitasJuego {
 
     private Tablero tablero;
     private MazoSorpresas mazo;
-    private ArrayList<Jugador> jugadores;                                       //E: Jugador[] jugadores = new Jugador [4];
+    private ArrayList<Jugador> jugadores;                       //E: Jugador[] jugadores = new Jugador [4];
     private EstadosJuego estado;
     private GestorEstados gestorEstados;
 
     private int indiceJugadorActual;
+    
+    // 'Numeros magicos' jjejejej
+    static final int numJugadores = 4;                          //Y: atributo de clase para indicar el número de jugadores
+    static final int casillaCarcel = 5;                         //Y: atributo de clase para indicar la casilla de carcel
+    static final int numCasillas = 20;
 
-    public CivitasJuego (String j1, String j2, String j3, String j4){                       //E: Jugador (String... nombre) Paso de parámetros variable
+    public CivitasJuego (String j1, String j2, String j3, String j4){           //E: Jugador (String... nombre) Paso de parámetros variable
 
-      jugadores.add(Jugador.new(j1));
-      jugadores.add(Jugador.new(j2));
-      jugadores.add(Jugador.new(j3));
-      jugadores.add(Jugador.new(j4));
+//      jugadores.add(Jugador.new(j1));
+//      jugadores.add(Jugador.new(j2));
+//      jugadores.add(Jugador.new(j3));
+//      jugadores.add(Jugador.new(j4));
 
-      estado = gestorEstados.estadoInicial();
-      indiceJugadorActual = Dado.getInstance().quienEmpieza(4);
+        //Y: inicializar vector
+        jugadores = new ArrayList<> ();
+        
+        //Y: añadir jugadores
+        jugadores.add (new Jugador (j1));
+        jugadores.add (new Jugador (j2));
+        jugadores.add (new Jugador (j3));
+        jugadores.add (new Jugador (j4));
 
-// "Crear el mazo de sorpresas, llamar al método de inicialización del tablero y del mazo" E: tengo que redefinir el mazo?
-      //mazo = new MazoSorpresas mazo(); ???????
-      tablero.inicializaTablero(mazo);
-      mazo.inicializaMazoSorpresas(tablero);
+        estado = gestorEstados.estadoInicial();
+        
+        //Y: he cambiado el 4 por un atributo de clase constante 
+        indiceJugadorActual = Dado.getInstance().quienEmpieza (numJugadores);
+
+        // "Crear el mazo de sorpresas, llamar al método de inicialización del tablero y del mazo" E: tengo que redefinir el mazo?
+        //tablero.inicializaTablero(mazo);
+        //mazo.inicializaMazoSorpresas(tablero);
+        
+        //Y:
+        tablero = new Tablero (casillaCarcel);                                  // Y: Casilla carcel, añadir atributo de clase casillaCarcel = 5
+        mazo = new MazoSorpresas ();
     }
 
-    private void inicializaTablero (MazoSopresas mazo){
-      tablero = new Tablero(5);                                                //Se añade automáticamente la casilla de salida en la posición 0
+    private void inicializaTablero (MazoSorpresas mazo){
+        // Y: no hace falta si ya se hace en el constructor no?? (se que es lo que pone en el guión pero afhjhkhjgfhgd D: )
+        //tablero = new Tablero(casillaCarcel);                                 //Se añade automáticamente la casilla de salida en la posición 0
 
-      for (int i = 0; i < 20; i++){
-        tablero.añadeCasilla(new Casilla (/*****/))
-      }
-
+      for (int i = 0; i < numCasillas; i++)
+            if (i == 15)
+                tablero.añadeJuez();
+            else
+                i = 320;      //Y: lo puse así de momento para que no de error de compilacion 
+                //Y: añadir casillas
+                //tablero.añadeCasilla(new Casilla (/*****/))
+                
+             
+                
     }
 
     public Jugador getJugadorActual(){
@@ -46,7 +73,10 @@ public class CivitasJuego {
     }
 
     public Casilla getCasillaActual(){                                          // E: no lo entiendo bien
-      return getJugadorActual().getNumCasillaActual();                          // Esto no devuelve un objeto del tipo casilla
+      //return getJugadorActual().getNumCasillaActual();                          // Esto no devuelve un objeto del tipo casilla
+      
+      //Y: acceder al tablero:
+      return (tablero.getCasilla (getJugadorActual().getNumCasillaActual()));
     }
     private void inicializaMazoSorpresas (Tablero tablero){
 
@@ -69,31 +99,38 @@ public class CivitasJuego {
     }
 
     public boolean construirCasa (int ip){
-      getJugadorActual().construirCasa(ip);
+       //getJugadorActual().construirCasa(ip);   Y:
+       return getJugadorActual().construirCasa(ip);
     }
 
     public boolean construirHotel (int ip){
-      getJugadorActual().construirHotel(ip);
+      //getJugadorActual().construirHotel(ip);   Y:
+      return getJugadorActual().construirHotel(ip);
     }
 
     public boolean vender (int ip){
-      getJugadorActual().vender(ip);
+      //getJugadorActual().vender(ip);           Y:
+      return getJugadorActual().vender(ip);
     }
 
     public boolean hipotecar (int ip){
-      getJugadorActual().hipotecar(ip);
+      //getJugadorActual().hipotecar(ip);
+      return getJugadorActual().hipotecar(ip);
     }
 
     public boolean cancelarHipoteca (int ip){
-      getJugadorActual().cancelarHipoteca(ip);
+      //getJugadorActual().cancelarHipoteca(ip);
+      return getJugadorActual().cancelarHipoteca(ip);
     }
 
     public boolean salirCarcelPagando (int ip){
-      getJugadorActual().salirCarcelPagando();
+      //getJugadorActual().salirCarcelPagando();
+      return getJugadorActual().salirCarcelPagando();
     }
 
     public boolean salirCarcelTirando (int ip){
-      getJugadorActual().salirCarcelTirando();
+      //getJugadorActual().salirCarcelTirando();
+      return getJugadorActual().salirCarcelTirando();
     }
 
     public boolean finalDelJuego(){

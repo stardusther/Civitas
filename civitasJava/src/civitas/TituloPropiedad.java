@@ -24,14 +24,12 @@ public class TituloPropiedad {
 
     private Jugador propietario;
 
-    /**
-     * Constructor de la clase.
-     * @warning Propietario por defecto = "NO_PROPIETARIO" ???
-     * @post titulo no hipotecado, sin casas ni hoteles
+    
+    /** Constructor de la clase.
+     * @post titulo no hipotecado, sin pripietario, casas ni hoteles
      */
-    TituloPropiedad (String _nombre, float ab, float fr, float hb,
-                     float pc, float pe) {
-        nombre = _nombre;
+    TituloPropiedad (String nombre, float ab, float fr, float hb, float pc, float pe) {
+        this.nombre = nombre;
         alquilerBase = ab;
         factorRevalorizacion = fr;
         hipotecaBase = hb;
@@ -45,71 +43,108 @@ public class TituloPropiedad {
         factorInteresesHipoteca = 1.1f ;
     }
 
+    
+    /** Actualiza el propietario. */
     void ActualizaPropietarioPorConversion (Jugador jugador) {
         propietario = jugador;
     }
 
-    /**
-     * @warning Pendiente
-     * @param jugador
-     * @return
-     */
+    
+    /** @warning Siguiente practica */
     boolean cancelarHipoteca (Jugador jugador) {
         hipotecado = false;
+        // jugador.cancelarHipoteca
         return hipotecado;
     }
 
+    
+    /** Devuelve la suma del num de casas y hoteles construidos. */
     int cantidadCasasHoteles() {
         return (numCasas + numHoteles);
     }
 
-    /**
-     * @warning Siguiente practica 
-     * @param jugador
-     */
+    
+    /** @warning Siguiente practica */
     boolean comprar (Jugador jugador) {
         return true;
     }
 
-    /**
-     * @warning Siguiente practica 
-     * @param jugador
-     */
+    
+    /** @warning Siguiente practica */
     boolean construirCasa (Jugador jugador) {
         return true;
     }
 
-    /**
-     * @warning Siguiente practica 
-     * @param jugador
-     */
+    
+    /** @warning Siguiente practica */
     boolean construirHotel (Jugador jugador) {
         return true;
     }
     
-    /**
-     * @brief Si el jugador es el propietario y n es menor al num. de casas, 
-     * se decrementa el contador de casas en n unidades
+    
+    /** Si el jugador es el propietario y n es menor al num de casas, 
+     *  se decrementa el contador de casas en n unidades
      * @param n numero a decrementar del contador
      * @param jugador jugador al que aplicar el decremento de casas
-     * @return @retval true si seha realizado la operacion @retval false si no ha sido el caso
+     * @return @retval true si se ha realizado la operacion @retval false si no ha sido el caso
      */
     boolean derruirCasas (int n, Jugador jugador) {
         boolean correcto = true;
         
-        if (n >= numCasas && jugador == propietario)        //Y: Me queda mirar si jugador == otroJUgador se puede hacer (provisional jeje)
+        if (n >= numCasas && esEsteElPropietario(jugador))                      //Y: Me queda mirar si jugador == otroJugador se puede hacer (provisional jeje)
             numCasas -= n;
-        
         else
             correcto = false;
         
         return correcto;
     }
 
+    
+    /** Comprueba si el jugador pasado como parámetro es el propietario del título. */
     boolean esEsteElPropietario (Jugador jugador) {
-        return (jugador == propietario);                    //Y: Idem ^ 
+        return (jugador == propietario);                                        //Y: Idem ^ 
+    }
+    
+    
+    /** @warning Siguiente practica */
+    boolean hipotecar (Jugador jugador) {
+        return true;
+    }
+    
+    
+    /** Si el titulo tiene propietario y no es el jugador pasado como parametro, 
+     * este paga el alguiler correspondiente, y el propietario recibe ese mismo importe. */
+    void tramitarAlquiler (Jugador jugador) {
+        if (tienePropietario() && esEsteElPropietario (jugador)) {
+            jugador.pagaAlquiler (getPrecioAlquiler());
+            propietario.recibe (getPrecioAlquiler());
+        }
     }
 
+
+    /** Si el jugador pasado como parámetro es el propietario y este no está hipotecado,
+     *  entonces se da al propietario el precio de venta, se desvincula al propietario de la 
+     *  propiedad y se eliminan las casas y hoteles.
+     * @return @retval true si se lleva a cabo la operacion @retval false si no.
+     * @warning desvincular propietario.
+     */
+    boolean vender (Jugador jugador) {
+        boolean vendido = false;
+        
+        if (esEsteElPropietario(jugador) && !hipotecado) {
+            propietario.recibe(precioCompra);
+            numCasas = 0;
+            numHoteles = 0;
+            //desvincular propietario no c
+            propietario = null;
+            vendido = true;
+        }
+        
+        return vendido;
+    }
+    
+    
+    // ----------------- Consultores ------------------- //
     boolean getHipotecado () {
         return hipotecado;
     }
@@ -143,8 +178,7 @@ public class TituloPropiedad {
         if (hipotecado || propietarioEncarcelado())
             precio = 0f;
         else
-            precio = 1f;
-            //Calcular precio (1 para que no de error de compilacion de momento)
+            precio = (float) (alquilerBase * (1 + ( (float)numCasas*0.5) + ( (float)numHoteles*2.5)));
 
         return precio;
     }
@@ -164,27 +198,15 @@ public class TituloPropiedad {
     Jugador getPropietario () {
         return propietario;
     }
-
-    /**
-     * @warning Siguiente practica 
-     * @param jugador
-     */
-    boolean hipotecar (Jugador jugador) {
-        return true;
-    }
-
-    boolean propietarioEncarcelado () {
-        boolean encarcelado = false;
-        if (propietario != null && propietario.isEncarcelado())
-            encarcelado = true;
-        
-        return encarcelado;
-    }
-
+    
     boolean tienePropietario() {
-        //no se como implementar esto (dar nombre al propietario por defecto ??)
-        return true;
+        return (propietario != null);
     }
+    
+    boolean propietarioEncarcelado () {
+        return (tienePropietario() && propietario.isEncarcelado());
+    }
+
 
     @Override
     public String toString() {
@@ -203,25 +225,4 @@ public class TituloPropiedad {
 
         return estado;
     }
-
-    void tramitarAlquiler (Jugador jugador) {
-        if (propietario.getNombre() != null && jugador != propietario) {
-            jugador.pagaAlquiler(alquilerBase);
-            propietario.recibe(alquilerBase);
-        }
-    }
-
-    boolean vender (Jugador jugador) {
-        boolean vendido = false;
-        if (jugador == propietario && !hipotecado) {
-            propietario.recibe(precioCompra);
-            numCasas = 0;
-            numHoteles = 0;
-            //desvincular propietario no c
-            vendido = true;
-        }
-        
-        return vendido;
-    }
-
 }

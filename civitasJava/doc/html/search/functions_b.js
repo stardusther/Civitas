@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quienempieza',['quienEmpieza',['../classcivitas_1_1Dado.html#afac7574436f47c7a4d5f019b5a43c5bf',1,'civitas::Dado']]]
+  ['nuevaposicion',['nuevaPosicion',['../classcivitas_1_1Tablero.html#a7eb232ed041b08dcbf44ce53ae0acc64',1,'civitas::Tablero']]]
 ];

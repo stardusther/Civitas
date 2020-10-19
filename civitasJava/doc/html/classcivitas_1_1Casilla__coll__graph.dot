@@ -1,0 +1,32 @@
+digraph "civitas.Casilla"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="civitas.Casilla",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sorpresa" ,fontname="Helvetica"];
+  Node2 [label="civitas.Sorpresa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1Sorpresa.html"];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sorpresa" ,fontname="Helvetica"];
+  Node3 [label="civitas.TipoSorpresa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$enumcivitas_1_1TipoSorpresa.html"];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" tablero" ,fontname="Helvetica"];
+  Node4 [label="civitas.Tablero",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1Tablero.html",tooltip="Representa el tablero de juego imponiendo las restricciones existentes. "];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" casillas" ,fontname="Helvetica"];
+  Node5 [label="ArrayList\< civitas.Casilla \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mazo" ,fontname="Helvetica"];
+  Node6 [label="civitas.MazoSorpresas",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1MazoSorpresas.html",tooltip="Además de almacenar las cartas, las instancias de esta clase velan por que el mazo se mantenga consis..."];
+  Node7 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sorpresas\ncartasEspeciales" ,fontname="Helvetica"];
+  Node7 [label="ArrayList\< civitas.Sorpresa \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node2 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ultimaSorpresa" ,fontname="Helvetica"];
+  Node8 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" tipo" ,fontname="Helvetica"];
+  Node8 [label="civitas.TipoCasilla",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$enumcivitas_1_1TipoCasilla.html",tooltip="Almacena todos los tipos de casilla posibles en el juego. "];
+  Node9 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" tituloPropiedad" ,fontname="Helvetica"];
+  Node9 [label="civitas.TituloPropiedad",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1TituloPropiedad.html"];
+  Node10 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" propietario" ,fontname="Helvetica"];
+  Node10 [label="civitas.Jugador",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1Jugador.html"];
+  Node11 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="Comparable\< Jugador \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node12 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" propiedades" ,fontname="Helvetica"];
+  Node12 [label="ArrayList\< civitas.Titulo\lPropiedad \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node2 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" salvoconducto" ,fontname="Helvetica"];
+  Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mazo" ,fontname="Helvetica"];
+}

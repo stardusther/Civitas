@@ -1,0 +1,17 @@
+digraph "civitas.Sorpresa"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="civitas.Sorpresa",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sorpresa" ];
+  Node2 [label="civitas.TipoSorpresa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$enumcivitas_1_1TipoSorpresa.html"];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" tablero" ];
+  Node3 [label="civitas.Tablero",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1Tablero.html",tooltip="Representa el tablero de juego imponiendo las restricciones existentes. "];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" casillas" ];
+  Node4 [label="ArrayList\< civitas.Casilla \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mazo" ];
+  Node5 [label="civitas.MazoSorpresas",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1MazoSorpresas.html",tooltip="Además de almacenar las cartas, las instancias de esta clase velan por que el mazo se mantenga consis..."];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sorpresas\ncartasEspeciales" ];
+  Node6 [label="ArrayList\< civitas.Sorpresa \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ultimaSorpresa" ];
+}

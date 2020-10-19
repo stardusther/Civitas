@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mazosorpresas',['MazoSorpresas',['../classcivitas_1_1MazoSorpresas.html',1,'civitas']]]
+  ['gestorestados',['GestorEstados',['../classcivitas_1_1GestorEstados.html',1,'civitas']]]
 ];

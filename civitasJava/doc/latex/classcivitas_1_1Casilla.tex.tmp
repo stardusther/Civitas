@@ -1,0 +1,246 @@
+\hypertarget{classcivitas_1_1Casilla}{}\section{Referencia de la Clase civitas.\+Casilla}
+\label{classcivitas_1_1Casilla}\index{civitas.\+Casilla@{civitas.\+Casilla}}
+
+
+Crea las casillas del tablero.  
+
+
+
+
+Diagrama de colaboración para civitas.\+Casilla\+:
+% FIG 0
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classcivitas_1_1Casilla_af51e261c21933fb5b2f83422ee9f24c3}{jugador\+Correcto} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+String \hyperlink{classcivitas_1_1Casilla_aeff56538b363f5ca69221cf0b0743d37}{get\+Nombre} ()
+\item 
+String \hyperlink{classcivitas_1_1Casilla_ac87583f39e7cc78df4cee69de493b721}{to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Funciones del \textquotesingle{}package\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcivitas_1_1Casilla_a6ec7309f2e6c41939e89e305e9df3c5c}{Casilla} (String \hyperlink{classcivitas_1_1Casilla_a0c92d713bf425d120f6952bb5db1f643}{nombre})
+\item 
+\hyperlink{classcivitas_1_1Casilla_a21c922dcafb15cf7fc7bea25e8994526}{Casilla} (\hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad} titulo)
+\item 
+\hyperlink{classcivitas_1_1Casilla_a7facfc4958c39f9d66ccd823931eacef}{Casilla} (float cantidad, String \hyperlink{classcivitas_1_1Casilla_a0c92d713bf425d120f6952bb5db1f643}{nombre})
+\item 
+\hyperlink{classcivitas_1_1Casilla_a79b80876b33603e5d4d183f3bebd5123}{Casilla} (int num\+Casilla\+Carcel, String \hyperlink{classcivitas_1_1Casilla_a0c92d713bf425d120f6952bb5db1f643}{nombre})
+\item 
+\hyperlink{classcivitas_1_1Casilla_a09ecb959dfd567d7554172aef5d2599f}{Casilla} (\hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas} \hyperlink{classcivitas_1_1Casilla_a55659fc727a75af792f58d5704e295b3}{mazo}, String \hyperlink{classcivitas_1_1Casilla_a0c92d713bf425d120f6952bb5db1f643}{nombre})
+\item 
+void \hyperlink{classcivitas_1_1Casilla_a59287ed5780ec26d3335b30c9e64f357}{recibe\+Jugador} (int iactual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+\hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad} \hyperlink{classcivitas_1_1Casilla_a3da38879e21350c8099ffde92cab0c00}{get\+Titulo\+Propiedad} ()
+\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcivitas_1_1Casilla_afea70f81a43916d5f74e58ef7ea5cc09}{informe} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{classcivitas_1_1Casilla_aa1e6e9493e6519c94c9f41ed01bec5b6}{recibe\+Jugador\+\_\+calle} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{classcivitas_1_1Casilla_a5dd314ec240c96f96e41816772c1f15b}{recibe\+Jugador\+\_\+impuesto} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{classcivitas_1_1Casilla_a96089d3b983f6c54b8aa549f8cad50fc}{recibe\+Jugador\+\_\+juez} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{classcivitas_1_1Casilla_ad63a14c37b44f01577c68d4ccaa4ef03}{recibe\+Jugador\+\_\+sorpresa} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{classcivitas_1_1Casilla_a0dba6f796a382fd8756cb5a740a4f695}{init} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{enumcivitas_1_1TipoCasilla}{Tipo\+Casilla} \hyperlink{classcivitas_1_1Casilla_a7319168f767678ea959d54f8e1378785}{tipo}
+\item 
+String \hyperlink{classcivitas_1_1Casilla_a0c92d713bf425d120f6952bb5db1f643}{nombre}
+\item 
+int \hyperlink{classcivitas_1_1Casilla_a1696352bc9367308f9316125f27c4528}{carcel}
+\item 
+float \hyperlink{classcivitas_1_1Casilla_aeaa95a3d684dd705cb8dd03b25a38f7d}{importe}
+\item 
+\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} \hyperlink{classcivitas_1_1Casilla_a6e4c1443cc2f339050392eaa776f9be3}{sorpresa}
+\item 
+\hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas} \hyperlink{classcivitas_1_1Casilla_a55659fc727a75af792f58d5704e295b3}{mazo}
+\item 
+\hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad} \hyperlink{classcivitas_1_1Casilla_a368cb64aee4528cbfc03c421b631d321}{titulo\+Propiedad}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Crea las casillas del tablero. 
+
+\begin{DoxyAuthor}{Autor}
+Yesenia González Dávila 
+
+Esther García Gallego
+\end{DoxyAuthor}
+\begin{DoxyWarning}{Atención}
+Not fully implemented. Clase temporal 
+\end{DoxyWarning}
+\begin{DoxyNote}{Nota}
+Grupo B.\+3 
+\end{DoxyNote}
+
+
+\subsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classcivitas_1_1Casilla_a6ec7309f2e6c41939e89e305e9df3c5c}\label{classcivitas_1_1Casilla_a6ec7309f2e6c41939e89e305e9df3c5c}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!Casilla@{Casilla}}
+\index{Casilla@{Casilla}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{Casilla()}{Casilla()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily civitas.\+Casilla.\+Casilla (\begin{DoxyParamCaption}\item[{String}]{nombre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Constructor casilla descanso. \mbox{\Hypertarget{classcivitas_1_1Casilla_a21c922dcafb15cf7fc7bea25e8994526}\label{classcivitas_1_1Casilla_a21c922dcafb15cf7fc7bea25e8994526}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!Casilla@{Casilla}}
+\index{Casilla@{Casilla}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{Casilla()}{Casilla()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily civitas.\+Casilla.\+Casilla (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad}}]{titulo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Constructor casilla calle. \mbox{\Hypertarget{classcivitas_1_1Casilla_a7facfc4958c39f9d66ccd823931eacef}\label{classcivitas_1_1Casilla_a7facfc4958c39f9d66ccd823931eacef}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!Casilla@{Casilla}}
+\index{Casilla@{Casilla}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{Casilla()}{Casilla()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily civitas.\+Casilla.\+Casilla (\begin{DoxyParamCaption}\item[{float}]{cantidad,  }\item[{String}]{nombre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Constructor casilla impuesto. \mbox{\Hypertarget{classcivitas_1_1Casilla_a79b80876b33603e5d4d183f3bebd5123}\label{classcivitas_1_1Casilla_a79b80876b33603e5d4d183f3bebd5123}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!Casilla@{Casilla}}
+\index{Casilla@{Casilla}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{Casilla()}{Casilla()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily civitas.\+Casilla.\+Casilla (\begin{DoxyParamCaption}\item[{int}]{num\+Casilla\+Carcel,  }\item[{String}]{nombre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Constructor casilla juez. \mbox{\Hypertarget{classcivitas_1_1Casilla_a09ecb959dfd567d7554172aef5d2599f}\label{classcivitas_1_1Casilla_a09ecb959dfd567d7554172aef5d2599f}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!Casilla@{Casilla}}
+\index{Casilla@{Casilla}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{Casilla()}{Casilla()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily civitas.\+Casilla.\+Casilla (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas}}]{mazo,  }\item[{String}]{nombre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Constructor casilla sorpresa. 
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classcivitas_1_1Casilla_aeff56538b363f5ca69221cf0b0743d37}\label{classcivitas_1_1Casilla_aeff56538b363f5ca69221cf0b0743d37}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!get\+Nombre@{get\+Nombre}}
+\index{get\+Nombre@{get\+Nombre}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{get\+Nombre()}{getNombre()}}
+{\footnotesize\ttfamily String civitas.\+Casilla.\+get\+Nombre (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Casilla_a3da38879e21350c8099ffde92cab0c00}\label{classcivitas_1_1Casilla_a3da38879e21350c8099ffde92cab0c00}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!get\+Titulo\+Propiedad@{get\+Titulo\+Propiedad}}
+\index{get\+Titulo\+Propiedad@{get\+Titulo\+Propiedad}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{get\+Titulo\+Propiedad()}{getTituloPropiedad()}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad} civitas.\+Casilla.\+get\+Titulo\+Propiedad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Casilla_afea70f81a43916d5f74e58ef7ea5cc09}\label{classcivitas_1_1Casilla_afea70f81a43916d5f74e58ef7ea5cc09}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!informe@{informe}}
+\index{informe@{informe}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{informe()}{informe()}}
+{\footnotesize\ttfamily void civitas.\+Casilla.\+informe (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Casilla_a0dba6f796a382fd8756cb5a740a4f695}\label{classcivitas_1_1Casilla_a0dba6f796a382fd8756cb5a740a4f695}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!init@{init}}
+\index{init@{init}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void civitas.\+Casilla.\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Este metodo hace una inicializacion de todos los atributos asuminedo que no se proporciona al constructor un valor para ese atributo. \mbox{\Hypertarget{classcivitas_1_1Casilla_af51e261c21933fb5b2f83422ee9f24c3}\label{classcivitas_1_1Casilla_af51e261c21933fb5b2f83422ee9f24c3}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!jugador\+Correcto@{jugador\+Correcto}}
+\index{jugador\+Correcto@{jugador\+Correcto}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{jugador\+Correcto()}{jugadorCorrecto()}}
+{\footnotesize\ttfamily boolean civitas.\+Casilla.\+jugador\+Correcto (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Casilla_a59287ed5780ec26d3335b30c9e64f357}\label{classcivitas_1_1Casilla_a59287ed5780ec26d3335b30c9e64f357}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!recibe\+Jugador@{recibe\+Jugador}}
+\index{recibe\+Jugador@{recibe\+Jugador}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{recibe\+Jugador()}{recibeJugador()}}
+{\footnotesize\ttfamily void civitas.\+Casilla.\+recibe\+Jugador (\begin{DoxyParamCaption}\item[{int}]{iactual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+\begin{DoxyWarning}{Atención}
+Siguiente práctica 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classcivitas_1_1Casilla_aa1e6e9493e6519c94c9f41ed01bec5b6}\label{classcivitas_1_1Casilla_aa1e6e9493e6519c94c9f41ed01bec5b6}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!recibe\+Jugador\+\_\+calle@{recibe\+Jugador\+\_\+calle}}
+\index{recibe\+Jugador\+\_\+calle@{recibe\+Jugador\+\_\+calle}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{recibe\+Jugador\+\_\+calle()}{recibeJugador\_calle()}}
+{\footnotesize\ttfamily void civitas.\+Casilla.\+recibe\+Jugador\+\_\+calle (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\begin{DoxyWarning}{Atención}
+Siguiente práctica 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classcivitas_1_1Casilla_a5dd314ec240c96f96e41816772c1f15b}\label{classcivitas_1_1Casilla_a5dd314ec240c96f96e41816772c1f15b}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!recibe\+Jugador\+\_\+impuesto@{recibe\+Jugador\+\_\+impuesto}}
+\index{recibe\+Jugador\+\_\+impuesto@{recibe\+Jugador\+\_\+impuesto}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{recibe\+Jugador\+\_\+impuesto()}{recibeJugador\_impuesto()}}
+{\footnotesize\ttfamily void civitas.\+Casilla.\+recibe\+Jugador\+\_\+impuesto (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Casilla_a96089d3b983f6c54b8aa549f8cad50fc}\label{classcivitas_1_1Casilla_a96089d3b983f6c54b8aa549f8cad50fc}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!recibe\+Jugador\+\_\+juez@{recibe\+Jugador\+\_\+juez}}
+\index{recibe\+Jugador\+\_\+juez@{recibe\+Jugador\+\_\+juez}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{recibe\+Jugador\+\_\+juez()}{recibeJugador\_juez()}}
+{\footnotesize\ttfamily void civitas.\+Casilla.\+recibe\+Jugador\+\_\+juez (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Casilla_ad63a14c37b44f01577c68d4ccaa4ef03}\label{classcivitas_1_1Casilla_ad63a14c37b44f01577c68d4ccaa4ef03}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!recibe\+Jugador\+\_\+sorpresa@{recibe\+Jugador\+\_\+sorpresa}}
+\index{recibe\+Jugador\+\_\+sorpresa@{recibe\+Jugador\+\_\+sorpresa}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{recibe\+Jugador\+\_\+sorpresa()}{recibeJugador\_sorpresa()}}
+{\footnotesize\ttfamily void civitas.\+Casilla.\+recibe\+Jugador\+\_\+sorpresa (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\begin{DoxyWarning}{Atención}
+Siguiente práctica 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classcivitas_1_1Casilla_ac87583f39e7cc78df4cee69de493b721}\label{classcivitas_1_1Casilla_ac87583f39e7cc78df4cee69de493b721}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily String civitas.\+Casilla.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classcivitas_1_1Casilla_a1696352bc9367308f9316125f27c4528}\label{classcivitas_1_1Casilla_a1696352bc9367308f9316125f27c4528}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!carcel@{carcel}}
+\index{carcel@{carcel}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{carcel}{carcel}}
+{\footnotesize\ttfamily int civitas.\+Casilla.\+carcel\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Casilla_aeaa95a3d684dd705cb8dd03b25a38f7d}\label{classcivitas_1_1Casilla_aeaa95a3d684dd705cb8dd03b25a38f7d}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!importe@{importe}}
+\index{importe@{importe}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{importe}{importe}}
+{\footnotesize\ttfamily float civitas.\+Casilla.\+importe\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Casilla_a55659fc727a75af792f58d5704e295b3}\label{classcivitas_1_1Casilla_a55659fc727a75af792f58d5704e295b3}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!mazo@{mazo}}
+\index{mazo@{mazo}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{mazo}{mazo}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas} civitas.\+Casilla.\+mazo\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Casilla_a0c92d713bf425d120f6952bb5db1f643}\label{classcivitas_1_1Casilla_a0c92d713bf425d120f6952bb5db1f643}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!nombre@{nombre}}
+\index{nombre@{nombre}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{nombre}{nombre}}
+{\footnotesize\ttfamily String civitas.\+Casilla.\+nombre\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Casilla_a6e4c1443cc2f339050392eaa776f9be3}\label{classcivitas_1_1Casilla_a6e4c1443cc2f339050392eaa776f9be3}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!sorpresa@{sorpresa}}
+\index{sorpresa@{sorpresa}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{sorpresa}{sorpresa}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} civitas.\+Casilla.\+sorpresa\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Casilla_a7319168f767678ea959d54f8e1378785}\label{classcivitas_1_1Casilla_a7319168f767678ea959d54f8e1378785}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!tipo@{tipo}}
+\index{tipo@{tipo}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{tipo}{tipo}}
+{\footnotesize\ttfamily \hyperlink{enumcivitas_1_1TipoCasilla}{Tipo\+Casilla} civitas.\+Casilla.\+tipo\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Casilla_a368cb64aee4528cbfc03c421b631d321}\label{classcivitas_1_1Casilla_a368cb64aee4528cbfc03c421b631d321}} 
+\index{civitas\+::\+Casilla@{civitas\+::\+Casilla}!titulo\+Propiedad@{titulo\+Propiedad}}
+\index{titulo\+Propiedad@{titulo\+Propiedad}!civitas\+::\+Casilla@{civitas\+::\+Casilla}}
+\subsubsection{\texorpdfstring{titulo\+Propiedad}{tituloPropiedad}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad} civitas.\+Casilla.\+titulo\+Propiedad\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+src/civitas/\hyperlink{Casilla_8java}{Casilla.\+java}\end{DoxyCompactItemize}

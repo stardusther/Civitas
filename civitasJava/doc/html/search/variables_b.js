@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['salidacarcel',['SalidaCarcel',['../classcivitas_1_1Dado.html#a534213cedc8582a460c56c5ef47cc4b1',1,'civitas::Dado']]],
-  ['salir_5fcarcel',['SALIR_CARCEL',['../enumcivitas_1_1OperacionesJuego.html#ac24c415e2a8b58b5a103cb1cadf2e71e',1,'civitas::OperacionesJuego']]],
-  ['salircarcel',['SALIRCARCEL',['../enumcivitas_1_1TipoSorpresa.html#a95e9fc5b31f41acabea831a683602dfd',1,'civitas::TipoSorpresa']]],
-  ['sorpresa',['SORPRESA',['../enumcivitas_1_1TipoCasilla.html#ada6a89d7718211ca4560389a2b4a0017',1,'civitas::TipoCasilla']]],
-  ['sorpresas',['sorpresas',['../classcivitas_1_1MazoSorpresas.html#a7b0f0b1ab8df542e09240e6e9a4e8f01',1,'civitas::MazoSorpresas']]]
+  ['nombre',['nombre',['../classcivitas_1_1Casilla.html#a0c92d713bf425d120f6952bb5db1f643',1,'civitas.Casilla.nombre()'],['../classcivitas_1_1Jugador.html#a15303963c4d14ce30464ed4fd4d89e01',1,'civitas.Jugador.nombre()'],['../classcivitas_1_1TituloPropiedad.html#a7542ca29c4635b8cb3c56558ed7c5096',1,'civitas.TituloPropiedad.nombre()']]],
+  ['numcasas',['numCasas',['../classcivitas_1_1TituloPropiedad.html#a283d2db60950387513a6d9d80cf5d675',1,'civitas::TituloPropiedad']]],
+  ['numcasillaactual',['numCasillaActual',['../classcivitas_1_1Jugador.html#ae8c1f9b2e7645e174f1e774ae0322528',1,'civitas::Jugador']]],
+  ['numcasillacarcel',['numCasillaCarcel',['../classcivitas_1_1Tablero.html#ae9a072a205d5134cfb298661fc7a9ef5',1,'civitas::Tablero']]],
+  ['numcasillas',['numCasillas',['../classcivitas_1_1CivitasJuego.html#a749d70a3b81aaff78b75f52c74b08f41',1,'civitas::CivitasJuego']]],
+  ['numhoteles',['numHoteles',['../classcivitas_1_1TituloPropiedad.html#a465cc28df575da44a07767cefcfa877c',1,'civitas::TituloPropiedad']]],
+  ['numjugadores',['numJugadores',['../classcivitas_1_1CivitasJuego.html#a033144c8099bb68aef8cc77268d3bbd9',1,'civitas::CivitasJuego']]]
 ];

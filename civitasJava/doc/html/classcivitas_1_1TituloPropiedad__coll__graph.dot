@@ -1,0 +1,25 @@
+digraph "civitas.TituloPropiedad"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="civitas.TituloPropiedad",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" propietario" ,fontname="Helvetica"];
+  Node2 [label="civitas.Jugador",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1Jugador.html"];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Comparable\< Jugador \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" propiedades" ,fontname="Helvetica"];
+  Node4 [label="ArrayList\< civitas.Titulo\lPropiedad \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node5 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" salvoconducto" ,fontname="Helvetica"];
+  Node5 [label="civitas.Sorpresa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1Sorpresa.html"];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sorpresa" ,fontname="Helvetica"];
+  Node6 [label="civitas.TipoSorpresa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$enumcivitas_1_1TipoSorpresa.html"];
+  Node7 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" tablero" ,fontname="Helvetica"];
+  Node7 [label="civitas.Tablero",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1Tablero.html",tooltip="Representa el tablero de juego imponiendo las restricciones existentes. "];
+  Node8 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" casillas" ,fontname="Helvetica"];
+  Node8 [label="ArrayList\< civitas.Casilla \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node9 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mazo" ,fontname="Helvetica"];
+  Node9 [label="civitas.MazoSorpresas",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1MazoSorpresas.html",tooltip="Además de almacenar las cartas, las instancias de esta clase velan por que el mazo se mantenga consis..."];
+  Node10 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sorpresas\ncartasEspeciales" ,fontname="Helvetica"];
+  Node10 [label="ArrayList\< civitas.Sorpresa \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node5 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ultimaSorpresa" ,fontname="Helvetica"];
+}

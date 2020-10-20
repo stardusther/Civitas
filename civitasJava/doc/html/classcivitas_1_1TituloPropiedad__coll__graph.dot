@@ -4,7 +4,7 @@ digraph "civitas.TituloPropiedad"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="civitas.TituloPropiedad",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
   Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" propietario" ,fontname="Helvetica"];
-  Node2 [label="civitas.Jugador",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1Jugador.html"];
+  Node2 [label="civitas.Jugador",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1Jugador.html",tooltip="Representa a cada uno de los jugadores del juego. "];
   Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node3 [label="Comparable\< Jugador \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" propiedades" ,fontname="Helvetica"];

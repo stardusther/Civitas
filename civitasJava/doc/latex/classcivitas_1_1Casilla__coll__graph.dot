@@ -22,7 +22,7 @@ digraph "civitas.Casilla"
   Node9 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" tituloPropiedad" ];
   Node9 [label="civitas.TituloPropiedad",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1TituloPropiedad.html"];
   Node10 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" propietario" ];
-  Node10 [label="civitas.Jugador",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1Jugador.html"];
+  Node10 [label="civitas.Jugador",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1Jugador.html",tooltip="Representa a cada uno de los jugadores del juego. "];
   Node11 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
   Node11 [label="Comparable\< Jugador \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node12 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" propiedades" ];

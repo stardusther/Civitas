@@ -5,6 +5,8 @@ package civitas;
  * @author Yesenia González Dávila
  * @author Esther García Gallego
  * @note Grupo B.3
+ * @class Jugador
+ * @brief Representa a cada uno de los jugadores del juego.
 */
 import java.util.Collection;    //Para hacer el isEmpty()
 import java.util.ArrayList; 
@@ -534,6 +536,10 @@ public class Jugador implements Comparable<Jugador>{
       
       if (encarcelado)
           s+= "\n Encarcelado D:";
+      
+      if ( salvoconducto != null)
+          s+= "\n Tiene salvoconducto";
+      
       return s;
     }
 
@@ -550,16 +556,21 @@ public class Jugador implements Comparable<Jugador>{
     
     public static void main(String[] args){
         
-        // 1. Verificar modificadores y constructor de copia
         String nombre1 = "Pepe Wapo";
         Jugador j1 = new Jugador (nombre1);
-        Jugador j2 = new Jugador (j1);
         
-        System.out.println(j1.toString() + j2.toString());
+        //Constructor de copia (ok)
+        //Jugador j2 = new Jugador (j1);
+        //System.out.println(j1.toString() + j2.toString());
         
-        //j1.encarcelar(5);
-        //j1.obtenerSalvoconducto(s);
-        j1.recibe(250.55f);
+        MazoSorpresas mazo = new MazoSorpresas ();
+        Sorpresa salvoconducto = new Sorpresa (TipoSorpresa.SALIRCARCEL, mazo);
+        j1.obtenerSalvoconducto(salvoconducto);           
+        //j1.encarcelar(5);             //ok
+        //j1.paga(2000f);               //ok
+        //j1.moverACasilla(7);          //ok
+        //j1.recibe(1f);                //ok
+        //j1.pagaAlquiler(1f);          //ok
         
         System.out.println(j1.toString());
     }

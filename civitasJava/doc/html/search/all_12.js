@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['tablero',['Tablero',['../classcivitas_1_1Tablero.html',1,'civitas.Tablero'],['../classcivitas_1_1Tablero.html#af249aaa71ddb9e7565ffc2852a26303d',1,'civitas.Tablero.Tablero()'],['../classcivitas_1_1CivitasJuego.html#a826db446a6b18c2d6b5dc12a97aeed5f',1,'civitas.CivitasJuego.tablero()'],['../classcivitas_1_1Sorpresa.html#a843272761fd69ecf32682bf3f6060add',1,'civitas.Sorpresa.tablero()']]],
+  ['tablero',['Tablero',['../classcivitas_1_1Tablero.html',1,'civitas.Tablero'],['../classcivitas_1_1CivitasJuego.html#a826db446a6b18c2d6b5dc12a97aeed5f',1,'civitas.CivitasJuego.tablero()'],['../classcivitas_1_1Sorpresa.html#a843272761fd69ecf32682bf3f6060add',1,'civitas.Sorpresa.tablero()'],['../classcivitas_1_1Tablero.html#af249aaa71ddb9e7565ffc2852a26303d',1,'civitas.Tablero.Tablero()']]],
   ['tablero_2ejava',['Tablero.java',['../Tablero_8java.html',1,'']]],
   ['tarea1',['tarea1',['../classcivitas_1_1Test__P1.html#a7aa52019cc9a17a3a2efe44856a5a514',1,'civitas::Test_P1']]],
   ['tarea2',['tarea2',['../classcivitas_1_1Test__P1.html#ae73fcac1620c2440522c0c0710d6d69b',1,'civitas::Test_P1']]],
@@ -21,7 +21,7 @@ var searchData=
   ['tiposorpresa',['TipoSorpresa',['../enumcivitas_1_1TipoSorpresa.html',1,'civitas']]],
   ['tiposorpresa_2ejava',['TipoSorpresa.java',['../TipoSorpresa_8java.html',1,'']]],
   ['tirar',['tirar',['../classcivitas_1_1Dado.html#a178066d320c6cd7c79ac3a5863702fb8',1,'civitas::Dado']]],
-  ['titulopropiedad',['TituloPropiedad',['../classcivitas_1_1TituloPropiedad.html',1,'civitas.TituloPropiedad'],['../classcivitas_1_1TituloPropiedad.html#ace9e509977e1a3df5ee0cab4cc150622',1,'civitas.TituloPropiedad.TituloPropiedad()'],['../classcivitas_1_1Casilla.html#a368cb64aee4528cbfc03c421b631d321',1,'civitas.Casilla.tituloPropiedad()']]],
+  ['titulopropiedad',['TituloPropiedad',['../classcivitas_1_1TituloPropiedad.html',1,'civitas.TituloPropiedad'],['../classcivitas_1_1Casilla.html#a368cb64aee4528cbfc03c421b631d321',1,'civitas.Casilla.tituloPropiedad()'],['../classcivitas_1_1TituloPropiedad.html#ace9e509977e1a3df5ee0cab4cc150622',1,'civitas.TituloPropiedad.TituloPropiedad()']]],
   ['titulopropiedad_2ejava',['TituloPropiedad.java',['../TituloPropiedad_8java.html',1,'']]],
   ['tostring',['toString',['../classcivitas_1_1Casilla.html#ac87583f39e7cc78df4cee69de493b721',1,'civitas.Casilla.toString()'],['../classcivitas_1_1Jugador.html#a102b4070dfc271c865fcd6ebe92d9c06',1,'civitas.Jugador.toString()'],['../classcivitas_1_1Sorpresa.html#ad2b9c7fd5bcc4ea986fac9ad8c9605e3',1,'civitas.Sorpresa.toString()'],['../classcivitas_1_1TituloPropiedad.html#a89e2997e19e157b2cc1df105cdeb1020',1,'civitas.TituloPropiedad.toString()']]],
   ['tramitaralquiler',['tramitarAlquiler',['../classcivitas_1_1TituloPropiedad.html#a1147fd3806f6425bf3b8ed802e670e9f',1,'civitas::TituloPropiedad']]]

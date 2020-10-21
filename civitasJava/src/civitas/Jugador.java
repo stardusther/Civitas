@@ -9,7 +9,7 @@ package civitas;
  * @brief Representa a cada uno de los jugadores del juego.
 */
 import java.util.Collection;    //Para hacer el isEmpty()
-import java.util.ArrayList; 
+import java.util.ArrayList;
 
 public class Jugador implements Comparable<Jugador>{
 
@@ -28,7 +28,7 @@ public class Jugador implements Comparable<Jugador>{
     private Sorpresa salvoconducto;                     // Almacena el salvoconducto para salir de la cárcel
     private ArrayList<TituloPropiedad> propiedades;     // Conjunto de propiedades del jugador
 
-    
+
     /** Constructor básico de la clase Jugador.
      * @param nombre El nombre del nuevo Jugador
      */
@@ -41,7 +41,7 @@ public class Jugador implements Comparable<Jugador>{
 
       propiedades = new ArrayList<TituloPropiedad> ();
     }
-    
+
 
     /** Constructor de copia de la clase Jugador.
      * @param otro El otro jugador que queremos copiar
@@ -56,7 +56,7 @@ public class Jugador implements Comparable<Jugador>{
       propiedades = new ArrayList<TituloPropiedad> (otro.getPropiedades()); //E: (ArrayList) otro.getPropiedades().clone()
     }
 
-    
+
     /** Determina si un jugador debe ser encarcelado y, en caso afirmativo, se comunica en el diario.
      * @return @retval true si el jugador debe ser encarcelado o @retval false en caso contrario
      */
@@ -73,8 +73,8 @@ public class Jugador implements Comparable<Jugador>{
 
       return carcel;
     }
-    
-    
+
+
     /** Encarcela al jugador que llame a la función si es necesario e informa al diario.
      * @return @retval true si el jugador ha sido encarcelado y @retval false si no es el caso
      */
@@ -87,7 +87,7 @@ public class Jugador implements Comparable<Jugador>{
       return isEncarcelado();
     }
 
-    
+
     /** Guarda la referencia al parámetro en el atributo salvoconducto si el jugador no está en la cárcel.
      * @return @retval true si el jugador ha obtenido el salvoconducto y @retval false si no es el caso
      */
@@ -101,15 +101,15 @@ public class Jugador implements Comparable<Jugador>{
 
       return obtiene;
     }
-    
-    
+
+
     /** Elimina la referencia al salvoconducto porque ha sido usado. */
     private void perderSalvoconducto(){
       salvoconducto.usada();
       salvoconducto = null;
     }
-    
-    
+
+
     /** Realiza la acción de pagar en el juego.
      * @param cantidad Dinero a pagar
      * @return @retval true si el jugador ha pagado y @retval false si no es el caso
@@ -118,7 +118,7 @@ public class Jugador implements Comparable<Jugador>{
       return modificarSaldo(cantidad * -1);
     }
 
-    
+
     /** Realiza la acción de pagar por sacar una sopresa que te obliga a pagar un impuesto.
      * @param cantidad Dinero a pagar
      * @return @retval true si el jugador ha pagado y @retval false si no es el caso
@@ -130,7 +130,7 @@ public class Jugador implements Comparable<Jugador>{
         return paga(cantidad);
     }
 
-    
+
     /** Realiza la acción de pagar por caer en una propiedad de otro jugador.
      * @param cantidad Dinero a pagar
      * @return @retval true si el jugador ha pagado y @retval false si no es el caso
@@ -141,7 +141,7 @@ public class Jugador implements Comparable<Jugador>{
       else
         return paga(cantidad);
     }
-    
+
 
     /** Incrementa el saldo en el juego.
      * @param cantidad Dinero a pagar
@@ -153,7 +153,7 @@ public class Jugador implements Comparable<Jugador>{
       else
         return modificarSaldo(cantidad);
     }
-    
+
 
     /** Modifica el saldo en el juego.
      * @param cantidad Dinero que incrementa/disminuye el saldo
@@ -165,7 +165,7 @@ public class Jugador implements Comparable<Jugador>{
       return true;
     }
 
-    
+
     /** Modifica la posición de un jugador.
      * @param numCasilla Casilla a la que se va a mover al jugador
      * @return @retval true si se ha realizado la acción con éxito o @false en caso contrario
@@ -183,7 +183,7 @@ public class Jugador implements Comparable<Jugador>{
 
       return mover;
     }
-    
+
 
     /** Determina si el jugador tiene el saldo suficiente para pagar.
      * @param precio Dinero a pagar
@@ -198,25 +198,20 @@ public class Jugador implements Comparable<Jugador>{
 //        puedo = false;
 //
 //      return puedo;
-      
+
       return ( !isEncarcelado() && getSaldo() >= precio);
     }
 
-    
+
     /** Vende una propiedad de un jugador.
      * @param ip Número de casilla de la propiedad que se va a vender
      * @return @retval true si se ha realizado la acción con éxito o @false en caso contrario
      */
     boolean vender (int ip){
       boolean puedo = false;
-      
-      propiedades.get(ip).vender(this);
 
-      //if(!isEncarcelado() && existeLaPropiedad (propiedades.get(ip)))                               
-      // Y: parametro pasado a existePropiedad (int) --> 
       if (!isEncarcelado() && existeLaPropiedad(ip))                            // Si no está encarcelado y existe la propiedad
-        //if (propiedades.get(ip).vender(*this))   Y: Sin el puntero -->        // Si se ha podido vender la propiedad
-        if (propiedades.get(ip).vender(this)) {     
+        if (propiedades.get(ip).vender(this)) {                                 // Si se ha podido vender la propiedad
           propiedades.remove(ip);
           Diario.getInstance().ocurreEvento("Se ha vendido la propiedad de la casilla " + ip);
           puedo = true;
@@ -225,7 +220,7 @@ public class Jugador implements Comparable<Jugador>{
         return puedo;
     }
 
-    
+
     /** Determina si el jugador tiene propiedades.
      * @return @retval true si el jugador posee propiedades o @false en caso contrario
      */
@@ -241,7 +236,7 @@ public class Jugador implements Comparable<Jugador>{
         return ( !propiedades.isEmpty() );
     }
 
-    
+
     /** Determina si el jugador puede salir de la cárcel pagando.
      * @return @retval true si el jugador puede pagar el precio por su libertad o @false en caso contrario
      */
@@ -252,10 +247,10 @@ public class Jugador implements Comparable<Jugador>{
 //        salir = true;
 //
 //        return salir;
-        
+
         return (getSaldo() >= getPrecioLibertad());
     }
-    
+
 
     /** Libera al jugador de la cárcel tras pagar.
      * @return @retval true si el jugador ha sido liberado o @false en caso contrario
@@ -273,7 +268,7 @@ public class Jugador implements Comparable<Jugador>{
 
       return salir;
     }
-    
+
 
     /** Libera al jugador de la cárcel tras tirar.
      * @return @retval true si el jugador ha sido liberado o @false en caso contrario
@@ -287,7 +282,7 @@ public class Jugador implements Comparable<Jugador>{
         return isEncarcelado();
     }
 
-    
+
     /** Modifica el saldo por haber pasado por la casilla de salida.
      * @return @retval true si se ha realizado la acción con éxito o @false en caso contrario
      */
@@ -296,19 +291,19 @@ public class Jugador implements Comparable<Jugador>{
       return true; //(para que compile :D)
       //return modificarSaldo(...) ??
     }
-    
-    
-    
+
+
+
     // -------------------- Consultores -------------------- //
-    
-    
+
+
     /** Consultor privado del atributo CasasMax.
      * @return CasasMax Número máximo de casas que se puede edificar por casilla
      */
     private int getCasasMax (){
       return CasasMax;
     }
-    
+
 
     /** Consultor del atributo CasasPorHotel.
      * @return CasasPorHotel Número de casas que se deben tener para poder intercambiarse por un hotel
@@ -316,7 +311,7 @@ public class Jugador implements Comparable<Jugador>{
     int getCasasPorHotel (){
       return CasasPorHotel;
     }
-    
+
 
     /** Consultor privado del atributo HotelesMax.
      * @return HotelesMax Número máximo de hoteles que se puede edificar por casilla
@@ -325,14 +320,14 @@ public class Jugador implements Comparable<Jugador>{
       return HotelesMax;
     }
 
-    
+
     /** Consultor protegido del atributo nombre.
      * @return nombre El nombre del Jugador
      */
     protected String getNombre (){
       return nombre;
     }
-    
+
 
     /** Consultor del atributo numCasillaActual.
      * @return numCasillaActual Número de la casilla en la que se encuentra el Jugador
@@ -340,7 +335,7 @@ public class Jugador implements Comparable<Jugador>{
     int getNumCasillaActual (){
       return numCasillaActual;
     }
-    
+
 
     /** Consultor privado del atributo PrecioLibertad.
      * @return PrecioLibertad Precio a pagar por salir de la cárcel
@@ -348,7 +343,7 @@ public class Jugador implements Comparable<Jugador>{
     private float getPrecioLibertad (){
       return PrecioLibertad;
     }
-    
+
 
     /** Consultor privado del atributo PasoPorSalida.
      * @return PasoPorSalida Precio a cobrar por pasar por la casilla de salida
@@ -356,7 +351,7 @@ public class Jugador implements Comparable<Jugador>{
     private float getPremioPasoSalida (){
       return PasoPorSalida;
     }
-    
+
 
     /** Consultor protegido del atributo propiedades.
      * @return propiedades Array que contiene el conjunto de propiedades del jugador
@@ -364,13 +359,13 @@ public class Jugador implements Comparable<Jugador>{
     protected ArrayList <TituloPropiedad> getPropiedades(){
       return propiedades;           //Y: era el tipo que devolvia, ahora si se puede devolver un array :)
     }
-    
+
 
     /** Conmuta la cantidad total de edificaciones en las propiedades del jugador.
      * @return casasHoteles Número total de edificaciones que existen en el array propiedades
      * @warning no sé si está correcto Y: po yo creo que si
      */
-    int cantidadCasasHoteles(){ 
+    int cantidadCasasHoteles(){
       TituloPropiedad propiedad;
       int casasHoteles = 0;
 
@@ -382,14 +377,14 @@ public class Jugador implements Comparable<Jugador>{
       return casasHoteles;
     }
 
-    
+
     /** Consultor del atributo puedeComprar.
      * @return @retval true si el jugador puede comprar una propiedad o @retval false en caso contrario
      */
     boolean getPuedeComprar(){
       return puedeComprar;
     }
-    
+
 
     /** Consultor protegido del atributo saldo.
      * @return saldo Cantidad de dinero del jugador
@@ -397,7 +392,7 @@ public class Jugador implements Comparable<Jugador>{
     protected float getSaldo(){
       return saldo;
     }
-    
+
 
     /** Consultor público del atributo encarcelado.
      * @return @retval true si el jugador está encarcelado o @retval false en caso contrario
@@ -405,7 +400,7 @@ public class Jugador implements Comparable<Jugador>{
     public boolean isEncarcelado(){
       return encarcelado;
     }
-    
+
 
     /** Determina si el jugador tiene salvoconducto.
      * @return @retval true si el jugador tiene salvoconducto y @retval false si no es el caso
@@ -418,7 +413,7 @@ public class Jugador implements Comparable<Jugador>{
 
       return tiene;
     }
-    
+
 
     /** Determina si el jugador puede comprar una propiedad.
      * @return @retval true si el jugador puede comprar la casilla y @retval false si no es el caso
@@ -432,7 +427,7 @@ public class Jugador implements Comparable<Jugador>{
       return getPuedeComprar();
     }
 
-    
+
 
     /**
      * @warning por implementar
@@ -533,13 +528,13 @@ public class Jugador implements Comparable<Jugador>{
           s+= "\n Puede comprar.";
       else
           s += "\n No puede comprar";
-      
+
       if (encarcelado)
           s+= "\n Encarcelado D:";
-      
+
       if ( salvoconducto != null)
           s+= "\n Tiene salvoconducto";
-      
+
       return s;
     }
 
@@ -551,27 +546,27 @@ public class Jugador implements Comparable<Jugador>{
     public int compareTo (Jugador otro){
       return (int)(getSaldo() - otro.getSaldo()) ;
     }
-    
-    
-    
+
+
+
     public static void main(String[] args){
-        
+
         String nombre1 = "Pepe Wapo";
         Jugador j1 = new Jugador (nombre1);
-        
+
         //Constructor de copia (ok)
         //Jugador j2 = new Jugador (j1);
         //System.out.println(j1.toString() + j2.toString());
-        
+
         MazoSorpresas mazo = new MazoSorpresas ();
         Sorpresa salvoconducto = new Sorpresa (TipoSorpresa.SALIRCARCEL, mazo);
-        j1.obtenerSalvoconducto(salvoconducto);           
+        j1.obtenerSalvoconducto(salvoconducto);
         //j1.encarcelar(5);             //ok
         //j1.paga(2000f);               //ok
         //j1.moverACasilla(7);          //ok
         //j1.recibe(1f);                //ok
         //j1.pagaAlquiler(1f);          //ok
-        
+
         System.out.println(j1.toString());
     }
 

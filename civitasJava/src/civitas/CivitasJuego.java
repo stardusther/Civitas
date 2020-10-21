@@ -44,19 +44,14 @@ public class CivitasJuego {
         indiceJugadorActual = Dado.getInstance().quienEmpieza (numJugadores);
 
         // "Crear el mazo de sorpresas, llamar al método de inicialización del tablero y del mazo" E: tengo que redefinir el mazo?
-        //tablero.inicializaTablero(mazo);
-        //mazo.inicializaMazoSorpresas(tablero);
-        
-        //Y:
-        tablero = new Tablero (casillaCarcel);                                  // Y: Casilla carcel, añadir atributo de clase casillaCarcel = 5
-        mazo = new MazoSorpresas ();
+        tablero.inicializaTablero(mazo);
+        mazo.inicializaMazoSorpresas(tablero);
     }
 
     private void inicializaTablero (MazoSorpresas mazo){
-        // Y: no hace falta si ya se hace en el constructor no?? (se que es lo que pone en el guión pero afhjhkhjgfhgd D: )
-        //tablero = new Tablero(casillaCarcel);                                 //Se añade automáticamente la casilla de salida en la posición 0
+      tablero = new Tablero(casillaCarcel);                                 //Se añade automáticamente la casilla de salida en la posición 0
 
-      for (int i = 0; i < numCasillas; i++)
+      for (int i = 1; i < numCasillas; i++)
           switch (i) {
               default:
                   tablero.añadeCasilla (calle);

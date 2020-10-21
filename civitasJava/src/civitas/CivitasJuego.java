@@ -57,15 +57,27 @@ public class CivitasJuego {
         //tablero = new Tablero(casillaCarcel);                                 //Se añade automáticamente la casilla de salida en la posición 0
 
       for (int i = 0; i < numCasillas; i++)
-            if (i == 15)
-                tablero.añadeJuez();
-            else
-                i = 320;      //Y: lo puse así de momento para que no de error de compilacion 
-                //Y: añadir casillas
-                //tablero.añadeCasilla(new Casilla (/*****/))
-                
-             
-                
+          switch (i) {
+              default:
+                  tablero.añadeCasilla (calle);
+              case 5:
+                  tablero.añadeCasilla (carcel);
+                  break;
+              case 7:
+                  tablero.añadeCasilla (sorpresa_mazo1);
+                  break;
+              case 10:
+                  tablero.añadeCasilla(descaso);
+                  break;
+              case 13:
+                  tablero.añadeCasilla (sorpresa_mazo2);
+              case 15:
+                  tablero.añadeJuez();
+                  break;
+              case 18:
+                  tablero.añadeCasilla(sorpresa_mazo3);
+                  break;
+          }
     }
 
     public Jugador getJugadorActual(){

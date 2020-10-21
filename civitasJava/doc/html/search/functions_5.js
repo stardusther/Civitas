@@ -1,4 +1,31 @@
 var searchData=
 [
-  ['habilitarcartaespecial',['habilitarCartaEspecial',['../classcivitas_1_1MazoSorpresas.html#a285260ff3aab3eb49c41d4d274b9dcc1',1,'civitas::MazoSorpresas']]]
+  ['getcarcel',['getCarcel',['../classcivitas_1_1Tablero.html#a82417628c739720b0528cd70165fb0c1',1,'civitas::Tablero']]],
+  ['getcasasmax',['getCasasMax',['../classcivitas_1_1Jugador.html#a53bb212c80e5478ee456aac4e80c3aca',1,'civitas::Jugador']]],
+  ['getcasasporhotel',['getCasasPorHotel',['../classcivitas_1_1Jugador.html#a0fd044d8f7c6d61718b389124f93ec17',1,'civitas::Jugador']]],
+  ['getcasilla',['getCasilla',['../classcivitas_1_1Tablero.html#a3e8d442ecab08ad5735bb82ed191cebb',1,'civitas::Tablero']]],
+  ['getcasillaactual',['getCasillaActual',['../classcivitas_1_1CivitasJuego.html#ac362b49d8a30d194dfb94c02dd808e1c',1,'civitas::CivitasJuego']]],
+  ['gethipotecado',['getHipotecado',['../classcivitas_1_1TituloPropiedad.html#a10cc16f629330f82d9fb844c2a1aeac5',1,'civitas::TituloPropiedad']]],
+  ['gethotelesmax',['getHotelesMax',['../classcivitas_1_1Jugador.html#adcb057e3337f0c727184071a8b8374f8',1,'civitas::Jugador']]],
+  ['getimportecancelarhipoteca',['getImporteCancelarHipoteca',['../classcivitas_1_1TituloPropiedad.html#a02c54372a15432b602c8a0bfee1a2876',1,'civitas::TituloPropiedad']]],
+  ['getimportehipoteca',['getImporteHipoteca',['../classcivitas_1_1TituloPropiedad.html#a194b2337d9aa79339654b680d6413940',1,'civitas::TituloPropiedad']]],
+  ['getinstance',['getInstance',['../classcivitas_1_1Dado.html#a09462f46d46e9555b8cc92ba6a3adc92',1,'civitas.Dado.getInstance()'],['../classcivitas_1_1Diario.html#af8e36f90afe1bbaf252205f467b33750',1,'civitas.Diario.getInstance()']]],
+  ['getjugadoractual',['getJugadorActual',['../classcivitas_1_1CivitasJuego.html#a5ddcdfd9eadc3ca5a1f9f139c57bc833',1,'civitas::CivitasJuego']]],
+  ['getnombre',['getNombre',['../classcivitas_1_1Casilla.html#aeff56538b363f5ca69221cf0b0743d37',1,'civitas.Casilla.getNombre()'],['../classcivitas_1_1Jugador.html#a798c1fffaaf1dd8d12f36dd3d09b4f1b',1,'civitas.Jugador.getNombre()'],['../classcivitas_1_1TituloPropiedad.html#aa312f47365906e18b3d55252638c5705',1,'civitas.TituloPropiedad.getNombre()']]],
+  ['getnumcasas',['getNumCasas',['../classcivitas_1_1TituloPropiedad.html#ae424998d9017e8fc1d862c0c170b982f',1,'civitas::TituloPropiedad']]],
+  ['getnumcasillaactual',['getNumCasillaActual',['../classcivitas_1_1Jugador.html#ae60e7e2b72553535a3100e11a89e6948',1,'civitas::Jugador']]],
+  ['getnumhoteles',['getNumHoteles',['../classcivitas_1_1TituloPropiedad.html#ab89ae501ad7ed7ddd658f117fb2cd794',1,'civitas::TituloPropiedad']]],
+  ['getporsalida',['getPorSalida',['../classcivitas_1_1Tablero.html#a9df67a69c40715a9ddee0341fd1aeaff',1,'civitas::Tablero']]],
+  ['getprecioalquiler',['getPrecioAlquiler',['../classcivitas_1_1TituloPropiedad.html#aa79c195a743544d869254bdd9e327c18',1,'civitas::TituloPropiedad']]],
+  ['getpreciocompra',['getPrecioCompra',['../classcivitas_1_1TituloPropiedad.html#aa4a37b3b373b67bf57de4ff9c052e2cc',1,'civitas::TituloPropiedad']]],
+  ['getprecioedificar',['getPrecioEdificar',['../classcivitas_1_1TituloPropiedad.html#aa5ebf334114985e75d4c293107a3367f',1,'civitas::TituloPropiedad']]],
+  ['getpreciolibertad',['getPrecioLibertad',['../classcivitas_1_1Jugador.html#a7efefdcbd0fc0d10e113a605c0251e2b',1,'civitas::Jugador']]],
+  ['getprecioventa',['getPrecioVenta',['../classcivitas_1_1TituloPropiedad.html#a1730fca9c95b2c3d538fbd63113085c7',1,'civitas::TituloPropiedad']]],
+  ['getpremiopasosalida',['getPremioPasoSalida',['../classcivitas_1_1Jugador.html#a2640c1b6ddf6f07a2d11012b51f05910',1,'civitas::Jugador']]],
+  ['getpropiedades',['getPropiedades',['../classcivitas_1_1Jugador.html#a2927df4695696abd841c71f6c3eba318',1,'civitas::Jugador']]],
+  ['getpropietario',['getPropietario',['../classcivitas_1_1TituloPropiedad.html#ae109616f7c5c37f25ab42be9afd77324',1,'civitas::TituloPropiedad']]],
+  ['getpuedecomprar',['getPuedeComprar',['../classcivitas_1_1Jugador.html#a1b548df1bff7883664b0848408ed0232',1,'civitas::Jugador']]],
+  ['getsaldo',['getSaldo',['../classcivitas_1_1Jugador.html#a3c9d02f7974457585c0e2a58ccad6c76',1,'civitas::Jugador']]],
+  ['gettitulopropiedad',['getTituloPropiedad',['../classcivitas_1_1Casilla.html#a3da38879e21350c8099ffde92cab0c00',1,'civitas::Casilla']]],
+  ['getultimoresultado',['getUltimoResultado',['../classcivitas_1_1Dado.html#a7ed26455a30faedfff9878177cf72861',1,'civitas::Dado']]]
 ];

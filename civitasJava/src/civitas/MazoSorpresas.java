@@ -8,6 +8,7 @@
 package civitas;
 import java.util.ArrayList;
 import java.util.Collections;       //Para hacer el shuffle
+import java.util.List;
 
 /**
  * @class MazoSorpresas
@@ -111,4 +112,41 @@ public class MazoSorpresas {
           Diario.getInstance().ocurreEvento ("Se ha habilitado una carta especial");
         }
     }
+    
+    
+    @Override
+    public String toString () {
+        String s = new String();
+        if (barajada)
+            s += " barajada ";
+        s += usadas;
+        
+        if (debug)
+            s += "  debug  ";
+        
+        return s;
+    }
+    
+    
+    
+    
+    public static void main(String[] args) {
+        MazoSorpresas mazo = new MazoSorpresas();
+        MazoSorpresas mazo_debug = new MazoSorpresas(true);
+        
+        Sorpresa salvoconducto = new Sorpresa (TipoSorpresa.SALIRCARCEL, mazo);
+        Sorpresa pagarcobrar = new Sorpresa (TipoSorpresa.PAGARCOBRAR, 300, "Sorpresa pagar-cobrar");
+        
+        mazo.alMazo(salvoconducto);
+        mazo.alMazo(pagarcobrar);
+
+        mazo.habilitarCartaEspecial(pagarcobrar);
+        
+        mazo.inhabilitarCartaEspecial(pagarcobrar);
+        
+        System.out.println(mazo.toString());
+        
+    }
+    
+    
 }

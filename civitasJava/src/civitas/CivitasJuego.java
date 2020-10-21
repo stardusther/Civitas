@@ -44,28 +44,35 @@ public class CivitasJuego {
         indiceJugadorActual = Dado.getInstance().quienEmpieza (numJugadores);
 
         // "Crear el mazo de sorpresas, llamar al método de inicialización del tablero y del mazo" E: tengo que redefinir el mazo?
-        //tablero.inicializaTablero(mazo);
-        //mazo.inicializaMazoSorpresas(tablero);
-        
-        //Y:
-        tablero = new Tablero (casillaCarcel);                                  // Y: Casilla carcel, añadir atributo de clase casillaCarcel = 5
-        mazo = new MazoSorpresas ();
+        tablero.inicializaTablero(mazo);
+        mazo.inicializaMazoSorpresas(tablero);
     }
 
     private void inicializaTablero (MazoSorpresas mazo){
-        // Y: no hace falta si ya se hace en el constructor no?? (se que es lo que pone en el guión pero afhjhkhjgfhgd D: )
-        //tablero = new Tablero(casillaCarcel);                                 //Se añade automáticamente la casilla de salida en la posición 0
+      tablero = new Tablero(casillaCarcel);                                 //Se añade automáticamente la casilla de salida en la posición 0
 
-      for (int i = 0; i < numCasillas; i++)
-            if (i == 15)
-                tablero.añadeJuez();
-            else
-                i = 320;      //Y: lo puse así de momento para que no de error de compilacion 
-                //Y: añadir casillas
-                //tablero.añadeCasilla(new Casilla (/*****/))
-                
-             
-                
+      for (int i = 1; i < numCasillas; i++)
+          switch (i) {
+              default:
+                  tablero.añadeCasilla (calle);
+              case 5:
+                  tablero.añadeCasilla (carcel);
+                  break;
+              case 7:
+                  tablero.añadeCasilla (sorpresa_mazo1);
+                  break;
+              case 10:
+                  tablero.añadeCasilla(descaso);
+                  break;
+              case 13:
+                  tablero.añadeCasilla (sorpresa_mazo2);
+              case 15:
+                  tablero.añadeJuez();
+                  break;
+              case 18:
+                  tablero.añadeCasilla(sorpresa_mazo3);
+                  break;
+          }
     }
 
     public Jugador getJugadorActual(){

@@ -7,4 +7,11 @@ digraph "civitas.MazoSorpresas"
   Node2 [label="ArrayList\< civitas.Sorpresa \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ultimaSorpresa" ,fontname="Helvetica"];
   Node3 [label="civitas.Sorpresa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1Sorpresa.html"];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sorpresa" ,fontname="Helvetica"];
+  Node4 [label="civitas.TipoSorpresa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$enumcivitas_1_1TipoSorpresa.html"];
+  Node5 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" tablero" ,fontname="Helvetica"];
+  Node5 [label="civitas.Tablero",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcivitas_1_1Tablero.html",tooltip="Representa el tablero de juego imponiendo las restricciones existentes. "];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" casillas" ,fontname="Helvetica"];
+  Node6 [label="ArrayList\< civitas.Casilla \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mazo" ,fontname="Helvetica"];
 }

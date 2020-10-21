@@ -56,9 +56,17 @@ public class Sorpresa{
 
     /** Llama a aplicarJugador<tipo_de_sorpresa> en funcion del tipo de atributo sorpresa que se trate.
      * @note Todos los métodos aplicarJugador<...> revisans si en jugador indicado es correcto.
-     *       En caso contrario no se lleva a cabo ninguna acción.*/
-    void aplicarAJugador (int actual, Jugador todos[]) {  //E: recomiendo usar un switch
+     *       En caso contrario no se lleva a cabo ninguna acción.
+     * @warnign Mejor quitar todas las comprobacines de los metodos privado y ponerla solo en el uncio que se llama?
+     * = menos líneas de cógido :/ (sin terminar)
+     */
 
+    void aplicarAJugador (int actual, Jugador todos[]) {
+        if (jugadorCorrecto(actual, todos)) {
+            switch (sorpresa){
+            }
+
+        }
     }
 
 

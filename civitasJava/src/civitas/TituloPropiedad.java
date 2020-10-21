@@ -62,24 +62,6 @@ public class TituloPropiedad {
     int cantidadCasasHoteles() {
         return (numCasas + numHoteles);
     }
-
-    
-    /** @warning Siguiente practica */
-    boolean comprar (Jugador jugador) {
-        return true;
-    }
-
-    
-    /** @warning Siguiente practica */
-    boolean construirCasa (Jugador jugador) {
-        return true;
-    }
-
-    
-    /** @warning Siguiente practica */
-    boolean construirHotel (Jugador jugador) {
-        return true;
-    }
     
     
     /** Si el jugador es el propietario y n es menor al num de casas, 
@@ -106,12 +88,6 @@ public class TituloPropiedad {
     }
     
     
-    /** @warning Siguiente practica */
-    boolean hipotecar (Jugador jugador) {
-        return true;
-    }
-    
-    
     /** Si el titulo tiene propietario y no es el jugador pasado como parametro, 
      * este paga el alguiler correspondiente, y el propietario recibe ese mismo importe. */
     void tramitarAlquiler (Jugador jugador) {
@@ -126,7 +102,7 @@ public class TituloPropiedad {
      *  entonces se da al propietario el precio de venta, se desvincula al propietario de la 
      *  propiedad y se eliminan las casas y hoteles.
      * @return @retval true si se lleva a cabo la operacion @retval false si no.
-     * @warning desvincular propietario.
+     * @warning desvincular propietario !!!
      */
     boolean vender (Jugador jugador) {
         boolean vendido = false;
@@ -135,7 +111,7 @@ public class TituloPropiedad {
             propietario.recibe(precioCompra);
             numCasas = 0;
             numHoteles = 0;
-            //desvincular propietario no c
+            //desvincular propietario del jugador!
             propietario = null;
             vendido = true;
         }
@@ -145,6 +121,7 @@ public class TituloPropiedad {
     
     
     // ----------------- Consultores ------------------- //
+    
     
     public boolean getHipotecado () {
         return hipotecado;
@@ -172,9 +149,6 @@ public class TituloPropiedad {
 
     float getPrecioAlquiler() {
         float precio;
-        //devuelve el precio del alquiler calculado según las reglas del
-        //juego. Si el título se encuentra hipotecado o si el propietario está encarcelado (ver
-        //propietarioEncarcelado()) el precio del alquiler será cero.
 
         if (hipotecado || propietarioEncarcelado())
             precio = 0f;
@@ -207,6 +181,34 @@ public class TituloPropiedad {
     private boolean propietarioEncarcelado () {
         return (tienePropietario() && propietario.isEncarcelado());
     }
+    
+    
+    // ----------------- SIGUIENTE PRACTICA ------------------- //
+    
+    
+    /** @warning Siguiente practica */
+    boolean hipotecar (Jugador jugador) {
+        return true;
+    }
+    
+    
+    /** @warning Siguiente practica */
+    boolean comprar (Jugador jugador) {
+        return true;
+    }
+
+    
+    /** @warning Siguiente practica */
+    boolean construirCasa (Jugador jugador) {
+        return true;
+    }
+
+    
+    /** @warning Siguiente practica */
+    boolean construirHotel (Jugador jugador) {
+        return true;
+    }
+    
 
 
     @Override

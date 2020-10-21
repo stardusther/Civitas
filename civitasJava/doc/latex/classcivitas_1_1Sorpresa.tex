@@ -2,15 +2,235 @@
 \label{classcivitas_1_1Sorpresa}\index{civitas.\+Sorpresa@{civitas.\+Sorpresa}}
 
 
-\subsection{Descripción detallada}
-\begin{DoxyAuthor}{Autor}
-Yesenia González Dávila 
+Diagrama de colaboración para civitas.\+Sorpresa\+:
+% FIG 0
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classcivitas_1_1Sorpresa_a640887e96c19efefffbd92b97f710381}{jugador\+Correcto} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+String \hyperlink{classcivitas_1_1Sorpresa_ad2b9c7fd5bcc4ea986fac9ad8c9605e3}{to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Funciones del \textquotesingle{}package\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcivitas_1_1Sorpresa_a5789cc629379aedcc8577e748e966fdc}{Sorpresa} (\hyperlink{enumcivitas_1_1TipoSorpresa}{Tipo\+Sorpresa} tipo, \hyperlink{classcivitas_1_1Tablero}{Tablero} tab)
+\item 
+\hyperlink{classcivitas_1_1Sorpresa_adf70459739c97667854e3bc341d0e75d}{Sorpresa} (\hyperlink{enumcivitas_1_1TipoSorpresa}{Tipo\+Sorpresa} tipo, \hyperlink{classcivitas_1_1Tablero}{Tablero} tab, int \hyperlink{classcivitas_1_1Sorpresa_a7c1df71c9d226e14c75ec8ec66592485}{valor}, String \hyperlink{classcivitas_1_1Sorpresa_aa7f34d4a47ca2e53f96a060aed7b6c4f}{texto})
+\item 
+\hyperlink{classcivitas_1_1Sorpresa_a8476d67edfec1d155247a78ac79c30fa}{Sorpresa} (\hyperlink{enumcivitas_1_1TipoSorpresa}{Tipo\+Sorpresa} tipo, \hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas} \hyperlink{classcivitas_1_1Sorpresa_a3a0aae5184087ccd5a07391a2d5d0e78}{mazo})
+\item 
+\hyperlink{classcivitas_1_1Sorpresa_ac8329d952018aea614627c895669b262}{Sorpresa} (\hyperlink{enumcivitas_1_1TipoSorpresa}{Tipo\+Sorpresa} tipo, int \hyperlink{classcivitas_1_1Sorpresa_a7c1df71c9d226e14c75ec8ec66592485}{valor}, String \hyperlink{classcivitas_1_1Sorpresa_aa7f34d4a47ca2e53f96a060aed7b6c4f}{texto})
+\item 
+void \hyperlink{classcivitas_1_1Sorpresa_a368a76d34d0b1e3eb55519876ebcba44}{aplicar\+A\+Jugador} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{classcivitas_1_1Sorpresa_a8b9ba892b6e916fde058e62d1a3c1b78}{salir\+Del\+Mazo} ()
+\item 
+void \hyperlink{classcivitas_1_1Sorpresa_a37c95138a99f3c67b8b93bf921e6baba}{usada} ()
+\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcivitas_1_1Sorpresa_a4ff8261c67fb8ee584c6519fb2780354}{aplicar\+A\+Jugador\+\_\+ir\+A\+Casilla} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{classcivitas_1_1Sorpresa_a4bff9e94488f91f80b9d57bfb268669a}{aplicar\+A\+Jugador\+\_\+ir\+Carcel} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{classcivitas_1_1Sorpresa_a2f0e2f67d53962c7aa71c4d8cddce5a6}{aplicar\+A\+Jugador\+\_\+pagar\+Cobrar} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{classcivitas_1_1Sorpresa_a5f754dc853619e2aade301acda290784}{aplicar\+A\+Jugador\+\_\+por\+Casa\+Hotel} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{classcivitas_1_1Sorpresa_ac1c1770b07805390c5d7486f6f1285d9}{aplicar\+A\+Jugador\+\_\+por\+Jugador} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{classcivitas_1_1Sorpresa_aa51f171294077ccba991f03fae016a62}{aplicar\+A\+Jugador\+\_\+salir\+Carcel} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{classcivitas_1_1Sorpresa_ae375d66b0f74795268b881d852b0f90f}{informe} (int actual, \hyperlink{classcivitas_1_1Jugador}{Jugador} todos\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{classcivitas_1_1Sorpresa_a84bd6659e667747df646da45a3467cd5}{init} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+String \hyperlink{classcivitas_1_1Sorpresa_aa7f34d4a47ca2e53f96a060aed7b6c4f}{texto}
+\item 
+int \hyperlink{classcivitas_1_1Sorpresa_a7c1df71c9d226e14c75ec8ec66592485}{valor}
+\item 
+\hyperlink{classcivitas_1_1Tablero}{Tablero} \hyperlink{classcivitas_1_1Sorpresa_a843272761fd69ecf32682bf3f6060add}{tablero}
+\item 
+\hyperlink{enumcivitas_1_1TipoSorpresa}{Tipo\+Sorpresa} \hyperlink{classcivitas_1_1Sorpresa_acda3eee006c2731ae4f062b05ffe36ab}{sorpresa}
+\item 
+\hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas} \hyperlink{classcivitas_1_1Sorpresa_a3a0aae5184087ccd5a07391a2d5d0e78}{mazo}
+\end{DoxyCompactItemize}
 
-Esther García Gallego 
-\end{DoxyAuthor}
-\begin{DoxyWarning}{Atención}
-clase vacía hasta la practica 2 Grupo B.\+3 
+
+\subsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_a5789cc629379aedcc8577e748e966fdc}\label{classcivitas_1_1Sorpresa_a5789cc629379aedcc8577e748e966fdc}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!Sorpresa@{Sorpresa}}
+\index{Sorpresa@{Sorpresa}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{Sorpresa()}{Sorpresa()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily civitas.\+Sorpresa.\+Sorpresa (\begin{DoxyParamCaption}\item[{\hyperlink{enumcivitas_1_1TipoSorpresa}{Tipo\+Sorpresa}}]{tipo,  }\item[{\hyperlink{classcivitas_1_1Tablero}{Tablero}}]{tab }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Constructor para sorpresa que envia a la carcel. \begin{DoxyPrecond}{Precondición}
+\hyperlink{enumcivitas_1_1TipoSorpresa}{Tipo\+Sorpresa} de tipo I\+R\+C\+A\+R\+C\+EL 
+\end{DoxyPrecond}
+\begin{DoxyNote}{Nota}
+El valor no es aplicable en esta carta (valor=-\/1) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_adf70459739c97667854e3bc341d0e75d}\label{classcivitas_1_1Sorpresa_adf70459739c97667854e3bc341d0e75d}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!Sorpresa@{Sorpresa}}
+\index{Sorpresa@{Sorpresa}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{Sorpresa()}{Sorpresa()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily civitas.\+Sorpresa.\+Sorpresa (\begin{DoxyParamCaption}\item[{\hyperlink{enumcivitas_1_1TipoSorpresa}{Tipo\+Sorpresa}}]{tipo,  }\item[{\hyperlink{classcivitas_1_1Tablero}{Tablero}}]{tab,  }\item[{int}]{valor,  }\item[{String}]{texto }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Constructor para sorpresa que envia al jugador a otra casilla. \begin{DoxyPrecond}{Precondición}
+\hyperlink{enumcivitas_1_1TipoSorpresa}{Tipo\+Sorpresa} de tipo I\+R\+A\+C\+A\+S\+I\+L\+LA 
+\end{DoxyPrecond}
+\begin{DoxyNote}{Nota}
+El valor corresponderá al núm de la casilla donde se debe trasladar al jugador. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_a8476d67edfec1d155247a78ac79c30fa}\label{classcivitas_1_1Sorpresa_a8476d67edfec1d155247a78ac79c30fa}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!Sorpresa@{Sorpresa}}
+\index{Sorpresa@{Sorpresa}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{Sorpresa()}{Sorpresa()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily civitas.\+Sorpresa.\+Sorpresa (\begin{DoxyParamCaption}\item[{\hyperlink{enumcivitas_1_1TipoSorpresa}{Tipo\+Sorpresa}}]{tipo,  }\item[{\hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas}}]{mazo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Constructor para sorpresa que evita la carcel. \begin{DoxyPrecond}{Precondición}
+\hyperlink{enumcivitas_1_1TipoSorpresa}{Tipo\+Sorpresa} de tipo S\+A\+L\+I\+R\+C\+A\+R\+C\+EL 
+\end{DoxyPrecond}
+\begin{DoxyNote}{Nota}
+valor no aplicable 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_ac8329d952018aea614627c895669b262}\label{classcivitas_1_1Sorpresa_ac8329d952018aea614627c895669b262}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!Sorpresa@{Sorpresa}}
+\index{Sorpresa@{Sorpresa}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{Sorpresa()}{Sorpresa()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily civitas.\+Sorpresa.\+Sorpresa (\begin{DoxyParamCaption}\item[{\hyperlink{enumcivitas_1_1TipoSorpresa}{Tipo\+Sorpresa}}]{tipo,  }\item[{int}]{valor,  }\item[{String}]{texto }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Constructor para el resto de sorpresas (P\+O\+R\+J\+U\+G\+A\+D\+OR, P\+O\+R\+C\+A\+S\+A\+H\+O\+T\+EL, P\+A\+G\+A\+R\+C\+O\+B\+R\+AR). 
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_a368a76d34d0b1e3eb55519876ebcba44}\label{classcivitas_1_1Sorpresa_a368a76d34d0b1e3eb55519876ebcba44}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!aplicar\+A\+Jugador@{aplicar\+A\+Jugador}}
+\index{aplicar\+A\+Jugador@{aplicar\+A\+Jugador}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{aplicar\+A\+Jugador()}{aplicarAJugador()}}
+{\footnotesize\ttfamily void civitas.\+Sorpresa.\+aplicar\+A\+Jugador (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Llama a aplicar\+Jugador$<$tipo\+\_\+de\+\_\+sorpresa$>$ en funcion del tipo de atributo sorpresa que se trate. \begin{DoxyNote}{Nota}
+Todos los métodos aplicar\+Jugador$<$...$>$ revisans si en jugador indicado es correcto. En caso contrario no se lleva a cabo ninguna acción. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_a4ff8261c67fb8ee584c6519fb2780354}\label{classcivitas_1_1Sorpresa_a4ff8261c67fb8ee584c6519fb2780354}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!aplicar\+A\+Jugador\+\_\+ir\+A\+Casilla@{aplicar\+A\+Jugador\+\_\+ir\+A\+Casilla}}
+\index{aplicar\+A\+Jugador\+\_\+ir\+A\+Casilla@{aplicar\+A\+Jugador\+\_\+ir\+A\+Casilla}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{aplicar\+A\+Jugador\+\_\+ir\+A\+Casilla()}{aplicarAJugador\_irACasilla()}}
+{\footnotesize\ttfamily void civitas.\+Sorpresa.\+aplicar\+A\+Jugador\+\_\+ir\+A\+Casilla (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Mueve al jugador a la casilla indicada por el atributo valor. \begin{DoxyWarning}{Atención}
+metodo recibe\+Jugador sin terminar !! 
 \end{DoxyWarning}
+\begin{DoxyNote}{Nota}
+Es necesario usar los metodos calcular\+Tirada y nueva\+Posicion para que quede registrado un posible paso por salida como consecuencia del salto a la nueva casilla. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_a4bff9e94488f91f80b9d57bfb268669a}\label{classcivitas_1_1Sorpresa_a4bff9e94488f91f80b9d57bfb268669a}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!aplicar\+A\+Jugador\+\_\+ir\+Carcel@{aplicar\+A\+Jugador\+\_\+ir\+Carcel}}
+\index{aplicar\+A\+Jugador\+\_\+ir\+Carcel@{aplicar\+A\+Jugador\+\_\+ir\+Carcel}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{aplicar\+A\+Jugador\+\_\+ir\+Carcel()}{aplicarAJugador\_irCarcel()}}
+{\footnotesize\ttfamily void civitas.\+Sorpresa.\+aplicar\+A\+Jugador\+\_\+ir\+Carcel (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Se encarcela la jugador. \mbox{\Hypertarget{classcivitas_1_1Sorpresa_a2f0e2f67d53962c7aa71c4d8cddce5a6}\label{classcivitas_1_1Sorpresa_a2f0e2f67d53962c7aa71c4d8cddce5a6}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!aplicar\+A\+Jugador\+\_\+pagar\+Cobrar@{aplicar\+A\+Jugador\+\_\+pagar\+Cobrar}}
+\index{aplicar\+A\+Jugador\+\_\+pagar\+Cobrar@{aplicar\+A\+Jugador\+\_\+pagar\+Cobrar}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{aplicar\+A\+Jugador\+\_\+pagar\+Cobrar()}{aplicarAJugador\_pagarCobrar()}}
+{\footnotesize\ttfamily void civitas.\+Sorpresa.\+aplicar\+A\+Jugador\+\_\+pagar\+Cobrar (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Se modifica el saldo del jugador actual con el valor de la sorpresa. \mbox{\Hypertarget{classcivitas_1_1Sorpresa_a5f754dc853619e2aade301acda290784}\label{classcivitas_1_1Sorpresa_a5f754dc853619e2aade301acda290784}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!aplicar\+A\+Jugador\+\_\+por\+Casa\+Hotel@{aplicar\+A\+Jugador\+\_\+por\+Casa\+Hotel}}
+\index{aplicar\+A\+Jugador\+\_\+por\+Casa\+Hotel@{aplicar\+A\+Jugador\+\_\+por\+Casa\+Hotel}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{aplicar\+A\+Jugador\+\_\+por\+Casa\+Hotel()}{aplicarAJugador\_porCasaHotel()}}
+{\footnotesize\ttfamily void civitas.\+Sorpresa.\+aplicar\+A\+Jugador\+\_\+por\+Casa\+Hotel (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Se modifica el saldo del jugador actual con el valor de la sorpresa multiplicado por el núm de casas y hoteles del jugador. \mbox{\Hypertarget{classcivitas_1_1Sorpresa_ac1c1770b07805390c5d7486f6f1285d9}\label{classcivitas_1_1Sorpresa_ac1c1770b07805390c5d7486f6f1285d9}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!aplicar\+A\+Jugador\+\_\+por\+Jugador@{aplicar\+A\+Jugador\+\_\+por\+Jugador}}
+\index{aplicar\+A\+Jugador\+\_\+por\+Jugador@{aplicar\+A\+Jugador\+\_\+por\+Jugador}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{aplicar\+A\+Jugador\+\_\+por\+Jugador()}{aplicarAJugador\_porJugador()}}
+{\footnotesize\ttfamily void civitas.\+Sorpresa.\+aplicar\+A\+Jugador\+\_\+por\+Jugador (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Todos los jugadores dan dinero al jugador actual. \begin{DoxyWarning}{Atención}
+valor de sorpresas !! 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_aa51f171294077ccba991f03fae016a62}\label{classcivitas_1_1Sorpresa_aa51f171294077ccba991f03fae016a62}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!aplicar\+A\+Jugador\+\_\+salir\+Carcel@{aplicar\+A\+Jugador\+\_\+salir\+Carcel}}
+\index{aplicar\+A\+Jugador\+\_\+salir\+Carcel@{aplicar\+A\+Jugador\+\_\+salir\+Carcel}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{aplicar\+A\+Jugador\+\_\+salir\+Carcel()}{aplicarAJugador\_salirCarcel()}}
+{\footnotesize\ttfamily void civitas.\+Sorpresa.\+aplicar\+A\+Jugador\+\_\+salir\+Carcel (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Se pregunta a todos los jugadores su alguien tiene la sorpresa para evitar la carcel (salvoconducto), si nadie la tiene,la obtiene el jugador actual y se llama al método salir\+Del\+Mazo. \mbox{\Hypertarget{classcivitas_1_1Sorpresa_ae375d66b0f74795268b881d852b0f90f}\label{classcivitas_1_1Sorpresa_ae375d66b0f74795268b881d852b0f90f}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!informe@{informe}}
+\index{informe@{informe}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{informe()}{informe()}}
+{\footnotesize\ttfamily void civitas.\+Sorpresa.\+informe (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Informa al diario de que se está aplicando una sorpresa a un jugador (se indica su nombre). \mbox{\Hypertarget{classcivitas_1_1Sorpresa_a84bd6659e667747df646da45a3467cd5}\label{classcivitas_1_1Sorpresa_a84bd6659e667747df646da45a3467cd5}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!init@{init}}
+\index{init@{init}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void civitas.\+Sorpresa.\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Fija valor a -\/1, hace nulas las referencias al mazo y el tablero, y deja el texto como cadena vacía. \mbox{\Hypertarget{classcivitas_1_1Sorpresa_a640887e96c19efefffbd92b97f710381}\label{classcivitas_1_1Sorpresa_a640887e96c19efefffbd92b97f710381}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!jugador\+Correcto@{jugador\+Correcto}}
+\index{jugador\+Correcto@{jugador\+Correcto}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{jugador\+Correcto()}{jugadorCorrecto()}}
+{\footnotesize\ttfamily boolean civitas.\+Sorpresa.\+jugador\+Correcto (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{todos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Comprueba si el primer parámetro es un indice valido para acceder al array de Jugadores. \mbox{\Hypertarget{classcivitas_1_1Sorpresa_a8b9ba892b6e916fde058e62d1a3c1b78}\label{classcivitas_1_1Sorpresa_a8b9ba892b6e916fde058e62d1a3c1b78}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!salir\+Del\+Mazo@{salir\+Del\+Mazo}}
+\index{salir\+Del\+Mazo@{salir\+Del\+Mazo}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{salir\+Del\+Mazo()}{salirDelMazo()}}
+{\footnotesize\ttfamily void civitas.\+Sorpresa.\+salir\+Del\+Mazo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Si la sorpresa es S\+A\+L\+I\+R\+C\+A\+R\+C\+EL, inhabilita la carta en el mazo. \mbox{\Hypertarget{classcivitas_1_1Sorpresa_ad2b9c7fd5bcc4ea986fac9ad8c9605e3}\label{classcivitas_1_1Sorpresa_ad2b9c7fd5bcc4ea986fac9ad8c9605e3}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily String civitas.\+Sorpresa.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_a37c95138a99f3c67b8b93bf921e6baba}\label{classcivitas_1_1Sorpresa_a37c95138a99f3c67b8b93bf921e6baba}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!usada@{usada}}
+\index{usada@{usada}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{usada()}{usada()}}
+{\footnotesize\ttfamily void civitas.\+Sorpresa.\+usada (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Si la sorpresa es S\+A\+L\+I\+R\+C\+A\+R\+C\+EL, habilita la carta en el mazo. 
+
+\subsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_a3a0aae5184087ccd5a07391a2d5d0e78}\label{classcivitas_1_1Sorpresa_a3a0aae5184087ccd5a07391a2d5d0e78}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!mazo@{mazo}}
+\index{mazo@{mazo}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{mazo}{mazo}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas} civitas.\+Sorpresa.\+mazo\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_acda3eee006c2731ae4f062b05ffe36ab}\label{classcivitas_1_1Sorpresa_acda3eee006c2731ae4f062b05ffe36ab}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!sorpresa@{sorpresa}}
+\index{sorpresa@{sorpresa}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{sorpresa}{sorpresa}}
+{\footnotesize\ttfamily \hyperlink{enumcivitas_1_1TipoSorpresa}{Tipo\+Sorpresa} civitas.\+Sorpresa.\+sorpresa\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_a843272761fd69ecf32682bf3f6060add}\label{classcivitas_1_1Sorpresa_a843272761fd69ecf32682bf3f6060add}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!tablero@{tablero}}
+\index{tablero@{tablero}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{tablero}{tablero}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1Tablero}{Tablero} civitas.\+Sorpresa.\+tablero\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_aa7f34d4a47ca2e53f96a060aed7b6c4f}\label{classcivitas_1_1Sorpresa_aa7f34d4a47ca2e53f96a060aed7b6c4f}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!texto@{texto}}
+\index{texto@{texto}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{texto}{texto}}
+{\footnotesize\ttfamily String civitas.\+Sorpresa.\+texto\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Sorpresa_a7c1df71c9d226e14c75ec8ec66592485}\label{classcivitas_1_1Sorpresa_a7c1df71c9d226e14c75ec8ec66592485}} 
+\index{civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}!valor@{valor}}
+\index{valor@{valor}!civitas\+::\+Sorpresa@{civitas\+::\+Sorpresa}}
+\subsubsection{\texorpdfstring{valor}{valor}}
+{\footnotesize\ttfamily int civitas.\+Sorpresa.\+valor\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}

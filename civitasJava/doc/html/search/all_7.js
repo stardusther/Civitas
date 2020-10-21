@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['impuesto',['IMPUESTO',['../enumcivitas_1_1TipoCasilla.html#a56414bfb3cf302238974737f85aea7d3',1,'civitas::TipoCasilla']]],
-  ['inhabilitarcartaespecial',['inhabilitarCartaEspecial',['../classcivitas_1_1MazoSorpresas.html#a2f19b2fb1d7697611f22fd44dc81eed3',1,'civitas::MazoSorpresas']]],
-  ['inicio_5fturno',['INICIO_TURNO',['../enumcivitas_1_1EstadosJuego.html#a89f1dcbba3f71733636da0766dc7275b',1,'civitas::EstadosJuego']]],
-  ['init',['init',['../classcivitas_1_1MazoSorpresas.html#a8a5c58c8a162c9da0088678f3803c7dd',1,'civitas::MazoSorpresas']]],
-  ['instance',['instance',['../classcivitas_1_1Dado.html#a579634749a6f9f18f964cc04e181b002',1,'civitas.Dado.instance()'],['../classcivitas_1_1Diario.html#ae37b0fcc0069768cbc49cf6aedeaffff',1,'civitas.Diario.instance()']]],
-  ['ircarcel',['IRCARCEL',['../enumcivitas_1_1TipoSorpresa.html#afcb70a08bbda2b1fc9c41300be12cd02',1,'civitas::TipoSorpresa']]],
-  ['ircasilla',['IRCASILLA',['../enumcivitas_1_1TipoSorpresa.html#a6c2665bb8278c0f57a6611e277ba210a',1,'civitas::TipoSorpresa']]]
+  ['habilitarcartaespecial',['habilitarCartaEspecial',['../classcivitas_1_1MazoSorpresas.html#a285260ff3aab3eb49c41d4d274b9dcc1',1,'civitas::MazoSorpresas']]],
+  ['hipotecabase',['hipotecaBase',['../classcivitas_1_1TituloPropiedad.html#a9fd4c960de937e9a153cb476db54d2f5',1,'civitas::TituloPropiedad']]],
+  ['hipotecado',['hipotecado',['../classcivitas_1_1TituloPropiedad.html#a9b42e0a643175ab81ad9a445e515fce5',1,'civitas::TituloPropiedad']]],
+  ['hipotecar',['hipotecar',['../classcivitas_1_1CivitasJuego.html#ad03c8d1b5a9b5553d586304f9b98b1bc',1,'civitas.CivitasJuego.hipotecar()'],['../classcivitas_1_1Jugador.html#aad3e438212a101326c99e79c3c314f4b',1,'civitas.Jugador.hipotecar()'],['../classcivitas_1_1TituloPropiedad.html#ae09a294437e56818a913612ec6f835ed',1,'civitas.TituloPropiedad.hipotecar()']]],
+  ['hotelesmax',['HotelesMax',['../classcivitas_1_1Jugador.html#a58a742df083ab5154311eb24a9f336f7',1,'civitas::Jugador']]]
 ];

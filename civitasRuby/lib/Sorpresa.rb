@@ -9,20 +9,8 @@ class Sorpresa
 
   attr_reader :valor
 
-  def initialize (tipo, tab = nil, val = -1, txt = "", m = nil) #E: invento del siglo
-    init()
-    @sorpresa = tipo
-    @tablero = tab
-    @valor = valor
-    @texto = txt
-    @mazo = m
-  end
-
-  def init
-    @valor = -1
-    @texto = ""
-    @mazo = nil
-    @tablero = nil
+  def constructorTipoTab (TipoSorpresa tipo, Tablero tab)
+    new()
   end
 
   def jugadorCorrecto (actual, todos)
@@ -38,6 +26,23 @@ class Sorpresa
   end
 
   private #--------------------------------------------------------------
+
+  def initialize (tipo, tab, val, txt, m) 
+    init()
+    @sorpresa = tipo
+    @tablero = tab
+    @valor = valor
+    @texto = txt
+    @mazo = m
+  end
+
+  def init
+    @valor = -1
+    @texto = ""
+    @mazo = nil
+    @tablero = nil
+  end
+
   def informe (actual, todos)
     if jugadorCorrecto(actual, todos)
       Diario.instance.ocurreEvento("Se aplica sorpresa al jugador " + todos[actual].getNombre)

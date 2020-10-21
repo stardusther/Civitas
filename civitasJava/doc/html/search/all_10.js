@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['salgodelacarcel',['salgoDeLaCarcel',['../classcivitas_1_1Dado.html#ad251122d68a0c513c533c508c9a004d5',1,'civitas::Dado']]],
-  ['salidacarcel',['SalidaCarcel',['../classcivitas_1_1Dado.html#a534213cedc8582a460c56c5ef47cc4b1',1,'civitas::Dado']]],
-  ['salir_5fcarcel',['SALIR_CARCEL',['../enumcivitas_1_1OperacionesJuego.html#ac24c415e2a8b58b5a103cb1cadf2e71e',1,'civitas::OperacionesJuego']]],
-  ['salircarcel',['SALIRCARCEL',['../enumcivitas_1_1TipoSorpresa.html#a95e9fc5b31f41acabea831a683602dfd',1,'civitas::TipoSorpresa']]],
-  ['setdebug',['setDebug',['../classcivitas_1_1Dado.html#aa12af1adaeed10bfb47e314712bf3b7f',1,'civitas::Dado']]],
-  ['siguiente',['siguiente',['../classcivitas_1_1MazoSorpresas.html#a667df8429be1bc4efa89b2d80ec92fa6',1,'civitas::MazoSorpresas']]],
-  ['sorpresa',['Sorpresa',['../classcivitas_1_1Sorpresa.html',1,'civitas.Sorpresa'],['../enumcivitas_1_1TipoCasilla.html#ada6a89d7718211ca4560389a2b4a0017',1,'civitas.TipoCasilla.SORPRESA()']]],
-  ['sorpresa_2ejava',['Sorpresa.java',['../Sorpresa_8java.html',1,'']]],
-  ['sorpresas',['sorpresas',['../classcivitas_1_1MazoSorpresas.html#a7b0f0b1ab8df542e09240e6e9a4e8f01',1,'civitas::MazoSorpresas']]]
+  ['random',['random',['../classcivitas_1_1Dado.html#a1f8317d37f9ce44ed673e933b3967811',1,'civitas::Dado']]],
+  ['ranking',['ranking',['../classcivitas_1_1CivitasJuego.html#a2f4592014f096ff1b251a6102f2455d9',1,'civitas::CivitasJuego']]],
+  ['recibe',['recibe',['../classcivitas_1_1Jugador.html#aeadc08e13f894f3b86f004bfede49b8a',1,'civitas::Jugador']]],
+  ['recibejugador',['recibeJugador',['../classcivitas_1_1Casilla.html#a59287ed5780ec26d3335b30c9e64f357',1,'civitas::Casilla']]],
+  ['recibejugador_5fcalle',['recibeJugador_calle',['../classcivitas_1_1Casilla.html#aa1e6e9493e6519c94c9f41ed01bec5b6',1,'civitas::Casilla']]],
+  ['recibejugador_5fimpuesto',['recibeJugador_impuesto',['../classcivitas_1_1Casilla.html#a5dd314ec240c96f96e41816772c1f15b',1,'civitas::Casilla']]],
+  ['recibejugador_5fjuez',['recibeJugador_juez',['../classcivitas_1_1Casilla.html#a96089d3b983f6c54b8aa549f8cad50fc',1,'civitas::Casilla']]],
+  ['recibejugador_5fsorpresa',['recibeJugador_sorpresa',['../classcivitas_1_1Casilla.html#ad63a14c37b44f01577c68d4ccaa4ef03',1,'civitas::Casilla']]]
 ];

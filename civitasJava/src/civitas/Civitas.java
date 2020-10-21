@@ -9,8 +9,9 @@ package civitas;
 public class Civitas {
 
     public static void main(String[] args) {
-        Test_P1 test = new Test_P1();
-        test.main();
+        Jugador j1 = new Jugador ("Paco");
+        
+        System.out.println("HOLA");
     }
     
 }

@@ -9,8 +9,20 @@ class Sorpresa
 
   attr_reader :valor
 
-  def constructorTipoTab (TipoSorpresa tipo, Tablero tab)
-    new()
+  def self. constructorTab (tipo, tab)
+    new(tipo, tab, -1, "", nil)
+  end
+
+  def self. constructorTabValTxt (tipo, tab, val, txt)
+    new(tipo, tab, val, txt, nil)
+  end
+
+  def self. constructorMazo (tipo, m)
+    new(tipo, nil, -1, "", m)
+  end
+
+  def self. constructorValTxt (tipo, val, txt)
+    new(tipo, nil, val, txt, nil)
   end
 
   def jugadorCorrecto (actual, todos)
@@ -27,8 +39,8 @@ class Sorpresa
 
   private #--------------------------------------------------------------
 
-  def initialize (tipo, tab, val, txt, m) 
-    init()
+  def initialize (tipo, tab, val, txt, m)
+
     @sorpresa = tipo
     @tablero = tab
     @valor = valor

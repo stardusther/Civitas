@@ -10,18 +10,22 @@ class Sorpresa
   attr_reader :valor
 
   def self. constructorTab (tipo, tab)
+    init()
     new(tipo, tab, -1, "", nil)
   end
 
   def self. constructorTabValTxt (tipo, tab, val, txt)
+    init()
     new(tipo, tab, val, txt, nil)
   end
 
   def self. constructorMazo (tipo, m)
+    init()
     new(tipo, nil, -1, "", m)
   end
 
   def self. constructorValTxt (tipo, val, txt)
+    init()
     new(tipo, nil, val, txt, nil)
   end
 

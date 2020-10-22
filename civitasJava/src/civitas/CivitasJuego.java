@@ -1,5 +1,5 @@
 package civitas;
-import java.util.ArrayList;         
+import java.util.ArrayList;
 
 /**
  * @author Yesenia González Dávila
@@ -16,7 +16,7 @@ public class CivitasJuego {
     private GestorEstados gestorEstados;
 
     private int indiceJugadorActual;
-    
+
     // 'Numeros magicos' jjejejej
     static final int numJugadores = 4;                          //Y: atributo de clase para indicar el número de jugadores
     static final int casillaCarcel = 5;                         //Y: atributo de clase para indicar la casilla de carcel
@@ -31,7 +31,7 @@ public class CivitasJuego {
 
         //Y: inicializar vector
         jugadores = new ArrayList<> ();
-        
+
         //Y: añadir jugadores
         jugadores.add (new Jugador (j1));
         jugadores.add (new Jugador (j2));
@@ -39,8 +39,8 @@ public class CivitasJuego {
         jugadores.add (new Jugador (j4));
 
         estado = gestorEstados.estadoInicial();
-        
-        //Y: he cambiado el 4 por un atributo de clase constante 
+
+        //Y: he cambiado el 4 por un atributo de clase constante
         indiceJugadorActual = Dado.getInstance().quienEmpieza (numJugadores);
 
         // "Crear el mazo de sorpresas, llamar al método de inicialización del tablero y del mazo" E: tengo que redefinir el mazo?
@@ -54,7 +54,7 @@ public class CivitasJuego {
       for (int i = 1; i < numCasillas; i++)
           switch (i) {
               default:
-                  tablero.añadeCasilla (calle);
+                  tablero.añadeCasilla (calle); //E: FALTA CREAR EL OBJETO CON CLASE TITULOPROPIEDAD
               case 5:
                   tablero.añadeCasilla (carcel);
                   break;
@@ -81,7 +81,7 @@ public class CivitasJuego {
 
     public Casilla getCasillaActual(){                                          // E: no lo entiendo bien
       //return getJugadorActual().getNumCasillaActual();                          // Esto no devuelve un objeto del tipo casilla
-      
+
       //Y: acceder al tablero:
       return (tablero.getCasilla (getJugadorActual().getNumCasillaActual()));
     }
@@ -149,10 +149,15 @@ public class CivitasJuego {
       return finaljuego;
     }
 
-    private Jugador ranking(){                                                  //E: not sure its ok
+    @Override
+    public int compareTo(Jugador j){
+      return Float.compare(getSaldo(), j.getSaldo());
+    }
+
+    private Jugador ranking(){                                        //E: rehacer con el compareTo          
       ArrayList <Jugador> jugadorescopia = new ArrayList<Jugador> (jugadores);
       ArrayList <Jugador> playersrank = new ArrayList<Jugador> ();
-      Jugador max;                                                              // E: max = new Jugador(); ??????????
+      Jugador max;
 
       for (int i = 0; i < 4; i++){
         max = jugadorescopia.get(i);

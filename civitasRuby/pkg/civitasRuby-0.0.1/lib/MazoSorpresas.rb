@@ -68,8 +68,8 @@ class MazoSorpresas
 
       if sorpresa == @cartasEspeciales[i]
         @sorpresas.push(sorpresa)
-        @cartasEspeciales.del_ad(i)
-        Diario.instance.ocurreEvento ("Se ha habilitado una carta especial");
+        @cartasEspeciales.del_at(i)
+        Diario.instance.ocurreEvento ("Se ha habilitado una carta especial")
         found = true
       end
 

@@ -65,7 +65,6 @@ public class Sorpresa{
         if (jugadorCorrecto(actual, todos)) {
             switch (sorpresa){
             }
-
         }
     }
 

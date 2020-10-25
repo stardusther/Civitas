@@ -92,14 +92,11 @@ public class Jugador implements Comparable<Jugador>{
      * @return @retval true si el jugador ha obtenido el salvoconducto y @retval false si no es el caso
      */
     boolean obtenerSalvoconducto (Sorpresa s){
-      boolean obtiene = true;
-
-      if (isEncarcelado())
-        obtiene = false;
-      else
-        salvoconducto = s;
-
+      boolean obtiene = !isEncarcelado();
+      if (obtiene)
+          salvoconducto = s;
       return obtiene;
+      
     }
 
 
@@ -190,15 +187,6 @@ public class Jugador implements Comparable<Jugador>{
      * @return @retval true si se lo puede permitir o @false en caso contrario
      */
     private boolean puedoGastar (float precio){
-//      boolean puedo = true;
-//
-//      if (isEncarcelado() || getSaldo() < precio)
-//        puedo = false;
-//      else if (getSaldo() < precio)
-//        puedo = false;
-//
-//      return puedo;
-
       return ( !isEncarcelado() && getSaldo() >= precio);
     }
 
@@ -225,14 +213,6 @@ public class Jugador implements Comparable<Jugador>{
      * @return @retval true si el jugador posee propiedades o @false en caso contrario
      */
     boolean tieneAlgoQueGestionar (){
-//      boolean tiene = true;
-//
-//      if (propiedades.isEmpty())
-//        tiene = false;
-//
-//      return tiene;
-
-        // Si está vacia devuelve false, si no devuelve true
         return ( !propiedades.isEmpty() );
     }
 
@@ -241,13 +221,6 @@ public class Jugador implements Comparable<Jugador>{
      * @return @retval true si el jugador puede pagar el precio por su libertad o @false en caso contrario
      */
     private boolean puedeSalirCarcelPagando(){
-//      boolean salir = false;
-//
-//      if(getSaldo() >= getPrecioLibertad())
-//        salir = true;
-//
-//        return salir;
-
         return (getSaldo() >= getPrecioLibertad());
     }
 
@@ -287,9 +260,7 @@ public class Jugador implements Comparable<Jugador>{
      * @return @retval true si se ha realizado la acción con éxito o @false en caso contrario
      */
     boolean pasaPorSalida (){
-      modificarSaldo(getPremioPasoSalida());
-      return true; //(para que compile :D)
-      //return modificarSaldo(...) ??
+      return modificarSaldo(getPremioPasoSalida());
     }
 
 
@@ -366,13 +337,10 @@ public class Jugador implements Comparable<Jugador>{
      * @warning no sé si está correcto Y: po yo creo que si
      */
     int cantidadCasasHoteles(){
-      TituloPropiedad propiedad;
       int casasHoteles = 0;
 
-      for (int i=0; i < propiedades.size(); i++){
-        propiedad = propiedades.get(i);
-        casasHoteles += propiedad.getNumCasas() + propiedad.getNumHoteles();
-      }
+      for (int i=0; i < propiedades.size(); i++)
+        casasHoteles += propiedades.get(i).getNumCasas() + propiedades.get(i).getNumHoteles();
 
       return casasHoteles;
     }
@@ -406,12 +374,7 @@ public class Jugador implements Comparable<Jugador>{
      * @return @retval true si el jugador tiene salvoconducto y @retval false si no es el caso
      */
     boolean tieneSalvoconducto (){
-      boolean tiene = true;
-
-      if (salvoconducto == null)
-        tiene = false;
-
-      return tiene;
+      return (salvoconducto != null);
     }
 
 
@@ -493,8 +456,9 @@ public class Jugador implements Comparable<Jugador>{
     private boolean puedoEdificarCasa (TituloPropiedad propiedad){
       boolean puede = false;
 
-      if (propiedades.contains("propiedad") && propiedad.getNumCasas() < getCasasMax() && getPuedeComprar() && puedoGastar(propiedad.getPrecioEdificar()))  // Si el jugador posee la propiedad, el número de casas edificadas es menor a 4,
-                                                                                                                                                            // el jugador puede comprar y puede gastar lo que cuesta la ediificación en esa casilla
+      if (propiedades.contains("propiedad") && propiedad.getNumCasas() < getCasasMax()     // Si el jugador posee la propiedad, el número de casas edificadas es menor a 4,
+          && getPuedeComprar() && puedoGastar(propiedad.getPrecioEdificar()))              // el jugador puede comprar y puede gastar lo que cuesta la ediificación en esa casilla
+                                                                              
         puede = true;
 
         return puede;
@@ -505,7 +469,7 @@ public class Jugador implements Comparable<Jugador>{
      */
     private boolean puedoEdificarHotel (TituloPropiedad propiedad){ //IMPLEMENTAR
       boolean puede = false;
-
+      
       if (propiedades.contains("propiedad") && propiedad.getNumHoteles() < getHotelesMax() && (propiedad.getNumCasas() == getCasasPorHotel()) && getPuedeComprar() && puedoGastar(propiedad.getPrecioEdificar()))  // Si el jugador posee la propiedad, el número de hoteles edificados es menor a 4,
                                                                                                                                                                                                               // hay 4 casas edificadas, el jugador puede comprar y puede gastar lo que cuesta la ediificación en esa casilla
         puede = true;

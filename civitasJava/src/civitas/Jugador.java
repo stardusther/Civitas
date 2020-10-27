@@ -38,6 +38,7 @@ public class Jugador implements Comparable<Jugador>{
       puedeComprar = true;
       encarcelado = false;
       numCasillaActual = 0;
+      salvoconducto = null;
 
       propiedades = new ArrayList<TituloPropiedad> ();
     }
@@ -454,14 +455,8 @@ public class Jugador implements Comparable<Jugador>{
      * @param propiedad La propiedad en la que queremos edificar la casa
      */
     private boolean puedoEdificarCasa (TituloPropiedad propiedad){
-      boolean puede = false;
-
-      if (propiedades.contains("propiedad") && propiedad.getNumCasas() < getCasasMax()     // Si el jugador posee la propiedad, el número de casas edificadas es menor a 4,
-          && getPuedeComprar() && puedoGastar(propiedad.getPrecioEdificar()))              // el jugador puede comprar y puede gastar lo que cuesta la ediificación en esa casilla
-                                                                              
-        puede = true;
-
-        return puede;
+        return (propiedades.contains(propiedad) && propiedad.getNumCasas() < getCasasMax()      // Si el jugador posee la propiedad, el número de casas edificadas es menor a 4,
+                && getPuedeComprar() && puedoGastar(propiedad.getPrecioEdificar()));            // el jugador puede comprar y puede gastar lo que cuesta la ediificación en esa casilla
     }
 
     /** Determina si el jugador puede edificar un hotel en una determinada propiedad
@@ -470,7 +465,7 @@ public class Jugador implements Comparable<Jugador>{
     private boolean puedoEdificarHotel (TituloPropiedad propiedad){ //IMPLEMENTAR
       boolean puede = false;
       
-      if (propiedades.contains("propiedad") && propiedad.getNumHoteles() < getHotelesMax() && (propiedad.getNumCasas() == getCasasPorHotel()) && getPuedeComprar() && puedoGastar(propiedad.getPrecioEdificar()))  // Si el jugador posee la propiedad, el número de hoteles edificados es menor a 4,
+      if (propiedades.contains(propiedad) && propiedad.getNumHoteles() < getHotelesMax() && (propiedad.getNumCasas() == getCasasPorHotel()) && getPuedeComprar() && puedoGastar(propiedad.getPrecioEdificar()))  // Si el jugador posee la propiedad, el número de hoteles edificados es menor a 4,
                                                                                                                                                                                                               // hay 4 casas edificadas, el jugador puede comprar y puede gastar lo que cuesta la ediificación en esa casilla
         puede = true;
 

@@ -85,4 +85,4 @@ class TestP1
 end
 
 test = TestP1.new
-test.main
+ #test.main

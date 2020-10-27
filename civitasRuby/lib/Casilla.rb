@@ -37,6 +37,7 @@ class Casilla
   end
 
   def self. recibeJugador(actual, todos)
+    #no entiendo qué hace este método
   end
 
   def toString
@@ -61,6 +62,7 @@ class Casilla
 
     @tituloPropiedad = nil
     @sorpresa = nil
+    @mazo = nil
   end
 
   def informe
@@ -69,14 +71,29 @@ class Casilla
   end
 
   def recibeJugador_calle(actual, todos)
+    if(jugadorCorrecto(actual, todos))
+      informe(actual,todos)
+      todos[actual].pagaAlquiler(tituloPropiedad.getPrecioAlquiler())
+    end
   end
 
   def recibeJugador_impuesto(actual, todos)
+    if (jugadorCorrecto(actual, todos))
+        informe(actual, todos)
+        todos[actual].pagaImpuesto(importe)
+    end
   end
 
   def recibeJugador_juez(actual, todos)
+    if (jugadorCorrecto (actual, todos))
+        informe (actual, todos)
+        todos[actual].encarcelar(carcel)
+    end
   end
 
   def recibeJugador_sorpresa(actual, todos)
-  end
+    if (jugadorCorrecto(actual, todos))
+        informe (actual, todos)
+        sorpresa.aplicarAJugador(actual, todos)
+    end
 end

@@ -32,6 +32,7 @@ public class Sorpresa{
     Sorpresa (TipoSorpresa tipo, Tablero tab, int valor, String texto) {
         init();
         sorpresa = tipo;
+        tablero = tab;
         this.texto = texto;
         this.valor = valor;
     }

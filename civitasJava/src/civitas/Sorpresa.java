@@ -27,17 +27,16 @@ public class Sorpresa{
     }
 
     /** Constructor para sorpresa que envia al jugador a otra casilla.
-     * @pre TipoSorpresa de tipo IRACASILLA
      * @note El valor corresponderá al núm de la casilla donde se debe trasladar al jugador.
      */
     Sorpresa (TipoSorpresa tipo, Tablero tab, int valor, String texto) {
         init();
         sorpresa = tipo;
+        this.texto = texto;
         this.valor = valor;
     }
 
     /** Constructor para sorpresa que evita la carcel.
-     * @pre TipoSorpresa de tipo SALIRCARCEL
      * @note valor no aplicable
      */
     Sorpresa (TipoSorpresa tipo, MazoSorpresas mazo) {
@@ -50,27 +49,43 @@ public class Sorpresa{
     Sorpresa (TipoSorpresa tipo, int valor, String texto) {
         init();
         sorpresa = tipo;
+        this.texto = texto;
         this.valor = valor;
     }
 
 
     /** Llama a aplicarJugador<tipo_de_sorpresa> en funcion del tipo de atributo sorpresa que se trate.
-     * @note Todos los métodos aplicarJugador<...> revisans si en jugador indicado es correcto.
-     *       En caso contrario no se lleva a cabo ninguna acción.
-     * @warnign Mejor quitar todas las comprobacines de los metodos privado y ponerla solo en el uncio que se llama?
-     * = menos líneas de cógido :/ (sin terminar)
+     * @note Todos los métodos aplicarJugador<...> revisan si en jugador indicado es correcto.
+     * En caso contrario no se lleva a cabo ninguna acción.
+     * @warnign Mejor quitar todas las comprobacines de los metodos privado y ponerla 
+     * solo en el uncio que se llama? = menos líneas de cógido asdfkjgfkds :/ 
      */
-
     void aplicarAJugador (int actual, Jugador todos[]) {
-        if (jugadorCorrecto(actual, todos)) {
+        if (jugadorCorrecto (actual, todos)) {
             switch (sorpresa){
+                case IRCARCEL:
+                    aplicarAJugador_irCarcel (actual, todos);
+                    break;
+                case IRCASILLA:
+                    aplicarAJugador_irACasilla (actual, todos);
+                    break;
+                case PAGARCOBRAR:
+                    aplicarAJugador_pagarCobrar (actual, todos);
+                    break;
+                case PORCASAHOTEL:
+                    aplicarAJugador_porCasaHotel (actual, todos);
+                    break;
+                case PORJUGADOR:
+                    aplicarAJugador_porJugador (actual, todos);
+                    break;
+                case SALIRCARCEL:
+                    aplicarAJugador_salirCarcel (actual, todos);
             }
         }
     }
 
 
     /** Mueve al jugador a la casilla indicada por el atributo valor.
-     * @warning metodo recibeJugador sin terminar !!
      * @note Es necesario usar los metodos calcularTirada y nuevaPosicion para que quede registrado
      * un posible paso por salida como consecuencia del salto a la nueva casilla.
      */
@@ -85,13 +100,12 @@ public class Sorpresa{
 
             todos[actual].moverACasilla(nuevaPos);                      // 4. Se mueve al jugador a esa nueva posicion
 
-                                                                        // 5. Se indica a la casilla que está en la posicion
+            tablero.getCasilla(casilla).recibeJugador (actual, todos);  // 5. Se indica a la casilla que está en la posicion
                                                                         // del valor de la sorpresa que reciba al jugador
         }
     }
 
-
-    /** Se encarcela la jugador. */
+    /** Se encarcela la jugador.  */
     private void aplicarAJugador_irCarcel (int actual, Jugador todos[]) {
         if (jugadorCorrecto(actual, todos)) {
             informe (actual, todos);
@@ -127,21 +141,21 @@ public class Sorpresa{
 
             for (int i=0 ; i<todos.length ; i++)
                 if (i != actual)
-                    todos[i].paga(_sorpresa.valor);     // ???? E: yo creo que está bien
-
-            Sorpresa _sorpresaActual = new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor * todos.length, "");
-            _sorpresaActual.valor *= todos.length -1;
+                    todos[i].paga(_sorpresa.valor);     
+            
+            Sorpresa _sorpresaActual = new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor * todos.length-1, "");
             todos[actual].recibe (_sorpresaActual.valor);
         }
     }
 
 
-    /** Se pregunta a todos los jugadores su alguien tiene la sorpresa para evitar la carcel (salvoconducto),
-     *  si nadie la tiene,la obtiene el jugador actual y se llama al método salirDelMazo. */
+    /** Se pregunta a todos los jugadores su alguien tiene la sorpresa para evitar 
+     *  la carcel (salvoconducto), si nadie la tiene,la obtiene el jugador actual 
+     *  y se llama al método salirDelMazo. */
     private void aplicarAJugador_salirCarcel (int actual, Jugador todos[]) {
-
         if (jugadorCorrecto (actual, todos)) {
 
+            // Se comprueba que el resto de jugadores no tiene el salvoconducto
             boolean tienen_salvoconducto = false;
             for (int i=0 ; i<todos.length && !tienen_salvoconducto; i++)
                 tienen_salvoconducto = todos[i].tieneSalvoconducto();
@@ -153,24 +167,21 @@ public class Sorpresa{
         }
     }
 
-
     /** Informa al diario de que se está aplicando una sorpresa a un jugador (se indica su nombre). */
     private void informe (int actual, Jugador todos[]) {
         if (jugadorCorrecto (actual, todos))
-            Diario.getInstance().ocurreEvento("Se aplica sorpresa al jugador " + todos[actual].getNombre());
+            Diario.getInstance().ocurreEvento("Se aplica sorpresa" + sorpresa + " al jugador " + todos[actual].getNombre());
     }
-
 
     /** Comprueba si el primer parámetro es un indice valido para acceder al array de Jugadores. */
     public boolean jugadorCorrecto (int actual, Jugador todos[]) {
         boolean correcto = true;
 
-        if (actual < todos.length )
+        if (actual >= 0 && actual < todos.length )
             correcto = false;
 
         return correcto;
     }
-
 
     /**  Si la sorpresa es SALIRCARCEL, inhabilita la carta en el mazo. */
     void salirDelMazo () {
@@ -178,13 +189,11 @@ public class Sorpresa{
             mazo.inhabilitarCartaEspecial(this);
     }
 
-
     /** Si la sorpresa es SALIRCARCEL, habilita la carta en el mazo. */
     void usada() {
         if (sorpresa == TipoSorpresa.SALIRCARCEL)
             mazo.habilitarCartaEspecial(this);
     }
-
 
     /** Fija valor a -1, hace nulas las referencias al mazo y el tablero,
      *  y deja el texto como cadena vacía. */
@@ -197,7 +206,13 @@ public class Sorpresa{
 
     @Override
     public String toString () {
-        String str = " >> Sorpresa: " + texto + ". >> Valor: " + valor;
+        String str = " >> Sorpresa: " + sorpresa + ". Valor: " + valor + ". ";
+        if (texto != "")
+            str += texto + ". " ;
+        if (tablero != null)
+            str += "Tablero asociado. ";
+        if (mazo != null)
+            str += "Mazo asociado. ";
         return str;
     }
 

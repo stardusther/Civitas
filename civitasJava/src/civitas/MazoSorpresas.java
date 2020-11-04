@@ -1,5 +1,9 @@
 /**
  * @file MazoSopresas.java
+ * @class MazoSorpresas
+ * @brief Además de almacenar las cartas, las instancias de esta clase velan por que el mazo
+ * se mantenga consistente a lo largo del juego y para que se produzcan las operaciones de barajado
+ * cuando se han usado todas las cartas.
  * @author Yesenia González Dávila
  * @author Esther García Gallego
  * @note Grupo B.3
@@ -7,15 +11,9 @@
 
 package civitas;
 import java.util.ArrayList;
-import java.util.Collections;       //Para hacer el shuffle
+import java.util.Collections;       
 import java.util.List;
 
-/**
- * @class MazoSorpresas
- * @brief Además de almacenar las cartas, las instancias de esta clase velan por que el mazo
- * se mantenga consistente a lo largo del juego y para que se produzcan las operaciones de barajado
- * cuando se han usado todas las cartas.
-*/
 public class MazoSorpresas {
 
      private ArrayList<Sorpresa> sorpresas;               //Almacena cartas de sorpresa
@@ -25,19 +23,18 @@ public class MazoSorpresas {
      private ArrayList<Sorpresa> cartasEspeciales;        //Almacena SALIRCARCEL mientras está fuera del MazoSorpresas
      private Sorpresa ultimaSorpresa;                     //Almacena la última carta de sorpresa que ha salido
 
-     /**
-      * @brief Inicializa los atributos de la clase MazoSorpresas
-      * @post inicializa los vectores sorpresas y cartasEspeciales, deja barajada a false y usadas a 0
+    /** Inicializa los atributos de la clase MazoSorpresas,
+      *  deja barajada a false y usadas a 0.
       */
      private void init(){
        sorpresas = new ArrayList<> ();
-       cartasEspeciales = new ArrayList<Sorpresa> ();
+       cartasEspeciales = new ArrayList<> ();
        barajada = false;
+       ultimaSorpresa = null;
        usadas = 0;
      }
 
-     /**
-     * @brief Constructor sin parámetros de la clase MazoSopresas
+    /** Constructor sin parámetros de la clase MazoSopresas.
      * @post Llama a init() e inicializa debug a false.
      */
      MazoSorpresas(){
@@ -45,108 +42,74 @@ public class MazoSorpresas {
        debug = false;
      }
 
-     /**
-     * @brief Constructor con parámetros de la clase MazoSopresas
+    /** Constructor con parámetros de la clase MazoSopresas.
      * @param _debug Booleano que determina el valor de debug
      * @post Llama a init() y si se activa el modo debug añade el evento al Diario.
      */
      MazoSorpresas(Boolean _debug){
        debug = _debug;
        init();
-
        if(debug)
           Diario.getInstance().ocurreEvento ("Modo debug activo");
      }
 
-     /**
-     * @brief Añade al mazo de sorpresas una carta
-     * @param s Una carta de sorpresa
-     */
+    /** Añade al mazo de sorpresas una carta. */
      void alMazo(Sorpresa s){
       if (!barajada)
         sorpresas.add(s);
      }
 
-    /**
-    * @brief Descarta la sorpresa actual y pasa a la siguiente
-    * @return ultimaSorpresa La última carta de sorpresa usada
+   /** Descarta la sorpresa actual y pasa a la siguiente.
+    *  @return ultimaSorpresa La última carta de sorpresa usada
     */
     Sorpresa siguiente (){
-        if ( (!barajada || usadas == sorpresas.size()) && !debug){
-            Collections.shuffle (sorpresas);               //Baraja el mazo de sorpresas
+        if ( (!barajada || usadas == sorpresas.size()) && !debug){  // Si no está barajada o se han usado ya todas -->
+            Collections.shuffle (sorpresas);                        // baraja el mazo 
             usadas = 0;
             barajada = true;
         }
 
         usadas++;
         ultimaSorpresa = sorpresas.get(0);
-        sorpresas.remove(0);
-        sorpresas.add(ultimaSorpresa);
+        sorpresas.remove(0);                    // Eliminamos carte de la primera posicion y 
+        sorpresas.add(ultimaSorpresa);          // la añadimos a la última
 
         return ultimaSorpresa;
     }
 
-    /**
-    * @brief Inhabilita la carta pasada como parámetro
-    * @param sorpresa Carta de sorpresa
-    * @warning E: comprobar si es una carta especial?
-    */
+   /** Inhabilita la carta pasada como parámetro. */
     void inhabilitarCartaEspecial (Sorpresa sorpresa){
-        if (cartasEspeciales.contains(sorpresa)){               // Si está en el mazo:
-            cartasEspeciales.add(sorpresa);                        // Se añade a cartasEspeciales
-            sorpresas.remove(sorpresa);                            // Se elimina del mazo
+        if (sorpresas.contains(sorpresa)){               // Si está en el mazo:
+            cartasEspeciales.add(sorpresa);                // se añade a cartasEspeciales
+            sorpresas.remove(sorpresa);                    // se elimina del mazo
 
           Diario.getInstance().ocurreEvento ("Se ha inhabilitado una carta especial");
         }
     }
 
-    /**
-    * @brief Habilita la carta pasada como parámetro
-    * @param sorpresa Carta de sorpresa
-    */
+   /** Habilita la carta pasada como parámetro. */
     void habilitarCartaEspecial (Sorpresa sorpresa){
-        if (cartasEspeciales.contains(sorpresa)){                // Si está en cartas cartasEspeciales:
-            sorpresas.add(sorpresa);                                // Se añade al mazo de sorpresas
-            cartasEspeciales.remove(sorpresa);                      // Se elimina de cartasEspeciales
+        if (cartasEspeciales.contains(sorpresa)){        // Si está en cartasEspeciales:
+            sorpresas.add(sorpresa);                       // Se añade al mazo de sorpresas
+            cartasEspeciales.remove(sorpresa);             // Se elimina de cartasEspeciales
 
           Diario.getInstance().ocurreEvento ("Se ha habilitado una carta especial");
         }
     }
     
-    
     @Override
     public String toString () {
-        String s = new String();
-        if (barajada)
-            s += " barajada ";
-        s += usadas;
+        String s = " >> Mazo: contiene " + sorpresas.size() + " sorpresas. " +
+                   "Se han usado " + usadas + " cartas del mazo. " ;
         
+        if (barajada)
+            s += "Está barajada. ";
         if (debug)
-            s += "  debug  ";
+            s += "Debug on. ";
+        
+        for (int i=0 ; i<sorpresas.size() ; i++)
+            s += "\n  " + sorpresas.get(i).toString();
         
         return s;
     }
-    
-    
-    
-    
-    public static void main(String[] args) {
-        MazoSorpresas mazo = new MazoSorpresas();
-        MazoSorpresas mazo_debug = new MazoSorpresas(true);
-        
-        Sorpresa salvoconducto = new Sorpresa (TipoSorpresa.SALIRCARCEL, mazo);
-        Sorpresa pagarcobrar = new Sorpresa (TipoSorpresa.PAGARCOBRAR, 300, "Sorpresa pagar-cobrar");
-        
-        mazo.alMazo(salvoconducto);
-        mazo.alMazo(pagarcobrar);
-
-        mazo.habilitarCartaEspecial(pagarcobrar);
-        
-        mazo.inhabilitarCartaEspecial(pagarcobrar);
-        
-        System.out.println(mazo.toString());
-        
-    }
-    
-    
 }

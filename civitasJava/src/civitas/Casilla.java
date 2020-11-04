@@ -1,17 +1,19 @@
 package civitas;
 
 /**
+ * @file Casilla.java
  * @author Yesenia González Dávila
  * @author Esther García Gallego
  * @class Casilla
  * @brief Crea las casillas del tablero.
- * @warning Not fully implemented. Clase temporal
+ * @warning Not fully implemented. 
  * @note Grupo B.3
 */
+
 public class Casilla {
 
     private TipoCasilla tipo;                       // Tipo de casilla
-    private String nombre;
+    private String nombre;                          // Nombre casilla
 
     private int carcel;                             // Juez
     private float importe;                          // Impuesto
@@ -20,29 +22,30 @@ public class Casilla {
     private TituloPropiedad tituloPropiedad;        // Calle
 
 
-    /** Constructor casilla descanso. */
+    /** Constructor descanso. */
     Casilla (String nombre) {
         init();
         this.nombre = nombre;
         tipo = TipoCasilla.DESCANSO;
     }
 
-    /** Constructor casilla calle. */
+    /** Constructor calle. */
     Casilla (TituloPropiedad titulo) {
         init();
         nombre = titulo.getNombre();
         tituloPropiedad = titulo;
+        tipo = TipoCasilla.CALLE;
     }
 
-    /** Constructor casilla impuesto. */
+    /** Constructor impuesto. */
     Casilla (float cantidad, String nombre) {
         init();
         this.nombre = nombre;
         importe = cantidad;
-        tipo = TipoCasilla.CALLE;
+        tipo = TipoCasilla.IMPUESTO;
     }
 
-    /** Constructor casilla juez. */
+    /** Constructor juez. */
     Casilla (int numCasillaCarcel, String nombre) {
         init();
         this.nombre = nombre;
@@ -50,7 +53,7 @@ public class Casilla {
         tipo = TipoCasilla.JUEZ;
     }
 
-    /** Constructor casilla sorpresa. */
+    /** Constructor sorpresa. */
     Casilla (MazoSorpresas mazo, String nombre) {
         init();
         this.nombre = nombre;
@@ -58,40 +61,36 @@ public class Casilla {
         tipo = TipoCasilla.SORPRESA;
     }
 
-
-    public boolean jugadorCorrecto (int actual, Jugador todos[]) {
-        return (actual < todos.length);
-    }
-
-
     /** @warning Siguiente práctica */
     void recibeJugador (int iactual, Jugador todos[]) {
-
     }
 
-
-    // ------------- Consultores -------------- //
-
+    // ---------------------------------------------------------------------- //
+    // --------------------------- Consultores ------------------------------ //
+    // ---------------------------------------------------------------------- //
 
     public String getNombre () {
         return nombre;
     }
 
-
     TituloPropiedad getTituloPropiedad() {
         return tituloPropiedad;
     }
-
+    
+    public boolean jugadorCorrecto (int actual, Jugador todos[]) {
+        return (actual < todos.length);
+    }
 
     @Override
     public String toString() {
-        String str = " >> Casilla " + nombre;
-        //Falta poner el resto de valores según el tipo de casilla (importe etc)
+        String str = " >> Casilla " + nombre + ". ";
+        str += tipo;        // Faltan algunos valores 
        return str;
     }
 
-
-    // ------------- Met. privados -------------- //
+    // ---------------------------------------------------------------------- //
+    // -------------------------- Met. privados ----------------------------- //
+    // ---------------------------------------------------------------------- //
 
 
     private void informe (int actual, Jugador todos[]) {
@@ -99,15 +98,13 @@ public class Casilla {
         Diario.getInstance().ocurreEvento(str);
     }
 
-
     /** @warning Siguiente práctica */
     private void recibeJugador_calle (int actual, Jugador todos[]) {
         if (jugadorCorrecto (actual, todos)) {
             informe (actual, todos);
-            todos[actual].pagaAlquiler(tituloPropiedad.getPrecioAlquiler());    // Y: creo? E: sí
+            todos[actual].pagaAlquiler(tituloPropiedad.getPrecioAlquiler());
         }
     }
-
 
     private void recibeJugador_impuesto (int actual, Jugador todos[]) {
         if (jugadorCorrecto (actual, todos)) {
@@ -116,14 +113,12 @@ public class Casilla {
         }
     }
 
-
     private void recibeJugador_juez (int actual, Jugador todos[]) {
         if (jugadorCorrecto (actual, todos)) {
             informe (actual, todos);
             todos[actual].encarcelar(carcel);
         }
     }
-
 
     /** @warning Siguiente práctica */
     private void recibeJugador_sorpresa (int actual, Jugador todos[]) {
@@ -134,16 +129,14 @@ public class Casilla {
     }
 
 
-    /** Este metodo hace una inicializacion de todos los atributos asuminedo que no se proporciona
-     *  al constructor un valor para ese atributo. */
+    /** Este metodo hace una inicializacion de todos los atributos asumiendo que
+     *  no se proporciona al constructor un valor para estos atributos. */
     private void init () {
         mazo = null;
         sorpresa = null;
         tituloPropiedad = null;
-
         importe = -1f;
         carcel = -1;
-
         nombre = "";
     }
 }

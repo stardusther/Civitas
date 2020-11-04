@@ -1,23 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package civitas;
-
 import java.util.ArrayList;
-import civitas.TipoCasilla;
 
 public class Test_P1 {
     
-    void main () {
-        
-        tarea1();
-        tarea2();
-        tarea3();
-        tarea4();
-        tarea5y6();
-        tarea7();
+    public static void main () {
+        p2_casilla_test();
     }
     
     void tarea1 () {
@@ -122,7 +109,6 @@ public class Test_P1 {
         MazoSorpresas mazo = new MazoSorpresas();
         
         System.out.println("Como cuyons añado sorpresas al mazo si la clase sorpresa esta vacía jaja salu2");
-        // Y: se refiere a usar el tipo sorpresa? Tonse habria que cambiar codigo en MazoSorpresa 
         System.out.println("\t --- FIN TAREA 5 y 6 ---\n");
     }
     

@@ -114,17 +114,25 @@ public class TestP2 {
         Jugador j1 = new Jugador ("J1");
         Jugador j2 = new Jugador ("J2");
         
+        // Añadimos propietario (ok)
         tit.ActualizaPropietarioPorConversion(j1);
         System.out.println(tit.toString());
         
+        // Alquiler (ok)
         tit.tramitarAlquiler(j2);
-        
         System.out.println(j1.toString() + "\n" + j2.toString());
         
+        // Vendemos (ok)
         tit.vender(j1);
-        
         System.out.println(tit.toString());
         System.out.println(j1.toString());
+        
+        // Metodos de construir para las siguientes practicas sooo....
+    }
+    
+    // Test 4 CivitasJuego (asumiendo clases de test anteriores correctas)
+    static void test4() {
+        
     }
     
 }

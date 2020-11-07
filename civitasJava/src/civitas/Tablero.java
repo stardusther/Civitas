@@ -91,7 +91,7 @@ public class Tablero {
     /** Añade casilla de juez y actualiza el atributo tieneJuez. */
     void añadeJuez(){
       if (!tieneJuez) {
-        Casilla casillaJuez = new Casilla ("Juez");
+        Casilla casillaJuez = new Casilla (numCasillaCarcel, "Juez");
         añadeCasilla (casillaJuez);
         tieneJuez=true;
       }

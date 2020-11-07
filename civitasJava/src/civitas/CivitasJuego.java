@@ -11,15 +11,15 @@ public class CivitasJuego {
 
     private Tablero tablero;
     private MazoSorpresas mazo;
-    private ArrayList<Jugador> jugadores;                       //E: Jugador[] jugadores = new Jugador [4];
+    private ArrayList<Jugador> jugadores;                       
     private EstadosJuego estado;
     private GestorEstados gestorEstados;
 
     private int indiceJugadorActual;
 
     static final int numJugadores = 4;                          
-    static final int casillaCarcel = 5;                         
-    static final int numCasillas = 20;ç
+    static final int casillaCarcel = 3;             /** @warning provisional */                         
+    static final int numCasillas = 11;              /** @warning provisional */
 
     /** Constructor. */
     public CivitasJuego (String j1, String j2, String j3, String j4){       
@@ -44,7 +44,7 @@ public class CivitasJuego {
       TituloPropiedad t1, t2, t3;
       
       // Creamos calles
-      int i = 0;
+      int i = 1;
       final int alquiler = 100, hipotecaBase = 50, precioCompra = 120, precioEdificar = 200;
       final float factorRev = 1.2f;
       final String nombre = "Calle ";
@@ -55,39 +55,48 @@ public class CivitasJuego {
       t3 = new TituloPropiedad (nombre + i, alquiler*i, factorRev, 
                                hipotecaBase*i, precioCompra*i, precioEdificar*i++);
       
-      Casilla c1 = new Casilla (t1);
+      // Casillas
+      Casilla c1 = new Casilla (t1);                        // Casillas calle
       Casilla c2 = new Casilla (t2);
       Casilla c3 = new Casilla (t3);
       
-      Casilla descanso = new Casilla ("Descanso");
+      Casilla descanso = new Casilla ("Descanso");          // Casilla descanso
       
-      Casilla s1 = new Casilla (mazo, "Sorpresa 1");
+      Casilla s1 = new Casilla (mazo, "Sorpresa 1");        // Casillas sorpresa
       Casilla s2 = new Casilla (mazo, "Sorpresa 2");
       Casilla s3 = new Casilla (mazo, "Sorpresa 3");
       
-      Casilla juez = (casillaCarcel, "Juez");
-      
       final int cantidad_impuesto = 50;
-      Casilla impuesto = new Casilla (cantidad_impuesto, "Impuesto");
+      Casilla impuesto = new Casilla (cantidad_impuesto, "Impuesto");   // Casilla impuesto
 
-      for (int i = 1; i < numCasillas-1; i++)       // -1 porque carcel se añade automáticamente
+      for ( i=1 ; i < numCasillas-1; i++)       // -1 (la se añade automáticamente)
           switch (i) {
-              default:
-                  tablero.añadeCasilla (calle); 
+              case 1:
+                  tablero.añadeCasilla (c1);
+                  break;
+              case 2:
+                  tablero.añadeCasilla (s1);
+                  break;
+              case 4:
+                  tablero.añadeCasilla (impuesto);
+                  break;
+              case 5:
+                  tablero.añadeCasilla (c2);
+                  break;
+              case 6:
+                  tablero.añadeCasilla (s2);
+                  break;
               case 7:
-                  tablero.añadeCasilla (sorpresa1);
+                  tablero.añadeJuez();
+                  break;
+              case 8:
+                  tablero.añadeCasilla(s3);
+                  break;
+              case 9:
+                  tablero.añadeCasilla(c3);
                   break;
               case 10:
                   tablero.añadeCasilla(descanso);
-                  break;
-              case 13:
-                  tablero.añadeCasilla (sorpresa2);
-              case 15:
-                  tablero.añadeJuez();
-                  break;
-              case 18:
-                  tablero.añadeCasilla(sorpresa3);
-                  break;
           }
     }
 

@@ -69,7 +69,8 @@ public class Jugador implements Comparable<Jugador>{
           carcel = true;
         else {
           perderSalvoconducto();
-          Diario.getInstance().ocurreEvento("El jugador se ha librado de la cárcel por tener un salvoconducto");
+          Diario.getInstance().ocurreEvento("El jugador " + nombre +
+                        " se ha librado de la cárcel por tener un salvoconducto");
         }
 
       return carcel;
@@ -83,7 +84,7 @@ public class Jugador implements Comparable<Jugador>{
       if (debeSerEncarcelado()){
         moverACasilla(numCasillaCarcel);
         encarcelado = true;
-        Diario.getInstance().ocurreEvento("El jugador ha sido encarcelado");
+        Diario.getInstance().ocurreEvento("El jugador " + nombre + " ha sido encarcelado");
       }
       return isEncarcelado();
     }
@@ -479,14 +480,11 @@ public class Jugador implements Comparable<Jugador>{
     public String toString(){
       String s;
 
-      s = "\nEl jugador de nombre " + getNombre() + " tiene un saldo de " + getSaldo() + "€, tiene " + propiedades.size() +" propiedades y un total de " + cantidadCasasHoteles() + " edificaciones";
+      s = "\n >> El jugador " + getNombre() + " tiene un saldo de " + getSaldo() + "€, tiene " + propiedades.size() +" propiedades y un total de " + cantidadCasasHoteles() + " edificaciones";
 
-      //Para revisar que funciona wachi:
       s += "\n Casilla actual: " + numCasillaActual;
       if (puedeComprar)
           s+= "\n Puede comprar.";
-      else
-          s += "\n No puede comprar";
 
       if (encarcelado)
           s+= "\n Encarcelado D:";
@@ -505,28 +503,4 @@ public class Jugador implements Comparable<Jugador>{
     public int compareTo (Jugador otro){
       return (int)(getSaldo() - otro.getSaldo()) ;
     }
-
-
-
-    public static void main(String[] args){
-
-        String nombre1 = "Pepe Wapo";
-        Jugador j1 = new Jugador (nombre1);
-
-        //Constructor de copia (ok)
-        //Jugador j2 = new Jugador (j1);
-        //System.out.println(j1.toString() + j2.toString());
-
-        MazoSorpresas mazo = new MazoSorpresas ();
-        Sorpresa salvoconducto = new Sorpresa (TipoSorpresa.SALIRCARCEL, mazo);
-        j1.obtenerSalvoconducto(salvoconducto);
-        //j1.encarcelar(5);             //ok
-        //j1.paga(2000f);               //ok
-        //j1.moverACasilla(7);          //ok
-        //j1.recibe(1f);                //ok
-        //j1.pagaAlquiler(1f);          //ok
-
-        System.out.println(j1.toString());
-    }
-
 }

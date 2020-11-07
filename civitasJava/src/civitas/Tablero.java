@@ -140,7 +140,7 @@ public class Tablero {
     public String toString() {
         String str = " >> Tablero: num. casilla carcel: " + numCasillaCarcel + 
                      ". Se ha pasado por salida " + porSalida + " veces. " + 
-                     "Tiene " + casillas.size() + " casillas. ";
+                     "\n Tiene " + casillas.size() + " casillas. ";
         if (tieneJuez)
             str += "Tiene juez. ";
         

@@ -17,22 +17,15 @@ public class CivitasJuego {
 
     private int indiceJugadorActual;
 
-    // 'Numeros magicos' jjejejej
-    static final int numJugadores = 4;                          //Y: atributo de clase para indicar el número de jugadores
-    static final int casillaCarcel = 5;                         //Y: atributo de clase para indicar la casilla de carcel
-    static final int numCasillas = 20;
+    static final int numJugadores = 4;                          
+    static final int casillaCarcel = 5;                         
+    static final int numCasillas = 20;ç
 
-    public CivitasJuego (String j1, String j2, String j3, String j4){           //E: Jugador (String... nombre) Paso de parámetros variable
+    /** Constructor. */
+    public CivitasJuego (String j1, String j2, String j3, String j4){       
 
-//      jugadores.add(Jugador.new(j1));
-//      jugadores.add(Jugador.new(j2));
-//      jugadores.add(Jugador.new(j3));
-//      jugadores.add(Jugador.new(j4));
-
-        //Y: inicializar vector
         jugadores = new ArrayList<> ();
 
-        //Y: añadir jugadores
         jugadores.add (new Jugador (j1));
         jugadores.add (new Jugador (j2));
         jugadores.add (new Jugador (j3));
@@ -40,37 +33,60 @@ public class CivitasJuego {
 
         estado = gestorEstados.estadoInicial();
 
-        //Y: he cambiado el 4 por un atributo de clase constante
         indiceJugadorActual = Dado.getInstance().quienEmpieza (numJugadores);
 
-        // "Crear el mazo de sorpresas, llamar al método de inicialización del tablero y del mazo" E: tengo que redefinir el mazo?
-        tablero.inicializaTablero(mazo);
-        mazo.inicializaMazoSorpresas(tablero);
+        inicializaTablero(mazo);
+        inicializaMazoSorpresas(tablero);
     }
 
     private void inicializaTablero (MazoSorpresas mazo){
-      tablero = new Tablero(casillaCarcel);                                 //Se añade automáticamente la casilla de salida en la posición 0
+      tablero = new Tablero(casillaCarcel);   
+      TituloPropiedad t1, t2, t3;
+      
+      // Creamos calles
+      int i = 0;
+      final int alquiler = 100, hipotecaBase = 50, precioCompra = 120, precioEdificar = 200;
+      final float factorRev = 1.2f;
+      final String nombre = "Calle ";
+      t1 = new TituloPropiedad (nombre + i, alquiler*i, factorRev, 
+                               hipotecaBase*i, precioCompra*i, precioEdificar*i++);
+      t2 = new TituloPropiedad (nombre + i, alquiler*i, factorRev, 
+                               hipotecaBase*i, precioCompra*i, precioEdificar*i++);
+      t3 = new TituloPropiedad (nombre + i, alquiler*i, factorRev, 
+                               hipotecaBase*i, precioCompra*i, precioEdificar*i++);
+      
+      Casilla c1 = new Casilla (t1);
+      Casilla c2 = new Casilla (t2);
+      Casilla c3 = new Casilla (t3);
+      
+      Casilla descanso = new Casilla ("Descanso");
+      
+      Casilla s1 = new Casilla (mazo, "Sorpresa 1");
+      Casilla s2 = new Casilla (mazo, "Sorpresa 2");
+      Casilla s3 = new Casilla (mazo, "Sorpresa 3");
+      
+      Casilla juez = (casillaCarcel, "Juez");
+      
+      final int cantidad_impuesto = 50;
+      Casilla impuesto = new Casilla (cantidad_impuesto, "Impuesto");
 
-      for (int i = 1; i < numCasillas; i++)
+      for (int i = 1; i < numCasillas-1; i++)       // -1 porque carcel se añade automáticamente
           switch (i) {
               default:
-                  tablero.añadeCasilla (calle); //E: FALTA CREAR EL OBJETO CON CLASE TITULOPROPIEDAD
-              case 5:
-                  tablero.añadeCasilla (carcel);
-                  break;
+                  tablero.añadeCasilla (calle); 
               case 7:
-                  tablero.añadeCasilla (sorpresa_mazo1);
+                  tablero.añadeCasilla (sorpresa1);
                   break;
               case 10:
-                  tablero.añadeCasilla(descaso);
+                  tablero.añadeCasilla(descanso);
                   break;
               case 13:
-                  tablero.añadeCasilla (sorpresa_mazo2);
+                  tablero.añadeCasilla (sorpresa2);
               case 15:
                   tablero.añadeJuez();
                   break;
               case 18:
-                  tablero.añadeCasilla(sorpresa_mazo3);
+                  tablero.añadeCasilla(sorpresa3);
                   break;
           }
     }
@@ -79,14 +95,12 @@ public class CivitasJuego {
       return jugadores.get(indiceJugadorActual);
     }
 
-    public Casilla getCasillaActual(){                                          // E: no lo entiendo bien
-      //return getJugadorActual().getNumCasillaActual();                          // Esto no devuelve un objeto del tipo casilla
-
-      //Y: acceder al tablero:
+    public Casilla getCasillaActual(){   
       return (tablero.getCasilla (getJugadorActual().getNumCasillaActual()));
     }
+    
     private void inicializaMazoSorpresas (Tablero tablero){
-
+        
     }
 
     private void contabilizarPasosPorSalida(Jugador jugadorActual){

@@ -39,6 +39,7 @@ public class CivitasJuego {
         inicializaMazoSorpresas(tablero);
     }
 
+    /** Inicializa el tablero. */
     private void inicializaTablero (MazoSorpresas mazo){
       tablero = new Tablero(casillaCarcel);   
       TituloPropiedad t1, t2, t3;
@@ -69,7 +70,7 @@ public class CivitasJuego {
       final int cantidad_impuesto = 50;
       Casilla impuesto = new Casilla (cantidad_impuesto, "Impuesto");   // Casilla impuesto
 
-      for ( i=1 ; i < numCasillas-1; i++)       // -1 (la se añade automáticamente)
+      for ( i=1 ; i < numCasillas-1; i++)       // -1 (la carcel se añade automáticamente)
           switch (i) {
               case 1:
                   tablero.añadeCasilla (c1);
@@ -99,17 +100,44 @@ public class CivitasJuego {
                   tablero.añadeCasilla(descanso);
           }
     }
+    
+    /** Inicializa el mazo. */
+    private void inicializaMazoSorpresas (Tablero tablero){
+        
+    }
 
+    /** Avanza jugador. */
+    private void avanzaJugador() {
+        
+        // Declaramos al jugador actual y su posicion
+        Jugador jugadorActual = getJugadorActual();
+        int posicionActual = jugadorActual.getNumCasillaActual();
+        jugadorActual.moverACasilla(posicionActual);
+        
+        // Calculamos su nueva posicion tirando el dado
+        int tirada = Dado.getInstance().tirar();
+        int posicionNueva = tablero.nuevaPosicion (posicionActual, tirada);
+        
+        // Declaramos la casilla en la que está la nueva posición
+        Casilla casilla = tablero.getCasilla(posicionNueva);
+        
+        // Comprobamos si ha pasado por salida para que el jugador reciba el dinero en tal caso
+        contabilizarPasosPorSalida (jugadorActual);
+        
+        // Movemos al jugador a la nueva posición
+        jugadorActual.moverACasilla(posicionNueva);
+        
+        // Actualizamos la casilla y volvemos a comprobar si ha pasado por salida
+        casilla.recibeJugador (indiceJugadorActual, jugadores);
+        contabilizarPasosPorSalida (jugadorActual);
+    } 
+    
     public Jugador getJugadorActual(){
       return jugadores.get(indiceJugadorActual);
     }
 
     public Casilla getCasillaActual(){   
       return (tablero.getCasilla (getJugadorActual().getNumCasillaActual()));
-    }
-    
-    private void inicializaMazoSorpresas (Tablero tablero){
-        
     }
 
     private void contabilizarPasosPorSalida(Jugador jugadorActual){
@@ -118,10 +146,7 @@ public class CivitasJuego {
     }
 
     private void pasarTurno(){
-      if (indiceJugadorActual < 4)                                              // Los índices de los jugadores empiezan en 0 (no?)
-        indiceJugadorActual++;
-      else
-        indiceJugadorActual = 0;
+      indiceJugadorActual = (++indiceJugadorActual) % numJugadores;
     }
 
     public void siguientePasoCompletado (OperacionesJuego operacion){
@@ -129,75 +154,68 @@ public class CivitasJuego {
     }
 
     public boolean construirCasa (int ip){
-       //getJugadorActual().construirCasa(ip);   Y:
        return getJugadorActual().construirCasa(ip);
     }
 
     public boolean construirHotel (int ip){
-      //getJugadorActual().construirHotel(ip);   Y:
       return getJugadorActual().construirHotel(ip);
     }
 
     public boolean vender (int ip){
-      //getJugadorActual().vender(ip);           Y:
       return getJugadorActual().vender(ip);
     }
 
     public boolean hipotecar (int ip){
-      //getJugadorActual().hipotecar(ip);
       return getJugadorActual().hipotecar(ip);
     }
 
     public boolean cancelarHipoteca (int ip){
-      //getJugadorActual().cancelarHipoteca(ip);
       return getJugadorActual().cancelarHipoteca(ip);
     }
 
     public boolean salirCarcelPagando (int ip){
-      //getJugadorActual().salirCarcelPagando();
       return getJugadorActual().salirCarcelPagando();
     }
 
     public boolean salirCarcelTirando (int ip){
-      //getJugadorActual().salirCarcelTirando();
       return getJugadorActual().salirCarcelTirando();
     }
 
     public boolean finalDelJuego(){
       boolean finaljuego = false;
 
-      for (int i = 0; i < 4 && !finaljuego; i++)
-        if (jugadores.get(i).enBancarrota())
-          finaljuego = true;
+      for (int i = 0; i < numJugadores && !finaljuego; i++)
+          finaljuego = jugadores.get(i).enBancarrota();
+      
       return finaljuego;
     }
 
-    @Override
+    //@Override
     public int compareTo(Jugador j){
-      return Float.compare(getSaldo(), j.getSaldo());
+      return Float.compare(getJugadorActual().getSaldo(), j.getSaldo());
     }
 
-    private Jugador ranking(){                                        //E: rehacer con el compareTo          
-      ArrayList <Jugador> jugadorescopia = new ArrayList<Jugador> (jugadores);
-      ArrayList <Jugador> playersrank = new ArrayList<Jugador> ();
-      Jugador max;
-
-      for (int i = 0; i < 4; i++){
-        max = jugadorescopia.get(i);
-        for(int j = 0 ; j < jugadorescopia.size() ; j++)
-            if(max < jugadorescopia.get(j).getSaldo())
-               max = jugadorescopia.get(j);
-        playersrank.add(max);
-        jugadorescopia.remove(max);
-      }
-    }
-
-    public String infoJugadorTexto(){
-      String s;
-      for (int i = 0; i < 4; i++)
-        s += jugadores.get(i).toString();
-
-      return s;
-    }
-
+//    private Jugador ranking(){                                        //E: rehacer con el compareTo          
+//      ArrayList <Jugador> jugadorescopia = new ArrayList<Jugador> (jugadores);
+//      ArrayList <Jugador> playersrank = new ArrayList<Jugador> ();
+//      Jugador max;
+//
+//      for (int i = 0; i < numJugadores; i++){
+//        max = jugadorescopia.get(i);
+//        for(int j = 0 ; j < jugadorescopia.size() ; j++)
+//            if(max < jugadorescopia.get(j).getSaldo())
+//               max = jugadorescopia.get(j);
+//        playersrank.add(max);
+//        jugadorescopia.remove(max);
+//      }
+//    }
+//
+//    public String infoJugadorTexto(){
+//      String s;
+//      for (int i = 0; i < 4; i++)
+//        s += jugadores.get(i).toString();
+//
+//      return s;
+//    }
+    
 }

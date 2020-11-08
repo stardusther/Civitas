@@ -1,4 +1,5 @@
 package civitas;
+import java.util.ArrayList;
 
 /**
  * @file Casilla.java
@@ -62,7 +63,7 @@ public class Casilla {
     }
 
     /** @warning Siguiente práctica */
-    void recibeJugador (int iactual, Jugador todos[]) {
+    void recibeJugador (int iactual, ArrayList<Jugador> todos) {
     }
 
     // ---------------------------------------------------------------------- //

@@ -160,7 +160,7 @@ public class Jugador implements Comparable<Jugador>{
      */
     boolean modificarSaldo (float cantidad){
       saldo += cantidad;
-      Diario.getInstance().ocurreEvento ("Se ha modificado el saldo");
+      Diario.getInstance().ocurreEvento ("Se ha modificado el saldo del jugador " + nombre);
       return true;
     }
 
@@ -371,18 +371,12 @@ public class Jugador implements Comparable<Jugador>{
       return encarcelado;
     }
 
-
-    /** Determina si el jugador tiene salvoconducto.
-     * @return @retval true si el jugador tiene salvoconducto y @retval false si no es el caso
-     */
+    /** Determina si el jugador tiene salvoconducto. */
     boolean tieneSalvoconducto (){
       return (salvoconducto != null);
     }
 
-
-    /** Determina si el jugador puede comprar una propiedad.
-     * @return @retval true si el jugador puede comprar la casilla y @retval false si no es el caso
-     */
+    /** Determina si el jugador puede comprar una propiedad. */
     boolean puedeComprarCasilla(){
       if(isEncarcelado())
         puedeComprar = false;
@@ -392,20 +386,45 @@ public class Jugador implements Comparable<Jugador>{
       return getPuedeComprar();
     }
 
-
-
-    /**
-     * @warning por implementar
-     */
-    boolean cancelarHipoteca(int ip){ //SIGUIENTE PRÁCTICA------------------------------------------
-        return true;    //(para que deje compilar :D )
+    /** Cancela la hipoteca de un jugador si: no está encarcelado, la propiedad 
+     *  está hipotecada y puede pagarla. */
+    boolean cancelarHipoteca(int ip){
+        boolean result = false;
+        
+        if (!encarcelado && existeLaPropiedad(ip)) {  // opt 1 y 2 (equivalente a los 2 if)
+            
+            TituloPropiedad propiedad = propiedades.get(ip);            // 3
+            float cantidad = propiedad.getImporteCancelarHipoteca();    // 4
+            boolean puedoGastar = puedoGastar(cantidad);                // 5
+            
+            if (puedoGastar && propiedad.cancelarHipoteca(this)) {      // 6 y 7 (comprobar que el and funciona
+                result = true;                                          // bien, si no tendría que ir en dos if)
+                Diario.getInstance().ocurreEvento("El jugador " + nombre + 
+                            " cancela la hipoteca de la propiedad " + ip);
+            } // else result = false; --> no hace falta, se declara false por defecto
+        }
+        return result;
     }
 
-    /**
-     * @warning por implementar
-     */
-    boolean comprar (TituloPropiedad titulo){ //SIGUIENTE PRÁCTICA
-        return true;    //compilar
+    /** Compra una propiedad si el jugador no está encarcelado, tiene permitido
+     *  comprar, tiene el saldo suficiente, la propiedad se puede comprar.  */
+    boolean comprar (TituloPropiedad titulo){ 
+        boolean result = false;
+        
+        if (!encarcelado && puedeComprar) {
+            float precio = titulo.getPrecioCompra();
+            
+            if (puedoGastar(precio)) {
+                if (titulo.comprar(this)) {
+                    result = true;
+                    propiedades.add(titulo);
+                    Diario.getInstance().ocurreEvento("El jugador " + nombre + 
+                                     " compra la propiedad " + titulo.toString());
+                }
+                puedeComprar = false;
+            }
+        }
+        return result;
     }
 
     /**

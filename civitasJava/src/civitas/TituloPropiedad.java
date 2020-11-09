@@ -48,11 +48,18 @@ public class TituloPropiedad {
         propietario = jugador;
     }
     
-    /** @warning Siguiente practica */
+    /** Si la propiedad está hipotecada y el jugador es el propietario, se 
+     * cancela la hipoteca. */
     boolean cancelarHipoteca (Jugador jugador) {
-        hipotecado = false;
-        // jugador.cancelarHipoteca
-        return hipotecado;
+        boolean result = false;
+        
+        if (hipotecado && esEsteElPropietario(jugador)) {
+                jugador.paga(getImporteCancelarHipoteca());
+                hipotecado = false;
+                result = true;
+            }
+        
+        return result;
     }
     
     /** Devuelve la suma del num de casas y hoteles construidos. */
@@ -94,8 +101,7 @@ public class TituloPropiedad {
     /** Si el jugador pasado como parámetro es el propietario y este no está hipotecado,
      *  entonces se da al propietario el precio de venta, se desvincula al propietario de la 
      *  propiedad y se eliminan las casas y hoteles.
-     * @return @retval true si se lleva a cabo la operacion @retval false si no.
-     * @warning desvincular propietario !!!
+     * @warning desvincular propietario !!
      */
     boolean vender (Jugador jugador) {
         boolean vendido = false;
@@ -108,6 +114,18 @@ public class TituloPropiedad {
             vendido = true;
         }
         return vendido;
+    }
+    
+    boolean comprar (Jugador jugador) {
+        boolean result = false;
+        
+        if (!tienePropietario()) {
+            propietario = jugador;
+            result = true;
+            jugador.paga(getPrecioCompra());
+        }
+        
+        return result;
     }
     
     // ---------------------------------------------------------------------- //    
@@ -181,13 +199,6 @@ public class TituloPropiedad {
     boolean hipotecar (Jugador jugador) {
         return true;
     }
-    
-    
-    /** @warning Siguiente practica */
-    boolean comprar (Jugador jugador) {
-        return true;
-    }
-
     
     /** @warning Siguiente practica */
     boolean construirCasa (Jugador jugador) {

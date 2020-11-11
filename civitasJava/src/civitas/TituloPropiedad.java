@@ -128,6 +128,19 @@ public class TituloPropiedad {
         return result;
     }
     
+    
+    boolean construirHotel (Jugador jugador) {
+        boolean result = false;
+        if (esEsteElPropietario(jugador)) {
+            jugador.paga(precioEdificar);
+            numHoteles += 1;
+            result = true;
+        }
+        return result;
+    }
+    
+    
+    
     // ---------------------------------------------------------------------- //    
     // --------------------------- Consultores ------------------------------ //
     // ---------------------------------------------------------------------- //
@@ -206,13 +219,6 @@ public class TituloPropiedad {
     }
 
     
-    /** @warning Siguiente practica */
-    boolean construirHotel (Jugador jugador) {
-        return true;
-    }
-    
-
-
     @Override
     public String toString() {
         String estado = " Estado: \n"

@@ -56,7 +56,7 @@ public class Controlador {
                     gest = vista.getGestion();
                     ip = vista.getPropiedad();
                     
-                    OperacionInmobiliaria operacionInm = new OperacionInmobiliaria (GestionesInmobiliarias(gest),ip); //E: npi
+                    OperacionInmobiliaria operacionInm = new OperacionInmobiliaria (GestionesInmobiliarias.values()[gest],ip); //E: npi
                     switch(operacionInm.getGestion()){
                         case VENDER:
                             juego.vender(ip);

@@ -31,7 +31,7 @@ public class Jugador implements Comparable<Jugador>{
 
     /** Constructor básico de la clase Jugador.
      * @param nombre El nombre del nuevo Jugador
-     */f
+     */
     Jugador (String _nombre){
       nombre = _nombre;
       saldo = SaldoInicial;

@@ -165,6 +165,10 @@ public class CivitasJuego {
       return getJugadorActual().vender(ip);
     }
 
+    public boolean comprar(){
+        
+    }
+    
     public boolean hipotecar (int ip){
       return getJugadorActual().hipotecar(ip);
     }
@@ -195,27 +199,20 @@ public class CivitasJuego {
       return Float.compare(getJugadorActual().getSaldo(), j.getSaldo());
     }
 
-//    private Jugador ranking(){                                        //E: rehacer con el compareTo          
-//      ArrayList <Jugador> jugadorescopia = new ArrayList<Jugador> (jugadores);
-//      ArrayList <Jugador> playersrank = new ArrayList<Jugador> ();
-//      Jugador max;
-//
-//      for (int i = 0; i < numJugadores; i++){
-//        max = jugadorescopia.get(i);
-//        for(int j = 0 ; j < jugadorescopia.size() ; j++)
-//            if(max < jugadorescopia.get(j).getSaldo())
-//               max = jugadorescopia.get(j);
-//        playersrank.add(max);
-//        jugadorescopia.remove(max);
-//      }
-//    }
-//
-//    public String infoJugadorTexto(){
-//      String s;
-//      for (int i = 0; i < 4; i++)
-//        s += jugadores.get(i).toString();
-//
-//      return s;
-//    }
-    
+    public ArrayList<Jugador> ranking() {
+        Jugador max;
+        ArrayList<Jugador> playersrank = new ArrayList();
+
+        for (int i = 0; i < numJugadores; i++) {
+            max = jugadores.get(i);
+            for (int j = i + 1; j < numJugadores; j++) {
+                if (max.compareTo(jugadores.get(j)) < 0) {
+                    max = jugadores.get(j);
+                }
+            }
+            playersrank.add(max);
+        }
+        return playersrank;
+    }
+
 }

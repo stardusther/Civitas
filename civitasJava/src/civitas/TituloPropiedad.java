@@ -140,6 +140,18 @@ public class TituloPropiedad {
     }
     
     
+    boolean hipotecar (Jugador jugador) {
+        boolean salida = false;
+        if (!hipotecado && esEsteElPropietario(jugador)) {
+            jugador.recibe(getImporteHipoteca());
+            hipotecado = true;
+            salida = true;
+        }
+        
+        return salida;
+    }
+    
+    
     
     // ---------------------------------------------------------------------- //    
     // --------------------------- Consultores ------------------------------ //
@@ -206,12 +218,6 @@ public class TituloPropiedad {
     
     
     // ----------------- SIGUIENTE PRACTICA ------------------- //
-    
-    
-    /** @warning Siguiente practica */
-    boolean hipotecar (Jugador jugador) {
-        return true;
-    }
     
     /** @warning Siguiente practica */
     boolean construirCasa (Jugador jugador) {

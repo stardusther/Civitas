@@ -44,9 +44,7 @@ public class Jugador implements Comparable<Jugador>{
     }
 
 
-    /** Constructor de copia de la clase Jugador.
-     * @param otro El otro jugador que queremos copiar
-     */
+    /** Constructor de copia de la clase Jugador. */
     protected Jugador (Jugador otro){
       nombre = otro.getNombre();
       saldo = otro.getSaldo();
@@ -98,7 +96,7 @@ public class Jugador implements Comparable<Jugador>{
       if (obtiene)
           salvoconducto = s;
       return obtiene;
-      
+
     }
 
 
@@ -386,20 +384,20 @@ public class Jugador implements Comparable<Jugador>{
       return getPuedeComprar();
     }
 
-    /** Cancela la hipoteca de un jugador si: no está encarcelado, la propiedad 
+    /** Cancela la hipoteca de un jugador si: no está encarcelado, la propiedad
      *  está hipotecada y puede pagarla. */
     boolean cancelarHipoteca(int ip){
         boolean result = false;
-        
+
         if (!encarcelado && existeLaPropiedad(ip)) {  // opt 1 y 2 (equivalente a los 2 if)
-            
+
             TituloPropiedad propiedad = propiedades.get(ip);            // 3
             float cantidad = propiedad.getImporteCancelarHipoteca();    // 4
             boolean puedoGastar = puedoGastar(cantidad);                // 5
-            
+
             if (puedoGastar && propiedad.cancelarHipoteca(this)) {      // 6 y 7 (comprobar que el and funciona
                 result = true;                                          // bien, si no tendría que ir en dos if)
-                Diario.getInstance().ocurreEvento("El jugador " + nombre + 
+                Diario.getInstance().ocurreEvento("El jugador " + nombre +
                             " cancela la hipoteca de la propiedad " + ip);
             } // else result = false; --> no hace falta, se declara false por defecto
         }
@@ -408,17 +406,17 @@ public class Jugador implements Comparable<Jugador>{
 
     /** Compra una propiedad si el jugador no está encarcelado, tiene permitido
      *  comprar, tiene el saldo suficiente, la propiedad se puede comprar.  */
-    boolean comprar (TituloPropiedad titulo){ 
+    boolean comprar (TituloPropiedad titulo){
         boolean result = false;
-        
+
         if (!encarcelado && puedeComprar) {
             float precio = titulo.getPrecioCompra();
-            
+
             if (puedoGastar(precio)) {
                 if (titulo.comprar(this)) {
                     result = true;
                     propiedades.add(titulo);
-                    Diario.getInstance().ocurreEvento("El jugador " + nombre + 
+                    Diario.getInstance().ocurreEvento("El jugador " + nombre +
                                      " compra la propiedad " + titulo.toString());
                 }
                 puedeComprar = false;
@@ -434,34 +432,35 @@ public class Jugador implements Comparable<Jugador>{
         return true;    //compilar
     }
 
-    /** El jugador construye un hotel si no está encarcelado, existe la propiedad,
-     * 
-     * @param ip
-     * @return 
-     */
-    boolean construirHotel (int ip){ 
+    /** Determina si el jugador puede construir el hotel y lo hace si es posible. */
+    boolean construirHotel (int ip){
         boolean result = false;
-        
+
         if (!encarcelado && existeLaPropiedad(ip)) {
             TituloPropiedad propiedad = propiedades.get(ip);
-            
+
             if (puedoEdificarHotel (propiedad)) {
                 result = propiedad.construirHotel(this);
                 int casasPorHotel = getCasasPorHotel();
                 propiedad.derruirCasas(casasPorHotel, this);
-                Diario.getInstance().ocurreEvento("EL jugador " + nombre + 
+                Diario.getInstance().ocurreEvento("EL jugador " + nombre +
                         "construye hotel en la propiedad " + ip);
             }
         }
-        
+
         return result;
     }
 
-    /**
-     * @warning por implementar
-     */
-    boolean hipotecar (int ip){ //SIGUIENTE PRÁCTICA
-        return true;    //compilar
+    /** Hipoteca al jugador si es posible. */
+    boolean hipotecar (int ip){
+        boolean result = false;
+
+        if (!encarcelado && existeLaPropiedad(ip)) {
+            TituloPropiedad propiedad = propiedades.get(ip);
+            result = propiedad.hipotecar(this);
+        }
+
+        return result;
     }
 
     /** Determina si el jugador está en bancarrota.
@@ -500,16 +499,16 @@ public class Jugador implements Comparable<Jugador>{
     private boolean puedoEdificarHotel (TituloPropiedad propiedad){ //IMPLEMENTAR
         boolean puedoEdificarHotel = false;
         float precio = propiedad.getPrecioEdificar();
-        
-        if (puedoGastar(precio) && propiedad.getNumHoteles()<getHotelesMax() && 
-                propiedad.getNumCasas()>=getCasasPorHotel()) 
+
+        if (puedoGastar(precio) && propiedad.getNumHoteles()<getHotelesMax() &&
+                propiedad.getNumCasas()>=getCasasPorHotel())
                     puedoEdificarHotel = true;
-        
+
       return puedoEdificarHotel;
-      
-      // return ( puedoGastar(precio) && propiedad.getNumHoteles()<getHotelesMax() && 
+
+      // return ( puedoGastar(precio) && propiedad.getNumHoteles()<getHotelesMax() &&
       //          propiedad.getNumCasas()>=getCasasPorHotel() )
-      
+
     }
 
     /** Imprime por pantalla las características del jugador

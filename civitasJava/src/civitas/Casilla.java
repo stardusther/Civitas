@@ -62,8 +62,26 @@ public class Casilla {
         tipo = TipoCasilla.SORPRESA;
     }
 
-    /** @warning Siguiente práctica */
+    /** Recibe a un jugador en la casilla. */
     void recibeJugador (int iactual, ArrayList<Jugador> todos) {
+        
+        switch (tipo){
+            case CALLE:
+                recibeJugador_calle(iactual, todos);
+                break;
+            case IMPUESTO:
+                recibeJugador_impuesto (iactual, todos);
+                break;
+            case JUEZ:
+                recibeJugador_juez (iactual, todos);
+                break;
+            case SORPRESA:
+                recibeJugador_sorpresa (iactual, todos);
+                break;
+            default:
+                informe (iactual, todos);           // Y: por qué?
+        }
+        
     }
 
     // ---------------------------------------------------------------------- //
@@ -78,8 +96,8 @@ public class Casilla {
         return tituloPropiedad;
     }
     
-    public boolean jugadorCorrecto (int actual, Jugador todos[]) {
-        return (actual < todos.length);
+    public boolean jugadorCorrecto (int actual, ArrayList<Jugador> todos) {
+        return (actual < todos.size());
     }
 
     @Override
@@ -94,35 +112,35 @@ public class Casilla {
     // ---------------------------------------------------------------------- //
 
 
-    private void informe (int actual, Jugador todos[]) {
-        String str = "El jugador " + todos[actual] + " ha caido en una casilla.\n" + toString();
+    private void informe (int actual, ArrayList<Jugador> todos) {
+        String str = "El jugador " + todos.get(actual) + " ha caido en una casilla.\n" + toString();
         Diario.getInstance().ocurreEvento(str);
     }
 
     /** @warning Siguiente práctica */
-    private void recibeJugador_calle (int actual, Jugador todos[]) {
+    private void recibeJugador_calle (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos)) {
             informe (actual, todos);
-            todos[actual].pagaAlquiler(tituloPropiedad.getPrecioAlquiler());
+            todos.get(actual).pagaAlquiler(tituloPropiedad.getPrecioAlquiler());
         }
     }
 
-    private void recibeJugador_impuesto (int actual, Jugador todos[]) {
+    private void recibeJugador_impuesto (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos)) {
             informe (actual, todos);
-            todos[actual].pagaImpuesto(importe);
+            todos.get(actual).pagaImpuesto(importe);
         }
     }
 
-    private void recibeJugador_juez (int actual, Jugador todos[]) {
+    private void recibeJugador_juez (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos)) {
             informe (actual, todos);
-            todos[actual].encarcelar(carcel);
+            todos.get(actual).encarcelar(carcel);
         }
     }
 
     /** @warning Siguiente práctica */
-    private void recibeJugador_sorpresa (int actual, Jugador todos[]) {
+    private void recibeJugador_sorpresa (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos)) {
             informe (actual, todos);
             sorpresa.aplicarAJugador(actual, todos);

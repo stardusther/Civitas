@@ -61,7 +61,7 @@ public class Sorpresa{
      * @warnign Mejor quitar todas las comprobacines de los metodos privado y ponerla 
      * solo en el uncio que se llama? = menos líneas de cógido asdfkjgfkds :/ 
      */
-    void aplicarAJugador (int actual, Jugador todos[]) {
+    void aplicarAJugador (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos)) {
             switch (sorpresa){
                 case IRCARCEL:
@@ -90,16 +90,16 @@ public class Sorpresa{
      * @note Es necesario usar los metodos calcularTirada y nuevaPosicion para que quede registrado
      * un posible paso por salida como consecuencia del salto a la nueva casilla.
      */
-    private void aplicarAJugador_irACasilla (int actual, Jugador todos[]) {
+    private void aplicarAJugador_irACasilla (int actual, ArrayList<Jugador> todos) {
 
         if (jugadorCorrecto(actual, todos)) {
             informe (actual, todos);
 
-            int casilla = todos[actual].getNumCasillaActual();          // 1. Obtenemos casilla actual del jugador
+            int casilla = todos.get(actual).getNumCasillaActual();          // 1. Obtenemos casilla actual del jugador
             int tirada = tablero.calcularTirada(casilla, valor);        // 2. Se calcula la tirada
             int nuevaPos = tablero.nuevaPosicion(casilla, tirada);      // 3. Se obtiene la nueva pos. del jugador
 
-            todos[actual].moverACasilla(nuevaPos);                      // 4. Se mueve al jugador a esa nueva posicion
+            todos.get(actual).moverACasilla(nuevaPos);                      // 4. Se mueve al jugador a esa nueva posicion
 
             tablero.getCasilla(casilla).recibeJugador (actual, todos);  // 5. Se indica a la casilla que está en la posicion
                                                                         // del valor de la sorpresa que reciba al jugador
@@ -107,45 +107,45 @@ public class Sorpresa{
     }
 
     /** Se encarcela la jugador.  */
-    private void aplicarAJugador_irCarcel (int actual, Jugador todos[]) {
+    private void aplicarAJugador_irCarcel (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto(actual, todos)) {
             informe (actual, todos);
-            todos[actual].encarcelar(tablero.getCarcel());
+            todos.get(actual).encarcelar(tablero.getCarcel());
         }
     }
 
 
     /** Se modifica el saldo del jugador actual con el valor de la sorpresa. */
-    private void aplicarAJugador_pagarCobrar (int actual, Jugador todos[]) {
+    private void aplicarAJugador_pagarCobrar (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto(actual, todos)) {
             informe (actual, todos);
-            todos[actual].modificarSaldo(valor);
+            todos.get(actual).modificarSaldo(valor);
         }
     }
 
 
     /** Se modifica el saldo del jugador actual con el valor de la sorpresa
      *  multiplicado por el núm de casas y hoteles del jugador. */
-    private void aplicarAJugador_porCasaHotel (int actual, Jugador todos[]) {
+    private void aplicarAJugador_porCasaHotel (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto(actual, todos)) {
             informe (actual, todos);
-            todos[actual].modificarSaldo (valor * todos[actual].cantidadCasasHoteles());
+            todos.get(actual).modificarSaldo (valor * todos.get(actual).cantidadCasasHoteles());
         }
     }
 
     /** Todos los jugadores dan dinero al jugador actual.
      * @warning valor de sorpresas !! */
-    private void aplicarAJugador_porJugador (int actual, Jugador todos[]) {
+    private void aplicarAJugador_porJugador (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto(actual, todos)) {
             informe (actual, todos);
             Sorpresa _sorpresa = new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor * -1, "");
 
-            for (int i=0 ; i<todos.length ; i++)
+            for (int i=0 ; i<todos.size() ; i++)
                 if (i != actual)
-                    todos[i].paga(_sorpresa.valor);     
+                    todos.get(i).paga(_sorpresa.valor);     
             
-            Sorpresa _sorpresaActual = new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor * todos.length-1, "");
-            todos[actual].recibe (_sorpresaActual.valor);
+            Sorpresa _sorpresaActual = new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor * todos.size()-1, "");
+            todos.get(actual).recibe (_sorpresaActual.valor);
         }
     }
 
@@ -153,32 +153,32 @@ public class Sorpresa{
     /** Se pregunta a todos los jugadores su alguien tiene la sorpresa para evitar 
      *  la carcel (salvoconducto), si nadie la tiene,la obtiene el jugador actual 
      *  y se llama al método salirDelMazo. */
-    private void aplicarAJugador_salirCarcel (int actual, Jugador todos[]) {
+    private void aplicarAJugador_salirCarcel (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos)) {
 
             // Se comprueba que el resto de jugadores no tiene el salvoconducto
             boolean tienen_salvoconducto = false;
-            for (int i=0 ; i<todos.length && !tienen_salvoconducto; i++)
-                tienen_salvoconducto = todos[i].tieneSalvoconducto();
+            for (int i=0 ; i<todos.size() && !tienen_salvoconducto; i++)
+                tienen_salvoconducto = todos.get(i).tieneSalvoconducto();
 
             if (!tienen_salvoconducto) {
-                todos[actual].obtenerSalvoconducto(this);
+                todos.get(actual).obtenerSalvoconducto(this);
                 salirDelMazo ();
             }
         }
     }
 
     /** Informa al diario de que se está aplicando una sorpresa a un jugador (se indica su nombre). */
-    private void informe (int actual, Jugador todos[]) {
+    private void informe (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos))
-            Diario.getInstance().ocurreEvento("Se aplica sorpresa" + sorpresa + " al jugador " + todos[actual].getNombre());
+            Diario.getInstance().ocurreEvento("Se aplica sorpresa" + sorpresa + " al jugador " + todos.get(actual).getNombre());
     }
 
     /** Comprueba si el primer parámetro es un indice valido para acceder al array de Jugadores. */
-    public boolean jugadorCorrecto (int actual, Jugador todos[]) {
+    public boolean jugadorCorrecto (int actual, ArrayList<Jugador> todos) {
         boolean correcto = true;
 
-        if (actual >= 0 && actual < todos.length )
+        if (actual >= 0 && actual < todos.size() )
             correcto = false;
 
         return correcto;

@@ -179,6 +179,13 @@ public class CivitasJuego {
     public boolean vender (int ip){
       return getJugadorActual().vender(ip);
     }
+    
+    public boolean comprar () {
+        Jugador jugadorActual = jugadores.get(indiceJugadorActual);
+        Casilla casilla = tablero.getCasilla (jugadorActual.getNumCasillaActual());
+        TituloPropiedad titulo = casilla.getTituloPropiedad();
+        return (jugadorActual.comprar(titulo));
+    }
 
     public boolean hipotecar (int ip){
       return getJugadorActual().hipotecar(ip);

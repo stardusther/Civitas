@@ -148,6 +148,21 @@ public class CivitasJuego {
     private void pasarTurno(){
       indiceJugadorActual = (++indiceJugadorActual) % numJugadores;
     }
+    
+    public OperacionesJuego siguientePaso() {
+        Jugador jugadorActual = jugadores.get(indiceJugadorActual);
+        OperacionesJuego operacion = gestorEstados.operacionesPermitidas (jugadorActual, estado);
+        
+        if (operacion == OperacionesJuego.PASAR_TURNO){
+            pasarTurno();
+            siguientePasoCompletado(operacion);
+        }
+        else if (operacion == OperacionesJuego.AVANZAR) {
+            avanzaJugador();
+            siguientePasoCompletado(operacion);
+        }
+        return operacion;
+    }
 
     public void siguientePasoCompletado (OperacionesJuego operacion){
       estado = gestorEstados.siguienteEstado(getJugadorActual(), estado, operacion);

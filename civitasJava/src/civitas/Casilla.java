@@ -116,12 +116,16 @@ public class Casilla {
         String str = "El jugador " + todos.get(actual) + " ha caido en una casilla.\n" + toString();
         Diario.getInstance().ocurreEvento(str);
     }
-
-    /** @warning Siguiente práctica */
+    
     private void recibeJugador_calle (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos)) {
             informe (actual, todos);
-            todos.get(actual).pagaAlquiler(tituloPropiedad.getPrecioAlquiler());
+            Jugador jugador = todos.get(actual);
+            
+            if (!tituloPropiedad.tienePropietario()) 
+                jugador.puedeComprarCasilla();
+            else 
+                tituloPropiedad.tramitarAlquiler(jugador);
         }
     }
 

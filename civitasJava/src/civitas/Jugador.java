@@ -29,9 +29,7 @@ public class Jugador implements Comparable<Jugador>{
     private ArrayList<TituloPropiedad> propiedades;     // Conjunto de propiedades del jugador
 
 
-    /** Constructor básico de la clase Jugador.
-     * @param nombre El nombre del nuevo Jugador
-     */f
+    /** Constructor básico de la clase Jugador. */
     Jugador (String _nombre){
       nombre = _nombre;
       saldo = SaldoInicial;
@@ -44,9 +42,7 @@ public class Jugador implements Comparable<Jugador>{
     }
 
 
-    /** Constructor de copia de la clase Jugador.
-     * @param otro El otro jugador que queremos copiar
-     */
+    /** Constructor de copia de la clase Jugador. */
     protected Jugador (Jugador otro){
       nombre = otro.getNombre();
       saldo = otro.getSaldo();
@@ -434,11 +430,7 @@ public class Jugador implements Comparable<Jugador>{
         return true;    //compilar
     }
 
-    /** El jugador construye un hotel si no está encarcelado, existe la propiedad,
-     * 
-     * @param ip
-     * @return 
-     */
+    /** Determina si el jugador puede construir el hotel y lo hace si es posible. */
     boolean construirHotel (int ip){ 
         boolean result = false;
         
@@ -457,11 +449,16 @@ public class Jugador implements Comparable<Jugador>{
         return result;
     }
 
-    /**
-     * @warning por implementar
-     */
-    boolean hipotecar (int ip){ //SIGUIENTE PRÁCTICA
-        return true;    //compilar
+    /** Hipoteca al jugador si es posible. */
+    boolean hipotecar (int ip){ 
+        boolean result = false;
+        
+        if (!encarcelado && existeLaPropiedad(ip)) {
+            TituloPropiedad propiedad = propiedades.get(ip);
+            result = propiedad.hipotecar(this);
+        }
+        
+        return result;
     }
 
     /** Determina si el jugador está en bancarrota.

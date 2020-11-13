@@ -431,16 +431,8 @@ public class Jugador implements Comparable<Jugador>{
         boolean result = false;
         boolean puedoEdificarCasa = false;
         
-        if (!encarcelado) {
-            boolean existe = existeLaPropiedad (ip);
-            if (existe) {
-                TituloPropiedad propiedad = propiedades.get(ip);
-                puedoEdificarCasa = puedoEdificarCasa(propiedad);
-                
-                if (puedoEdificarCasa)
-                    result = construirCasa(jugador);
-            }
-        }
+        if (!encarcelado && existeLaPropiedad (ip) && puedoEdificarCasa(propiedades.get(ip)) )
+            result = propiedades.get(ip).construirCasa(this);
         
         return result;
     }
@@ -499,15 +491,10 @@ public class Jugador implements Comparable<Jugador>{
       return existe;
     }
 
-    /** Determina si el jugador puede edificar una casa en una determinada propiedad
-     * @warning acortar codigo
-     */
+    /** Determina si el jugador puede edificar una casa en una determinada propiedad. */
     private boolean puedoEdificarCasa (TituloPropiedad propiedad){
-        boolean puedoEdificarCasa = false;
-        float precio = propiedad.getPrecioEdificar();
-        if (puedoGastar(precio) && propiedad.getNumCasas()<getCasasMax())
-            puedoEdificarCasa = true;
-        return puedoEdificarCasa;
+        return (puedoGastar (propiedad.getPrecioEdificar()) && 
+                propiedad.getNumCasas()<getCasasMax());
     }
 
     /** Determina si el jugador puede edificar un hotel en una determinada propiedad.

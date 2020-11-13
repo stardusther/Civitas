@@ -186,10 +186,6 @@ public class CivitasJuego {
         TituloPropiedad titulo = casilla.getTituloPropiedad();
         return (jugadorActual.comprar(titulo));
     }
-
-    public boolean comprar(){
-        
-    }
     
     public boolean hipotecar (int ip){
       return getJugadorActual().hipotecar(ip);
@@ -227,13 +223,25 @@ public class CivitasJuego {
 
         for (int i = 0; i < numJugadores; i++) {
             max = jugadores.get(i);
-            for (int j = i + 1; j < numJugadores; j++) {
-                if (max.compareTo(jugadores.get(j)) < 0) {
+            for (int j = i + 1; j < numJugadores; j++) 
+                if (max.compareTo(jugadores.get(j)) < 0) 
                     max = jugadores.get(j);
-                }
-            }
             playersrank.add(max);
         }
+           
+        //-----------------------------------------------//
+        
+        ArrayList<Jugador> jugadores_aux = (ArrayList)jugadores.clone();
+        
+        for (int i = 0; i < numJugadores; i++) {
+            max = jugadores_aux.get (0);
+            for (int j = 1; j < jugadores_aux.size(); j++) 
+                if (max.compareTo(jugadores_aux.get(j)) < 0) 
+                    max = jugadores_aux.get(j);
+            playersrank.add(max);
+            jugadores_aux.remove(max);
+        }    
+        
         return playersrank;
     }
 

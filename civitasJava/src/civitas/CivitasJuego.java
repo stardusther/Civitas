@@ -195,11 +195,11 @@ public class CivitasJuego {
       return getJugadorActual().cancelarHipoteca(ip);
     }
 
-    public boolean salirCarcelPagando (int ip){
+    public boolean salirCarcelPagando (){
       return getJugadorActual().salirCarcelPagando();
     }
 
-    public boolean salirCarcelTirando (int ip){
+    public boolean salirCarcelTirando (){
       return getJugadorActual().salirCarcelTirando();
     }
 
@@ -218,18 +218,16 @@ public class CivitasJuego {
     }
 
     public ArrayList<Jugador> ranking() {
-        Jugador max;
-        ArrayList<Jugador> playersrank = new ArrayList();
+          Jugador max;
+          ArrayList<Jugador> playersrank = new ArrayList();
 
-        for (int i = 0; i < numJugadores; i++) {
-            max = jugadores.get(i);
-            for (int j = i + 1; j < numJugadores; j++) 
-                if (max.compareTo(jugadores.get(j)) < 0) 
-                    max = jugadores.get(j);
-            playersrank.add(max);
-        }
-           
-        //-----------------------------------------------//
+//        for (int i = 0; i < numJugadores; i++) {
+//            max = jugadores.get(i);
+//            for (int j = i + 1; j < numJugadores; j++) 
+//                if (max.compareTo(jugadores.get(j)) < 0) 
+//                    max = jugadores.get(j);
+//            playersrank.add(max);
+//        }
         
         ArrayList<Jugador> jugadores_aux = (ArrayList)jugadores.clone();
         

@@ -328,7 +328,7 @@ public class Jugador implements Comparable<Jugador>{
      * @return propiedades Array que contiene el conjunto de propiedades del jugador
      */
     protected ArrayList <TituloPropiedad> getPropiedades(){
-      return propiedades;           //Y: era el tipo que devolvia, ahora si se puede devolver un array :)
+      return propiedades;           
     }
 
 
@@ -528,7 +528,7 @@ public class Jugador implements Comparable<Jugador>{
           s+= "\n Puede comprar.";
 
       if (encarcelado)
-          s+= "\n Encarcelado D:";
+          s+= "\n Está encarcelado.";
 
       if ( salvoconducto != null)
           s+= "\n Tiene salvoconducto";

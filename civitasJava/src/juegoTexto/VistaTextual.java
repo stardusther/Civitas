@@ -8,16 +8,8 @@ import civitas.Respuestas;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-import civitas.Casilla;
-import civitas.CivitasJuego;
-import civitas.Diario;
-import civitas.Jugador;
-import civitas.OperacionesJuego;
-import civitas.Respuestas;
-import civitas.SalidasCarcel;
-import civitas.TituloPropiedad;
 
-class VistaTextual {
+public class VistaTextual {
   
   CivitasJuego juegoModel; 
   int iGestion=-1;
@@ -110,12 +102,12 @@ class VistaTextual {
       return iPropiedad;
   }
     
-
+  /** Muestra la siguiente operacion.  */
   void mostrarSiguienteOperacion(OperacionesJuego operacion) {
       System.out.println("Siguiente operacion: " + operacion);
   }
 
-
+  /** Muestra los eventos del diario. */
   void mostrarEventos() {
       String evento = Diario.getInstance().leerEvento();
       while (evento != "") {
@@ -130,7 +122,7 @@ class VistaTextual {
         this.actualizarVista();
     }
   
-  void actualizarVista(){
+  public void actualizarVista(){
       System.out.println(juegoModel.getJugadorActual().toString() + "\n" + 
               juegoModel.getCasillaActual().toString());
   

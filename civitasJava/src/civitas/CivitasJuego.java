@@ -31,6 +31,7 @@ public class CivitasJuego {
         jugadores.add (new Jugador (j3));
         jugadores.add (new Jugador (j4));
 
+        gestorEstados = new GestorEstados();
         estado = gestorEstados.estadoInicial();
 
         indiceJugadorActual = Dado.getInstance().quienEmpieza (numJugadores);

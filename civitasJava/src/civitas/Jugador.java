@@ -474,7 +474,7 @@ public class Jugador implements Comparable<Jugador>{
     boolean enBancarrota (){
       boolean cero = false;
 
-      if (getSaldo() >= 0)
+      if (getSaldo() <= 0)
         cero = true;
 
       return cero;

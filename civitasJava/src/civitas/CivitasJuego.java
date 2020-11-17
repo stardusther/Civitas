@@ -22,14 +22,13 @@ public class CivitasJuego {
     static final int numCasillas = 11;              /** @warning provisional */
 
     /** Constructor. */
-    public CivitasJuego (String j1, String j2, String j3, String j4){       
+    public CivitasJuego (String [] nombres){       
 
         jugadores = new ArrayList<> ();
 
-        jugadores.add (new Jugador (j1));
-        jugadores.add (new Jugador (j2));
-        jugadores.add (new Jugador (j3));
-        jugadores.add (new Jugador (j4));
+        for (int i = 0; i < numJugadores; i++)      // Como sólo puede haber cuatro jugadores, sólo se cogen los primeros cuatro nombres
+            jugadores.add (new Jugador (nombres[i]));
+        
 
         estado = gestorEstados.estadoInicial();
 

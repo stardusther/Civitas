@@ -139,6 +139,16 @@ public class TituloPropiedad {
         return result;
     }
     
+    boolean construirCasa (Jugador jugador) {
+        boolean result = false;
+        if (esEsteElPropietario(jugador)) {
+            jugador.paga(precioEdificar);
+            numCasas += 1;
+            result = true;
+        }
+        return result;
+    }
+    
     
     boolean hipotecar (Jugador jugador) {
         boolean salida = false;
@@ -215,15 +225,6 @@ public class TituloPropiedad {
     private boolean propietarioEncarcelado () {
         return (tienePropietario() && propietario.isEncarcelado());
     }
-    
-    
-    // ----------------- SIGUIENTE PRACTICA ------------------- //
-    
-    /** @warning Siguiente practica */
-    boolean construirCasa (Jugador jugador) {
-        return true;
-    }
-
     
     @Override
     public String toString() {

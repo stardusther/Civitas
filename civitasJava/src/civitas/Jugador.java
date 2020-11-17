@@ -328,7 +328,7 @@ public class Jugador implements Comparable<Jugador>{
      * @return propiedades Array que contiene el conjunto de propiedades del jugador
      */
     protected ArrayList <TituloPropiedad> getPropiedades(){
-      return propiedades;           //Y: era el tipo que devolvia, ahora si se puede devolver un array :)
+      return propiedades;           
     }
 
 
@@ -425,11 +425,16 @@ public class Jugador implements Comparable<Jugador>{
         return result;
     }
 
-    /**
-     * @warning por implementar
-     */
-    boolean construirCasa (int ip){ //SIGUIENTE PRÁCTICA
-        return true;    //compilar
+    /** El jugador construye una casa si es posible. */
+    /** @warning terminar. */
+    boolean construirCasa (int ip){
+        boolean result = false;
+        boolean puedoEdificarCasa = false;
+        
+        if (!encarcelado && existeLaPropiedad (ip) && puedoEdificarCasa(propiedades.get(ip)) )
+            result = propiedades.get(ip).construirCasa(this);
+        
+        return result;
     }
 
     /** Determina si el jugador puede construir el hotel y lo hace si es posible. */
@@ -469,7 +474,7 @@ public class Jugador implements Comparable<Jugador>{
     boolean enBancarrota (){
       boolean cero = false;
 
-      if (getSaldo() >= 0)
+      if (getSaldo() <= 0)
         cero = true;
 
       return cero;
@@ -486,12 +491,10 @@ public class Jugador implements Comparable<Jugador>{
       return existe;
     }
 
-    /** Determina si el jugador puede edificar una casa en una determinada propiedad
-     * @param propiedad La propiedad en la que queremos edificar la casa
-     */
+    /** Determina si el jugador puede edificar una casa en una determinada propiedad. */
     private boolean puedoEdificarCasa (TituloPropiedad propiedad){
-        return (propiedades.contains(propiedad) && propiedad.getNumCasas() < getCasasMax()      // Si el jugador posee la propiedad, el número de casas edificadas es menor a 4,
-                && getPuedeComprar() && puedoGastar(propiedad.getPrecioEdificar()));            // el jugador puede comprar y puede gastar lo que cuesta la ediificación en esa casilla
+        return (puedoGastar (propiedad.getPrecioEdificar()) && 
+                propiedad.getNumCasas()<getCasasMax());
     }
 
     /** Determina si el jugador puede edificar un hotel en una determinada propiedad.
@@ -518,17 +521,17 @@ public class Jugador implements Comparable<Jugador>{
     public String toString(){
       String s;
 
-      s = "\n >> El jugador " + getNombre() + " tiene un saldo de " + getSaldo() + "€, tiene " + propiedades.size() +" propiedades y un total de " + cantidadCasasHoteles() + " edificaciones";
+      s = "\n >> Jugador " + getNombre() + ". Saldo " + getSaldo() + "€. Propiedades: " + propiedades.size() +". Edificaciones:" + cantidadCasasHoteles();
 
       s += "\n Casilla actual: " + numCasillaActual;
       if (puedeComprar)
-          s+= "\n Puede comprar.";
+          s+= " Puede comprar.";
 
       if (encarcelado)
-          s+= "\n Encarcelado D:";
+          s+= " Está encarcelado.";
 
       if ( salvoconducto != null)
-          s+= "\n Tiene salvoconducto";
+          s+= " Tiene salvoconducto";
 
       return s;
     }

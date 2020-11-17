@@ -11,6 +11,11 @@ public class OperacionInmobiliaria {
     private int numPropiedad;
     GestionesInmobiliarias gestion;
     
+    public OperacionInmobiliaria (int ip, GestionesInmobiliarias gest) {
+        numPropiedad = ip;
+        gestion = gest;
+    }
+    
     public GestionesInmobiliarias getGestion() {
         return gestion;
     }

@@ -17,7 +17,7 @@ public class CivitasJuego {
 
     private int indiceJugadorActual;
 
-    static final int numJugadores = 4;                          
+    static final int numJugadores = 2;                          
     static final int casillaCarcel = 3;             /** @warning provisional */                         
     static final int numCasillas = 11;              /** @warning provisional */
 
@@ -30,12 +30,13 @@ public class CivitasJuego {
             jugadores.add (new Jugador (nombres[i]));
         
 
+        gestorEstados = new GestorEstados();
         estado = gestorEstados.estadoInicial();
 
         indiceJugadorActual = Dado.getInstance().quienEmpieza (numJugadores);
 
-        inicializaTablero(mazo);
-        inicializaMazoSorpresas(tablero);
+        inicializaMazoSorpresas (tablero);
+        inicializaTablero (mazo);
     }
 
     /** Inicializa el tablero. */
@@ -103,6 +104,21 @@ public class CivitasJuego {
     /** Inicializa el mazo. */
     private void inicializaMazoSorpresas (Tablero tablero){
         
+        mazo = new MazoSorpresas (true);   // Lo inicializamos con el debug activado para esta practica.
+        
+        // Creamos una sorpresa de cada tipo
+        
+        int valor = 100;
+        int ir_a_casiila = 7;
+        int num_sorpresas = 6;
+        
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCARCEL, tablero));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_casiila, " Ir a casilla 7 (JUEZ)"));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.SALIRCARCEL, mazo));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor, " POR JUGADOR"));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor, " POR CASA HOTEL"));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor, " PAGARCOBRAR"));
+        
     }
 
     /** Avanza jugador. */
@@ -147,6 +163,21 @@ public class CivitasJuego {
     private void pasarTurno(){
       indiceJugadorActual = (++indiceJugadorActual) % numJugadores;
     }
+    
+    public OperacionesJuego siguientePaso() {
+        Jugador jugadorActual = jugadores.get(indiceJugadorActual);
+        OperacionesJuego operacion = gestorEstados.operacionesPermitidas (jugadorActual, estado);
+        
+        if (operacion == OperacionesJuego.PASAR_TURNO){
+            pasarTurno();
+            siguientePasoCompletado(operacion);
+        }
+        else if (operacion == OperacionesJuego.AVANZAR) {
+            avanzaJugador();
+            siguientePasoCompletado(operacion);
+        }
+        return operacion;
+    }
 
     public void siguientePasoCompletado (OperacionesJuego operacion){
       estado = gestorEstados.siguienteEstado(getJugadorActual(), estado, operacion);
@@ -163,9 +194,12 @@ public class CivitasJuego {
     public boolean vender (int ip){
       return getJugadorActual().vender(ip);
     }
-
-    public boolean comprar(){
-        
+    
+    public boolean comprar () {
+        Jugador jugadorActual = jugadores.get(indiceJugadorActual);
+        Casilla casilla = tablero.getCasilla (jugadorActual.getNumCasillaActual());
+        TituloPropiedad titulo = casilla.getTituloPropiedad();
+        return (jugadorActual.comprar(titulo));
     }
     
     public boolean hipotecar (int ip){
@@ -176,11 +210,11 @@ public class CivitasJuego {
       return getJugadorActual().cancelarHipoteca(ip);
     }
 
-    public boolean salirCarcelPagando (int ip){
+    public boolean salirCarcelPagando (){
       return getJugadorActual().salirCarcelPagando();
     }
 
-    public boolean salirCarcelTirando (int ip){
+    public boolean salirCarcelTirando (){
       return getJugadorActual().salirCarcelTirando();
     }
 
@@ -199,18 +233,28 @@ public class CivitasJuego {
     }
 
     public ArrayList<Jugador> ranking() {
-        Jugador max;
-        ArrayList<Jugador> playersrank = new ArrayList();
+          Jugador max;
+          ArrayList<Jugador> playersrank = new ArrayList();
 
+//        for (int i = 0; i < numJugadores; i++) {
+//            max = jugadores.get(i);
+//            for (int j = i + 1; j < numJugadores; j++) 
+//                if (max.compareTo(jugadores.get(j)) < 0) 
+//                    max = jugadores.get(j);
+//            playersrank.add(max);
+//        }
+        
+        ArrayList<Jugador> jugadores_aux = (ArrayList)jugadores.clone();
+        
         for (int i = 0; i < numJugadores; i++) {
-            max = jugadores.get(i);
-            for (int j = i + 1; j < numJugadores; j++) {
-                if (max.compareTo(jugadores.get(j)) < 0) {
-                    max = jugadores.get(j);
-                }
-            }
+            max = jugadores_aux.get (0);
+            for (int j = 1; j < jugadores_aux.size(); j++) 
+                if (max.compareTo(jugadores_aux.get(j)) < 0) 
+                    max = jugadores_aux.get(j);
             playersrank.add(max);
-        }
+            jugadores_aux.remove(max);
+        }    
+        
         return playersrank;
     }
 

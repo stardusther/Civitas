@@ -17,27 +17,27 @@ public class CivitasJuego {
 
     private int indiceJugadorActual;
 
-    static final int numJugadores = 4;                          
+    static final int numJugadores = 2;                          
     static final int casillaCarcel = 3;             /** @warning provisional */                         
     static final int numCasillas = 11;              /** @warning provisional */
 
     /** Constructor. */
-    public CivitasJuego (String j1, String j2, String j3, String j4){       
+    public CivitasJuego (String j1, String j2){       
 
         jugadores = new ArrayList<> ();
 
         jugadores.add (new Jugador (j1));
         jugadores.add (new Jugador (j2));
-        jugadores.add (new Jugador (j3));
-        jugadores.add (new Jugador (j4));
+        //jugadores.add (new Jugador (j3));
+        //jugadores.add (new Jugador (j4));
 
         gestorEstados = new GestorEstados();
         estado = gestorEstados.estadoInicial();
 
         indiceJugadorActual = Dado.getInstance().quienEmpieza (numJugadores);
 
-        inicializaTablero(mazo);
-        inicializaMazoSorpresas(tablero);
+        inicializaMazoSorpresas (tablero);
+        inicializaTablero (mazo);
     }
 
     /** Inicializa el tablero. */
@@ -104,6 +104,21 @@ public class CivitasJuego {
     
     /** Inicializa el mazo. */
     private void inicializaMazoSorpresas (Tablero tablero){
+        
+        mazo = new MazoSorpresas (true);   // Lo inicializamos con el debug activado para esta practica.
+        
+        // Creamos una sorpresa de cada tipo
+        
+        int valor = 100;
+        int ir_a_casiila = 7;
+        int num_sorpresas = 6;
+        
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCARCEL, tablero));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_casiila, " Ir a casilla 7 (JUEZ)"));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.SALIRCARCEL, mazo));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor, " POR JUGADOR"));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor, " POR CASA HOTEL"));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor, " PAGARCOBRAR"));
         
     }
 

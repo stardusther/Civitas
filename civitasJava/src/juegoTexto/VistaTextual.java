@@ -24,13 +24,14 @@ public class VistaTextual {
   }
   
   /** Muestra estado del juego. */
+  //void mostrarEstado(String estado) {
   void mostrarEstado(String estado) {
     System.out.println (estado);
   }
            
   /** Pausa el juego. */
   void pausa() {
-    System.out.print ("Pulsa una tecla");
+    System.out.print ("\nPulsa una tecla");
     in.nextLine();
   }
 
@@ -104,7 +105,7 @@ public class VistaTextual {
     
   /** Muestra la siguiente operacion.  */
   void mostrarSiguienteOperacion(OperacionesJuego operacion) {
-      System.out.println("Siguiente operacion: " + operacion);
+      System.out.println("\n *** Siguiente operacion: " + operacion);
   }
 
   /** Muestra los eventos del diario. */

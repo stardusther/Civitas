@@ -17,7 +17,8 @@ public class main {
         String j4 = "JUGADOR 4";
         
         VistaTextual vista = new VistaTextual();
-        CivitasJuego juego = new CivitasJuego(j1,j2, j3, j4);
+        CivitasJuego juego = new CivitasJuego(j1,j2);
+        Dado.getInstance().setDebug(true);
         Controlador controlador = new Controlador (juego, vista);
         
         controlador.juega();

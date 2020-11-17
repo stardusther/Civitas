@@ -59,6 +59,10 @@ public class Casilla {
         init();
         this.nombre = nombre;
         this.mazo = mazo;
+        
+        System.out.println(mazo.toString() + "\n\n");
+        System.out.println(this.mazo.toString());
+        
         tipo = TipoCasilla.SORPRESA;
     }
 
@@ -113,7 +117,7 @@ public class Casilla {
 
 
     private void informe (int actual, ArrayList<Jugador> todos) {
-        String str = "El jugador " + todos.get(actual) + " ha caido en una casilla.\n" + toString();
+        String str = "El jugador " + todos.get(actual).getNombre() + " ha caido en una casilla.\n" + toString();
         Diario.getInstance().ocurreEvento(str);
     }
     
@@ -143,9 +147,10 @@ public class Casilla {
         }
     }
 
-    /** @warning Siguiente práctica */
     private void recibeJugador_sorpresa (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos)) {
+            sorpresa = new Sorpresa (TipoSorpresa.IRCARCEL, mazo);
+            sorpresa = mazo.siguiente();
             informe (actual, todos);
             sorpresa.aplicarAJugador(actual, todos);
         }
@@ -156,7 +161,7 @@ public class Casilla {
      *  no se proporciona al constructor un valor para estos atributos. */
     private void init () {
         mazo = null;
-        sorpresa = null;
+        //sorpresa = null;
         tituloPropiedad = null;
         importe = -1f;
         carcel = -1;

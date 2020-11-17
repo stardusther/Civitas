@@ -14,6 +14,7 @@ import civitas.Jugador;
 import civitas.Casilla;
 import civitas.OperacionInmobiliaria;
 import civitas.GestionesInmobiliarias;
+import civitas.SalidasCarcel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,14 +33,18 @@ public class Controlador {
     
     void juega() {
         boolean end = false;
-        OperacionesJuego operacion = OperacionesJuego.AVANZAR;  // No sé a qué se debería inicializar
+        OperacionesJuego operacion;  
         Respuestas respuesta;
+        
+        System.out.println("\n");
 
-        vista.setCivitasJuego(juego);       // Muestra el estado del juego actualizado 
+        vista.setCivitasJuego(juego);       
 
         while (!end) {
             vista.actualizarVista();
             vista.pausa();
+            
+            operacion = juego.siguientePaso();
             vista.mostrarSiguienteOperacion(operacion);
 
             if (operacion != OperacionesJuego.PASAR_TURNO) 
@@ -57,7 +62,8 @@ public class Controlador {
                     
                     case COMPRAR:
                         respuesta = vista.comprar();
-                        if (respuesta == Respuestas.SI) 
+                        
+        if (respuesta == Respuestas.SI) 
                             juego.comprar();   
                         juego.siguientePasoCompletado(operacion);
                         break;
@@ -92,7 +98,13 @@ public class Controlador {
                         break;
                         
                     case SALIR_CARCEL:
-                        vista.salirCarcel();
+                        
+                        SalidasCarcel salida = vista.salirCarcel();
+                        if (salida == SalidasCarcel.PAGANDO)
+                            juego.salirCarcelPagando();
+                        else
+                            juego.salirCarcelTirando();
+                        
                         juego.siguientePasoCompletado(operacion);
                         break;
                 }

@@ -521,17 +521,17 @@ public class Jugador implements Comparable<Jugador>{
     public String toString(){
       String s;
 
-      s = "\n >> El jugador " + getNombre() + " tiene un saldo de " + getSaldo() + "€, tiene " + propiedades.size() +" propiedades y un total de " + cantidadCasasHoteles() + " edificaciones";
+      s = "\n >> Jugador " + getNombre() + ". Saldo " + getSaldo() + "€. Propiedades: " + propiedades.size() +". Edificaciones:" + cantidadCasasHoteles();
 
       s += "\n Casilla actual: " + numCasillaActual;
       if (puedeComprar)
-          s+= "\n Puede comprar.";
+          s+= " Puede comprar.";
 
       if (encarcelado)
-          s+= "\n Está encarcelado.";
+          s+= " Está encarcelado.";
 
       if ( salvoconducto != null)
-          s+= "\n Tiene salvoconducto";
+          s+= " Tiene salvoconducto";
 
       return s;
     }

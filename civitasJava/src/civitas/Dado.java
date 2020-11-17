@@ -76,7 +76,7 @@ public class Dado {
 
     /** Activa o desactiva el modo debug
      */
-    public void setDebug (boolean d) {
+    void setDebug (boolean d) {
         if (d != debug) {                               // Si la configuracion no cambia no se añade el evento a diario
             debug = d;
             String modo = "Debug off (dado)";

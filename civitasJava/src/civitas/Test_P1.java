@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Test_P1 {
     
     public static void main () {
-        //p2_casilla_test();
+        p2_casilla_test();
     }
     
     void tarea1 () {

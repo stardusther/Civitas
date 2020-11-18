@@ -1,3 +1,9 @@
+=begin
+Authors: Esther García Gallego
+         Yesenia González Dávila
+         Grupo B3
+=end
+
 class TestP1
   def initialize
   end

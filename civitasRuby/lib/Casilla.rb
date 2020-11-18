@@ -1,6 +1,8 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
+=begin
+Authors: Esther García Gallego
+         Yesenia González Dávila
+         Grupo B3
+=end
 
 class Casilla
 
@@ -79,21 +81,22 @@ class Casilla
 
   def recibeJugador_impuesto(actual, todos)
     if (jugadorCorrecto(actual, todos))
-        informe(actual, todos)
-        todos[actual].pagaImpuesto(importe)
+      informe(actual, todos)
+      todos[actual].pagaImpuesto(importe)
     end
   end
 
   def recibeJugador_juez(actual, todos)
-    if (jugadorCorrecto (actual, todos))
-        informe (actual, todos)
-        todos[actual].encarcelar(carcel)
+    if(jugadorCorrecto(actual, todos))
+      informe(actual, todos)
+      todos[actual].encarcelar(carcel)
     end
   end
 
   def recibeJugador_sorpresa(actual, todos)
     if (jugadorCorrecto(actual, todos))
-        informe (actual, todos)
-        sorpresa.aplicarAJugador(actual, todos)
+      informe(actual, todos)
+      sorpresa.aplicarAJugador(actual, todos)
     end
+  end
 end

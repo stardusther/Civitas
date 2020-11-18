@@ -1,6 +1,6 @@
 =begin
 Authors: Esther García Gallego
-         Yesenia Glez Dávila
+         Yesenia González Dávila
          Grupo B3
 =end
 

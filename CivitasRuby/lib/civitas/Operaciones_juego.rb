@@ -5,7 +5,7 @@ Authors: Esther García Gallego
 =end
 
 module Civitas
-  module OPERACIONES_JUEGO
+  module OperacionesJuego
       AVANZAR = :avanzar
       COMPRAR = :comprar
       GESTIONAR = :gestionar

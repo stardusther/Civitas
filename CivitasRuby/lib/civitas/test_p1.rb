@@ -1,3 +1,5 @@
+# encoding:utf-8
+
 =begin
 Authors: Esther García Gallego
          Yesenia González Dávila
@@ -22,7 +24,8 @@ class TestP1
       indices_jug[ind] = 0
       ind += 1
     end
-
+    
+    
     # Tarea 1
     puts "\t >> Tarea 1: ------------------------------------\n"
 
@@ -92,3 +95,5 @@ end
 
 test = TestP1.new
  #test.main
+
+end

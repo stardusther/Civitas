@@ -24,8 +24,8 @@ public class OperacionInmobiliaria {
         return numPropiedad;
     }
     
-    public OperacionInmobiliaria(GestionesInmobiliarias gest, int ip){
+    /*public OperacionInmobiliaria(GestionesInmobiliarias gest, int ip){                // E: Dos veces lo mismo
         gestion = gest;
         numPropiedad = ip;
-    }
+    }*/     
 }

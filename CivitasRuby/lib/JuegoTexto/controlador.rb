@@ -59,10 +59,10 @@ module Juego_texto
                   
             @juego.siguientePasoCompletado(operacion)
                   
-          when Civitas::GestionesInmobiliarias::GESTIONAR   #Civitas::   ?????????
+          when Civitas::OperacionesJuego::GESTIONAR   
             @vista.gestionar
-            gest = #GestionesInmobiliarias.values()[@vista.gestion]; ????????
-            ip = @vista.propiedad
+            gest = #GestionesInmobiliarias.values()[@vista.iGestion]; ????????
+            ip = @vista.iPropiedad
                   
             operacionInm = OperacionInmobiliaria.new(ip,gest)
                   
@@ -81,13 +81,13 @@ module Juego_texto
               @juego.siguientePasoCompletado(operacion)
             end
                   
-          when Civitas::GestionesInmobiliarias::SALIR_CARCEL
-              
+          when Civitas::OperacionesJuego::SALIR_CARCEL
             salida = @vista.salirCarcel
+            
             if salida == Civitas::SalidasCarcel::PAGANDO
               @juego.salirCarcelPagando
             else
-              juego.salirCarcelTirando
+              @juego.salirCarcelTirando 
             end
                   
             @juego.siguientePasoCompletado(operacion)

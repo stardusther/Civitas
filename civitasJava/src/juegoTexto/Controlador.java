@@ -1,7 +1,6 @@
 /**
  * @author Yesenia González Dávila
- * @author Esther García Gallego
- * Grupo B.3
+ * @author Esther García Gallego Grupo B.3
  * @file Controlador.java
  */
 package juegoTexto;
@@ -23,59 +22,62 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Controlador {
+
     private CivitasJuego juego;
     private VistaTextual vista;
-    
-    Controlador(CivitasJuego _juego, VistaTextual _vista){
+
+    Controlador(CivitasJuego _juego, VistaTextual _vista) {
         juego = _juego;
         vista = _vista;
     }
-    
+
     void juega() {
         boolean end = false;
-        OperacionesJuego operacion;  
+        OperacionesJuego operacion;
         Respuestas respuesta;
-        
+
         System.out.println("\n");
 
-        vista.setCivitasJuego(juego);       
+        vista.setCivitasJuego(juego);
 
         while (!end) {
             vista.actualizarVista();
             vista.pausa();
-            
+
             operacion = juego.siguientePaso();
             vista.mostrarSiguienteOperacion(operacion);
 
-            if (operacion != OperacionesJuego.PASAR_TURNO) 
+            if (operacion != OperacionesJuego.PASAR_TURNO) {
                 vista.mostrarEventos();
+            }
 
             if (juego.finalDelJuego()) {
                 end = true;
                 ArrayList<Jugador> rank = new ArrayList(juego.ranking());
-                
-                for(int i = 0; i < rank.size(); i++)
+
+                for (int i = 0; i < rank.size(); i++) {
                     rank.get(i).toString();
-            }
-            else 
+                }
+            } else {
                 switch (operacion) {
-                    
+
                     case COMPRAR:
                         respuesta = vista.comprar();
-                        
-        if (respuesta == Respuestas.SI) 
-                            juego.comprar();   
+
+                        if (respuesta == Respuestas.SI) {
+                            juego.comprar();
+                        }
                         juego.siguientePasoCompletado(operacion);
                         break;
-                        
+
                     case GESTIONAR:
                         vista.gestionar();
                         GestionesInmobiliarias gest = GestionesInmobiliarias.values()[vista.getGestion()];
                         int ip = vista.getPropiedad();
 
-                        OperacionInmobiliaria operacionInm = new OperacionInmobiliaria (ip, gest); 
-                        
-                        switch (operacionInm.getGestion()){
+                        OperacionInmobiliaria operacionInm = new OperacionInmobiliaria(ip, gest);
+
+                        switch (operacionInm.getGestion()) {
                             case VENDER:
                                 juego.vender(ip);
                                 break;
@@ -83,7 +85,7 @@ public class Controlador {
                                 juego.hipotecar(ip);
                                 break;
                             case CANCELAR_HIPOTECA:
-                                juego.cancelarHipoteca(ip);          
+                                juego.cancelarHipoteca(ip);
                                 break;
                             case CONSTRUIR_CASA:
                                 juego.construirCasa(ip);
@@ -96,20 +98,21 @@ public class Controlador {
                                 break;
                         }
                         break;
-                        
+
                     case SALIR_CARCEL:
-                        
+
                         SalidasCarcel salida = vista.salirCarcel();
-                        if (salida == SalidasCarcel.PAGANDO)
+                        if (salida == SalidasCarcel.PAGANDO) {
                             juego.salirCarcelPagando();
-                        else
+                        } else {
                             juego.salirCarcelTirando();
-                        
+                        }
+
                         juego.siguientePasoCompletado(operacion);
                         break;
                 }
-            
-            
+            }
+
         }
     }
 }

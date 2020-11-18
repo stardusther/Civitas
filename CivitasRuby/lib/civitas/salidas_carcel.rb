@@ -5,7 +5,7 @@ Authors: Esther García Gallego
 =end
 
 module Civitas
-  module Salidas_carcel
+  module SalidasCarcel
     PAGANDO = :pagando
     TIRANDO = :tirando
   end

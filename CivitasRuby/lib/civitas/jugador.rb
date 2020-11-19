@@ -4,6 +4,9 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
+require_relative ./civitas/Dado.rb 
+require_relative ./civitas/Diario.rb
+
 class Jugador
   
   @@CasasMax = 4

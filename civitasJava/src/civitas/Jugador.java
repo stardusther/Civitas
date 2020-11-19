@@ -448,7 +448,7 @@ public class Jugador implements Comparable<Jugador>{
                 result = propiedad.construirHotel(this);
                 int casasPorHotel = getCasasPorHotel();
                 propiedad.derruirCasas(casasPorHotel, this);
-                Diario.getInstance().ocurreEvento("EL jugador " + nombre +
+                Diario.getInstance().ocurreEvento("El jugador " + nombre +
                         "construye hotel en la propiedad " + ip);
             }
         }
@@ -504,7 +504,7 @@ public class Jugador implements Comparable<Jugador>{
         float precio = propiedad.getPrecioEdificar();
 
         if (puedoGastar(precio) && propiedad.getNumHoteles()<getHotelesMax() &&
-                propiedad.getNumCasas()>=getCasasPorHotel())
+                propiedad.getNumCasas()<=getCasasPorHotel())
                     puedoEdificarHotel = true;
 
       return puedoEdificarHotel;

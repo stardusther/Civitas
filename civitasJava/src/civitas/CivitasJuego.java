@@ -22,12 +22,12 @@ public class CivitasJuego {
     static final int numCasillas = 11;              /** @warning provisional */
 
     /** Constructor. */
-    public CivitasJuego (String [] nombres){       
+    public CivitasJuego (ArrayList<String> nombres){       
 
         jugadores = new ArrayList<> ();
 
         for (int i = 0; i < numJugadores; i++)      // Como sólo puede haber cuatro jugadores, sólo se cogen los primeros cuatro nombres
-            jugadores.add (new Jugador (nombres[i]));
+            jugadores.add (new Jugador (nombres.get(i)));
         
 
         gestorEstados = new GestorEstados();
@@ -109,11 +109,11 @@ public class CivitasJuego {
         // Creamos una sorpresa de cada tipo
         
         int valor = 100;
-        int ir_a_casiila = 7;
+        int ir_a_casilla = 7;
         int num_sorpresas = 6;
         
         mazo.alMazo (new Sorpresa (TipoSorpresa.IRCARCEL, tablero));
-        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_casiila, " Ir a casilla 7 (JUEZ)"));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 7 (JUEZ)"));
         mazo.alMazo (new Sorpresa (TipoSorpresa.SALIRCARCEL, mazo));
         mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor, " POR JUGADOR"));
         mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor, " POR CASA HOTEL"));

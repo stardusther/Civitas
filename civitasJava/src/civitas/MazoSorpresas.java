@@ -71,8 +71,9 @@ public class MazoSorpresas {
 
         usadas++;
         ultimaSorpresa = sorpresas.get(0);
-        sorpresas.remove(0);                    // Eliminamos carte de la primera posicion y 
-        sorpresas.add(ultimaSorpresa);          // la añadimos a la última
+        sorpresas.add(ultimaSorpresa);                 // Añadimos la ultima sorpresa
+        sorpresas.remove(0);                           // Eliminamos carta de la primera posicion y
+        ultimaSorpresa = sorpresas.get(sorpresas.size()-1);   // Reinicializamos (se borra tambień con el remove, al apuntar al mismo objeto)
 
         return ultimaSorpresa;
     }

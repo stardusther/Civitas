@@ -60,8 +60,8 @@ public class Casilla {
         this.nombre = nombre;
         this.mazo = mazo;
         
-        System.out.println(mazo.toString() + "\n\n");
-        System.out.println(this.mazo.toString());
+        //System.out.println(mazo.toString() + "\n\n");
+        //System.out.println(this.mazo.toString());
         
         tipo = TipoCasilla.SORPRESA;
     }

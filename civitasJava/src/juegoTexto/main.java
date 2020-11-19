@@ -8,16 +8,18 @@ package juegoTexto;
 import civitas.CivitasJuego;
 import civitas.Dado;
 
+import java.util.ArrayList;
+
 public class main {
     
     public static void main(String[] args) {
-        String j1 = "JUGADOR 1";
-        String j2 = "JUGADOR 2";
-        String j3 = "JUGADOR 3";
-        String j4 = "JUGADOR 4";
+        ArrayList <String> jugadores = new ArrayList();
+        
+        jugadores.add("*J1*");
+        jugadores.add("*J2*");
         
         VistaTextual vista = new VistaTextual();
-        CivitasJuego juego = new CivitasJuego(j1,j2);
+        CivitasJuego juego = new CivitasJuego(jugadores);
         Dado.getInstance().setDebug(true);
         Controlador controlador = new Controlador (juego, vista);
         

@@ -8,7 +8,6 @@ public class TestP2 {
         //test1();
         //test2 ();
         //test3();
-        CivitasJuego juego = new CivitasJuego ("j1", "j2");
     }
     
     // Test casillas + sorpresas + tablero +  mazo

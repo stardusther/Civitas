@@ -106,8 +106,7 @@ public class Casilla {
 
     @Override
     public String toString() {
-        String str = " >> Casilla " + nombre + ". ";
-        str += tipo;        // Faltan algunos valores 
+        String str = nombre + " (" + tipo + ")";
        return str;
     }
 
@@ -117,7 +116,7 @@ public class Casilla {
 
 
     private void informe (int actual, ArrayList<Jugador> todos) {
-        String str = "El jugador " + todos.get(actual).getNombre() + " ha caido en una casilla.\n" + toString();
+        String str = "El jugador " + todos.get(actual).getNombre() + " ha caido en la casilla " + toString();
         Diario.getInstance().ocurreEvento(str);
     }
     

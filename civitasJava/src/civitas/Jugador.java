@@ -504,7 +504,7 @@ public class Jugador implements Comparable<Jugador>{
         float precio = propiedad.getPrecioEdificar();
 
         if (puedoGastar(precio) && propiedad.getNumHoteles()<getHotelesMax() &&
-                propiedad.getNumCasas()<=getCasasPorHotel())
+                propiedad.getNumCasas()>=getCasasPorHotel())
                     puedoEdificarHotel = true;
 
       return puedoEdificarHotel;

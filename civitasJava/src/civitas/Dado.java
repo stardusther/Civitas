@@ -79,10 +79,10 @@ public class Dado {
     public void setDebug (boolean d) {
         if (d != debug) {                               // Si la configuracion no cambia no se añade el evento a diario
             debug = d;
-            String modo = "Debug off (dado)";
+            String modo = "Modo debug inhabilitado en dado";
 
             if (debug)
-                modo = "Debug on (dado)";
+                modo = "Modo debug activo en dado";
 
             Diario.getInstance().ocurreEvento(modo);
         }

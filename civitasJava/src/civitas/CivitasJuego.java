@@ -18,8 +18,8 @@ public class CivitasJuego {
     private int indiceJugadorActual;
 
     static final int numJugadores = 2;                          
-    static final int casillaCarcel = 3;             /** @warning provisional */                         
-    static final int numCasillas = 11;              /** @warning provisional */
+    static final int casillaCarcel = 3;                                      
+    static final int numCasillas = 7;               /** @warning provisional (debug) */
 
     /** Constructor. */
     public CivitasJuego (ArrayList<String> nombres){       
@@ -35,42 +35,94 @@ public class CivitasJuego {
 
         indiceJugadorActual = Dado.getInstance().quienEmpieza (numJugadores);
 
+        tablero = new Tablero(casillaCarcel);   
+        mazo = new MazoSorpresas (true);   // Lo inicializamos con el debug activado para esta practica.
+        
         inicializaMazoSorpresas (tablero);
         inicializaTablero (mazo);
     }
 
     /** Inicializa el tablero. */
     private void inicializaTablero (MazoSorpresas mazo){
-      tablero = new Tablero(casillaCarcel);   
-      TituloPropiedad t1, t2, t3;
+      //tablero = new Tablero(casillaCarcel);   
+      TituloPropiedad t1, t2;
+      
       
       // Creamos calles
-      int i = 1;
-      final int alquiler = 100, hipotecaBase = 50, precioCompra = 120, precioEdificar = 200;
-      final float factorRev = 1.2f;
+//      int i = 1;
+//      final int alquiler = 100, hipotecaBase = 50, precioCompra = 120, precioEdificar = 200;
+//      final float factorRev = 1.2f;
+//      final String nombre = "Calle ";
+//      t1 = new TituloPropiedad (nombre + i, alquiler*i, factorRev, 
+//                               hipotecaBase*i, precioCompra*i, precioEdificar*i++);
+//      t2 = new TituloPropiedad (nombre + i, alquiler*i, factorRev, 
+//                               hipotecaBase*i, precioCompra*i, precioEdificar*i++);
+//      t3 = new TituloPropiedad (nombre + i, alquiler*i, factorRev, 
+//                               hipotecaBase*i, precioCompra*i, precioEdificar*i++);
+//      
+//      // Casillas
+//      Casilla c1 = new Casilla (t1);                        // Casillas calle
+//      Casilla c2 = new Casilla (t2);
+//      Casilla c3 = new Casilla (t3);
+//      
+//      Casilla descanso = new Casilla ("Descanso");          // Casilla descanso
+//      
+//      Casilla s1 = new Casilla (mazo, "Sorpresa 1");        // Casillas sorpresa
+//      Casilla s2 = new Casilla (mazo, "Sorpresa 2");
+//      Casilla s3 = new Casilla (mazo, "Sorpresa 3");
+//      
+//      final int cantidad_impuesto = 50;
+//      Casilla impuesto = new Casilla (cantidad_impuesto, "Impuesto");   // Casilla impuesto
+//
+//      for ( i=1 ; i < numCasillas-1; i++)       // -1 (la carcel se añade automáticamente)
+//          switch (i) {
+//              case 1:
+//                  tablero.añadeCasilla (c1);
+//                  break;
+//              case 2:
+//                  tablero.añadeCasilla (s1);
+//                  break;
+//              case 4:
+//                  tablero.añadeCasilla (impuesto);
+//                  break;
+//              case 5:
+//                  tablero.añadeCasilla (c2);
+//                  break;
+//              case 6:
+//                  tablero.añadeCasilla (s2);
+//                  break;
+//              case 7:
+//                  tablero.añadeJuez();
+//                  break;
+//              case 8:
+//                  tablero.añadeCasilla(s3);
+//                  break;
+//              case 9:
+//                  tablero.añadeCasilla(c3);
+//                  break;
+//              case 10:
+//                  tablero.añadeCasilla(descanso);
+//          }
+
+    int i = 1;
+      final int alquiler = 100, hipotecaBase = 50, precioCompra = 150, precioEdificar = 200;
+      final float factorRev = 2.0f;
       final String nombre = "Calle ";
       t1 = new TituloPropiedad (nombre + i, alquiler*i, factorRev, 
                                hipotecaBase*i, precioCompra*i, precioEdificar*i++);
       t2 = new TituloPropiedad (nombre + i, alquiler*i, factorRev, 
-                               hipotecaBase*i, precioCompra*i, precioEdificar*i++);
-      t3 = new TituloPropiedad (nombre + i, alquiler*i, factorRev, 
-                               hipotecaBase*i, precioCompra*i, precioEdificar*i++);
-      
-      // Casillas
+                               hipotecaBase*i, precioCompra*i, precioEdificar*i);
+
+      // Casillas (
       Casilla c1 = new Casilla (t1);                        // Casillas calle
       Casilla c2 = new Casilla (t2);
-      Casilla c3 = new Casilla (t3);
-      
-      Casilla descanso = new Casilla ("Descanso");          // Casilla descanso
-      
+
       Casilla s1 = new Casilla (mazo, "Sorpresa 1");        // Casillas sorpresa
-      Casilla s2 = new Casilla (mazo, "Sorpresa 2");
-      Casilla s3 = new Casilla (mazo, "Sorpresa 3");
-      
+
       final int cantidad_impuesto = 50;
       Casilla impuesto = new Casilla (cantidad_impuesto, "Impuesto");   // Casilla impuesto
 
-      for ( i=1 ; i < numCasillas-1; i++)       // -1 (la carcel se añade automáticamente)
+      for ( i=1 ; i < numCasillas; i++)       //  (la carcel se añade automáticamente)
           switch (i) {
               case 1:
                   tablero.añadeCasilla (c1);
@@ -85,35 +137,24 @@ public class CivitasJuego {
                   tablero.añadeCasilla (c2);
                   break;
               case 6:
-                  tablero.añadeCasilla (s2);
-                  break;
-              case 7:
                   tablero.añadeJuez();
                   break;
-              case 8:
-                  tablero.añadeCasilla(s3);
-                  break;
-              case 9:
-                  tablero.añadeCasilla(c3);
-                  break;
-              case 10:
-                  tablero.añadeCasilla(descanso);
           }
     }
     
     /** Inicializa el mazo. */
     private void inicializaMazoSorpresas (Tablero tablero){
         
-        mazo = new MazoSorpresas (true);   // Lo inicializamos con el debug activado para esta practica.
+        //mazo = new MazoSorpresas (true);   // Lo inicializamos con el debug activado para esta practica.
         
         // Creamos una sorpresa de cada tipo
         
         int valor = 100;
-        int ir_a_casilla = 7;
+        int ir_a_casilla = 6;
         int num_sorpresas = 6;
         
         mazo.alMazo (new Sorpresa (TipoSorpresa.IRCARCEL, tablero));
-        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 7 (JUEZ)"));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ)"));
         mazo.alMazo (new Sorpresa (TipoSorpresa.SALIRCARCEL, mazo));
         mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor, " POR JUGADOR"));
         mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor, " POR CASA HOTEL"));

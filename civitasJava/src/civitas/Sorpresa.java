@@ -101,7 +101,7 @@ public class Sorpresa{
 
             todos.get(actual).moverACasilla(nuevaPos);                      // 4. Se mueve al jugador a esa nueva posicion
 
-            tablero.getCasilla(casilla).recibeJugador (actual, todos);  // 5. Se indica a la casilla que está en la posicion
+            tablero.getCasilla(valor).recibeJugador (actual, todos);  // 5. Se indica a la casilla que está en la posicion
                                                                         // del valor de la sorpresa que reciba al jugador
         }
     }
@@ -176,10 +176,10 @@ public class Sorpresa{
 
     /** Comprueba si el primer parámetro es un indice valido para acceder al array de Jugadores. */
     public boolean jugadorCorrecto (int actual, ArrayList<Jugador> todos) {
-        boolean correcto = true;
+        boolean correcto = false;
 
         if (actual >= 0 && actual < todos.size() )
-            correcto = false;
+            correcto = true;
 
         return correcto;
     }

@@ -69,7 +69,7 @@ public class VistaTextual {
     }
 
     opcion = leeEntero(lista.size(),
-                          "\n"+tab+"Elige una opción: ",
+                          tab+"Elige una opción: ",
                           tab+"Valor erróneo");
     return opcion;
   }
@@ -82,7 +82,7 @@ public class VistaTextual {
   }
 
   Respuestas comprar() {
-    int opcion = menu ("¿Comprar calle? (0 = SI, 1 = NO)",
+    int opcion = menu ("¿Comprar calle?",
                         new ArrayList<> (Arrays.asList("Si","No")));
     return (Respuestas.values()[opcion]);
   }
@@ -91,7 +91,9 @@ public class VistaTextual {
     iGestion = menu (" Indique número de operación inmobiliaria: (0..5))",
                        new ArrayList<> (Arrays.asList("Vender","Hipotecar", "Cancelar hipoteca", 
                       "Constuir casa", "Construir hotel", "Terminar")));
-    iPropiedad =  menu (" Indique propiedad a la que desea aplicar la gestión:)",
+    // Si gestion = terminar, no tiene sentido presentar menu
+    if (iGestion != 5)
+        iPropiedad =  menu (" Indique propiedad a la que desea aplicar la gestión:)",
                        new ArrayList<> (Arrays.asList("0","1", "2")));  // Hay 3 calles --> max 3 propiedades
   }
   
@@ -105,7 +107,7 @@ public class VistaTextual {
     
   /** Muestra la siguiente operacion.  */
   void mostrarSiguienteOperacion(OperacionesJuego operacion) {
-      System.out.println("\n *** Siguiente operacion: " + operacion);
+      System.out.println("\n *** Siguiente operacion: " + operacion + "\n");
   }
 
   /** Muestra los eventos del diario. */
@@ -115,7 +117,7 @@ public class VistaTextual {
           System.out.println(evento);
           evento = Diario.getInstance().leerEvento();
       }
-      
+      //System.out.println("\n");
   }
   
   public void setCivitasJuego(CivitasJuego civitas){ 
@@ -124,9 +126,8 @@ public class VistaTextual {
     }
   
   public void actualizarVista(){
-      System.out.println(juegoModel.getJugadorActual().toString() + "\n" + 
+      System.out.println(juegoModel.getJugadorActual().toString() + "\n >> Casilla " + 
               juegoModel.getCasillaActual().toString());
-  
   } 
 }
     

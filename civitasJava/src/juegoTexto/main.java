@@ -23,7 +23,7 @@ public class main {
         Dado.getInstance().setDebug(true);
         Controlador controlador = new Controlador (juego, vista);
         
-        controlador.juega();
+        controlador.juega ();
     }
     
 }

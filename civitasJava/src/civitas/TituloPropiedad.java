@@ -228,8 +228,7 @@ public class TituloPropiedad {
     
     @Override
     public String toString() {
-        String estado = " Estado: \n"
-                        + " >> Nombre: " + nombre + "\n"
+        String estado =  nombre + "\n"
                         + " >> Alquiler base: " + alquilerBase + "\n"
                         + " >> Hipoteca base: " + hipotecaBase + "\n"
                         + " >> Factor de revalorizacion: " + factorRevalorizacion + "\n"

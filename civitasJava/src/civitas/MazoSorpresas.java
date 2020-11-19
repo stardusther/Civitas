@@ -50,7 +50,7 @@ public class MazoSorpresas {
        debug = _debug;
        init();
        if(debug)
-          Diario.getInstance().ocurreEvento ("Modo debug activo");
+          Diario.getInstance().ocurreEvento ("Modo debug activo en el mazo");
      }
 
     /** Añade al mazo de sorpresas una carta. */

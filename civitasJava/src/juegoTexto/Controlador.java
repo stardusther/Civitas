@@ -36,9 +36,9 @@ public class Controlador {
         OperacionesJuego operacion;
         Respuestas respuesta;
 
-        System.out.println("\n");
-
         vista.setCivitasJuego(juego);
+        
+        System.out.println("\n");
 
         while (!end) {
             vista.actualizarVista();
@@ -47,9 +47,8 @@ public class Controlador {
             operacion = juego.siguientePaso();
             vista.mostrarSiguienteOperacion(operacion);
 
-            if (operacion != OperacionesJuego.PASAR_TURNO) {
+            if (operacion != OperacionesJuego.PASAR_TURNO) 
                 vista.mostrarEventos();
-            }
 
             if (juego.finalDelJuego()) {
                 end = true;

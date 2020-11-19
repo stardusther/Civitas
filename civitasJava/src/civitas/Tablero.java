@@ -51,7 +51,7 @@ public class Tablero {
     private boolean correcto (int numCasilla) {
         boolean correct = false;
 
-        if (correcto() && (numCasilla < casillas.size() - 1))
+        if (correcto() && numCasilla >= 0 && numCasilla <= (casillas.size()-1))
             correct = true;
 
         return correct;

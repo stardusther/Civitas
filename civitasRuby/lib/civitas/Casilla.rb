@@ -1,7 +1,9 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
-
+=begin
+Authors: Esther García Gallego
+         Yesenia González Dávila
+         Grupo B3
+=end
+require_relative ./civitas/TipoCasilla.rb
 class Casilla
 
   attr_reader :nombre, :tituloPropiedad
@@ -49,9 +51,10 @@ class Casilla
   private #-------------------------------------------------------------------
   def initialize(n, titulo, cantidad, numCasillaCarcel, m)
     @nombre = n
-    @importe = canitdad
+    @importe = cantidad
     @@carcel = numCasillaCarcel
     @tituloPropiedad = titulo
+    @tipo = Civitas::TipoCasilla::CALLE
     @mazo = m
   end
 
@@ -79,21 +82,40 @@ class Casilla
 
   def recibeJugador_impuesto(actual, todos)
     if (jugadorCorrecto(actual, todos))
-        informe(actual, todos)
-        todos[actual].pagaImpuesto(importe)
+      informe(actual, todos)
+      todos[actual].pagaImpuesto(importe)
     end
   end
 
   def recibeJugador_juez(actual, todos)
-    if (jugadorCorrecto (actual, todos))
-        informe (actual, todos)
-        todos[actual].encarcelar(carcel)
+    if(jugadorCorrecto(actual, todos))
+      informe(actual, todos)
+      todos[actual].encarcelar(carcel)
     end
   end
 
   def recibeJugador_sorpresa(actual, todos)
     if (jugadorCorrecto(actual, todos))
-        informe (actual, todos)
-        sorpresa.aplicarAJugador(actual, todos)
+      informe(actual, todos)
+      sorpresa.aplicarAJugador(actual, todos)
     end
+  end
+  
+  def recibeJugador(iactual, todos)
+    case @tipo
+    when Civitas::TipoCasilla::CALLE
+      recibeJugador_calle(iactual, todos)
+    when Civitas::TipoCasilla::IMPUESTO
+      recibeJugador_impuesto(iactual, todos)
+    when Civitas::TipoCasilla::JUEZ
+      recibeJugador_juez(iactual, todos)
+    when Civitas::TipoCasilla::SORPRESA
+      recibeJugador_sorpresa(iactual, todos)
+    else
+      informe(iactual, todos)
+    end
+    
+  end
+  
+  
 end

@@ -1,12 +1,11 @@
-
-=begin 
+=begin
 Authors: Esther García Gallego
-         Yesenia Glez Dávila
+         Yesenia González Dávila
          Grupo B3
 =end
 
 module Civitas
-  module OPERACIONES_JUEGO
+  module OperacionesJuego
       AVANZAR = :avanzar
       COMPRAR = :comprar
       GESTIONAR = :gestionar

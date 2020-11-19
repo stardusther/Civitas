@@ -10,51 +10,67 @@ class Casilla
 
   @@carcel                #Atributo de instancia
 
-  def self. constructorNombre (n)
+  def self. constructorDescanso (n)
     init()
-    new(n, nil, 0, 0, nil)
+    new (n, nil, 0, 0, nil)   
+    # nombre, titulo, cant_impuesto, carcel, mazo
+    @tipo = TipoCasilla::DESCANSO
   end
 
-  def self. constructorTituloPropiedad (titulo)
+  def self. constructorCalle (titulo)
     init()
     new(titulo.nombre, titulo, 0, 0, nil)
+    @tipo = TipoCasilla::CALLE
   end
 
-  def self. constructorCantidadNombre (cantidad, n)
+  def self. constructorImpuesto (cantidad, n)
     init()
     new(n, nil, cantidad, 0, nil)
+    @tipo = TipoCasilla.IMPUESTO
   end
 
-  def self. constructorCarcelNombre (numCasillaCarcel, n)
+  def self. constructorJuez (numCasillaCarcel, n)
     init()
     new(n, nil, 0, numCasillaCarcel, nil)
+    @tipo = TipoCasilla.JUEZ
   end
 
-  def self. constructorMazoNombre (n)
+  def self. constructorSorpresa (mazo, n)
     init()
-    new(n, nil, 0, 0, m)
+    new(n, nil, 0, 0, mazo)
   end
 
-  def jugadorCorrecto(actual, todos)
+  def jugadorCorrecto(actual, todos[])
+    actual < todos.length
   end
 
   def self. recibeJugador(actual, todos)
-    #no entiendo qué hace este método
+    case @tipo
+    when CALLE
+      recibeJugador_calle (actual, todos)
+    when IMPUESTO
+      recibeJugador_impuesto (actual, todos)
+    when JUEZ
+      recibeJugador_juez (actual, todos)
+    when SORPRESA
+      recibeJugador_sorpresa (actual, todos)
+    else
+      informe (actual, todos)
+    end
   end
 
   def toString
-    str = ">> Casilla " + @nombre
-    #Falta poner el resto de valores según el tipo de casilla (importe etc)
+    str = @nombre + " (" + @tipo + ")"
   end
 
 
   private #-------------------------------------------------------------------
+  
   def initialize(n, titulo, cantidad, numCasillaCarcel, m)
     @nombre = n
+    @tituloPropiedad = titulo
     @importe = cantidad
     @@carcel = numCasillaCarcel
-    @tituloPropiedad = titulo
-    @tipo = Civitas::TipoCasilla::CALLE
     @mazo = m
   end
 
@@ -69,7 +85,7 @@ class Casilla
   end
 
   def informe
-    str = "El jugador " + todos[actual] + " ha caido en una casilla.\n" + toString()
+    str = "El jugador " + todos[actual] + " ha caido en la casilla " + toString()
     Diario.getInstance.ocurreEvento(str)
   end
 

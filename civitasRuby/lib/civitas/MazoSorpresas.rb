@@ -12,7 +12,7 @@ class MazoSorpresas
     @debug = debug
 
     if (@debug)
-      Diario.instance.ocurreEvento ("Modo debug activo");
+      Diario.instance.ocurreEvento ("Modo debug activo en el mazo");
     end
 
   end
@@ -31,9 +31,10 @@ class MazoSorpresas
     end
 
     @usadas += 1
-    @ultimaSorpresa = @sorpresa[0]
-    @sorpresa.delete_at(0)
-    @sorpresa.push (@ultimaSorpresa)
+    @ultimaSorpresa = @sorpresas[0]
+    @sorpresas.push(@ultimaSorpresa)
+    @sorpresas.delete_at(0)
+    @ultimaSorpresa = @sorpresas[@sorpresas.length-1]
 
     @ultimaSorpresa
   end
@@ -41,21 +42,11 @@ class MazoSorpresas
   def inhabilitarCartaEspecial (sorpresa)
     found = false
     i = 0
-
-    # No tengo claro si se puede hacer con for en ruby o como :(
-    while i < @sorpresas.lenght && !found
-
-      if sorpresa == @sorpresas[i]
-        @cartasEspeciales.push(sorpresa)
-        @sorpresas.delete_at(i)
-
-        Diario.instance.ocurreEvento ("Se ha inhabilitado una carta especial");
-
-        found = true
-      end
-
-      # JA no existe el i++ o ++i en Ruby :_D E: lloremos
-      i += 1
+    
+    if @sorpresas.include?(sorpresa)
+      @cartasEspeciales.push(sorpresa)
+      @sorpresas.remove(sorpresa)
+      Diario.instance.ocurreEvento ("Se ha inhabilitado una carta especial")
     end
 
   end
@@ -63,20 +54,28 @@ class MazoSorpresas
   def habilitarCartaEspecial (sorpresa)
     found = false
     i = 0
-
-    while i < @cartasEspeciales.length && !found
-
-      if sorpresa == @cartasEspeciales[i]
-        @sorpresas.push(sorpresa)
-        @cartasEspeciales.del_at(i)
-        Diario.instance.ocurreEvento ("Se ha habilitado una carta especial")
-        found = true
-      end
-
-      i += 1
-
+    
+    if @cartasEspeciales.include? (sorpresa)
+      @sorpresas.push(sorpresa)
+      @cartasEspeciales.delete(sorpresa)
+      Diario.instance.ocurreEvento ("Se ha habilitado una carta especial")
     end
 
+  end
+  
+  def toString()
+    str = " >> Mazo: " + @sorpresas.length + " sorpresas. Se han usado " + @usadas 
+    if (@barajada)
+      str = str + " Esta barajada."
+    end
+    if (@debug)
+      str = str + " Debug on"
+    end
+    
+    @sorpresas.each do |sorpresa|
+      str = str + "\n" + sorpresa.toString
+    end
+    
   end
 
   # Inicializa los atributos

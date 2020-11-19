@@ -101,7 +101,7 @@ public class MazoSorpresas {
     @Override
     public String toString () {
         String s = " >> Mazo: contiene " + sorpresas.size() + " sorpresas. " +
-                   "Se han usado " + usadas + " cartas del mazo. " ;
+                   "Se han usado " + usadas + ". " ;
         
         if (barajada)
             s += "Está barajada. ";

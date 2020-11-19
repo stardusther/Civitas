@@ -3,7 +3,7 @@ Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
-
+require_relative ./civitas/TipoCasilla.rb
 class Casilla
 
   attr_reader :nombre, :tituloPropiedad
@@ -51,9 +51,10 @@ class Casilla
   private #-------------------------------------------------------------------
   def initialize(n, titulo, cantidad, numCasillaCarcel, m)
     @nombre = n
-    @importe = canitdad
+    @importe = cantidad
     @@carcel = numCasillaCarcel
     @tituloPropiedad = titulo
+    @tipo = Civitas::TipoCasilla::CALLE
     @mazo = m
   end
 
@@ -99,4 +100,22 @@ class Casilla
       sorpresa.aplicarAJugador(actual, todos)
     end
   end
+  
+  def recibeJugador(iactual, todos)
+    case @tipo
+    when Civitas::TipoCasilla::CALLE
+      recibeJugador_calle(iactual, todos)
+    when Civitas::TipoCasilla::IMPUESTO
+      recibeJugador_impuesto(iactual, todos)
+    when Civitas::TipoCasilla::JUEZ
+      recibeJugador_juez(iactual, todos)
+    when Civitas::TipoCasilla::SORPRESA
+      recibeJugador_sorpresa(iactual, todos)
+    else
+      informe(iactual, todos)
+    end
+    
+  end
+  
+  
 end

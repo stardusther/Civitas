@@ -10,54 +10,77 @@ class Casilla
 
   @@carcel                #Atributo de instancia
 
-  def self. constructorNombre (n)
+  def self. constructorDescanso (n)
     init()
-    new(n, nil, 0, 0, nil)
+    new(n, nil, -1, -1, nil)   
+    # nombre, titulo, cant_impuesto, carcel, mazo
+    @tipo = TipoCasilla::DESCANSO
   end
 
-  def self. constructorTituloPropiedad (titulo)
+  def self. constructorCalle (titulo)
     init()
-    new(titulo.nombre, titulo, 0, 0, nil)
+    new(titulo.nombre, titulo, -1, -1, nil)
+    @tipo = TipoCasilla::CALLE
   end
 
-  def self. constructorCantidadNombre (cantidad, n)
+  def self. constructorImpuesto (cantidad, n)
     init()
-    new(n, nil, cantidad, 0, nil)
+    new(n, nil, cantidad, -1, nil)
+    @tipo = TipoCasilla.IMPUESTO
   end
 
-  def self. constructorCarcelNombre (numCasillaCarcel, n)
+  def self. constructorJuez (numCasillaCarcel, n)
     init()
-    new(n, nil, 0, numCasillaCarcel, nil)
+    new(n, nil, -1, numCasillaCarcel, nil)
+    @tipo = TipoCasilla.JUEZ
   end
 
-  def self. constructorMazoNombre (n)
+  def self. constructorSorpresa (mazo, n)
     init()
-    new(n, nil, 0, 0, m)
+    new(n, nil, -1, -1, mazo)
   end
 
   def jugadorCorrecto(actual, todos)
+    actual < todos.length
   end
 
   def self. recibeJugador(actual, todos)
-    #no entiendo qué hace este método
+    case @tipo
+      
+    when CALLE
+      recibeJugador_calle(actual, todos)
+      
+    when IMPUESTO
+      recibeJugador_impuesto(actual, todos)
+      
+    when JUEZ
+      recibeJugador_juez(actual, todos)
+      
+    when SORPRESA
+      recibeJugador_sorpresa(actual, todos)
+      
+    else
+      informe(actual, todos)
+    end
+    
   end
 
   def toString
-    str = ">> Casilla " + @nombre
-    #Falta poner el resto de valores según el tipo de casilla (importe etc)
+    str = @nombre + " (" + @tipo + ")"
   end
 
 
-  private #-------------------------------------------------------------------
+  private #------------------------------------------------------------------- #
+  
   def initialize(n, titulo, cantidad, numCasillaCarcel, m)
     @nombre = n
+    @tituloPropiedad = titulo
     @importe = cantidad
     @@carcel = numCasillaCarcel
-    @tituloPropiedad = titulo
-    @tipo = Civitas::TipoCasilla::CALLE
     @mazo = m
   end
 
+  
   def init
     @nombre = ""
     @importe = -1
@@ -68,18 +91,28 @@ class Casilla
     @mazo = nil
   end
 
+  
   def informe
-    str = "El jugador " + todos[actual] + " ha caido en una casilla.\n" + toString()
+    str = "El jugador " + todos[actual] + " ha caido en la casilla " + toString()
     Diario.getInstance.ocurreEvento(str)
   end
 
+  
   def recibeJugador_calle(actual, todos)
     if(jugadorCorrecto(actual, todos))
       informe(actual,todos)
-      todos[actual].pagaAlquiler(tituloPropiedad.getPrecioAlquiler())
+      jugador = todos[actual]
+      
+      if (!@tituloPropiedad.tienePropietario)
+        jugador.puedeComprarCasilla
+      else
+        @tituloPropiedad.tramitarAlquiler(jugador)
+      end
+      
     end
   end
 
+  
   def recibeJugador_impuesto(actual, todos)
     if (jugadorCorrecto(actual, todos))
       informe(actual, todos)
@@ -87,12 +120,14 @@ class Casilla
     end
   end
 
+  
   def recibeJugador_juez(actual, todos)
     if(jugadorCorrecto(actual, todos))
       informe(actual, todos)
       todos[actual].encarcelar(carcel)
     end
   end
+  
 
   def recibeJugador_sorpresa(actual, todos)
     if (jugadorCorrecto(actual, todos))
@@ -101,16 +136,23 @@ class Casilla
     end
   end
   
+  
   def recibeJugador(iactual, todos)
+    
     case @tipo
+      
     when Civitas::TipoCasilla::CALLE
       recibeJugador_calle(iactual, todos)
+      
     when Civitas::TipoCasilla::IMPUESTO
       recibeJugador_impuesto(iactual, todos)
+      
     when Civitas::TipoCasilla::JUEZ
       recibeJugador_juez(iactual, todos)
+      
     when Civitas::TipoCasilla::SORPRESA
       recibeJugador_sorpresa(iactual, todos)
+      
     else
       informe(iactual, todos)
     end

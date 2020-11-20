@@ -4,96 +4,52 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
+
 class Sorpresa
-  
+
   attr_reader :valor
-  
-  #Atributos: tipo, valor, tablero, texto(nombre), mazo
 
   # Constructores
-  def self. newIrCarcel (tipo, tab)
+  def self. constructorTab (tipo, tab)
     init()
     new(tipo, tab, -1, "", nil)
   end
 
-  def self. newIrCasilla (tipo, tab, valor, txt)
+  def self. constructorTabValTxt (tipo, tab, val, txt)
     init()
-    new(tipo, tab, valor, txt, nil)
+    new(tipo, tab, val, txt, nil)
   end
 
-  def self. newEvitaCarcel (tipo, m)
+  def self. constructorMazo (tipo, m)
     init()
     new(tipo, nil, -1, "", m)
   end
 
-  def self. newSorpresas (tipo, val, txt)  
+  def self. constructorValTxt (tipo, val, txt)
     init()
     new(tipo, nil, val, txt, nil)
   end
-  
-  
-  def jugadorCorrecto (actual, todos)
-    correcto = false
-    if actual >= 0 && actual < todos.lenght
-      correcto = true
-    end
-    correcto
-  end
-  
-  
-  def aplicarAJugador(actual, todos)
-    if jugadorCorrecto(actual, todos)
-      
-      case @sorpresa
-        
-      when TipoSorpresa::IRCARCEL
-        aplicarAJugador_irCarcel(actual, todos)
-        
-      when TipoSorpresa::IRCASILLA
-        aplicarAJugador_irCarcel(actual, todos)
-        
-      when TipoSorpresa::PAGARCOBRAR
-        aplicarAJugador_pagarCobrar(actual, todos)
-        
-      when TipoSorpresa::PORCASAHOTEL
-        aplicarAJugador_porCasaHotel(actual, todos)
-        
-      when TipoSorpresa::PORJUGADOR
-        aplicarAJugador_porJugador(actual, todos)
-        
-      when TipoSorpresa::SALIRCARCEL
-        aplicarAJugador_salirCarcel(actual, todos)
-      end
-      
-    end
-  end
-  
-  
-  def salirDelMazo
-    if sorpresa == TipoSorpresa::SALIRCARCEL
-      mazo.inhabilitarCartaEspecial(self)
-    end
-  end
 
-  
-  def usada
-    if sorpresa == TipoSorpresa::SALIRCARCEL
-      mazo.habilitarCartaEspecial(self)
+  # Metodos
+  def jugadorCorrecto (actual, todos)
+    correcto = true
+
+    if actual < todos.lenght
+      correcto = false
     end
   end
-  
 
   def toString
     str = " Sorpresa: #{@texto}. >> Valor: #{@valor}"
   end
-  
 
+  # -------------------------------------------------------------------------- #
   # ------------------------------ Privados ---------------------------------- #
-  
-  
+  # -------------------------------------------------------------------------- #
   private 
 
   def initialize (tipo, tab, val, txt, m)
+
     @sorpresa = tipo
     @tablero = tab
     @valor = valor
@@ -113,22 +69,12 @@ class Sorpresa
       Diario.instance.ocurreEvento("Se aplica sorpresa al jugador " + todos[actual].getNombre)
     end
   end
-  
-  
-  def aplicarAJugador_irACasilla(actual, todos)
+
+  def self. aplicarJugador (actual, todos)
     if jugadorCorrecto(actual, todos)
       informe(actual, todos)
-
-      casilla = todos[actual].getNumCasillaActual
-      tirada = @tablero.calcularTirada(casilla, @valor)
-      nuevaPos = @tablero.nuevaPosicion(casilla, tirada)
-
-      todos[actual].moverACasilla(nuevaPos)
-      
-      @tablero.getCasilla(@valor).recibeJugador(actual,todos)
     end
   end
-  
 
   def aplicarAJugador_irCarcel (actual, todos)
     if jugadorCorrecto(actual, todos)
@@ -137,22 +83,18 @@ class Sorpresa
     end
   end
 
-  
-  def aplicarAJugador_pagarCobrar (actual, todos)
+  def aplicarAJugador_irACasilla
     if jugadorCorrecto(actual, todos)
       informe(actual, todos)
-      todos[actual].modificarSaldo(@valor)
+
+      casilla = todos[actual].getNumCasillaActual
+      tirada = @tablero.calcularTirada(casilla, valor)
+      nuevaPos = @tablero.nuevaPosicion(casilla, tirada)
+
+      todos[actual].moverACasilla(nuevaPos)
+      #falta indicar a la casilla que está en la posición el valor de la sorpresa que reciba al jugador
     end
   end
-  
-  
-  def aplicarAJugador_porCasaHotel (actual, todos)
-    if jugadorCorrecto(actual, todos)
-      informe(actual, todos)
-      todos[actual].modificarSaldo(@valor * todos[actual].cantidadCasasHoteles)
-    end
-  end
-  
 
   def aplicarAJugador_porJugador (actual, todos)
     if jugadorCorrecto(actual, todos)
@@ -164,15 +106,21 @@ class Sorpresa
         if i != actual
           todos[i].paga(_sorpresa.valor)
           i += 1
-        end
       end
 
       _sorpresaActual = Sorpresa.new(TipoSorpresa::PAGARCOBRAR, @valor * (todos.lenght - 1), "")  # ?????
       todos[actual].recibe(_sorpresaActual.valor)
 
-    end 
+    end
+  end #es posible que sobre un end
   end
 
+  def aplicarAJugador_pagarCobrar (actual, todos)
+    if jugadorCorrecto(actual, todos)
+      informe(actual, todos)
+      todos[actual].modificarSaldo(@valor)
+    end
+  end
 
   def aplicarAJugador_salirCarcel (actual, todos)
     if jugadorCorrecto(actual, todos)
@@ -186,10 +134,29 @@ class Sorpresa
       end
 
       if !tienen_salvoconducto
-        todos[actual].obtenerSalvoconducto(self)
-        salirDelMazo
+        todos[actual].obtenerSalvoconducto(this)
+        salirDelMazo()
       end
 
+    end
+  end
+
+  def aplicarAJugador_porCasaHotel (actual, todos)
+    if jugadorCorrecto(actual, todos)
+      informe(actual, todos)
+      todos[actual].modificarSaldo(@valor * todos[actual].cantidadCasasHoteles)
+    end
+  end
+
+  def self. salirDelMazo
+    if sorpresa == TipoSorpresa::SALIRCARCEL
+      mazo.inhabilitarCartaEspecial(this)
+    end
+  end
+
+  def self. usada
+    if sorpresa == TipoSorpresa::SALIRCARCEL
+      mazo.habilitarCartaEspecial(this)
     end
   end
 

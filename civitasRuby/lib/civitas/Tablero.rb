@@ -5,10 +5,8 @@ Authors: Esther García Gallego
 =end
 
 class Tablero
-              #getCarcel         
+
   attr_reader :numCasillaCarcel
-  
-  # Atributos: numCasillaCarcel, casillas, porSalida, tieneJuez
 
   def initialize (indice)
     if (indice >=1)
@@ -26,21 +24,23 @@ class Tablero
 
   def getPorSalida ()
     devuelve = @porSalida
+
     if @porSalida > 0
       @porSalida -= 1
     end
+
     devuelve
   end
 
   def añadeCasilla (casilla)
-    añadeCarcel
+    añadeCarcel()
     @casillas.push(casilla)
-    añadeCarcel
+    añadeCarcel()
   end
 
   def añadeJuez ()
     if !@tieneJuez
-      casillaJuez = Casilla.new(@numCasillaCarcel,"Juez")
+      casillaJuez = Casilla.new("Juez")
       añadeCasilla (casillaJuez)
       @tieneJuez = true
     end
@@ -48,9 +48,9 @@ class Tablero
 
   def getCasilla (numCasilla)
     if (correcto(numCasilla))
-      @casillas[numCasilla]
+      return @casillas[numCasilla]
     else
-      nil
+      return nil
     end
   end
 
@@ -58,7 +58,8 @@ class Tablero
     posicion = -1
 
     if (correcto())
-      posicion = (actual + tirada) % @casillas.length
+      posicion = (actual + tirada) % casillas.length
+
       if (posicion != actual + tirada)
         @porSalida += 1
       end
@@ -71,27 +72,11 @@ class Tablero
     result = destino - origen
 
     if result<0
-      result += @casillas.length
+      result += casillas.length
     end
-    
-    result
   end
 
-  def toString()
-    str = " >> Tablero. Carcel: #{@numCasillaCarcel}. Se ha pasado por salida #{@porSalida} veces."
-    str = str + " Tiene #{@casillas.lenth} casillas."
-    if @tieneJuez
-      str = str + " Tiene juez."
-    end
-    
-    @casillas.each do |casilla|
-      str = str + "\n #{casilla.toString}"
-    end
-  end
-  
-  
-  private # ------------------------------------------------------------------ #
-  
+  private
   def correcto()
     if @casillas.length > @numCasillaCarcel && @tieneJuez
       correct = true
@@ -101,7 +86,7 @@ class Tablero
   end
 
   def correcto(numCasilla)
-    if correcto && @numCasilla>=0 && @numCasilla<@casillas.length
+    if (correct && (numCasilla<@casillas.length))
       correct = true
     else
       correct = false

@@ -95,13 +95,13 @@ public class Sorpresa{
         if (jugadorCorrecto(actual, todos)) {
             informe (actual, todos);
 
-            int casilla = todos.get(actual).getNumCasillaActual();          // 1. Obtenemos casilla actual del jugador
+            int casilla = todos.get(actual).getNumCasillaActual();      // 1. Obtenemos casilla actual del jugador
             int tirada = tablero.calcularTirada(casilla, valor);        // 2. Se calcula la tirada
             int nuevaPos = tablero.nuevaPosicion(casilla, tirada);      // 3. Se obtiene la nueva pos. del jugador
 
-            todos.get(actual).moverACasilla(nuevaPos);                      // 4. Se mueve al jugador a esa nueva posicion
+            todos.get(actual).moverACasilla(nuevaPos);                  // 4. Se mueve al jugador a esa nueva posicion
 
-            tablero.getCasilla(valor).recibeJugador (actual, todos);  // 5. Se indica a la casilla que está en la posicion
+            tablero.getCasilla(valor).recibeJugador (actual, todos);    // 5. Se indica a la casilla que está en la posicion
                                                                         // del valor de la sorpresa que reciba al jugador
         }
     }
@@ -133,8 +133,7 @@ public class Sorpresa{
         }
     }
 
-    /** Todos los jugadores dan dinero al jugador actual.
-     * @warning valor de sorpresas !! */
+    /** Todos los jugadores dan dinero al jugador actual. */
     private void aplicarAJugador_porJugador (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto(actual, todos)) {
             informe (actual, todos);

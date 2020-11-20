@@ -12,7 +12,7 @@ class Casilla
 
   def self. constructorDescanso (n)
     init()
-    new (n, nil, -1, -1, nil)   
+    new(n, nil, -1, -1, nil)   
     # nombre, titulo, cant_impuesto, carcel, mazo
     @tipo = TipoCasilla::DESCANSO
   end
@@ -40,23 +40,29 @@ class Casilla
     new(n, nil, -1, -1, mazo)
   end
 
-  def jugadorCorrecto(actual, todos[])
+  def jugadorCorrecto(actual, todos)
     actual < todos.length
   end
 
   def self. recibeJugador(actual, todos)
     case @tipo
+      
     when CALLE
-      recibeJugador_calle (actual, todos)
+      recibeJugador_calle(actual, todos)
+      
     when IMPUESTO
-      recibeJugador_impuesto (actual, todos)
+      recibeJugador_impuesto(actual, todos)
+      
     when JUEZ
-      recibeJugador_juez (actual, todos)
+      recibeJugador_juez(actual, todos)
+      
     when SORPRESA
-      recibeJugador_sorpresa (actual, todos)
+      recibeJugador_sorpresa(actual, todos)
+      
     else
-      informe (actual, todos)
+      informe(actual, todos)
     end
+    
   end
 
   def toString
@@ -64,7 +70,7 @@ class Casilla
   end
 
 
-  private #-------------------------------------------------------------------
+  private #------------------------------------------------------------------- #
   
   def initialize(n, titulo, cantidad, numCasillaCarcel, m)
     @nombre = n
@@ -74,6 +80,7 @@ class Casilla
     @mazo = m
   end
 
+  
   def init
     @nombre = ""
     @importe = -1
@@ -84,12 +91,14 @@ class Casilla
     @mazo = nil
   end
 
+  
   def informe
     str = "El jugador " + todos[actual] + " ha caido en la casilla " + toString()
     Diario.getInstance.ocurreEvento(str)
   end
 
-  def recibeJugador_calle(actual, todos[])
+  
+  def recibeJugador_calle(actual, todos)
     if(jugadorCorrecto(actual, todos))
       informe(actual,todos)
       jugador = todos[actual]
@@ -103,37 +112,47 @@ class Casilla
     end
   end
 
-  def recibeJugador_impuesto(actual, todos[])
+  
+  def recibeJugador_impuesto(actual, todos)
     if (jugadorCorrecto(actual, todos))
       informe(actual, todos)
       todos[actual].pagaImpuesto(importe)
     end
   end
 
-  def recibeJugador_juez(actual, todos[])
+  
+  def recibeJugador_juez(actual, todos)
     if(jugadorCorrecto(actual, todos))
       informe(actual, todos)
       todos[actual].encarcelar(carcel)
     end
   end
+  
 
-  def recibeJugador_sorpresa(actual, todos[])
+  def recibeJugador_sorpresa(actual, todos)
     if (jugadorCorrecto(actual, todos))
       informe(actual, todos)
       sorpresa.aplicarAJugador(actual, todos)
     end
   end
   
-  def recibeJugador(iactual, todos[])
+  
+  def recibeJugador(iactual, todos)
+    
     case @tipo
+      
     when Civitas::TipoCasilla::CALLE
       recibeJugador_calle(iactual, todos)
+      
     when Civitas::TipoCasilla::IMPUESTO
       recibeJugador_impuesto(iactual, todos)
+      
     when Civitas::TipoCasilla::JUEZ
       recibeJugador_juez(iactual, todos)
+      
     when Civitas::TipoCasilla::SORPRESA
       recibeJugador_sorpresa(iactual, todos)
+      
     else
       informe(iactual, todos)
     end

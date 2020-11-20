@@ -26,7 +26,7 @@ public class TituloPropiedad {
 
     
     /** Constructor de la clase.
-     * @post titulo no hipotecado, sin pripietario, casas ni hoteles
+     * @post titulo no hipotecado, sin propietario, casas ni hoteles
      */
     TituloPropiedad (String nombre, float ab, float fr, float hb, float pc, float pe) {
         this.nombre = nombre;
@@ -109,7 +109,7 @@ public class TituloPropiedad {
             propietario.recibe(precioCompra);
             numCasas = 0;
             numHoteles = 0;
-            //desvincular propietario del jugador ?
+            //desvincular propietario del jugador ? 
             propietario = null;
             vendido = true;
         }
@@ -211,7 +211,7 @@ public class TituloPropiedad {
     }
 
     float getPrecioVenta () {
-        return (precioCompra + precioEdificar * (numCasas+numHoteles) * factorRevalorizacion);
+        return (precioCompra + precioEdificar * (numCasas+(5*numHoteles)) * factorRevalorizacion);
     }
 
     Jugador getPropietario () {

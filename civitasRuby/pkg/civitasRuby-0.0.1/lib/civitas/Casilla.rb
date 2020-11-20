@@ -3,7 +3,7 @@ Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
-require_relative ./civitas/TipoCasilla
+require_relative "./TipoCasilla.rb"
 module Civitas
   class Casilla
 

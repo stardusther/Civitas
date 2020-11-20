@@ -4,7 +4,10 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
+require_relative "Diario.rb"
+
 require 'singleton'
+
 module Civitas
   class Dado
     include Singleton
@@ -53,7 +56,8 @@ module Civitas
           modo = "Debug on (dado)"
         end
 
-        Diario.instance.ocurreEvento(modo)
+    Diario.instance.ocurre_evento(modo)
+    #    Civitas::Diario.instance.ocurreEvento(modo)
 
   end
 end

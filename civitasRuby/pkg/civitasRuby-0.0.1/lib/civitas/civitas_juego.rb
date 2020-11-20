@@ -4,7 +4,7 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
-require_relative 'Jugador'
+require_relative 'jugador.rb'
 require_relative 'Dado'
 require_relative 'Tablero'
 require_relative 'MazoSorpresas'

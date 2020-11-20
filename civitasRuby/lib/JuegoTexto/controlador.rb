@@ -3,14 +3,12 @@ Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
-require_relative 'CivitasJuego'
-require_relative 'OperacionesJuego'
-require_relative 'Respuestas'
-require_relative 'Jugador'  #incluye Dado y diario
-require_relative 'Casilla'
-require_relative 'OperacionInmobiliaria'
-require_relative 'GestionesInmobiliarias'
-require_relative 'SalidasCarcel'
+require_relative "../civitas/civitas_juego.rb"
+require_relative "./vista_textual.rb"
+require_relative '../civitas/Casilla.rb'
+require_relative '../civitas/operacion_inmobiliaria.rb'
+require_relative '../civitas/gestiones_inmobiliarias'
+require_relative '../civitas/salidas_carcel'
 
 module Juego_texto
   class Controlador

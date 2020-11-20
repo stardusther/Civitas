@@ -4,6 +4,8 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
+module Civitas
+
 class TituloPropiedad  
   
   attr_reader :precioCompra, :hipotecado, :hipotecaBase, :nombre, :numCasas, :numHoteles,
@@ -165,4 +167,6 @@ class TituloPropiedad
   end
   
   
+end
+
 end

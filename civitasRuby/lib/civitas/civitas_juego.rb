@@ -87,12 +87,12 @@ module Civitas
       ir_a_casilla = 6
       num_sorpresas = 6
       
-      @mazo.alMazo(Sorpresa.new(TipoSorpresa::IRCARCEL, tablero));
-      @mazo.alMazo(Sorpresa.new(TipoSorpresa::IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ)"));
-      @mazo.alMazo(Sorpresa.new(TipoSorpresa::SALIRCARCEL, mazo));
-      @mazo.alMazo(Sorpresa.new(TipoSorpresa::PORJUGADOR, valor, " POR JUGADOR"));
-      @mazo.alMazo(Sorpresa.new(TipoSorpresa::PORCASAHOTEL, valor, " POR CASA HOTEL"));
-      @mazo.alMazo(Sorpresa.new(TipoSorpresa.PAGARCOBRAR, valor, " PAGARCOBRAR"));
+      @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero));
+      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ)"));
+      @mazo.alMazo(Sorpresa.newEvitaCarcel(TipoSorpresa::SALIRCARCEL, @mazo));
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor, " POR JUGADOR"));
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor, " POR CASA HOTEL"));
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa.PAGARCOBRAR, valor, " PAGARCOBRAR"));
     end
     
     def avanzaJugador

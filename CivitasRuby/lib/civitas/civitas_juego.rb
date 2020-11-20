@@ -198,7 +198,7 @@ module Civitas
     end
     
     def compareTo(jugador)
-      # completar
+      @saldo <=> otro.get_saldo
     end
     
     def ranking

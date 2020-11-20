@@ -11,5 +11,7 @@ module Civitas
       GESTIONAR = :gestionar
       SALIR_CARCEL = :salir_carcel
       PASAR_TURNO = :pasar_turno
+      
+      Lista_Operaciones = [OperacionesJuego::AVANZAR, OperacionesJuego::AVANZAR, OperacionesJuego::COMPRAR ]
   end
 end

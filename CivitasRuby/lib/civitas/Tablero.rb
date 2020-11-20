@@ -3,101 +3,102 @@ Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
+module Civitas
+  class Tablero
 
-class Tablero
+    attr_reader :numCasillaCarcel
 
-  attr_reader :numCasillaCarcel
+    def initialize (indice)
+      if (indice >=1)
+        @numCasillaCarcel = indice
+      else
+        @numCasillaCarcel = 1;
+      end
 
-  def initialize (indice)
-    if (indice >=1)
-      @numCasillaCarcel = indice
-    else
-      @numCasillaCarcel = 1;
+      @casillas = []                            # Creamos vector de casillas
+      @casillas.push(Casilla.new("Salida"))     # Se añade la salida al inicio
+
+      @porSalida = 0
+      @tieneJuez = false
     end
 
-    @casillas = []                            # Creamos vector de casillas
-    @casillas.push(Casilla.new("Salida"))     # Se añade la salida al inicio
+    def getPorSalida ()
+      devuelve = @porSalida
 
-    @porSalida = 0
-    @tieneJuez = false
-  end
+      if @porSalida > 0
+        @porSalida -= 1
+      end
 
-  def getPorSalida ()
-    devuelve = @porSalida
-
-    if @porSalida > 0
-      @porSalida -= 1
+      devuelve
     end
 
-    devuelve
-  end
-
-  def añadeCasilla (casilla)
-    añadeCarcel()
-    @casillas.push(casilla)
-    añadeCarcel()
-  end
-
-  def añadeJuez ()
-    if !@tieneJuez
-      casillaJuez = Casilla.new("Juez")
-      añadeCasilla (casillaJuez)
-      @tieneJuez = true
+    def añadeCasilla (casilla)
+      añadeCarcel()
+      @casillas.push(casilla)
+      añadeCarcel()
     end
-  end
 
-  def getCasilla (numCasilla)
-    if (correcto(numCasilla))
-      return @casillas[numCasilla]
-    else
-      return nil
-    end
-  end
-
-  def nuevaPosicion (actual, tirada)
-    posicion = -1
-
-    if (correcto())
-      posicion = (actual + tirada) % casillas.length
-
-      if (posicion != actual + tirada)
-        @porSalida += 1
+    def añadeJuez ()
+      if !@tieneJuez
+        casillaJuez = Casilla.new("Juez")
+        añadeCasilla (casillaJuez)
+        @tieneJuez = true
       end
     end
 
-    posicion
-  end
-
-  def calcularTirada (origen, destino)
-    result = destino - origen
-
-    if result<0
-      result += casillas.length
+    def getCasilla (numCasilla)
+      if (correcto(numCasilla))
+        return @casillas[numCasilla]
+      else
+        return nil
+      end
     end
-  end
 
-  private
-  def correcto()
-    if @casillas.length > @numCasillaCarcel && @tieneJuez
-      correct = true
-    else
-      correct = false
+    def nuevaPosicion (actual, tirada)
+      posicion = -1
+
+      if (correcto())
+        posicion = (actual + tirada) % casillas.length
+
+        if (posicion != actual + tirada)
+          @porSalida += 1
+        end
+      end
+
+      posicion
     end
-  end
 
-  def correcto(numCasilla)
-    if (correct && (numCasilla<@casillas.length))
-      correct = true
-    else
-      correct = false
+    def calcularTirada (origen, destino)
+      result = destino - origen
+
+      if result<0
+        result += casillas.length
+      end
     end
-  end
 
-  def añadeCarcel ()
-    if @casillas.length == @numCasillaCarcel
-      carcel = Casilla.new("Cárcel")
-      casillas.push(carcel)
+    private
+    def correcto()
+      if @casillas.length > @numCasillaCarcel && @tieneJuez
+        correct = true
+      else
+        correct = false
+      end
     end
-  end
 
+    def correcto(numCasilla)
+      if (correct && (numCasilla<@casillas.length))
+        correct = true
+      else
+        correct = false
+      end
+    end
+
+    def añadeCarcel ()
+      if @casillas.length == @numCasillaCarcel
+        carcel = Casilla.new("Cárcel")
+        casillas.push(carcel)
+      end
+    end
+
+  end
 end

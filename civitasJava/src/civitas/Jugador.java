@@ -235,7 +235,7 @@ public class Jugador implements Comparable<Jugador>{
         paga(getPrecioLibertad());
         encarcelado = false;
 
-        Diario.getInstance().ocurreEvento("El jugador ha pagado para salir de la cárcel");
+        Diario.getInstance().ocurreEvento("El jugador " + nombre + " ha pagado para salir de la cárcel");
         salir = true;
       }
 
@@ -249,7 +249,7 @@ public class Jugador implements Comparable<Jugador>{
     boolean salirCarcelTirando (){
       if(Dado.getInstance().salgoDeLaCarcel()){
         encarcelado = false;
-        Diario.getInstance().ocurreEvento("El jugador ha tirado y ha salido de la cárcel");
+        Diario.getInstance().ocurreEvento("El jugador " + nombre + " ha tirado y ha salido de la cárcel");
       }
 
         return isEncarcelado();

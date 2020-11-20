@@ -3,6 +3,9 @@ Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
+
+require_relative "./Sorpresa.rb"
+
 module Civitas
   class MazoSorpresas
 

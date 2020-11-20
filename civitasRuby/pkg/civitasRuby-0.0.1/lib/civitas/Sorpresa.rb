@@ -4,6 +4,8 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
+require_relative './TipoSorpresa.rb'
+
 module Civitas
   class Sorpresa
 

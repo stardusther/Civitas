@@ -1,5 +1,6 @@
-require_relative 'diario'
-require_relative 'operaciones_juego'
+require_relative 'Diario'
+require_relative 'Operaciones_juego'
+require_relative './EstadoJuego.rb'
 
 module Civitas
   class Gestor_estados

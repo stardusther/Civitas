@@ -3,15 +3,14 @@ Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
-require_relative ./civitas/Diario.rb 
-require_relative ./civitas/civitas_juego.rb
-require_relative ./civitas/Operaciones_juego.rb
-require_relative ./civitas/respuestas.rb
-require_relative ./civitas/jugador.rb
-require_relative ./civitas/Casilla.rb
-require_relative ./civitas/operacion_inmobiliaria.rb
-require_relative ./civitas/gestiones_inmobiliarias.rb
-require_relative ./civitas/salidas_carcel
+require_relative 'CivitasJuego'
+require_relative 'OperacionesJuego'
+require_relative 'Respuestas'
+require_relative 'Jugador'  #incluye Dado y diario
+require_relative 'Casilla'
+require_relative 'OperacionInmobiliaria'
+require_relative 'GestionesInmobiliarias'
+require_relative 'SalidasCarcel'
 
 module Juego_texto
   class Controlador
@@ -61,7 +60,7 @@ module Juego_texto
                   
           when Civitas::OperacionesJuego::GESTIONAR   
             @vista.gestionar
-            gest = #GestionesInmobiliarias.values()[@vista.iGestion]; ????????
+            gest = GestionesInmobiliarias::lista_Gestiones[@vista.gestion]
             ip = @vista.iPropiedad
                   
             operacionInm = OperacionInmobiliaria.new(ip,gest)

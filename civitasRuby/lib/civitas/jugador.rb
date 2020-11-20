@@ -7,6 +7,8 @@ Authors: Esther García Gallego
 require_relative ./civitas/Dado.rb 
 require_relative ./civitas/Diario.rb
 
+module Civitas
+
 class Jugador
   
   @@CasasMax = 4
@@ -346,3 +348,5 @@ end
       
     carcel
   end
+  
+end

@@ -14,25 +14,25 @@ class Casilla
     init()
     new(n, nil, -1, -1, nil)   
     # nombre, titulo, cant_impuesto, carcel, mazo
-    @tipo = TipoCasilla::DESCANSO
+    @tipo = Civitas::TipoCasilla::DESCANSO
   end
 
   def self. constructorCalle (titulo)
     init()
     new(titulo.nombre, titulo, -1, -1, nil)
-    @tipo = TipoCasilla::CALLE
+    @tipo = Civitas::TipoCasilla::CALLE
   end
 
   def self. constructorImpuesto (cantidad, n)
     init()
     new(n, nil, cantidad, -1, nil)
-    @tipo = TipoCasilla.IMPUESTO
+    @tipo = Civitas::TipoCasilla::IMPUESTO
   end
 
   def self. constructorJuez (numCasillaCarcel, n)
     init()
     new(n, nil, -1, numCasillaCarcel, nil)
-    @tipo = TipoCasilla.JUEZ
+    @tipo = Civitas::TipoCasilla::JUEZ
   end
 
   def self. constructorSorpresa (mazo, n)
@@ -47,16 +47,16 @@ class Casilla
   def self. recibeJugador(actual, todos)
     case @tipo
       
-    when CALLE
+    when Civitas::TipoCasilla::CALLE
       recibeJugador_calle(actual, todos)
       
-    when IMPUESTO
+    when Civitas::TipoCasilla::IMPUESTO
       recibeJugador_impuesto(actual, todos)
       
-    when JUEZ
+    when Civitas::TipoCasilla::JUEZ
       recibeJugador_juez(actual, todos)
       
-    when SORPRESA
+    when Civitas::TipoCasilla::SORPRESA
       recibeJugador_sorpresa(actual, todos)
       
     else
@@ -135,29 +135,6 @@ class Casilla
       sorpresa.aplicarAJugador(actual, todos)
     end
   end
-  
-  
-  def recibeJugador(iactual, todos)
-    
-    case @tipo
-      
-    when Civitas::TipoCasilla::CALLE
-      recibeJugador_calle(iactual, todos)
-      
-    when Civitas::TipoCasilla::IMPUESTO
-      recibeJugador_impuesto(iactual, todos)
-      
-    when Civitas::TipoCasilla::JUEZ
-      recibeJugador_juez(iactual, todos)
-      
-    when Civitas::TipoCasilla::SORPRESA
-      recibeJugador_sorpresa(iactual, todos)
-      
-    else
-      informe(iactual, todos)
-    end
-    
-  end
-  
+
   
 end

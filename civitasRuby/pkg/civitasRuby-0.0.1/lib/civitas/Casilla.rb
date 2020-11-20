@@ -9,7 +9,7 @@ module Civitas
 
     attr_reader :nombre, :tituloPropiedad
 
-    @@carcel                #Atributo de instancia
+    #@@carcel                #Atributo de instancia
 
     def self. constructorDescanso (n)
       init()

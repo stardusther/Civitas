@@ -2,9 +2,9 @@
 
 require_relative "controlador.rb"
 
-require "pry"
+# require "pry"
 
-binding.pry
+#binding.pry
 
 jugadores = []
 jugadores.push ("* J1 *")

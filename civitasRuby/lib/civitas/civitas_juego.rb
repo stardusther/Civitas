@@ -1,3 +1,5 @@
+#encoding:utf-8
+
 =begin
 Authors: Esther García Gallego
          Yesenia González Dávila
@@ -5,6 +7,7 @@ Authors: Esther García Gallego
 =end
 
 require_relative 'jugador.rb'
+require_relative 'gestor_estados.rb'
 require_relative 'Dado'
 require_relative 'Tablero'
 require_relative 'MazoSorpresas'
@@ -14,15 +17,15 @@ require_relative 'TituloPropiedad'
 module Civitas
   class CivitasJuego
     
-    NumJugadores = 2  # Todo lo que empiece con mayúsculas se considera constante
-    CasillaCarcel = 3 # Preguntar de todas formas
-    NumCasillas = 11
+    @@NumJugadores = 2  # Todo lo que empiece con mayúsculas se considera constante
+    @@CasillaCarcel = 3 # Preguntar de todas formas
+    @@NumCasillas = 7
     
     def initialize(nombres)
       jugadores = []
       
       for i in 0..@@NumJugadores
-        jugadores.insert(i,jugador.new(nombres[i])) # Crea el jugador
+        jugadores.push(i,Civitas::Jugador::new(nombres[i])) # Crea el jugador
       end
       
       @gestorEstados = GestorEstados.new()

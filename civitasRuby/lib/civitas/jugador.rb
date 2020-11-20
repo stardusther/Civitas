@@ -1,3 +1,5 @@
+#encoding:utf-8
+
 =begin
 Authors: Esther García Gallego
          Yesenia González Dávila

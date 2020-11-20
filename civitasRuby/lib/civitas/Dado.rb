@@ -12,7 +12,7 @@ module Civitas
   class Dado
     include Singleton
                                   #En ruby no se necesita la instancia
-    @@SalidaCarcel                #Los atributos son privados por defecto
+    #@@SalidaCarcel                #Los atributos son privados por defecto
 
     attr_reader :ultimoResultado  #Consultor de ultimoResultado
 

@@ -312,9 +312,21 @@ class Jugador
 
   
   def to_s()
-    puts "Jugador #{@nombre}. #{@saldo} €. #{@propiedades.length} Propiedades. #{cantidadCasasHoteles} edificaciones. 
-          Casilla actual: #{@numCasillaActual}.
-          Puede comprar: #{@puedeComprar}. Encarcelado: #{@encarcelado}. Salvoconducto: #{@salvoconducto}"
+    
+    str = "\n >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{@cantidadCasasHoteles}. "
+    str = str + "\n Casilla actual: #{@numCasillaActual}."
+    
+    if @puedeComprar
+      str = str + " Puede comprar."
+    end
+    if @encarcelado
+      str = str + " Encarcelado."
+    end
+    if !@salvoconducto.nil?
+      str = str + " Tiene salvoconducto."
+    end
+    
+    puts str
   end
   
   

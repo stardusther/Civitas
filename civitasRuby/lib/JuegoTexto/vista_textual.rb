@@ -118,7 +118,7 @@ module Civitas
     end
 
     def actualizarVista
-      puts("#{@juegoModel.getJugadorActual.to_s} \n >> Casilla #{@juegoModel.getCasillaActual.to_s}");
+      puts("#{@juegoModel.getJugadorActual.to_s} >> #{@juegoModel.getCasillaActual.to_s}");
     end
 
     

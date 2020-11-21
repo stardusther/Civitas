@@ -11,25 +11,16 @@ module Civitas
 
     attr_reader :nombre, :tituloPropiedad
 
-    #@@carcel                # Atributo de instancia
-    
-    def to_s
-      str = "tipo #{@tipo} nombre #{@nombre} valor #{@valor}"
-    end
-
     def self. newDescanso (n) 
       Casilla.new(n, nil, -1, -1, nil, nil, Civitas::TipoCasilla::DESCANSO)    #n, titulo, cantidad, numCasillaCarcel, m, sorp
-      #@tipo = Civitas::TipoCasilla::DESCANSO
     end
 
     def self. newCalle (titulo)
       new(titulo.nombre, titulo, -1, -1, nil, nil, Civitas::TipoCasilla::CALLE)
-      #@tipo = Civitas::TipoCasilla::CALLE
     end
 
     def self. newImpuesto (cantidad, n)
       new(n, nil, cantidad, -1, nil, nil, Civitas::TipoCasilla::IMPUESTO)
-      #@tipo = Civitas::TipoCasilla::IMPUESTO
     end
 
     def self. newJuez (numCasillaCarcel, n)
@@ -64,9 +55,9 @@ module Civitas
       end
     
     end
-
+    
     def to_s
-      str = "#{@nombre}. Tipo: #{@tipo}. Valor: #{@valor}"
+      @nombre
     end
 
 

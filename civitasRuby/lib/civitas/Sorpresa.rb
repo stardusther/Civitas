@@ -92,7 +92,7 @@ module Civitas
     
     def informe (actual, todos)
       if jugadorCorrecto(actual, todos)
-        Diario.instance.ocurre_evento("\n ¡Sorpresa! #{@texto} Se aplica #{@sorpresa} al jugador #{todos[actual].nombre}")
+        Diario.instance.ocurre_evento("\n ¡Sorpresa! #{@texto} Se aplica #{@sorpresa} al jugador #{todos[actual].nombre}\n")
       end
     end
 
@@ -112,7 +112,6 @@ module Civitas
         nuevaPos = @tablero.nuevaPosicion(casilla, tirada)
 
         todos[actual].moverACasilla(nuevaPos)
-        #falta indicar a la casilla que está en la posición el valor de la sorpresa que reciba al jugador
       end
     end
 
@@ -132,7 +131,7 @@ module Civitas
           todos[actual].recibe(_sorpresaActual.valor)
 
         end
-      end #es posible que sobre un end
+      end
     end
 
     def aplicarAJugador_pagarCobrar (actual, todos)

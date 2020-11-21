@@ -9,6 +9,7 @@ module Civitas
 
     attr_reader :numCasillaCarcel
     
+    public # -----------------------------------------------------------
     def to_s
       str = "#{@casillas.length}"
     end

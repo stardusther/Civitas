@@ -33,7 +33,7 @@ module Juego_texto
         operacion = @juego.siguientePaso
         @vista.mostrarSiguienteOperacion(operacion)
           
-        if operacion != Civitas::OperacionesJuego.PASAR_TURNO
+        if operacion != Civitas::Operaciones_juego::PASAR_TURNO
           @vista.mostrarEventos
         end
           
@@ -43,7 +43,7 @@ module Juego_texto
 
           rank = @juego.ranking         # Copiamos el ranking del juego ?????
 
-          for i in 0..(num_jugadores-1) # Mostramos los jugadores en orden
+          for i in 0..(@juego.NumJugadores-1) # Mostramos los jugadores en orden
             rank[i].toString
           end
             

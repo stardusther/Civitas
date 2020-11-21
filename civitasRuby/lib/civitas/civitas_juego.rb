@@ -21,6 +21,9 @@ module Civitas
     @@CasillaCarcel = 3 # Preguntar de todas formas
     @@NumCasillas = 7
     
+    # Añadimos consultor de numero de jugadores para poder consultarlo en el controlador
+    attr_reader :NumJugadores
+    
     def initialize(nombres)
       @jugadores = []
       
@@ -54,10 +57,10 @@ module Civitas
       jugadorActual = @jugadores.at(@indiceJugadorActual)
       operacion = @gestorEstados.operaciones_permitidas(jugadorActual, @estado)
       
-      if operacion == Civitas::OperacionesJuego::PASAR_TURNO
+      if operacion == Civitas::Operaciones_juego::PASAR_TURNO
         pasarTurno()
         siguientePasoCompletado(operacion)
-      elsif operacion == Civitas::OperacionesJuego::AVANZAR
+      elsif operacion == Civitas::Operaciones_juego::AVANZAR
         avanzaJugador()
         siguientePasoCompletado(operacion)
       end
@@ -105,25 +108,27 @@ module Civitas
     end
     
     def finalDelJuego
-      finaljuego = false
+      final_juego = false
+      i=0
       
-      for i in 0..NumJugadores and !finaljuego
-        finaljuego = @jugadores.at(i).enBancarrota()
+      while i<@@NumJugadores &&  !final_juego
+        final_juego = @jugadores.at(i).enBancarrota()
+        i = i+1
       end
       
-      finaljuego
+      final_juego
     end
     
     def compareTo(jugador)
       @saldo <=> otro.get_saldo
     end
     
-    def ranking # El ranking debe ser público para poder acceder a él 
+    def ranking # El ranking debe ser público para poder acceder a él desde el controlador
       playersrank = []
       
-      jugadores_aux = @jugadores  # no sé cómo copiar un array
+      jugadores_aux = @jugadores.clone
       
-      for i in 0..NumJugadores
+      for i in 0..@@NumJugadores
         max = jugadores_aux.at(0)
         pos = 0
         
@@ -139,7 +144,7 @@ module Civitas
         
       end
       
-      return playersrank # Se puede poner return pa que quede más claro, no es un error
+      return playersrank 
     end
     
     private # -------------------------------------------------

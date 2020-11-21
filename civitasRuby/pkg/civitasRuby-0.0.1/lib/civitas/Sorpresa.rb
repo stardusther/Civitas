@@ -1,3 +1,4 @@
+#encoding:utf-8
 =begin
 Authors: Esther García Gallego
          Yesenia González Dávila
@@ -39,16 +40,18 @@ module Civitas
 
     # Metodos
     def jugadorCorrecto (actual, todos)
-      correcto = true
+      correcto = false
 
-      if actual < todos.length
-        correcto = false
+      if actual < todos.length && actual>0
+        correcto = true
       end
     end
     
     def aplicarAJugador (actual, todos)
       if jugadorCorrecto(actual, todos)
-        case @sorpresa
+        
+        
+        case @tipo
           
         when Civitas::TipoSorpresa::IRCARCEL
           aplicarAJugador_irCarcel(actual, todos)
@@ -89,23 +92,23 @@ module Civitas
     
     def informe (actual, todos)
       if jugadorCorrecto(actual, todos)
-        Diario.instance.ocurreEvento("Se aplica sorpresa al jugador " + todos[actual].getNombre)
+        Diario.instance.ocurre_evento("\n ¡Sorpresa! #{@texto} Se aplica #{@sorpresa} al jugador #{todos[actual].nombre}")
       end
     end
 
     def aplicarAJugador_irCarcel (actual, todos)
       if jugadorCorrecto(actual, todos)
         informe(actual, todos)
-        todos[actual].encarcelar(@tablero.getCarcel)
+        todos[actual].encarcelar(@tablero.numCasillaCarcel)
       end
     end
 
-    def aplicarAJugador_irACasilla
+    def aplicarAJugador_irACasilla(actual, todos)
       if jugadorCorrecto(actual, todos)
         informe(actual, todos)
 
-        casilla = todos[actual].getNumCasillaActual
-        tirada = @tablero.calcularTirada(casilla, valor)
+        casilla = todos[actual].numCasillaActual
+        tirada = @tablero.calcularTirada(casilla, @valor)
         nuevaPos = @tablero.nuevaPosicion(casilla, tirada)
 
         todos[actual].moverACasilla(nuevaPos)

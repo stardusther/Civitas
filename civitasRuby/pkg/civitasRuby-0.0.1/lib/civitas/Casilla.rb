@@ -84,7 +84,7 @@ module Civitas
 
   
     def informe (actual, todos)
-      str = "El jugador #{todos[actual].nombre} ha caido en la casilla #{to_s}"
+      str = "El jugador #{todos[actual].nombre} ha caido en la casilla #{@tipo}"
       Diario.instance.ocurre_evento(str)
     end
 

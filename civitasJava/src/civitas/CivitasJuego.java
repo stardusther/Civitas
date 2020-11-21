@@ -113,10 +113,9 @@ public class CivitasJuego {
         // Creamos una sorpresa de cada tipo
         
         int valor = 100;
-        int casilla_juez = 8;  // <-- casilla juez
+        int casilla_juez = 8;  
         int ir_a_casilla = 5;
         
-        mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor*-1, " Tienes que pagar por cada casa y hotel que tengas..." ));
         
         // Llevar a salida
         mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, 0, " Te ayudamos a ser tu propio jefe con este incentivo de 1000 civiMonedas."));

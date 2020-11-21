@@ -33,13 +33,15 @@ module Civitas
       
       @indiceJugadorActual = Dado.instance().quienEmpieza(@@NumJugadores)
       
+      @mazo = MazoSorpresas.new(true)
+      @tablero = Tablero.new(@@CasillaCarcel)
       inicializaMazoSorpresas(@tablero)
       inicializaTablero(@mazo)
       
     end
     
     def inicializaTablero(mazo)
-      @tablero = Tablero.new(@@CasillaCarcel)
+      #@tablero = Tablero.new(@@CasillaCarcel)
       
       # Creamos calles
       i = 1
@@ -87,12 +89,14 @@ module Civitas
       ir_a_casilla = 6
       num_sorpresas = 6
       
-      @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero));
-      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ)"));
-      @mazo.alMazo(Sorpresa.newEvitaCarcel(TipoSorpresa::SALIRCARCEL, @mazo));
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor, " POR JUGADOR"));
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor, " POR CASA HOTEL"));
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa.PAGARCOBRAR, valor, " PAGARCOBRAR"));
+      irCarcel = Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero)
+      
+      @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero))
+      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ)"))
+      @mazo.alMazo(Sorpresa.newEvitaCarcel(TipoSorpresa::SALIRCARCEL, @mazo))
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor, " POR JUGADOR"))
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor, " POR CASA HOTEL"))
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa.PAGARCOBRAR, valor, " PAGARCOBRAR"))
     end
     
     def avanzaJugador
@@ -100,7 +104,6 @@ module Civitas
       # Declaramos al jugador actual y su posicion
       jugadorActual = getJugadorActual();
       posicionActual = jugadorActual.getNumCasillaActual();
-      jugadorActual.moverACasilla(posicionActual);
       
       # Calculamos su nueva posicion tirando el dado  
       tirada = Dado.Instance.tirar()
@@ -116,7 +119,7 @@ module Civitas
       jugadorActual.moverACasilla(posicionNueva)
       
       # Actualizamos la casilla y volvemos a comprobar si ha pasado por salida
-      @casilla.recibeJugador(jugadorActual)
+      @casilla.recibeJugador(@indiceJugadorActual, @jugadores)
       contabilizarPorSalida(jugadorActual)
     end
     

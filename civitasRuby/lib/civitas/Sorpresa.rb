@@ -11,30 +11,36 @@ module Civitas
 
     attr_reader :valor
     
-    public
-    # Constructores
-    def self. newIrCarcel (tipo, tab)
-      init()
+    
+    def initialize (tipo, tab, val, txt, m)
       @tipo = tipo
       @tablero = tab
+      @valor = val
+      @texto = txt
+      @mazo = m
+    end
+    
+    # Constructores
+    def self.newIrCarcel (tipo, tab)
+      objeto = Sorpresa.new(tipo, tab, -1, "", nil)
     end
 
-    def self. newIrCasilla (tipo, tab, val, txt)
-      init
+    def self.newIrCasilla (tipo, tab, val, txt)
+      initialize
       @tipo = tipo
       @tablero = tab
       @valor = val
       @texto = txt
     end
 
-    def self. newEvitaCarcel (tipo, m)
-      init
+    def self.newEvitaCarcel (tipo, m)
+      initialize
       @tipo = tipo
       @mazo = m
     end
 
-    def self. newOtras (tipo, val, txt)
-      init
+    def newOtras (tipo, val, txt)
+      initialize
       @tipo = tipo
       @valor = val
       @texto = txt
@@ -56,7 +62,7 @@ module Civitas
     
     private # ---------------------------------------------------------------- #
 
-    def self.init()
+    def init()
       @valor = -1
       @texto = ""
       @mazo = nil
@@ -64,13 +70,7 @@ module Civitas
     end
     
     
-#    def initialize (tipo, tab, val, txt, m)
-      #@sorpresa = tipo
-      #@tablero = tab
-      #@valor = valor
-      #@texto = txt
-      #@mazo = m
-    #end
+    
 
 
     def informe (actual, todos)

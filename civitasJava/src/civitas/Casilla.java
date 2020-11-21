@@ -127,7 +127,7 @@ public class Casilla {
             
             if (!tituloPropiedad.tienePropietario()) 
                 jugador.puedeComprarCasilla();
-            else 
+            else if (!tituloPropiedad.getHipotecado())
                 tituloPropiedad.tramitarAlquiler(jugador);
         }
     }

@@ -25,7 +25,7 @@ module Civitas
       @jugadores = []
       
       for i in 0..@@NumJugadores
-        @jugadores.push(i,Civitas::Jugador::new(nombres[i])) # Crea el jugador
+        @jugadores.insert(i,Civitas::Jugador::new(nombres[i])) # Crea el jugador
       end
       
       @gestorEstados = Gestor_estados.new()
@@ -47,21 +47,20 @@ module Civitas
       i = 1
       alquiler = 100
       hipotecaBase = 50
-      precioCompra = 120
+      precioCompra = 150
       precioEdificar = 200
       factorRev = 1.2
+      
       n1 = "Calle 1"
       n2 = "Calle 2"
-      n3 = "Calle 3"
      
       t1 = TituloPropiedad.new(n1, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i)
       i = i+1
       t2 = TituloPropiedad.new(n2, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i)
-      #t3 = TituloPropiedad.new(nombre + i, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i++)
       
       # Casillas
-      c1 = Casilla.newCalle(t1)
-      c2 = Casilla.newCalle(t2)
+      c1 = Civitas::Casilla.newCalle(t1)
+      c2 = Civitas::Casilla.newCalle(t2)
       
       s1 = Casilla.newSorpresa(@mazo, "Sorpresa 1")
       
@@ -75,9 +74,9 @@ module Civitas
           @tablero.añadeCasilla(c1)
         when 2
           @tablero.añadeCasilla(s1)
-        when
+        when 4
           @tablero.añadeCasilla(impuesto)
-        when
+        when 5
           @tablero.añadeCasilla(c2)
         when 6
           @tablero.añadeJuez
@@ -122,7 +121,13 @@ module Civitas
       jugadorActual.moverACasilla(posicionNueva)
       
       # Actualizamos la casilla y volvemos a comprobar si ha pasado por salida
-      @casilla.recibeJugador(@indiceJugadorActual, @jugadores)
+      
+      #puts casilla.to_s
+      puts @tablero.to_s
+      puts @tablero.inspect
+      puts casilla.inspect
+      
+      casilla.recibeJugador(@indiceJugadorActual, @jugadores)
       contabilizarPorSalida(jugadorActual)
     end
     

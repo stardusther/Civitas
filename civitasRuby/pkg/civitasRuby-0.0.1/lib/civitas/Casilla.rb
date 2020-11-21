@@ -10,36 +10,40 @@ module Civitas
     attr_reader :nombre, :tituloPropiedad
 
     #@@carcel                #Atributo de instancia
+    
+    def to_s
+      str = "tipo #{@tipo} nombre #{@nombre} valor #{@valor}"
+    end
 
     def self. newDescanso (n) 
-      Casilla.new(n, nil, -1, -1, nil, nil)    #n, titulo, cantidad, numCasillaCarcel, m, sorp
-      @tipo = Civitas::TipoCasilla::DESCANSO
+      Casilla.new(n, nil, -1, -1, nil, nil, Civitas::TipoCasilla::DESCANSO)    #n, titulo, cantidad, numCasillaCarcel, m, sorp
+      #@tipo = Civitas::TipoCasilla::DESCANSO
     end
 
     def self. newCalle (titulo)
-      new(titulo.nombre, titulo, -1, -1, nil, nil)
-      @tipo = Civitas::TipoCasilla::CALLE
+      new(titulo.nombre, titulo, -1, -1, nil, nil, Civitas::TipoCasilla::CALLE)
+      #@tipo = Civitas::TipoCasilla::CALLE
     end
 
     def self. newImpuesto (cantidad, n)
-      new(n, nil, cantidad, -1, nil, nil)
-      @tipo = Civitas::TipoCasilla::IMPUESTO
+      new(n, nil, cantidad, -1, nil, nil, Civitas::TipoCasilla::IMPUESTO)
+      #@tipo = Civitas::TipoCasilla::IMPUESTO
     end
 
     def self. newJuez (numCasillaCarcel, n)
-      new(n, nil, -1, numCasillaCarcel, nil, nil)
-      @tipo = Civitas::TipoCasilla::JUEZ
+      new(n, nil, -1, numCasillaCarcel, nil, nil, Civitas::TipoCasilla::JUEZ)
+      #@tipo = Civitas::TipoCasilla::JUEZ
     end
 
     def self. newSorpresa (mazo, n)
-      new(n, nil, -1, -1, mazo, nil)
+      new(n, nil, -1, -1, mazo, nil, Civitas::TipoCasilla::SORPRESA)
     end
 
     def jugadorCorrecto(actual, todos)
       actual < todos.length
     end
 
-    def self. recibeJugador(actual, todos)
+    def recibeJugador(actual, todos)
       case @tipo
       
       when Civitas::TipoCasilla::CALLE
@@ -61,25 +65,26 @@ module Civitas
     end
 
     def to_s
-      str = @nombre + " (" + @tipo + ")"
+      str = "#{@nombre}. Tipo: #{@tipo}. Valor: #{@valor}"
     end
 
 
     private #------------------------------------------------------------------- #
   
-    def initialize(n, titulo, cantidad, numCasillaCarcel, m, sorp)
+    def initialize(n, titulo, cantidad, numCasillaCarcel, m, sorp, tipo)
       @nombre = n
       @tituloPropiedad = titulo
       @importe = cantidad
       @@carcel = numCasillaCarcel
       @mazo = m
       @sorpresa = sorp
+      @tipo = tipo
     end
 
   
-    def informe
-      str = "El jugador " + todos[actual] + " ha caido en la casilla " + toString()
-      Diario.getInstance.ocurreEvento(str)
+    def informe (actual, todos)
+      str = "El jugador #{todos[actual].nombre} ha caido en la casilla #{to_s}"
+      Diario.instance.ocurre_evento(str)
     end
 
   

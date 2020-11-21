@@ -21,6 +21,9 @@ module Civitas
     @@CasillaCarcel = 3 # Preguntar de todas formas
     @@NumCasillas = 7
     
+    # Añadimos consultor de numero de jugadores para poder consultarlo en el controlador
+    attr_reader :NumJugadores
+    
     def initialize(nombres)
       @jugadores = []
       
@@ -38,6 +41,143 @@ module Civitas
       inicializaMazoSorpresas(@tablero)
       inicializaTablero(@mazo)
       
+    end
+           
+    def getJugadorActual
+      jugador = @jugadores[@indiceJugadorActual]
+    end
+    
+    def getCasillaActual
+      jugador = getJugadorActual()
+      numCasilla = jugador.numCasillaActual
+      @tablero.getCasilla(numCasilla)
+    end
+    
+    def siguientePaso
+      jugadorActual = @jugadores.at(@indiceJugadorActual)
+      operacion = @gestorEstados.operaciones_permitidas(jugadorActual, @estado)
+      
+      if operacion == Civitas::Operaciones_juego::PASAR_TURNO
+        pasarTurno()
+        siguientePasoCompletado(operacion)
+      elsif operacion == Civitas::Operaciones_juego::AVANZAR
+        avanzaJugador()
+        siguientePasoCompletado(operacion)
+      end
+      
+      operacion
+    end
+    
+    def siguientePasoCompletado(operacion)
+      @estado = @gestorEstados.siguiente_estado(@jugadores[@indiceJugadorActual], @estado, operacion)
+    end
+    
+    def construirCasa(ip)
+      getJugadorActual().construirCasa(ip)
+    end
+    
+    def construirHotel(ip)
+      getJugadorActual().construirHotel(ip)
+    end
+    
+    def vender(ip)
+      getJugadorActual().vender(ip)
+    end
+    
+    def comprar
+      jugadorActual = @jugadores.at(@indiceJugadorActual)
+      casilla =@tablero.getCasilla(jugadorActual.getNumCasillaActual())
+      titulo = casilla.getTituloPropiedad()
+      jugadorActual.comprar(titulo)
+    end
+    
+    def hipotecar(ip)
+      getJugadorActual().hipotecar(ip)
+    end
+    
+    def cancelarHipoteca(ip)
+      getJugadorActual().cancelarHipoteca(ip)
+    end
+    
+    def salirCarcelPagando
+      getJugadorActual().salirCarcelPagando()
+    end
+    
+    def salirCarcelTirando
+      getJugadorActual().salirCarcelTirando()
+    end
+    
+    def finalDelJuego
+      final_juego = false
+      i=0
+      
+      while i<@@NumJugadores &&  !final_juego
+        final_juego = @jugadores.at(i).enBancarrota()
+        i = i+1
+      end
+      
+      final_juego
+    end
+    
+    def compareTo(jugador)
+      @saldo <=> otro.get_saldo
+    end
+    
+    def ranking # El ranking debe ser público para poder acceder a él desde el controlador
+      playersrank = []
+      
+      jugadores_aux = @jugadores.clone
+      
+      for i in 0..@@NumJugadores
+        max = jugadores_aux.at(0)
+        pos = 0
+        
+        for j in 1..jugadores_aux.size
+          if max.compareTo(jugadores_aux.at(j) < 0)
+            max = jugadores_aux.at(j)
+            pos = j
+          end
+        end
+          
+        playersrank.push(max)
+        jugadores_aux.delete_at(pos)
+        
+      end
+      
+      return playersrank 
+    end
+    
+    private # -------------------------------------------------
+    
+    def avanzaJugador()
+      
+      # Declaramos al jugador actual y su posicion
+      jugadorActual = getJugadorActual()
+      posicionActual = jugadorActual.numCasillaActual
+      
+      # Calculamos su nueva posicion tirando el dado  
+      tirada = Dado.instance.tirar()
+      posicionNueva = @tablero.nuevaPosicion(posicionActual, tirada)
+      
+      # Declaramos la casilla en la que está la nueva posición  
+      casilla = @tablero.getCasilla(posicionNueva)
+      
+      # Comprobamos si ha pasado por salida para que el jugador reciba el dinero en tal caso
+      contabilizarPasosPorSalida(jugadorActual)
+      
+      # Movemos al jugador a la nueva posición
+      jugadorActual.moverACasilla(posicionNueva)
+      
+      # Actualizamos la casilla y volvemos a comprobar si ha pasado por salida
+      
+      casilla.recibeJugador(@indiceJugadorActual, @jugadores)
+      contabilizarPasosPorSalida(jugadorActual)
+    end
+    
+    def contabilizarPasosPorSalida(jugadorActual)
+      while @tablero.getPorSalida > 0
+        jugadorActual.pasarPorSalida
+      end
     end
     
     def inicializaTablero(mazo)
@@ -101,143 +241,9 @@ module Civitas
       @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PAGARCOBRAR, valor, " PAGARCOBRAR"))
     end
     
-    def avanzaJugador()
-      
-      # Declaramos al jugador actual y su posicion
-      jugadorActual = getJugadorActual()
-      posicionActual = jugadorActual.numCasillaActual
-      
-      # Calculamos su nueva posicion tirando el dado  
-      tirada = Dado.instance.tirar()
-      posicionNueva = @tablero.nuevaPosicion(posicionActual, tirada)
-      
-      # Declaramos la casilla en la que está la nueva posición  
-      casilla = @tablero.getCasilla(posicionNueva)
-      
-      # Comprobamos si ha pasado por salida para que el jugador reciba el dinero en tal caso
-      contabilizarPasosPorSalida(jugadorActual)
-      
-      # Movemos al jugador a la nueva posición
-      jugadorActual.moverACasilla(posicionNueva)
-      
-      # Actualizamos la casilla y volvemos a comprobar si ha pasado por salida
-      
-      casilla.recibeJugador(@indiceJugadorActual, @jugadores)
-      contabilizarPasosPorSalida(jugadorActual)
-    end
-    
-    def getJugadorActual
-      jugador = @jugadores[@indiceJugadorActual]
-    end
-    
-    def getCasillaActual
-      jugador = getJugadorActual()
-      numCasilla = jugador.numCasillaActual
-      @tablero.getCasilla(numCasilla)
-    end
-    
-    def contabilizarPasosPorSalida(jugadorActual)
-      while @tablero.getPorSalida > 0
-        jugadorActual.pasarPorSalida
-      end
-    end
-    
     def pasarTurno
       indiceJugadorActual = (indiceJugadorActual+1) % @@NumJugadores
-    end    
-    
-    def siguientePaso
-      jugadorActual = @jugadores.at(@indiceJugadorActual)
-      operacion = @gestorEstados.operaciones_permitidas(jugadorActual, @estado)
-      
-      if operacion == Civitas::OperacionesJuego::PASAR_TURNO
-        pasarTurno()
-        siguientePasoCompletado(operacion)
-      elsif operacion == Civitas::OperacionesJuego::AVANZAR
-        avanzaJugador()
-        siguientePasoCompletado(operacion)
-      end
-      
-      operacion
     end
-    
-    def siguientePasoCompletado(operacion)
-      @estado = @gestorEstados.siguiente_estado(@jugadores[@indiceJugadorActual], @estado, operacion)
-    end
-    
-    def construirCasa(ip)
-      getJugadorActual().construirCasa(ip)
-    end
-    
-    def construirHotel(ip)
-      getJugadorActual().construirHotel(ip)
-    end
-    
-    def vender(ip)
-      getJugadorActual().vender(ip)
-    end
-    
-    def comprar
-      jugadorActual = @jugadores.at(@indiceJugadorActual)
-      casilla =@tablero.getCasilla(jugadorActual.getNumCasillaActual())
-      titulo = casilla.getTituloPropiedad()
-      jugadorActual.comprar(titulo)
-    end
-    
-    def hipotecar(ip)
-      getJugadorActual().hipotecar(ip)
-    end
-    
-    def cancelarHipoteca(ip)
-      getJugadorActual().cancelarHipoteca(ip)
-    end
-    
-    def salirCarcelPagando
-      getJugadorActual().salirCarcelPagando()
-    end
-    
-    def salirCarcelTirando
-      getJugadorActual().salirCarcelTirando()
-    end
-    
-    def finalDelJuego
-      finaljuego = false
-      
-      for i in 0..NumJugadores and !finaljuego
-        finaljuego = @jugadores.at(i).enBancarrota()
-      end
-      
-      finaljuego
-    end
-    
-    def compareTo(jugador)
-      @saldo <=> otro.get_saldo
-    end
-    
-    def ranking
-      playersrank = []
-      
-      jugadores_aux = @jugadores  # no sé cómo copiar un array
-      
-      for i in 0..NumJugadores
-        max = jugadores_aux.at(0)
-        pos = 0
-        
-        for j in 1..jugadores_aux.size
-          if max.compareTo(jugadores_aux.at(j) < 0)
-            max = jugadores_aux.at(j)
-            pos = j
-          end
-        end
-          
-        playersrank.push(max)
-        jugadores_aux.delete_at(pos)
-        
-      end
-      
-      return playersrank # Se puede poner return pa que quede más claro, no es un error
-    end
-    
     
   end
 end

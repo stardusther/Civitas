@@ -9,10 +9,12 @@ module Civitas
   class Diario
     include Singleton
 
+    private
     def initialize
       @eventos = []
     end
 
+    public
     def ocurre_evento(e)
       @eventos << e
     end

@@ -14,6 +14,10 @@ require 'io/console'
 module Civitas
 
   class Vista_textual
+    
+    attr_reader :iGestion, :iPropiedad
+    
+    public # -------------------------------------------------------------------
 
     def mostrar_estado(estado)
       puts estado
@@ -68,7 +72,7 @@ module Civitas
     end
     
     
-    def comprar  # Me lo he inventado, hay que probar :3
+    def comprar  
       opcion = menu("¿Comprar calle?", ("Si" "No"));
       return Civitas::Respuestas[opcion]
     end
@@ -82,21 +86,13 @@ module Civitas
       end
     end
 
-    def getGestion
-      @iGestion
-    end
-
-    def getPropiedad
-      @iPropiedad
-    end
-
     def mostrarSiguienteOperacion(operacion)
       puts "\n *** Siguiente operacion: #{operacion}"
     end
 
     def mostrarEventos
       evento = Civitas::Diario.instance.leer_evento
-      while evento != ""
+      while evento <=> ""
         puts evento
         evento = Civitas::Diario.instance.leer_evento
       end

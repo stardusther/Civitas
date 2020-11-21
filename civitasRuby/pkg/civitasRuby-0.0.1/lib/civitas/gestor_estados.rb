@@ -1,3 +1,9 @@
+=begin
+Authors: Esther García Gallego
+         Yesenia González Dávila
+         Grupo B3
+=end
+
 require_relative 'Diario'
 require_relative './Operaciones_juego.rb'
 require_relative './EstadoJuego.rb'
@@ -16,38 +22,38 @@ module Civitas
 
       when Estados_juego::INICIO_TURNO
         if (jugador.encarcelado)
-          op = OperacionesJuego::SALIR_CARCEL
+          op = Operaciones_juego::SALIR_CARCEL
         else
-          op = OperacionesJuego::AVANZAR
+          op = Operaciones_juego::AVANZAR
         end
 
       when Estados_juego::DESPUES_CARCEL
-        op = OperacionesJuego::PASAR_TURNO
+        op = Operaciones_juego::PASAR_TURNO
 
       when Estados_juego::DESPUES_AVANZAR
         if (jugador.encarcelado)
-          op = OperacionesJuego::PASAR_TURNO
+          op = Operaciones_juego::PASAR_TURNO
         else
           if (jugador.puede_comprar)
-            op = OperacionesJuego::COMPRAR
+            op = Operaciones_juego::COMPRAR
           else
             if (jugador.tiene_algo_que_gestionar)
-              op = OperacionesJuego::GESTIONAR
+              op = Operaciones_juego::GESTIONAR
             else
-              op = OperacionesJuego::PASAR_TURNO
+              op = Operaciones__juego::PASAR_TURNO
             end
           end
         end
 
       when Estados_juego::DESPUES_COMPRAR
         if (jugador.tiene_algo_que_gestionar)
-          op = OperacionesJuego::GESTIONAR
+          op = Operaciones_juego::GESTIONAR
         else
-          op =OperacionesJuego::PASAR_TURNO
+          op =Operaciones_juego::PASAR_TURNO
         end
 
       when Estados_juego::DESPUES_GESTIONAR
-        op = OperacionesJuego::PASAR_TURNO
+        op = Operaciones_juego::PASAR_TURNO
       end
 
       return op
@@ -57,6 +63,8 @@ module Civitas
 
     def siguiente_estado(jugador,estado,operacion)
       siguiente = nil
+      
+      puts operacion.inspect
 
       case estado
 

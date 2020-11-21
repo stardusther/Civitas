@@ -10,7 +10,8 @@ class TituloPropiedad
   
   attr_reader :precioCompra, :hipotecado, :hipotecaBase, :nombre, :numCasas, :numHoteles,
               :precioEdificar, :propietario
-  
+            
+    
   @nombre
   
   @alquilerBase
@@ -25,6 +26,8 @@ class TituloPropiedad
   @numHoteles
   
   @propietario
+  
+  public # --------------------------------------------------
   
   def initialize (nombre, ab, fr, hb, pc, pe)
     @nombre = nombre
@@ -164,7 +167,7 @@ class TituloPropiedad
     @propietario != nil
   end
   
-  private
+  private # --------------------------------------------------------
   
   def esEsteElPropietario (jugador)
     @propietario == jugador

@@ -5,13 +5,13 @@ Authors: Esther García Gallego
 =end
 
 module Civitas
-  module OperacionesJuego
+  module Operaciones_juego
       AVANZAR = :avanzar
       COMPRAR = :comprar
       GESTIONAR = :gestionar
       SALIR_CARCEL = :salir_carcel
       PASAR_TURNO = :pasar_turno
       
-      Lista_Operaciones = [OperacionesJuego::AVANZAR, OperacionesJuego::AVANZAR, OperacionesJuego::COMPRAR ]
+      Lista_Operaciones = [Operaciones_juego::AVANZAR, Operaciones_juego::AVANZAR, Operaciones_juego::COMPRAR ]
   end
 end

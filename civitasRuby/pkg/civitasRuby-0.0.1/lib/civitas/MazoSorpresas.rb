@@ -9,6 +9,7 @@ require_relative "./Sorpresa.rb"
 module Civitas
   class MazoSorpresas
 
+    private # -----------------------------------------------------------
     # Constructor
     def initialize (debug=false)
       init()
@@ -20,6 +21,7 @@ module Civitas
 
     end
 
+    public # -----------------------------------------------------------
     def alMazo (s)
       if (!@barajada)
         @sorpresas.push (s)

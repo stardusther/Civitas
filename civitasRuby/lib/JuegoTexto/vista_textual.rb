@@ -72,7 +72,7 @@ module Civitas
     end
     
     
-    def comprar  # Me lo he inventado, hay que probar :3
+    def comprar  
       opcion = menu("¿Comprar calle?", ("Si" "No"));
       return Civitas::Respuestas[opcion]
     end
@@ -92,7 +92,7 @@ module Civitas
 
     def mostrarEventos
       evento = Civitas::Diario.instance.leer_evento
-      while evento != ""
+      while evento <=> ""
         puts evento
         evento = Civitas::Diario.instance.leer_evento
       end

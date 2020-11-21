@@ -36,9 +36,9 @@ module Civitas
       end
 
       @usadas += 1
-      @ultimaSorpresa = @sorpresa[0]
-      @sorpresa.delete_at(0)
-      @sorpresa.push (@ultimaSorpresa)
+      @ultimaSorpresa = @sorpresas[0]
+      @sorpresas.delete_at(0)
+      @sorpresas.push (@ultimaSorpresa)
 
       @ultimaSorpresa
     end

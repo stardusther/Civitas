@@ -4,6 +4,8 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 require_relative "./TipoCasilla.rb"
+require_relative "./Sorpresa.rb"
+
 module Civitas
   class Casilla
 
@@ -32,7 +34,6 @@ module Civitas
 
     def self. newJuez (numCasillaCarcel, n)
       new(n, nil, -1, numCasillaCarcel, nil, nil, Civitas::TipoCasilla::JUEZ)
-      #@tipo = Civitas::TipoCasilla::JUEZ
     end
 
     def self. newSorpresa (mazo, n)
@@ -122,6 +123,7 @@ module Civitas
     def recibeJugador_sorpresa(actual, todos)
       if (jugadorCorrecto(actual, todos))
         informe(actual, todos)
+        @sorpresa = @mazo.siguiente
         @sorpresa.aplicarAJugador(actual, todos)
       end
     end

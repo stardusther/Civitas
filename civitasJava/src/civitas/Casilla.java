@@ -148,7 +148,7 @@ public class Casilla {
 
     private void recibeJugador_sorpresa (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos)) {
-            sorpresa = new Sorpresa (TipoSorpresa.IRCARCEL, mazo);
+            /////////////sorpresa = new Sorpresa (TipoSorpresa.IRCARCEL, mazo);
             sorpresa = mazo.siguiente();
             informe (actual, todos);
             sorpresa.aplicarAJugador(actual, todos);

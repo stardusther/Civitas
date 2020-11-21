@@ -41,10 +41,37 @@ module Civitas
     def jugadorCorrecto (actual, todos)
       correcto = true
 
-      if actual < todos.lenght
+      if actual < todos.length
         correcto = false
       end
     end
+    
+    def aplicarAJugador (actual, todos)
+      if jugadorCorrecto(actual, todos)
+        case @sorpresa
+          
+        when Civitas::TipoSorpresa::IRCARCEL
+          aplicarAJugador_irCarcel(actual, todos)
+          
+        when Civitas::TipoSorpresa::IRCASILLA
+          aplicarAJugador_irACasilla(actual, todos)
+          
+        when Civitas::TipoSorpresa::PAGARCOBRAR
+          aplicarAJugador_pagarCobrar(actual, todos)
+          
+        when Civitas::TipoSorpresa::PORCASAHOTEL
+          aplicarAJugador_porCasaHotel(actual, todos)
+          
+        when Civitas::TipoSorpresa::PORJUGADOR
+          aplicarAJugador_porJugador(actual, todos)
+          
+        when Civitas::TipoSorpresa::SALIRCARCEL
+          aplicarAJugador_salirCarcel(actual, todos)
+          
+        end
+      end
+    end
+    
 
     def toString
       str = " Sorpresa: #{@texto}. >> Valor: #{@valor}"
@@ -60,19 +87,9 @@ module Civitas
       @tablero = nil
     end
     
-    
-    
-
-
     def informe (actual, todos)
       if jugadorCorrecto(actual, todos)
         Diario.instance.ocurreEvento("Se aplica sorpresa al jugador " + todos[actual].getNombre)
-      end
-    end
-
-    def self. aplicarJugador (actual, todos)
-      if jugadorCorrecto(actual, todos)
-        informe(actual, todos)
       end
     end
 

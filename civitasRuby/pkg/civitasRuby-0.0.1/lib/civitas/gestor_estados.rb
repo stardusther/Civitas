@@ -40,7 +40,7 @@ module Civitas
             if (jugador.tieneAlgoQueGestionar)  ##################################################3
               op = Operaciones_juego::GESTIONAR
             else
-              op = Operaciones__juego::PASAR_TURNO
+              op = Operaciones_juego::PASAR_TURNO
             end
           end
         end

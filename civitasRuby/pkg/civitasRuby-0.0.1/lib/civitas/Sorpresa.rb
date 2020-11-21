@@ -26,24 +26,15 @@ module Civitas
     end
 
     def self.newIrCasilla (tipo, tab, val, txt)
-      initialize
-      @tipo = tipo
-      @tablero = tab
-      @valor = val
-      @texto = txt
+      Sorpresa.new(tipo, tab, val, txt, nil)
     end
 
     def self.newEvitaCarcel (tipo, m)
-      initialize
-      @tipo = tipo
-      @mazo = m
+      Sorpresa.new(tipo, nil, -1,"", m)
     end
 
-    def newOtras (tipo, val, txt)
-      initialize
-      @tipo = tipo
-      @valor = val
-      @texto = txt
+    def self.newOtras (tipo, val, txt)
+      Sorpresa.new(tipo, nil, val, txt,nil)
     end
 
     # Metodos

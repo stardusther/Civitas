@@ -11,34 +11,28 @@ module Civitas
 
     #@@carcel                #Atributo de instancia
 
-    def self. constructorDescanso (n)
-      init()
-      new(n, nil, -1, -1, nil)   
-      # nombre, titulo, cant_impuesto, carcel, mazo
+    def self. newDescanso (n) 
+      Casilla.new(n, nil, -1, -1, nil, nil)    #n, titulo, cantidad, numCasillaCarcel, m, sorp
       @tipo = Civitas::TipoCasilla::DESCANSO
     end
 
-    def self. constructorCalle (titulo)
-      init()
-      new(titulo.nombre, titulo, -1, -1, nil)
+    def self. newCalle (titulo)
+      new(titulo.nombre, titulo, -1, -1, nil, nil)
       @tipo = Civitas::TipoCasilla::CALLE
     end
 
-    def self. constructorImpuesto (cantidad, n)
-      init()
-      new(n, nil, cantidad, -1, nil)
+    def self. newImpuesto (cantidad, n)
+      new(n, nil, cantidad, -1, nil, nil)
       @tipo = Civitas::TipoCasilla::IMPUESTO
     end
 
-    def self. constructorJuez (numCasillaCarcel, n)
-      init()
-      new(n, nil, -1, numCasillaCarcel, nil)
+    def self. newJuez (numCasillaCarcel, n)
+      new(n, nil, -1, numCasillaCarcel, nil, nil)
       @tipo = Civitas::TipoCasilla::JUEZ
     end
 
-    def self. constructorSorpresa (mazo, n)
-      init()
-      new(n, nil, -1, -1, mazo)
+    def self. newSorpresa (mazo, n)
+      new(n, nil, -1, -1, mazo, nil)
     end
 
     def jugadorCorrecto(actual, todos)
@@ -73,23 +67,13 @@ module Civitas
 
     private #------------------------------------------------------------------- #
   
-    def initialize(n, titulo, cantidad, numCasillaCarcel, m)
+    def initialize(n, titulo, cantidad, numCasillaCarcel, m, sorp)
       @nombre = n
       @tituloPropiedad = titulo
       @importe = cantidad
       @@carcel = numCasillaCarcel
       @mazo = m
-    end
-
-  
-    def init
-      @nombre = ""
-      @importe = -1
-      @@carcel = -1
-
-      @tituloPropiedad = nil
-      @sorpresa = nil
-      @mazo = nil
+      @sorpresa = sorp
     end
 
   

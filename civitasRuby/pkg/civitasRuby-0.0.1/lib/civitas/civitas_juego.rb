@@ -50,22 +50,25 @@ module Civitas
       precioCompra = 120
       precioEdificar = 200
       factorRev = 1.2
-      nombre = "Calle "
+      n1 = "Calle 1"
+      n2 = "Calle 2"
+      n3 = "Calle 3"
      
-      #t1 = TituloPropiedad.new(nombre + i, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i++)
-      #t2 = TituloPropiedad.new(nombre + i, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i++)
+      t1 = TituloPropiedad.new(n1, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i)
+      i = i+1
+      t2 = TituloPropiedad.new(n2, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i)
       #t3 = TituloPropiedad.new(nombre + i, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i++)
       
       # Casillas
-      c1 = Casilla.new(t1)
-      c2 = Casilla.new(t2)
+      c1 = Casilla.newCalle(t1)
+      c2 = Casilla.newCalle(t2)
       
-      s1 = Casilla.new(@mazo, "Sorpresa 1")
+      s1 = Casilla.newSorpresa(@mazo, "Sorpresa 1")
       
-      Cantidad_impuesto 50
-      impuesto = Casilla.new(Cantidad_impuesto, "Impuesto")
+      cantidad_impuesto = 50
+      impuesto = Casilla.newImpuesto(cantidad_impuesto, "Impuesto (50€)")
       
-      for i in 1..NumCasillas
+      for i in 1..@@NumCasillas
         case i
         
         when 1
@@ -96,7 +99,7 @@ module Civitas
       @mazo.alMazo(Sorpresa.newEvitaCarcel(TipoSorpresa::SALIRCARCEL, @mazo))
       @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor, " POR JUGADOR"))
       @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor, " POR CASA HOTEL"))
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa.PAGARCOBRAR, valor, " PAGARCOBRAR"))
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PAGARCOBRAR, valor, " PAGARCOBRAR"))
     end
     
     def avanzaJugador

@@ -45,6 +45,7 @@ public class Sorpresa{
        init();
        sorpresa = tipo;
        this.mazo = mazo;
+       texto = "Tienes un salvoconducto.";
        
     }
 
@@ -163,6 +164,7 @@ public class Sorpresa{
                 tienen_salvoconducto = todos.get(i).tieneSalvoconducto();
 
             if (!tienen_salvoconducto) {
+                informe (actual, todos);
                 todos.get(actual).obtenerSalvoconducto(this);
                 salirDelMazo ();
             }

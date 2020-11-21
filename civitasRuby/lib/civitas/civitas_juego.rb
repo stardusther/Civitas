@@ -1,10 +1,13 @@
+#encoding:utf-8
+
 =begin
 Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
 
-require_relative 'Jugador'
+require_relative 'jugador.rb'
+require_relative 'gestor_estados.rb'
 require_relative 'Dado'
 require_relative 'Tablero'
 require_relative 'MazoSorpresas'
@@ -14,29 +17,31 @@ require_relative 'TituloPropiedad'
 module Civitas
   class CivitasJuego
     
-    NumJugadores = 2  # Todo lo que empiece con mayúsculas se considera constante
-    CasillaCarcel = 3 # Preguntar de todas formas
-    NumCasillas = 11
+    @@NumJugadores = 2  # Todo lo que empiece con mayúsculas se considera constante
+    @@CasillaCarcel = 3 # Preguntar de todas formas
+    @@NumCasillas = 7
     
     def initialize(nombres)
-      jugadores = []
+      @jugadores = []
       
       for i in 0..@@NumJugadores
-        jugadores.insert(i,jugador.new(nombres[i])) # Crea el jugador
+        @jugadores.push(i,Civitas::Jugador::new(nombres[i])) # Crea el jugador
       end
       
-      @gestorEstados = GestorEstados.new()
-      @estado = @gestorEstados.estadoInicial()
+      @gestorEstados = Gestor_estados.new()
+      @estado = @gestorEstados.estado_inicial()
       
-      @indiceJugadorActual = Dado.instance().quienEmpieza(NumJugadores)
+      @indiceJugadorActual = Dado.instance().quienEmpieza(@@NumJugadores)
       
+      @mazo = MazoSorpresas.new(true)
+      @tablero = Tablero.new(@@CasillaCarcel)
       inicializaMazoSorpresas(@tablero)
       inicializaTablero(@mazo)
       
     end
     
     def inicializaTablero(mazo)
-      @tablero = Tablero.new(@@CasillaCarcel)
+      #@tablero = Tablero.new(@@CasillaCarcel)
       
       # Creamos calles
       i = 1
@@ -45,22 +50,25 @@ module Civitas
       precioCompra = 120
       precioEdificar = 200
       factorRev = 1.2
-      nombre = "Calle "
+      n1 = "Calle 1"
+      n2 = "Calle 2"
+      n3 = "Calle 3"
      
-      #t1 = TituloPropiedad.new(nombre + i, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i++)
-      #t2 = TituloPropiedad.new(nombre + i, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i++)
+      t1 = TituloPropiedad.new(n1, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i)
+      i = i+1
+      t2 = TituloPropiedad.new(n2, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i)
       #t3 = TituloPropiedad.new(nombre + i, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i++)
       
       # Casillas
-      c1 = Casilla.new(t1)
-      c2 = Casilla.new(t2)
+      c1 = Casilla.newCalle(t1)
+      c2 = Casilla.newCalle(t2)
       
-      s1 = Casilla.new(@mazo, "Sorpresa 1")
+      s1 = Casilla.newSorpresa(@mazo, "Sorpresa 1")
       
-      Cantidad_impuesto 50
-      impuesto = Casilla.new(Cantidad_impuesto, "Impuesto")
+      cantidad_impuesto = 50
+      impuesto = Casilla.newImpuesto(cantidad_impuesto, "Impuesto (50€)")
       
-      for i in 1..NumCasillas
+      for i in 1..@@NumCasillas
         case i
         
         when 1
@@ -79,28 +87,29 @@ module Civitas
       
     end
     
-    def inicializarMazoSorpresas(tablero)
+    def inicializaMazoSorpresas(tablero)
       valor = 100
       ir_a_casilla = 6
       num_sorpresas = 6
       
-      @mazo.alMazo(Sorpresa.new(TipoSorpresa.IRCARCEL, tablero));
-      @mazo.alMazo(Sorpresa.new(TipoSorpresa.IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ)"));
-      @mazo.alMazo(Sorpresa.new(TipoSorpresa.SALIRCARCEL, mazo));
-      @mazo.alMazo(Sorpresa.new(TipoSorpresa.PORJUGADOR, valor, " POR JUGADOR"));
-      @mazo.alMazo(Sorpresa.new(TipoSorpresa.PORCASAHOTEL, valor, " POR CASA HOTEL"));
-      @mazo.alMazo(Sorpresa.new(TipoSorpresa.PAGARCOBRAR, valor, " PAGARCOBRAR"));
+      irCarcel = Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero)
+      
+      @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero))
+      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ)"))
+      @mazo.alMazo(Sorpresa.newEvitaCarcel(TipoSorpresa::SALIRCARCEL, @mazo))
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor, " POR JUGADOR"))
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor, " POR CASA HOTEL"))
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PAGARCOBRAR, valor, " PAGARCOBRAR"))
     end
     
-    def avanzaJugador
+    def avanzaJugador()
       
       # Declaramos al jugador actual y su posicion
       jugadorActual = getJugadorActual();
-      posicionActual = jugadorActual.getNumCasillaActual();
-      jugadorActual.moverACasilla(posicionActual);
+      posicionActual = jugadorActual.numCasillaActual;
       
       # Calculamos su nueva posicion tirando el dado  
-      tirada = Dado.Instance.tirar()
+      tirada = Dado.instance.tirar()
       posicionNueva = @tablero.nuevaPosicion(posicionActual, tirada)
       
       # Declaramos la casilla en la que está la nueva posición  
@@ -113,16 +122,17 @@ module Civitas
       jugadorActual.moverACasilla(posicionNueva)
       
       # Actualizamos la casilla y volvemos a comprobar si ha pasado por salida
-      @casilla.recibeJugador(jugadorActual)
+      @casilla.recibeJugador(@indiceJugadorActual, @jugadores)
       contabilizarPorSalida(jugadorActual)
     end
     
     def getJugadorActual
-      @jugadores.at(@indiceJugadorActual)
+      jugador = @jugadores[@indiceJugadorActual]
     end
     
     def getCasillaActual
-      @tablero.getCasilla(getJugadorActual().getNumCasillaActual())
+      numCasilla = getJugadorActual.numCasillaActual
+      @tablero.getCasilla(numCasilla)
     end
     
     def contabilizarPasosPorSalida(jugadorActual)
@@ -137,19 +147,19 @@ module Civitas
     
     def siguientePaso
       jugadorActual = @jugadores.at(@indiceJugadorActual)
-      operacion = @gestorEstados.operacionesPermitidas(jugadorActual)
+      operacion = @gestorEstados.operaciones_permitidas(jugadorActual, @estado)
       
       if operacion == Civitas::OperacionesJuego::PASAR_TURNO
         pasarTurno()
         siguientePasoCompletado(operacion)
       elsif operacion == Civitas::OperacionesJuego::AVANZAR
-        avanzarJugador()
+        avanzaJugador()
         siguientePasoCompletado(operacion)
       end
     end
     
     def siguientePasoCompletado(operacion)
-      @estado = @gestionEstados.siguienteEstado(getJugadorActual(), @estado, operacion)
+      @estado = @gestionEstados.siguiente_estado(getJugadorActual(), @estado, operacion)
     end
     
     def construirCasa(ip)

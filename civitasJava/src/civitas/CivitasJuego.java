@@ -168,7 +168,6 @@ public class CivitasJuego {
         // Declaramos al jugador actual y su posicion
         Jugador jugadorActual = getJugadorActual();
         int posicionActual = jugadorActual.getNumCasillaActual();
-        jugadorActual.moverACasilla(posicionActual);
         
         // Calculamos su nueva posicion tirando el dado
         int tirada = Dado.getInstance().tirar();

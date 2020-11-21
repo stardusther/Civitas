@@ -4,12 +4,15 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
+require_relative "Diario.rb"
+
 require 'singleton'
+
 module Civitas
   class Dado
     include Singleton
                                   #En ruby no se necesita la instancia
-    @@SalidaCarcel                #Los atributos son privados por defecto
+    #@@SalidaCarcel                #Los atributos son privados por defecto
 
     attr_reader :ultimoResultado  #Consultor de ultimoResultado
 
@@ -20,7 +23,7 @@ module Civitas
     end
 
     def tirar
-      if debug
+      if @debug
         @ultimoResultado = 1
       else
         @ultimoResultado = rand(6) + 1  #Roll a 6 sided die, rand(6) returns a number from 0 to 5 inclusive
@@ -53,7 +56,8 @@ module Civitas
           modo = "Debug on (dado)"
         end
 
-        Diario.instance.ocurreEvento(modo)
+    Diario.instance.ocurre_evento(modo)
+    #    Civitas::Diario.instance.ocurreEvento(modo)
 
   end
 end

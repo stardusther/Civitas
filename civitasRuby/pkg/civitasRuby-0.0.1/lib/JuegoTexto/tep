@@ -1,0 +1,45 @@
+
+[1mFrom:[0m /home/yese/Escritorio/PDOO/Civitas/civitasRuby/pkg/civitasRuby-0.0.1/lib/civitas/civitas_juego.rb:92 Civitas::CivitasJuego#inicializaMazoSorpresas:
+
+     [1;34m72[0m:           @tablero.añadeCasilla(c1)
+     [1;34m73[0m:         [32mwhen[0m [1;34m2[0m
+     [1;34m74[0m:           @tablero.añadeCasilla(s1)
+     [1;34m75[0m:         [32mwhen[0m
+     [1;34m76[0m:           @tablero.añadeCasilla(impuesto)
+     [1;34m77[0m:         [32mwhen[0m
+     [1;34m78[0m:           @tablero.añadeCasilla(c2)
+     [1;34m79[0m:         [32mwhen[0m [1;34m6[0m
+     [1;34m80[0m:           @tablero.añadeJuez
+     [1;34m81[0m:         [32mend[0m
+     [1;34m82[0m:         
+     [1;34m83[0m:       [32mend[0m
+     [1;34m84[0m:       
+     [1;34m85[0m:     [32mend[0m
+     [1;34m86[0m:     
+     [1;34m87[0m:     [32mdef[0m [1;34minicializaMazoSorpresas[0m(tablero)
+     [1;34m88[0m:       valor = [1;34m100[0m
+     [1;34m89[0m:       ir_a_casilla = [1;34m6[0m
+     [1;34m90[0m:       num_sorpresas = [1;34m6[0m
+     [1;34m91[0m:       
+ =>  [1;34m92[0m:       binding.pry
+     [1;34m93[0m:       
+     [1;34m94[0m:       @mazo.alMazo([1;34;4mSorpresa[0m.newIrCarcel([1;34;4mTipoSorpresa[0m::[1;34;4mIRCARCEL[0m, tablero));
+     [1;34m95[0m:       @mazo.alMazo([1;34;4mSorpresa[0m.newIrCasilla([1;34;4mTipoSorpresa[0m::[1;34;4mIRCASILLA[0m, tablero, ir_a_casilla, [31m[1;31m"[0m[31m Ir a casilla 6 (JUEZ)[1;31m"[0m[31m[0m));
+     [1;34m96[0m:       @mazo.alMazo([1;34;4mSorpresa[0m.newEvitaCarcel([1;34;4mTipoSorpresa[0m::[1;34;4mSALIRCARCEL[0m, @mazo));
+     [1;34m97[0m:       @mazo.alMazo([1;34;4mSorpresa[0m.newOtras([1;34;4mTipoSorpresa[0m::[1;34;4mPORJUGADOR[0m, valor, [31m[1;31m"[0m[31m POR JUGADOR[1;31m"[0m[31m[0m));
+     [1;34m98[0m:       @mazo.alMazo([1;34;4mSorpresa[0m.newOtras([1;34;4mTipoSorpresa[0m::[1;34;4mPORCASAHOTEL[0m, valor, [31m[1;31m"[0m[31m POR CASA HOTEL[1;31m"[0m[31m[0m));
+     [1;34m99[0m:       @mazo.alMazo([1;34;4mSorpresa[0m.newOtras([1;34;4mTipoSorpresa[0m.PAGARCOBRAR, valor, [31m[1;31m"[0m[31m PAGARCOBRAR[1;31m"[0m[31m[0m));
+    [1;34m100[0m:     [32mend[0m
+    [1;34m101[0m:     
+    [1;34m102[0m:     [32mdef[0m [1;34mavanzaJugador[0m
+    [1;34m103[0m:       
+    [1;34m104[0m:       [1;34m# Declaramos al jugador actual y su posicion[0m
+    [1;34m105[0m:       jugadorActual = getJugadorActual();
+    [1;34m106[0m:       posicionActual = jugadorActual.getNumCasillaActual();
+    [1;34m107[0m:       
+    [1;34m108[0m:       [1;34m# Calculamos su nueva posicion tirando el dado  [0m
+    [1;34m109[0m:       tirada = [1;34;4mDado[0m.Instance.tirar()
+    [1;34m110[0m:       posicionNueva = @tablero.nuevaPosicion(posicionActual, tirada)
+    [1;34m111[0m:       
+    [1;34m112[0m:       [1;34m# Declaramos la casilla en la que está la nueva posición  [0m
+

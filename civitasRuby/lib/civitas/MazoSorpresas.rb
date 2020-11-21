@@ -3,6 +3,9 @@ Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
+
+require_relative "./Sorpresa.rb"
+
 module Civitas
   class MazoSorpresas
 
@@ -12,7 +15,7 @@ module Civitas
       @debug = debug
 
       if (@debug)
-        Diario.instance.ocurreEvento ("Modo debug activo");
+        Diario.instance.ocurre_evento ("Modo debug activo");
       end
 
     end

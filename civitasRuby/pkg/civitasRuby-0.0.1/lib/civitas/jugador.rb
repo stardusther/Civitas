@@ -1,11 +1,15 @@
+#encoding:utf-8
+
 =begin
 Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
 
-require_relative ./civitas/Dado.rb 
-require_relative ./civitas/Diario.rb
+require_relative "Dado.rb" 
+require_relative "Diario.rb"
+
+module Civitas
 
 class Jugador
   
@@ -16,12 +20,17 @@ class Jugador
   @@PrecioLibertad = 200
   @@SaldoInicial = 7500
   
-  attr_reader :CasasMax, :CasasPorHotel, :HotelesMax , :PrecioLibertad, 
-              :PasoPorSalida ,  :SaldoInicial 
+  #attr_reader :CasasMax, :CasasPorHotel, :HotelesMax , :PrecioLibertad, 
+  #            :PasoPorSalida ,  :SaldoInicial
      
-  attr_accessor :encarcelado, :nombre , :numCasillaActual, :puedeComprar,
-                :propiedades , :saldo , :salvoconducto 
+  #attr_accessor :encarcelado, :nombre , :numCasillaActual, :puedeComprar,
+  #              :propiedades , :saldo , :salvoconducto 
+  
+  attr_reader :numCasillaActual, :CasasMax, :CasasPorHotel, :HotelesMax , :PrecioLibertad, :PasoPorSalida , :SaldoInicial, :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida
 
+  def get_num_casilla_actual
+    numero = @numCasillaActual
+  end
   
   def initialize (nombre)
     @nombre = nombre
@@ -39,7 +48,7 @@ class Jugador
     @saldo = otro.getSaldo()
     @encarcelado = otro.isEncarcelado()
     @puedeComprar = otro.getPuedeComprar()
-    @numCasillaActual = otro.getNumCasillaActual()
+    @numCasillaActual = otro.numCasillaActual
     
     @propiedades = otro.getPropiedades()
   end
@@ -49,39 +58,22 @@ class Jugador
     @saldo<=>otro.saldo
   end
   
-  def debeSerEncarcelado ()
-    carcel = false
-    
-      if !isEncarcelado()
-        if !tieneSalvoConducto
-          carcel = true
-        else
-          perderSalvoConducto()
-          #Diario.instance.ocurreEvento ("El jugador se ha librado de la cárcel por tener un salvoconducto")
-          Diario.instance.ocurreEvento ("E")
-        end
-      end
-      
-    carcel
-  end
+  
   
   def encarcelar (numCasillaCarcel)
     if debeSerEncarcelado()
       moverACasilla (numCasillaCarcel)
       @encarcelado = true
-      #Diario.instance.ocurreEvento ("El jugador ha sido encarcelado")
+      Diario.instance.ocurreEvento ("El jugador #{@nombre} ha sido encarcelado")
     end
-    
     @encarcelado
   end
   
   def obtenerSalvoconducto (s)
     obtiene = !isEncarcelado()
-    
     if obtiene
         salvoconducto = s
     end
-    
     obtiene
   end
   
@@ -101,8 +93,8 @@ class Jugador
   
   
   def pagaAlquiler (cantidad)
-    if isEncarcelado()
-      fasel
+    if isEncarcelado
+      false
     else
       paga (cantidad)
     end
@@ -120,7 +112,7 @@ class Jugador
   
   def modificarSaldo (cantidad)
     saldo += cantidad
-    #Diario.instance.ocurreEvento ("Se ha modificado el saldo")
+    Diario.instance.ocurre_evento ("Se ha modificado el saldo")
     true
   end
   
@@ -131,68 +123,61 @@ class Jugador
     else
       @numCasillaActual = numCasilla
       @puedeComprar = false
-      #Diario.instance.ocurreEvento ("Se ha movido al jugador #{@nombre} a la casilla #{@numCasilla}")
+      Diario.instance.ocurre_evento ("Se ha movido al jugador #{@nombre} a la casilla #{@numCasilla}")
       mover = true
     end
   end
   
   
   def vender (ip)
-    
     if !isEncarcelado() and existeLaPropiedad(ip)
       
-      if (@propiedades.get(ip).vender(this))
+      if (@propiedades.get(ip).vender(self))
         @propiedades.delete_at(ip)
-        #Diario.instance().ocurreEvento ("Se ha vendido la propiedad de la casilla #{ip}")
+        Diario.instance.ocurre_evento ("Se ha vendido la propiedad de la casilla #{ip}")
         true;
       else
         false
       end
       
     end
-    
   end
   
   
   def puedeSalirCarcelPagando()
-    getSaldo() >= getPrecioLibertad()
+    puede = @saldo >= @@PrecioLibertad
   end
   
   
   def salirCarcelPagando()
+    salir = false
     if (isEncarcelado() and puedeSalirCarcelPagando())
-      paga(getPrecioLibertad)
+      paga(@@PrecioLibertad)
       @encarcelado = false
       
-      #Diario.instance().ocurreEvento("El jugador ha pagado para salir de la cárcel");
-      true
-    else
-      false
+      Diario.instance.ocurre_evento("El jugador #{@nombre} ha pagado para salir de la cárcel");
+      salir = true
     end
+    salir
   end
   
   
   def salirCarcelTirando()
     if (Dado.instance.salgoDeLaCarcel())
       @encarcelado = false
-      #Diario.instance().ocurreEvento("El jugador ha tirado y ha salido de la cárcel");
+      Diario.instance.ocurre_evento("El jugador #{@nombre} ha tirado y ha salido de la cárcel");
     end
     @encarcelado
   end
   
   
   def pasaPorSalida()
-    modificarSaldo (getPremioPasoPorSalida())
+    modificarSaldo (@@PasoPorSalida)
   end
   
   
   def tieneAlgoQueGestionar()
     !@propiedades.emtpy?  #diferencia entre empty y any, revisar
-  end
-  
-  
-  def getPremioPasoSalida()
-    @@PasoPorSalida       # realmente no necesario?
   end
   
   
@@ -203,7 +188,7 @@ class Jugador
       casasHoteles = casasHoteles + @propiedades[i].cantidadCasasHoteles()
     end
     
-    casasHoteles    # no hace falta??? (la ultima operaciona ha sido sumar a casasHoteles en el bucle
+    casasHoteles    
   end
   
   
@@ -213,7 +198,7 @@ class Jugador
   
   
   def tieneSalvoconducto()
-    salvoconducto != nil
+    tiene = salvoconducto != nil
   end
   
   
@@ -226,42 +211,115 @@ class Jugador
   end
   
   
-  def enBancarrota()
-    if (getSaldo()>=0)
-      true
-    else
-      false
+  def cancelarHipoteca (ip)
+    result = false
+    if !@encarcelado && existeLaPropiedad(ip)
+      propiedad = @propiedades[ip]
+      cantidad = propiedad.getImporteCancelarHipoteca
+      puedoGastar = puedoGastar(cantidad)
+      
+      if (puedoGastar && propiedad.cancelarHipoteca(self))
+        result = true
+        Diario.instance.ocurre_evento("El jugador #{@nombre} cancela la hipoteca de la propiedad #{ip}")
+      end
     end
+    result
+  end
+  
+  
+  def comprar (titulo)
+    result = false
+    
+    if !@encarcelado && @puedeComprar
+      precio = titulo.precioCompra
+      
+      if (puedoGastar(precio))
+        if (titulo.comprar(self))
+          result = true
+          @propiedades.push(titulo)
+          Diario.instance.ocurre_evento("El jugador #{@nombre} compra la propiedad #{titulo.toString}")
+        end
+        @puedeComprar = true
+      end
+    end
+    result
+  end
+  
+  
+  def construirCasa (ip)
+    result = false
+    puedoEdificarCasa = false
+    if !@encarcelado && existeLaPropiedad(ip) && puedoEdificarCasa(@propiedades[ip])
+      result = @propiedades[ip].construirCasa(self)
+    end
+    result
+  end
+  
+  
+  def construirHotel (ip)
+    result = false
+    
+    if !@encarcelado && existeLaPropiedad(ip)
+      propiedad = @propiedades[ip]
+      if puedoEdificarHotel (propiedad)
+        result = propiedad.construirHotel(self)
+        casasPorHotel = @@CasasPorHotel
+        propiedad.derruirCasas(casasPorHotel, self)
+        Diario.instance.ocurre_evento("El jugador #{@nombre} construye hotel en la propiedad #{ip}")
+      end
+    end
+    
+    result
+  end
+  
+  
+  def hipotecar (ip)
+    result = false
+    if !@encarcelado && existeLaPropiedad(ip)
+      propiedad = @propiedades[ip]
+      result = propiedad.hipotecar(self)
+    end
+    result
+  end
+  
+  
+  def enBancarrota()
+    en_bancarrota = saldo>=0
   end
   
   
   def existeLaPropiedad (ip)
-    #existe = @propiedades.include?(@propiedades[ip])
+    existe = @propiedades.include?(@propiedades[ip])
   end
   
   
   def puedoEdificarCasa (propiedad)
-    puedo = @propiedades.contains (propiedad) && (propiedad.numCasas<@@CasasMax) && @puedeComprar && puedeGastar(propiedad.precioEdificar)
+    puedo = puedoGastar(propiedad.precioEdificar) && propiedad.numCasas<@@CasasMax
   end
   
   
   def puedoEdificarHotel (propiedad)
-    puedo = @propiedades.contains(propiedad) and propiedad.numHoteles()<@@HotelesMax and propiedad.numCasas == @@CasasPorHotel and @puedeComprar and puedoGastar(propiedad.precioEdificar)
+    puedo = false
+    precio = propiedad.precioEdificar
+    
+    if puedoGastar(precio) && propiedad.numHoteles<@@HotelesMax &&
+       propiedad.numCasas>=@@CasasPorHotel
+     puedo = true
+    end
+    
+    puedo
   end
 
   
   def to_s()
-    puts "Jugador llamado #{@nombre}. >> Saldo: #{@saldo}. >> Num. de propiedades: #{@propiedades.length}. 
-          >> Total casas y hoteles: #{cantidadCasasHoteles()}. >> Casilla actual: #{@numCasillaActual}.
-          >> Puede comprar: #{@puedeComprar}. >> Encarcelado: #{@encarcelado}. >> Salvoconducto: #{@salvoconducto}"
+    puts "Jugador #{@nombre}. #{@saldo} €. #{@propiedades.length} Propiedades. #{cantidadCasasHoteles} edificaciones. 
+          Casilla actual: #{@numCasillaActual}.
+          Puede comprar: #{@puedeComprar}. Encarcelado: #{@encarcelado}. Salvoconducto: #{@salvoconducto}"
   end
   
-  # -------------------------------------------------------------------------- #
-  # ------------------------------ Privados ---------------------------------- #
-  # -------------------------------------------------------------------------- #
   
+  private # ------------------------------------------------------------------ #
   
-  private
     def perderSalvoconducto()
       @salvoconducto.usada()
       @salvoconducto = nil
@@ -277,5 +335,21 @@ class Jugador
   
 end
 
-jugador = Jugador.new ("Pepe")
-puts jugador
+  protected # ---------------------------------------------------------------- #
+  
+  def debeSerEncarcelado ()
+    carcel = false
+    
+      if !isEncarcelado()
+        if !tieneSalvoConducto
+          carcel = true
+        else
+          perderSalvoConducto()
+          Diario.instance.ocurre_evento ("El jugador #{@nombre} se ha librado de la cárcel por tener un salvoconducto")
+        end
+      end
+      
+    carcel
+  end
+  
+end

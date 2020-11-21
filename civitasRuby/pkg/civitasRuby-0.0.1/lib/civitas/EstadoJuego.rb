@@ -5,7 +5,7 @@ Authors: Esther García Gallego
 =end
 
 module Civitas
-  module EstadosJuego
+  module Estados_juego
 		INICIO_TURNO = :inicio_turno  
 		DESPUES_CARCEL = :despues_carcel
     DESPUES_AVANZAR = :despues_avanzar

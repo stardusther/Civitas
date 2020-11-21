@@ -4,30 +4,37 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
+require_relative './TipoSorpresa.rb'
+
 module Civitas
   class Sorpresa
 
     attr_reader :valor
-
+    
+    
+    def initialize (tipo, tab, val, txt, m)
+      @tipo = tipo
+      @tablero = tab
+      @valor = val
+      @texto = txt
+      @mazo = m
+    end
+    
     # Constructores
-    def self. constructorTab (tipo, tab)
-      init()
-      new(tipo, tab, -1, "", nil)
+    def self.newIrCarcel (tipo, tab)
+      objeto = Sorpresa.new(tipo, tab, -1, "", nil)
     end
 
-    def self. constructorTabValTxt (tipo, tab, val, txt)
-      init()
-      new(tipo, tab, val, txt, nil)
+    def self.newIrCasilla (tipo, tab, val, txt)
+      Sorpresa.new(tipo, tab, val, txt, nil)
     end
 
-    def self. constructorMazo (tipo, m)
-      init()
-      new(tipo, nil, -1, "", m)
+    def self.newEvitaCarcel (tipo, m)
+      Sorpresa.new(tipo, nil, -1,"", m)
     end
 
-    def self. constructorValTxt (tipo, val, txt)
-      init()
-      new(tipo, nil, val, txt, nil)
+    def self.newOtras (tipo, val, txt)
+      Sorpresa.new(tipo, nil, val, txt,nil)
     end
 
     # Metodos
@@ -43,26 +50,19 @@ module Civitas
       str = " Sorpresa: #{@texto}. >> Valor: #{@valor}"
     end
 
-    # -------------------------------------------------------------------------- #
-    # ------------------------------ Privados ---------------------------------- #
-    # -------------------------------------------------------------------------- #
-    private 
+    
+    private # ---------------------------------------------------------------- #
 
-    def initialize (tipo, tab, val, txt, m)
-
-      @sorpresa = tipo
-      @tablero = tab
-      @valor = valor
-      @texto = txt
-      @mazo = m
-    end
-
-    def init
+    def init()
       @valor = -1
       @texto = ""
       @mazo = nil
       @tablero = nil
     end
+    
+    
+    
+
 
     def informe (actual, todos)
       if jugadorCorrecto(actual, todos)

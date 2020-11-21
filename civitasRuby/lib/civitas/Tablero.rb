@@ -1,3 +1,4 @@
+#encoding:utf-8
 =begin
 Authors: Esther García Gallego
          Yesenia González Dávila
@@ -16,7 +17,7 @@ module Civitas
       end
 
       @casillas = []                            # Creamos vector de casillas
-      @casillas.push(Casilla.new("Salida"))     # Se añade la salida al inicio
+      @casillas.push(Casilla.newDescanso("Salida"))     # Se añade la salida al inicio
 
       @porSalida = 0
       @tieneJuez = false
@@ -40,7 +41,7 @@ module Civitas
 
     def añadeJuez ()
       if !@tieneJuez
-        casillaJuez = Casilla.new("Juez")
+        casillaJuez = Casilla.newJuez(@numCasillaCarcel, "Juez")
         añadeCasilla (casillaJuez)
         @tieneJuez = true
       end
@@ -57,8 +58,8 @@ module Civitas
     def nuevaPosicion (actual, tirada)
       posicion = -1
 
-      if (correcto())
-        posicion = (actual + tirada) % casillas.length
+      if (correcto_tablero())
+        posicion = (actual + tirada) % @casillas.length
 
         if (posicion != actual + tirada)
           @porSalida += 1
@@ -72,12 +73,12 @@ module Civitas
       result = destino - origen
 
       if result<0
-        result += casillas.length
+        result += @casillas.length
       end
     end
 
     private
-    def correcto()
+    def correcto_tablero()
       if @casillas.length > @numCasillaCarcel && @tieneJuez
         correct = true
       else
@@ -86,7 +87,7 @@ module Civitas
     end
 
     def correcto(numCasilla)
-      if (correct && (numCasilla<@casillas.length))
+      if (correcto_tablero && (numCasilla<@casillas.length))
         correct = true
       else
         correct = false
@@ -95,8 +96,8 @@ module Civitas
 
     def añadeCarcel ()
       if @casillas.length == @numCasillaCarcel
-        carcel = Casilla.new("Cárcel")
-        casillas.push(carcel)
+        carcel = Casilla.newDescanso("Cárcel")
+        @casillas.push(carcel)
       end
     end
 

@@ -59,7 +59,7 @@ public class CivitasJuego {
 
     Casilla s1 = new Casilla (mazo, "Sorpresa 1");        // Casillas sorpresa
 
-    final int cantidad_impuesto = 50;
+    final float cantidad_impuesto = 50f;
     Casilla impuesto = new Casilla (cantidad_impuesto, "Impuesto");   // Casilla impuesto
 
     for ( i=1 ; i < numCasillas; i++)       //  (la carcel se añade automáticamente)

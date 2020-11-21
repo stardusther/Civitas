@@ -170,7 +170,7 @@ public class Sorpresa{
     /** Informa al diario de que se está aplicando una sorpresa a un jugador (se indica su nombre). */
     private void informe (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos))
-            Diario.getInstance().ocurreEvento("Se aplica sorpresa" + sorpresa + " al jugador " + todos.get(actual).getNombre());
+            Diario.getInstance().ocurreEvento("Sorpresa: Se aplica " + sorpresa + " al jugador " + todos.get(actual).getNombre());
     }
 
     /** Comprueba si el primer parámetro es un indice valido para acceder al array de Jugadores. */

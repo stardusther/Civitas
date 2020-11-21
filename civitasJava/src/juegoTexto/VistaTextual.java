@@ -88,13 +88,13 @@ public class VistaTextual {
   }
 
   void gestionar () {
-    iGestion = menu (" Indique número de operación inmobiliaria: (0..5))",
+    iGestion = menu ("\nIndique número de operación inmobiliaria: (0..5))",
                        new ArrayList<> (Arrays.asList("Vender","Hipotecar", "Cancelar hipoteca", 
                       "Constuir casa", "Construir hotel", "Terminar")));
     // Si gestion = terminar, no tiene sentido presentar menu
     if (iGestion != 5)
         iPropiedad =  menu (" Indique propiedad a la que desea aplicar la gestión:)",
-                       new ArrayList<> (Arrays.asList("0","1", "2")));  // Hay 3 calles --> max 3 propiedades
+                       new ArrayList<> (Arrays.asList("Calle 1","Calle 2")));  // Hay 2 calles --> max 2 propiedades
   }
   
   public int getGestion(){

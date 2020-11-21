@@ -50,13 +50,9 @@ module Civitas
     def aplicarAJugador (actual, todos)
       if jugadorCorrecto(actual, todos)
         
-        puts "TIPO ***************"
-        puts @tipo
-        
         case @tipo
           
         when Civitas::TipoSorpresa::IRCARCEL
-          puts " CARCEL **************************+"
           aplicarAJugador_irCarcel(actual, todos)
           
         when Civitas::TipoSorpresa::IRCASILLA
@@ -95,7 +91,7 @@ module Civitas
     
     def informe (actual, todos)
       if jugadorCorrecto(actual, todos)
-        Diario.instance.ocurre_evento("\n ¡Sorpresa! #{@texto} Se aplica #{@sorpresa} al jugador #{todos[actual].nombre}\n")
+        Diario.instance.ocurre_evento("\n ¡Sorpresa! #{@texto} Se aplica #{@tipo} al jugador #{todos[actual].nombre}\n\n")
       end
     end
 

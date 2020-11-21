@@ -114,7 +114,6 @@ module Civitas
     def recibeJugador_sorpresa(actual, todos)
       if (jugadorCorrecto(actual, todos))
         informe(actual, todos)
-        puts " RECIBE JUGADOR SORPRESA *********************************++"
         @sorpresa = @mazo.siguiente
         @sorpresa.aplicarAJugador(actual, todos)
       end

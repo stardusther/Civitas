@@ -23,7 +23,7 @@ module Civitas
     end
 
     def tirar
-      if debug
+      if @debug
         @ultimoResultado = 1
       else
         @ultimoResultado = rand(6) + 1  #Roll a 6 sided die, rand(6) returns a number from 0 to 5 inclusive

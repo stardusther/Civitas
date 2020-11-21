@@ -102,14 +102,14 @@ module Civitas
       @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PAGARCOBRAR, valor, " PAGARCOBRAR"))
     end
     
-    def avanzaJugador
+    def avanzaJugador()
       
       # Declaramos al jugador actual y su posicion
       jugadorActual = getJugadorActual();
-      posicionActual = jugadorActual.getNumCasillaActual();
+      posicionActual = jugadorActual.numCasillaActual;
       
       # Calculamos su nueva posicion tirando el dado  
-      tirada = Dado.Instance.tirar()
+      tirada = Dado.instance.tirar()
       posicionNueva = @tablero.nuevaPosicion(posicionActual, tirada)
       
       # Declaramos la casilla en la que está la nueva posición  
@@ -153,7 +153,7 @@ module Civitas
         pasarTurno()
         siguientePasoCompletado(operacion)
       elsif operacion == Civitas::OperacionesJuego::AVANZAR
-        avanzarJugador()
+        avanzaJugador()
         siguientePasoCompletado(operacion)
       end
     end

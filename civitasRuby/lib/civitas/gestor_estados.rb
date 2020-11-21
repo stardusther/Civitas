@@ -16,38 +16,38 @@ module Civitas
 
       when Estados_juego::INICIO_TURNO
         if (jugador.encarcelado)
-          op = Operaciones_juego::SALIR_CARCEL
+          op = OperacionesJuego::SALIR_CARCEL
         else
-          op = Operaciones_juego::AVANZAR
+          op = OperacionesJuego::AVANZAR
         end
 
       when Estados_juego::DESPUES_CARCEL
-        op = Operaciones_juego::PASAR_TURNO
+        op = OperacionesJuego::PASAR_TURNO
 
       when Estados_juego::DESPUES_AVANZAR
         if (jugador.encarcelado)
-          op = Operaciones_juego::PASAR_TURNO
+          op = OperacionesJuego::PASAR_TURNO
         else
           if (jugador.puede_comprar)
-            op = Operaciones_juego::COMPRAR
+            op = OperacionesJuego::COMPRAR
           else
             if (jugador.tiene_algo_que_gestionar)
-              op = Operaciones_juego::GESTIONAR
+              op = OperacionesJuego::GESTIONAR
             else
-              op = Operaciones_juego::PASAR_TURNO
+              op = OperacionesJuego::PASAR_TURNO
             end
           end
         end
 
       when Estados_juego::DESPUES_COMPRAR
         if (jugador.tiene_algo_que_gestionar)
-          op = Operaciones_juego::GESTIONAR
+          op = OperacionesJuego::GESTIONAR
         else
-          op = Operaciones_juego::PASAR_TURNO
+          op =OperacionesJuego::PASAR_TURNO
         end
 
       when Estados_juego::DESPUES_GESTIONAR
-        op = Operaciones_juego::PASAR_TURNO
+        op = OperacionesJuego::PASAR_TURNO
       end
 
       return op

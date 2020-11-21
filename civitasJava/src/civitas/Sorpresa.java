@@ -132,7 +132,8 @@ public class Sorpresa{
     private void aplicarAJugador_porCasaHotel (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto(actual, todos)) {
             informe (actual, todos);
-            todos.get(actual).modificarSaldo (valor * todos.get(actual).cantidadCasasHoteles());
+            System.out.println(valor * todos.get(actual).cantidadCasasHoteles());
+            todos.get(actual).modificarSaldo (valor*todos.get(actual).cantidadCasasHoteles());
         }
     }
 
@@ -140,14 +141,12 @@ public class Sorpresa{
     private void aplicarAJugador_porJugador (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto(actual, todos)) {
             informe (actual, todos);
-            Sorpresa _sorpresa = new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor * -1, "");
 
             for (int i=0 ; i<todos.size() ; i++)
                 if (i != actual)
-                    todos.get(i).paga(_sorpresa.valor);     
+                    todos.get(i).paga(valor);     
             
-            Sorpresa _sorpresaActual = new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor * todos.size()-1, "");
-            todos.get(actual).recibe (_sorpresaActual.valor);
+            todos.get(actual).recibe (valor);
         }
     }
 

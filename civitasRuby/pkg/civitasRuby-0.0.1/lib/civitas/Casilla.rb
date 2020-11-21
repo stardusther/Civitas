@@ -122,7 +122,7 @@ module Civitas
     def recibeJugador_sorpresa(actual, todos)
       if (jugadorCorrecto(actual, todos))
         informe(actual, todos)
-        sorpresa.aplicarAJugador(actual, todos)
+        @sorpresa.aplicarAJugador(actual, todos)
       end
     end
 

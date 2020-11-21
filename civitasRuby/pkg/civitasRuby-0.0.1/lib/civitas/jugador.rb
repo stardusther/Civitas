@@ -111,7 +111,7 @@ class Jugador
   
   
   def modificarSaldo (cantidad)
-    saldo += cantidad
+    @saldo = @saldo + cantidad
     Diario.instance.ocurre_evento ("Se ha modificado el saldo")
     true
   end
@@ -177,7 +177,7 @@ class Jugador
   
   
   def tieneAlgoQueGestionar()
-    !@propiedades.nil?  
+    !@propiedades.empty?  
   end
   
   
@@ -326,7 +326,7 @@ class Jugador
     end
     
     def puedoGastar (precio)
-      !isEncarcelado and getSaldo() >= precio
+      !isEncarcelado and @saldo >= precio
     end
     
     def puedeSalirCarcelPagando()

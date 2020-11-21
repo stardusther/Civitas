@@ -37,7 +37,7 @@ module Civitas
           if (jugador.puedeComprar)
             op = Operaciones_juego::COMPRAR
           else
-            if (jugador.tieneAlgoQueGestionar)
+            if (jugador.tieneAlgoQueGestionar)  ##################################################3
               op = Operaciones_juego::GESTIONAR
             else
               op = Operaciones__juego::PASAR_TURNO
@@ -46,7 +46,7 @@ module Civitas
         end
 
       when Estados_juego::DESPUES_COMPRAR
-        if (jugador.tiene_algo_que_gestionar)
+        if (jugador.tieneAlgoQueGestionar)
           op = Operaciones_juego::GESTIONAR
         else
           op =Operaciones_juego::PASAR_TURNO
@@ -63,8 +63,6 @@ module Civitas
 
     def siguiente_estado(jugador,estado,operacion)
       siguiente = nil
-      
-      puts operacion.inspect
 
       case estado
 

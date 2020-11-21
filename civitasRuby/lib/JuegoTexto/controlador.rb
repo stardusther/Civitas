@@ -48,14 +48,13 @@ module Civitas
           end
             
         else
-          case operacion                                    #switch
+          case operacion                                    
+            
           when Civitas::Operaciones_juego::COMPRAR
             respuesta = @vista.comprar
-                  
             if respuesta == Civitas::Respuestas::SI
               @juego.comprar
             end
-                  
             @juego.siguientePasoCompletado(operacion)
                   
           when Civitas::Operaciones_juego::GESTIONAR   
@@ -70,14 +69,19 @@ module Civitas
             case operacionInm.gestion
             when Civitas::GestionesInmobiliarias::VENDER    #me lo asocia con el método vender de juego en vez de con el enum
               @juego.vender(ip)
+              
             when Civitas::GestionesInmobiliarias::HIPOTECAR
               @juego.hipotecar(ip)
+              
             when Civitas::GestionesInmobiliarias::CANCELAR_HIPOTECA
               @juego.cancelarHipoteca(ip)
+              
             when Civitas::GestionesInmobiliarias::CONSTRUIR_CASA
               @juego.construirCasa(ip)
+              
             when Civitas::GestionesInmobiliarias::CONSTRUIR_HOTEL
               @juego.construirHotel(ip)
+              
             when Civitas::GestionesInmobiliarias::TERMINAR
               @juego.siguientePasoCompletado(operacion)
             end

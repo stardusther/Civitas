@@ -87,7 +87,7 @@ module Civitas
     def comprar
       jugadorActual = @jugadores.at(@indiceJugadorActual)
       casilla =@tablero.getCasilla(jugadorActual.numCasillaActual)
-      titulo = casilla.getTituloPropiedad()
+      titulo = casilla.tituloPropiedad()
       jugadorActual.comprar(titulo)
     end
     
@@ -242,7 +242,7 @@ module Civitas
     end
     
     def pasarTurno
-      indiceJugadorActual = (indiceJugadorActual+1) % @@NumJugadores
+      @indiceJugadorActual = (@indiceJugadorActual+1) % @@NumJugadores
     end
     
   end

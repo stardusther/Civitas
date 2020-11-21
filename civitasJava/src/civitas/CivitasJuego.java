@@ -60,7 +60,8 @@ public class CivitasJuego {
     Casilla s1 = new Casilla (mazo, "Sorpresa 1");        // Casillas sorpresa
 
     final float cantidad_impuesto = 50f;
-    Casilla impuesto = new Casilla (cantidad_impuesto, "Impuesto");   // Casilla impuesto
+    String texto = "Tienes que pagar segunda matricula de EC. Te cuesta 50 civiMonedas"; 
+    Casilla impuesto = new Casilla (cantidad_impuesto, texto);   // Casilla impuesto
 
     for ( i=1 ; i < numCasillas; i++)       //  (la carcel se añade automáticamente)
         switch (i) {
@@ -93,12 +94,29 @@ public class CivitasJuego {
         int ir_a_casilla = 6;
         int num_sorpresas = 6;
         
+        
+        // Llvar a salida
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, 0, " Te ayudamos a ser tu propio jefe con este incentivo de 1000 civiMonedas."));
+        
+        // Llevar a juez
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_casilla, " Felicidades, es navidad."));
+        
+        // Llevar a calle?
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_casilla, " Felicidades, es navidad."));
+        
+        // Ir carcel
         mazo.alMazo (new Sorpresa (TipoSorpresa.IRCARCEL, tablero));
-        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ)"));
+        
+        // Salir carcel
         mazo.alMazo (new Sorpresa (TipoSorpresa.SALIRCARCEL, mazo));
-        mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor, " POR JUGADOR"));
+        
+        // Por jugador, positiva (recibe) y negative (paga)
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor, " POR JUGADOR"));  
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor*-1, " POR JUGADOR"));  
+        
+        // Por casa hotel, positiva y negativa
         mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor, " POR CASA HOTEL"));
-        mazo.alMazo (new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor, " PAGARCOBRAR"));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor*-1, " Te toca pagarle el alquiler al casero..."));
         
     }
 

@@ -126,7 +126,7 @@ public class VistaTextual {
     }
   
   public void actualizarVista(){
-      System.out.println(juegoModel.getJugadorActual().toString() + "\n >> Casilla " + 
+      System.out.println(juegoModel.getJugadorActual().toString() + "\n >> " + 
               juegoModel.getCasillaActual().toString());
   } 
 }

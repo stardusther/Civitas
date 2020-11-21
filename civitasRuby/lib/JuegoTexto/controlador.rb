@@ -10,7 +10,7 @@ require_relative '../civitas/operacion_inmobiliaria.rb'
 require_relative '../civitas/gestiones_inmobiliarias'
 require_relative '../civitas/salidas_carcel'
 
-module Juego_texto
+module Civitas
   class Controlador
     
     public # -----------------------------------------------------------

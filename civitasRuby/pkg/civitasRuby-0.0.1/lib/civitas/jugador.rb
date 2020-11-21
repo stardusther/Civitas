@@ -177,7 +177,7 @@ class Jugador
   
   
   def tieneAlgoQueGestionar()
-    !@propiedades.emtpy?  #diferencia entre empty y any, revisar
+    !@propiedades.nil?  
   end
   
   

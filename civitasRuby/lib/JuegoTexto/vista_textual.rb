@@ -78,8 +78,15 @@ module Civitas
     end
 
     def gestionar
-      @iGestion = menu(" Indique número de operación inmobiliaria: (0..5))", ("Vender"
-                      "Hipotecar" "Cancelar hipoteca" "Constuir casa" "Construir hotel" "Terminar"))
+      gestiones = []
+      gestiones.push("Vender")
+      gestiones.push("Hipotecar")
+      gestiones.push("Cancelar hipoteca")
+      gestiones.push("Constuir casa")
+      gestiones.push("Construir hotel")
+      gestiones.push("Terminar")
+      
+      @iGestion = menu(" Indique número de operación inmobiliaria: (0..5))", gestiones)
       if (iGestion != 5)
         @iPropiedad = menu(" Indique propiedad a la que desea aplicar la gestión:)",
                           ("0" "1" "2"))

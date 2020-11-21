@@ -60,7 +60,7 @@ module Civitas
     
     end
 
-    def toString
+    def to_s
       str = @nombre + " (" + @tipo + ")"
     end
 

@@ -147,7 +147,7 @@ module Civitas
     
     def siguientePaso
       jugadorActual = @jugadores.at(@indiceJugadorActual)
-      operacion = @gestorEstados.operacionesPermitidas(jugadorActual)
+      operacion = @gestorEstados.operaciones_permitidas(jugadorActual, @estado)
       
       if operacion == Civitas::OperacionesJuego::PASAR_TURNO
         pasarTurno()
@@ -159,7 +159,7 @@ module Civitas
     end
     
     def siguientePasoCompletado(operacion)
-      @estado = @gestionEstados.siguienteEstado(getJugadorActual(), @estado, operacion)
+      @estado = @gestionEstados.siguiente_estado(getJugadorActual(), @estado, operacion)
     end
     
     def construirCasa(ip)

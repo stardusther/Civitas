@@ -26,10 +26,11 @@ class Jugador
   #attr_accessor :encarcelado, :nombre , :numCasillaActual, :puedeComprar,
   #              :propiedades , :saldo , :salvoconducto 
   
-  attr_reader :CasasMax, :CasasPorHotel, :HotelesMax , :PrecioLibertad, 
-              :PasoPorSalida ,  :SaldoInicial, :encarcelado, :nombre, :numCasillaActual,
-              :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida
+  attr_reader :CasasMax, :CasasPorHotel, :HotelesMax , :PrecioLibertad, :PasoPorSalida ,  :SaldoInicial, :encarcelado, :nombre, :numCasillaActual, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida
 
+  def numCasillaActual
+    @numCasillaActual
+  end
   
   def initialize (nombre)
     @nombre = nombre

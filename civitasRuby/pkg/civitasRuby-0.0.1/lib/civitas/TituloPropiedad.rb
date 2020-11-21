@@ -160,6 +160,10 @@ class TituloPropiedad
     str = "#{@nombre} \n " # ... 
   end
   
+  def tienePropietario
+    @propietario != nil
+  end
+  
   private
   
   def esEsteElPropietario (jugador)

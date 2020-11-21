@@ -28,7 +28,7 @@ module Civitas
         @jugadores.insert(i,Civitas::Jugador::new(nombres[i])) # Crea el jugador
       end
       
-      @gestorEstados = Gestor_estados.new()
+      @gestorEstados = Civitas::Gestor_estados.new()
       @estado = @gestorEstados.estado_inicial()
       
       @indiceJugadorActual = Dado.instance().quienEmpieza(@@NumJugadores)
@@ -128,7 +128,7 @@ module Civitas
       puts casilla.inspect
       
       casilla.recibeJugador(@indiceJugadorActual, @jugadores)
-      contabilizarPorSalida(jugadorActual)
+      contabilizarPasosPorSalida(jugadorActual)
     end
     
     def getJugadorActual
@@ -165,7 +165,7 @@ module Civitas
     end
     
     def siguientePasoCompletado(operacion)
-      @estado = @gestionEstados.siguiente_estado(getJugadorActual(), @estado, operacion)
+      @estado = @gestorEstados.siguiente_estado(@jugadores[@indiceJugadorActual], @estado, operacion)
     end
     
     def construirCasa(ip)

@@ -1,5 +1,5 @@
 require_relative 'Diario'
-require_relative 'Operaciones_juego'
+require_relative './Operaciones_juego.rb'
 require_relative './EstadoJuego.rb'
 
 module Civitas

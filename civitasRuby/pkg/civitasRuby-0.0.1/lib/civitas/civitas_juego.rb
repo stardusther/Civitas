@@ -122,11 +122,6 @@ module Civitas
       
       # Actualizamos la casilla y volvemos a comprobar si ha pasado por salida
       
-      #puts casilla.to_s
-      puts @tablero.to_s
-      puts @tablero.inspect
-      puts casilla.inspect
-      
       casilla.recibeJugador(@indiceJugadorActual, @jugadores)
       contabilizarPasosPorSalida(jugadorActual)
     end
@@ -162,6 +157,8 @@ module Civitas
         avanzaJugador()
         siguientePasoCompletado(operacion)
       end
+      
+      operacion
     end
     
     def siguientePasoCompletado(operacion)

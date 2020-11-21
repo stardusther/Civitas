@@ -61,17 +61,17 @@ module Civitas
       case estado
 
       when Estados_juego::INICIO_TURNO
-        if (operacion==Operaciones_juego::SALIR_CARCEL)
+        if (operacion==Civitas::Operaciones_juego::SALIR_CARCEL)
           siguiente = Estados_juego::DESPUES_CARCEL
         else
-          if (operacion==Operaciones_juego::AVANZAR)
+          if (operacion==Civitas::Operaciones_juego::AVANZAR)
             siguiente = Estados_juego::DESPUES_AVANZAR
           end
         end
 
 
       when Estados_juego::DESPUES_CARCEL
-        if (operacion==Operaciones_juego::PASAR_TURNO)
+        if (operacion==Civitas::Operaciones_juego::PASAR_TURNO)
           siguiente = Estados_juego::INICIO_TURNO
         end
 

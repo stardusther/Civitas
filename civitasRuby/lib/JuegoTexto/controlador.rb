@@ -31,7 +31,7 @@ module Juego_texto
         operacion = @juego.siguientePaso
         @vista.mostrarSiguienteOperacion(operacion)
           
-        if operacion != OperacionesJuego.pasar_turno
+        if operacion != Civitas::OperacionesJuego.PASAR_TURNO
           @vista.mostrarEventos
         end
           

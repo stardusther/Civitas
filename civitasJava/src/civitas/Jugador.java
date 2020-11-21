@@ -459,12 +459,10 @@ public class Jugador implements Comparable<Jugador>{
     /** Hipoteca al jugador si es posible. */
     boolean hipotecar (int ip){
         boolean result = false;
-
         if (!encarcelado && existeLaPropiedad(ip)) {
             TituloPropiedad propiedad = propiedades.get(ip);
             result = propiedad.hipotecar(this);
         }
-
         return result;
     }
 

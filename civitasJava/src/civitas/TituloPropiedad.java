@@ -23,6 +23,10 @@ public class TituloPropiedad {
     private int numHoteles;
 
     private Jugador propietario;
+    
+    // Añadimos el siguiente atributo para saber el importe de la 
+    // hipoteca otorgado al jugador cuando la pidió (para usar en getImporteCancelarHipoteca)
+    private float importeHipoteca;
 
     
     /** Constructor de la clase.
@@ -41,6 +45,8 @@ public class TituloPropiedad {
         numCasas = 0;
         numHoteles = 0;
         factorInteresesHipoteca = 1.1f ;
+        
+        importeHipoteca = 0f;
     }
     
     /** Actualiza el propietario. */
@@ -153,7 +159,8 @@ public class TituloPropiedad {
     boolean hipotecar (Jugador jugador) {
         boolean salida = false;
         if (!hipotecado && esEsteElPropietario(jugador)) {
-            jugador.recibe(getImporteHipoteca());
+            importeHipoteca = getImporteHipoteca();  
+            jugador.recibe(importeHipoteca);
             hipotecado = true;
             salida = true;
         }
@@ -163,7 +170,7 @@ public class TituloPropiedad {
     
     
     
-    // ---------------------------------------------------------------------- //    
+    // ---------------------------------------------------------------------- //
     // --------------------------- Consultores ------------------------------ //
     // ---------------------------------------------------------------------- //
     
@@ -172,11 +179,13 @@ public class TituloPropiedad {
     }
 
     float getImporteCancelarHipoteca () {
-        return (factorInteresesHipoteca * hipotecaBase);
+        //return (factorInteresesHipoteca * hipotecaBase);
+        return (factorInteresesHipoteca * importeHipoteca);
     }
 
     float getImporteHipoteca () {
-        return hipotecaBase;
+        //return hipotecaBase;
+        return (hipotecaBase * (1+(numCasas*0.5f)+(numHoteles*2.5f)));  // Cálculo según las reglas (pag 3 pdf CivitasElJuego.pdf)
     }
 
     String getNombre() {

@@ -24,6 +24,7 @@ public class Sorpresa{
         init();
         sorpresa = tipo;
         tablero = tab;
+        texto =  " Te han pillado copiando...";
     }
 
     /** Constructor para sorpresa que envia al jugador a otra casilla.
@@ -44,6 +45,8 @@ public class Sorpresa{
        init();
        sorpresa = tipo;
        this.mazo = mazo;
+       texto = "Tienes un salvoconducto.";
+       
     }
 
     /** Constructor para el resto de sorpresas (PORJUGADOR, PORCASAHOTEL, PAGARCOBRAR). */
@@ -161,6 +164,7 @@ public class Sorpresa{
                 tienen_salvoconducto = todos.get(i).tieneSalvoconducto();
 
             if (!tienen_salvoconducto) {
+                informe (actual, todos);
                 todos.get(actual).obtenerSalvoconducto(this);
                 salirDelMazo ();
             }
@@ -170,7 +174,7 @@ public class Sorpresa{
     /** Informa al diario de que se está aplicando una sorpresa a un jugador (se indica su nombre). */
     private void informe (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos))
-            Diario.getInstance().ocurreEvento("Se aplica sorpresa" + sorpresa + " al jugador " + todos.get(actual).getNombre());
+            Diario.getInstance().ocurreEvento("\n¡Sorpresa!" + texto + " Se aplica " + sorpresa + " al jugador " + todos.get(actual).getNombre() + "\n");
     }
 
     /** Comprueba si el primer parámetro es un indice valido para acceder al array de Jugadores. */

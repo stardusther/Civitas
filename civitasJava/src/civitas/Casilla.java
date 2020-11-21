@@ -106,7 +106,7 @@ public class Casilla {
 
     @Override
     public String toString() {
-        String str = nombre + " (" + tipo + ")";
+        String str = nombre ;
        return str;
     }
 
@@ -116,7 +116,7 @@ public class Casilla {
 
 
     private void informe (int actual, ArrayList<Jugador> todos) {
-        String str = "El jugador " + todos.get(actual).getNombre() + " ha caido en la casilla " + toString();
+        String str = "El jugador " + todos.get(actual).getNombre() + " cae en casilla " + tipo;
         Diario.getInstance().ocurreEvento(str);
     }
     

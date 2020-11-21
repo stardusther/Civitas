@@ -50,6 +50,9 @@ module Civitas
     def aplicarAJugador (actual, todos)
       if jugadorCorrecto(actual, todos)
         
+        puts "TIPO ***************"
+        puts @tipo
+        
         case @tipo
           
         when Civitas::TipoSorpresa::IRCARCEL

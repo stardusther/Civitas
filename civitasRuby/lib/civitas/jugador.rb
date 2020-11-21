@@ -198,7 +198,7 @@ class Jugador
   
   
   def tieneSalvoconducto()
-    @salconducto.nil?
+    !@salconducto.nil?
   end
   
   

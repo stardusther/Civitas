@@ -203,7 +203,7 @@ class Jugador
   
   
   def puedeComprarCasilla()
-    if !isEncarcelado
+    if isEncarcelado
       @puedeComprar = false
     else
       @puedeComprar = true

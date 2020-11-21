@@ -54,7 +54,7 @@ module Civitas
     end
     
     def siguientePaso
-      jugadorActual = @jugadores.at(@indiceJugadorActual)
+      jugadorActual = @jugadores[@indiceJugadorActual]
       operacion = @gestorEstados.operaciones_permitidas(jugadorActual, @estado)
       
       if operacion == Civitas::Operaciones_juego::PASAR_TURNO
@@ -86,7 +86,7 @@ module Civitas
     
     def comprar
       jugadorActual = @jugadores.at(@indiceJugadorActual)
-      casilla =@tablero.getCasilla(jugadorActual.getNumCasillaActual())
+      casilla =@tablero.getCasilla(jugadorActual.numCasillaActual)
       titulo = casilla.getTituloPropiedad()
       jugadorActual.comprar(titulo)
     end

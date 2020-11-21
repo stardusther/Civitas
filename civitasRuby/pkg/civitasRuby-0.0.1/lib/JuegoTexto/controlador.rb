@@ -38,12 +38,8 @@ module Civitas
         end
           
         if @juego.finalDelJuego
-          
           final = true
           rank = Array.new(@juego.ranking.size) # Creamos el array
-          
-          #puts @juego.NumJugadores
-          #num = (@juego.NumJugadores) - 1
 
           rank = @juego.ranking         # Copiamos el ranking del juego ?????
 
@@ -65,9 +61,6 @@ module Civitas
           when Civitas::Operaciones_juego::GESTIONAR   
             @vista.gestionar
             
-            #puts Civitas::GestionesInmobiliarias::lista_Gestiones.ins
-            
-            #gest = Civitas::GestionesInmobiliarias::lista_Gestiones[@vista.iGestion]
             lista = [GestionesInmobiliarias::VENDER, GestionesInmobiliarias::HIPOTECAR, GestionesInmobiliarias::CANCELAR_HIPOTECA, GestionesInmobiliarias::CONSTRUIR_CASA, GestionesInmobiliarias::CONSTRUIR_HOTEL, GestionesInmobiliarias::TERMINAR]
             gest = lista[@vista.iGestion]
             ip = @vista.iPropiedad

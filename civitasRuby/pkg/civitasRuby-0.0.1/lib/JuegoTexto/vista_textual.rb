@@ -73,8 +73,11 @@ module Civitas
     
     
     def comprar  
-      opcion = menu("¿Comprar calle?", ("Si" "No"));
-      return Civitas::Respuestas[opcion]
+      respuestas = []
+      respuestas.push("Si")
+      respuestas.push("No")
+      opcion = menu("¿Comprar calle?", respuestas);
+      return Civitas::Respuestas::Lista_respuestas[opcion]
     end
 
     def gestionar

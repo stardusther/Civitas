@@ -105,15 +105,15 @@ module Civitas
     def avanzaJugador()
       
       # Declaramos al jugador actual y su posicion
-      jugadorActual = getJugadorActual();
-      posicionActual = jugadorActual.numCasillaActual;
+      jugadorActual = getJugadorActual()
+      posicionActual = jugadorActual.numCasillaActual
       
       # Calculamos su nueva posicion tirando el dado  
       tirada = Dado.instance.tirar()
       posicionNueva = @tablero.nuevaPosicion(posicionActual, tirada)
       
       # Declaramos la casilla en la que está la nueva posición  
-      casilla = @tablero.getPorSalida(posicionNueva)
+      casilla = @tablero.getCasilla(posicionNueva)
       
       # Comprobamos si ha pasado por salida para que el jugador reciba el dinero en tal caso
       contabilizarPasosPorSalida(jugadorActual)
@@ -131,7 +131,8 @@ module Civitas
     end
     
     def getCasillaActual
-      numCasilla = getJugadorActual.numCasillaActual
+      jugador = getJugadorActual()
+      numCasilla = jugador.numCasillaActual
       @tablero.getCasilla(numCasilla)
     end
     
@@ -142,7 +143,7 @@ module Civitas
     end
     
     def pasarTurno
-      indiceJugadorActual = (indiceJugadorActual+1) % NumJugadores
+      indiceJugadorActual = (indiceJugadorActual+1) % @@NumJugadores
     end    
     
     def siguientePaso

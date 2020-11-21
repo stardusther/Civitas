@@ -7,7 +7,7 @@ require_relative "../civitas/civitas_juego.rb"
 require_relative "./vista_textual.rb"
 require_relative '../civitas/Casilla.rb'
 require_relative '../civitas/operacion_inmobiliaria.rb'
-require_relative '../civitas/gestiones_inmobiliarias'
+require_relative '../civitas/gestiones_inmobiliarias.rb'
 require_relative '../civitas/salidas_carcel'
 
 module Civitas
@@ -64,7 +64,12 @@ module Civitas
                   
           when Civitas::Operaciones_juego::GESTIONAR   
             @vista.gestionar
-            gest = GestionesInmobiliarias::lista_Gestiones[@vista.iGestion]
+            
+            #puts Civitas::GestionesInmobiliarias::lista_Gestiones.ins
+            
+            #gest = Civitas::GestionesInmobiliarias::lista_Gestiones[@vista.iGestion]
+            lista = [GestionesInmobiliarias::VENDER, GestionesInmobiliarias::HIPOTECAR, GestionesInmobiliarias::CANCELAR_HIPOTECA, GestionesInmobiliarias::CONSTRUIR_CASA, GestionesInmobiliarias::CONSTRUIR_HOTEL, GestionesInmobiliarias::TERMINAR]
+            gest = lista[@vista.iGestion]
             ip = @vista.iPropiedad
                   
             operacionInm = OperacionInmobiliaria.new(ip,gest)

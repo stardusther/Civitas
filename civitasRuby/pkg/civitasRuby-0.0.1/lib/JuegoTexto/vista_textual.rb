@@ -87,9 +87,13 @@ module Civitas
       gestiones.push("Terminar")
       
       @iGestion = menu(" Indique número de operación inmobiliaria: (0..5))", gestiones)
+      
       if (iGestion != 5)
-        @iPropiedad = menu(" Indique propiedad a la que desea aplicar la gestión:)",
-                          ("0" "1" "2"))
+        propiedades = []
+        propiedades.push("Calle 1")
+        propiedades.push("Calle 2")
+        propiedades.push("Calle 3")
+        @iPropiedad = menu(" Indique propiedad a la que desea aplicar la gestión:",propiedades)
       end
     end
 

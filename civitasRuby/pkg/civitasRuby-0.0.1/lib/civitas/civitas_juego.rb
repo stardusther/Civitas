@@ -111,7 +111,7 @@ module Civitas
       final_juego = false
       i=0
       
-      while i<@@NumJugadores &&  !final_juego
+      while i<@@NumJugadores && !final_juego
         final_juego = @jugadores.at(i).enBancarrota()
         i = i+1
       end
@@ -132,8 +132,8 @@ module Civitas
         max = jugadores_aux.at(0)
         pos = 0
         
-        for j in 1..jugadores_aux.size
-          if max.compareTo(jugadores_aux.at(j) < 0)
+        for j in 1..jugadores_aux.size-1
+          if max.compare_to(jugadores_aux[j]) < 0
             max = jugadores_aux.at(j)
             pos = j
           end

@@ -38,18 +38,22 @@ module Juego_texto
         end
           
         if @juego.finalDelJuego
+          
           final = true
           rank = Array.new(@juego.ranking.size) # Creamos el array
+          
+          #puts @juego.NumJugadores
+          #num = (@juego.NumJugadores) - 1
 
           rank = @juego.ranking         # Copiamos el ranking del juego ?????
 
-          for i in 0..(@juego.NumJugadores-1) # Mostramos los jugadores en orden
-            rank[i].toString
+          for i in 0..1 # Mostramos los jugadores en orden
+            rank[i].to_s
           end
             
         else
           case operacion                                    #switch
-          when Civitas::OperacionesJuego::COMPRAR
+          when Civitas::Operaciones_juego::COMPRAR
             respuesta = @vista.comprar
                   
             if respuesta == Civitas::Respuestas::SI
@@ -58,7 +62,7 @@ module Juego_texto
                   
             @juego.siguientePasoCompletado(operacion)
                   
-          when Civitas::OperacionesJuego::GESTIONAR   
+          when Civitas::Operaciones_juego::GESTIONAR   
             @vista.gestionar
             gest = GestionesInmobiliarias::lista_Gestiones[@vista.iGestion]
             ip = @vista.iPropiedad
@@ -80,7 +84,7 @@ module Juego_texto
               @juego.siguientePasoCompletado(operacion)
             end
                   
-          when Civitas::OperacionesJuego::SALIR_CARCEL
+          when Civitas::Operaciones_juego::SALIR_CARCEL
             salida = @vista.salirCarcel
             
             if salida == Civitas::SalidasCarcel::PAGANDO

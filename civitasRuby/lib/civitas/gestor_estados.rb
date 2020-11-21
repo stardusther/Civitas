@@ -1,3 +1,9 @@
+=begin
+Authors: Esther García Gallego
+         Yesenia González Dávila
+         Grupo B3
+=end
+
 require_relative 'Diario'
 require_relative './Operaciones_juego.rb'
 require_relative './EstadoJuego.rb'

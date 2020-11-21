@@ -14,6 +14,10 @@ require 'io/console'
 module Civitas
 
   class Vista_textual
+    
+    attr_reader :iGestion, :iPropiedad
+    
+    public # -------------------------------------------------------------------
 
     def mostrar_estado(estado)
       puts estado
@@ -80,14 +84,6 @@ module Civitas
         @iPropiedad = menu(" Indique propiedad a la que desea aplicar la gestión:)",
                           ("0" "1" "2"))
       end
-    end
-
-    def getGestion
-      @iGestion
-    end
-
-    def getPropiedad
-      @iPropiedad
     end
 
     def mostrarSiguienteOperacion(operacion)

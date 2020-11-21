@@ -5,6 +5,8 @@
 module Civitas
   class OperacionInmobiliaria
     
+    public # ----------------------------------------
+    
     def initialize(ip,gest)
       @numPropiedad = ip
       @gestion = gest

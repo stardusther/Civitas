@@ -9,7 +9,7 @@ module Civitas
 
     attr_reader :nombre, :tituloPropiedad
 
-    #@@carcel                #Atributo de instancia
+    #@@carcel                # Atributo de instancia
     
     def to_s
       str = "tipo #{@tipo} nombre #{@nombre} valor #{@valor}"

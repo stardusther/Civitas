@@ -13,6 +13,8 @@ require_relative '../civitas/salidas_carcel'
 module Juego_texto
   class Controlador
     
+    public # -----------------------------------------------------------
+    
     def initialize(_juego, _vista)
       @juego = _juego
       @vista = _vista
@@ -58,7 +60,7 @@ module Juego_texto
                   
           when Civitas::OperacionesJuego::GESTIONAR   
             @vista.gestionar
-            gest = GestionesInmobiliarias::lista_Gestiones[@vista.gestion]
+            gest = GestionesInmobiliarias::lista_Gestiones[@vista.iGestion]
             ip = @vista.iPropiedad
                   
             operacionInm = OperacionInmobiliaria.new(ip,gest)

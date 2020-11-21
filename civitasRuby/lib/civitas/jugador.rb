@@ -8,6 +8,7 @@ Authors: Esther García Gallego
 
 require_relative "Dado.rb" 
 require_relative "Diario.rb"
+require_relative "Sorpresa.rb"
 
 module Civitas
 
@@ -59,12 +60,11 @@ class Jugador
   end
   
   
-  
   def encarcelar (numCasillaCarcel)
-    if debeSerEncarcelado()
+    if debeSerEncarcelado
       moverACasilla (numCasillaCarcel)
       @encarcelado = true
-      Diario.instance.ocurreEvento ("El jugador #{@nombre} ha sido encarcelado")
+      Diario.instance.ocurre_evento ("El jugador #{@nombre} ha sido encarcelado")
     end
     @encarcelado
   end
@@ -198,7 +198,7 @@ class Jugador
   
   
   def tieneSalvoconducto()
-    tiene = salvoconducto != nil
+    @salconducto.nil?
   end
   
   
@@ -344,8 +344,6 @@ class Jugador
     def puedeSalirCarcelPagando()
       getSaldo() >= getPrecioLibertad()
     end
-  
-end
 
   protected # ---------------------------------------------------------------- #
   
@@ -353,15 +351,16 @@ end
     carcel = false
     
       if !isEncarcelado()
-        if !tieneSalvoConducto
+        if !tieneSalvoconducto
           carcel = true
         else
-          perderSalvoConducto()
+          perderSalvoconducto()
           Diario.instance.ocurre_evento ("El jugador #{@nombre} se ha librado de la cárcel por tener un salvoconducto")
         end
       end
       
-    return carcel
+    carcel
   end
   
+end
 end

@@ -50,10 +50,10 @@ module Civitas
     def aplicarAJugador (actual, todos)
       if jugadorCorrecto(actual, todos)
         
-        
         case @tipo
           
         when Civitas::TipoSorpresa::IRCARCEL
+          puts " CARCEL **************************+"
           aplicarAJugador_irCarcel(actual, todos)
           
         when Civitas::TipoSorpresa::IRCASILLA
@@ -169,13 +169,13 @@ module Civitas
 
     def self. salirDelMazo
       if sorpresa == TipoSorpresa::SALIRCARCEL
-        mazo.inhabilitarCartaEspecial(this)
+        mazo.inhabilitarCartaEspecial(self)
       end
     end
 
     def self. usada
       if sorpresa == TipoSorpresa::SALIRCARCEL
-        mazo.habilitarCartaEspecial(this)
+        mazo.habilitarCartaEspecial(self)
       end
     end
 

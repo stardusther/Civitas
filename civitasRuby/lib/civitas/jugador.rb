@@ -47,7 +47,7 @@ class Jugador
     @saldo = otro.getSaldo()
     @encarcelado = otro.isEncarcelado()
     @puedeComprar = otro.getPuedeComprar()
-    @numCasillaActual = otro.getNumCasillaActual()
+    @numCasillaActual = otro.numCasillaActual
     
     @propiedades = otro.getPropiedades()
   end

@@ -22,10 +22,10 @@ module Civitas
     @@NumCasillas = 7
     
     def initialize(nombres)
-      jugadores = []
+      @jugadores = []
       
       for i in 0..@@NumJugadores
-        jugadores.push(i,Civitas::Jugador::new(nombres[i])) # Crea el jugador
+        @jugadores.push(i,Civitas::Jugador::new(nombres[i])) # Crea el jugador
       end
       
       @gestorEstados = Gestor_estados.new()
@@ -127,11 +127,12 @@ module Civitas
     end
     
     def getJugadorActual
-      @jugadores.at(@indiceJugadorActual)
+      jugador = @jugadores[@indiceJugadorActual]
     end
     
     def getCasillaActual
-      @tablero.getCasilla(getJugadorActual().getNumCasillaActual())
+      numCasilla = getJugadorActual.numCasillaActual
+      @tablero.getCasilla(numCasilla)
     end
     
     def contabilizarPasosPorSalida(jugadorActual)

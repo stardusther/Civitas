@@ -108,23 +108,19 @@ public class CivitasJuego {
     /** Inicializa el mazo. */
     private void inicializaMazoSorpresas (Tablero tablero){
         
-        //mazo = new MazoSorpresas (true);   // Lo inicializamos con el debug activado para esta practica.
-        
-        // Creamos una sorpresa de cada tipo
-        
-        int valor = 100;
-        int casilla_juez = 8;  
-        int ir_a_casilla = 5;
-        
+        int valor = 100;  // <-- Para sorpresas PAGARCOBRAR y PORJUGADOR
+        int ir_casilla_juez = 8;  
+        int ir_a_calle2 = 5;
+        int ir_salida = 0;
         
         // Llevar a salida
-        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, 0, " Te ayudamos a ser tu propio jefe con este incentivo de 1000 civiMonedas."));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_salida, " Te ayudamos a ser tu propio jefe con este incentivo de 1000 civiMonedas."));
         
         // Llevar a juez
-        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, casilla_juez, " Felicidades, es navidad."));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_casilla_juez, " Felicidades, es navidad."));
         
         // Llevar a calle 2 (MercaCivitas)
-        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_casilla, " Te llevamos al MercaCivitas para que puedas comprar tus creditos favoritos."));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_calle2, " Te llevamos al MercaCivitas para que puedas comprar tus creditos favoritos."));
         
         // Ir carcel
         mazo.alMazo (new Sorpresa (TipoSorpresa.IRCARCEL, tablero));
@@ -132,13 +128,13 @@ public class CivitasJuego {
         // Salir carcel
         mazo.alMazo (new Sorpresa (TipoSorpresa.SALIRCARCEL, mazo));
         
-        // Por jugador, positiva (recibe) y negative (paga)
-        mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor, " POR JUGADOR (RECIBES)."));  
-        mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor*-1, " POR JUGADOR (PAGAS)."));  
+        // Por jugador, positiva (recibe) y negativa (paga)
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor, " ¡Recibes 100 civiMonedas de cada jugador!"));  
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor*-1, " Tienes que pagarle 100 civiMonedas a cada jugador :( ..."));  
         
         // Por casa hotel, positiva y negativa
         mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor, " ¡Recibes 100 civiMonedas por cada casa y hotel que tengas!"));
-        mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor*-1, " Tienes que pagar por cada casa y hotel que tengas :(..." ));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor*-1, " Tienes que pagar por cada casa y hotel que tengas :( ..." ));
         
     }
 

@@ -54,9 +54,14 @@ public class Controlador {
                 end = true;
                 ArrayList<Jugador> rank = new ArrayList(juego.ranking());
 
-                for (int i = 0; i < rank.size(); i++) {
-                    rank.get(i).toString();
-                }
+                System.out.println("\n ----------------------------- ");
+                System.out.println("     RANKING DE JUGADORES      ");
+                System.out.println(" ----------------------------- ");
+                for (int i = 0; i < rank.size(); i++) 
+                    System.out.println( i+1 + ". " + rank.get(i).toString() + "\n");
+                System.out.println("\n ----- FIN DEL JUEGO ----- \n\n");
+                
+                
             } else {
                 switch (operacion) {
 

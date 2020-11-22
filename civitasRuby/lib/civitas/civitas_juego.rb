@@ -211,9 +211,9 @@ module Civitas
         case i
         
         when 1
-          @tablero.añadeCasilla(s1)
-        when 2
           @tablero.añadeCasilla(c1)
+        when 2
+          @tablero.añadeCasilla(s1)
         when 4
           @tablero.añadeCasilla(impuesto)
         when 5
@@ -232,11 +232,11 @@ module Civitas
       num_sorpresas = 6
       
       @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero))
-      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ)"))
+      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ). "))
       @mazo.alMazo(Sorpresa.newEvitaCarcel(TipoSorpresa::SALIRCARCEL, @mazo))
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor, " POR JUGADOR"))
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor, " POR CASA HOTEL"))
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PAGARCOBRAR, valor, " PAGARCOBRAR"))
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor, " POR JUGADOR. "))
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor, " POR CASA HOTEL. "))
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PAGARCOBRAR, valor, " PAGARCOBRAR. "))
     end
     
     def pasarTurno

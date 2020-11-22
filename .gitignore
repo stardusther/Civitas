@@ -4,3 +4,5 @@
 *.properties
 /CivitasRuby/nbproject/private/
 *.xml
+*.xml
+*.properties

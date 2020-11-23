@@ -34,11 +34,7 @@ module Civitas
         @vista.mostrarSiguienteOperacion(operacion)
           
         if operacion != Civitas::Operaciones_juego::PASAR_TURNO
-          puts " ----------- "
-          puts " | EVENTOS | "
-          puts " -----------"
           @vista.mostrarEventos
-          puts "\n"
         end
           
         if @juego.finalDelJuego

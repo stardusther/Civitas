@@ -19,7 +19,7 @@ public class CivitasJuego {
 
     static final int numJugadores = 2;                          
     static final int casillaCarcel = 3;                                      
-    static final int numCasillas = 10;               /** @warning tablero provisional para comprobar funcionamiento (debug) */
+    static final int numCasillas = 19;               
 
     /** Constructor. */
     public CivitasJuego (ArrayList<String> nombres){      
@@ -46,61 +46,35 @@ public class CivitasJuego {
 
         // Calles
         int i = 1;
-        final int alquiler = 100, hipotecaBase = 50, precioCompra = 150, precioEdificar = 200;
-        final float factorRev = 2.0f;
-        final String calle1 = "Calle Periodista Daniel Saucedo Aranda",
-                     calle2 = "MercaCivitas",
-                     calle3 = "Fabrica nacional de civiMoneda y Timbre";
-        
-        t1 = new TituloPropiedad (calle1, alquiler*i, factorRev, 
-                               hipotecaBase*i, precioCompra*i, precioEdificar*i++);
-        t2 = new TituloPropiedad (calle2, alquiler*i, factorRev, 
-                               hipotecaBase*i, precioCompra*i, precioEdificar*i++);
-        t3 = new TituloPropiedad (calle3, alquiler*i, factorRev, 
-                               hipotecaBase*i, precioCompra*i, precioEdificar*i);
-
-        // Casillas calle
-        Casilla c1 = new Casilla (t1);                        
-        Casilla c2 = new Casilla (t2);
-        Casilla c3 = new Casilla (t2);
-
-        // Casillas sorpresa
-        Casilla s1 = new Casilla (mazo, "Sorpresa 1");        
-        Casilla s2 = new Casilla (mazo, "Sorpresa 2");       
+        final int alquiler = 100, hipBase = 50, precioCompra = 150, precioEdif = 200;
+        final float factRev = 2.0f;
+        final String calle = "Calle ";    
 
         // Casilla impuesto
-        final float cantidad_impuesto = 50f;
-        String texto = "Tienes que pagar segunda matricula de EC. Te cuesta 50 civiMonedas"; 
-        Casilla impuesto = new Casilla (cantidad_impuesto, texto);   
-        
-        // Casilla parking
-        Casilla parking = new Casilla ("Parking");
+        final float cantidad_impuesto = 50f; 
 
         for ( i=1 ; i < numCasillas; i++)       // la carcel se añade automáticamente y la salida ya está en 0
             switch (i) {
-                case 1:
-                    tablero.añadeCasilla (c1);
+                default:    // Casillas 1, 5, 6, 9, 11-19
+                    tablero.añadeCasilla (new Casilla (new TituloPropiedad (calle + i++, alquiler, factRev, hipBase, precioCompra, precioEdif)));
                     break;
-                case 2:
-                    tablero.añadeCasilla (s1);
+                case 2:     // Sorpresa 1
+                    tablero.añadeCasilla (new Casilla (mazo, "Sorpresa 1"));
                     break;
-                case 4:
-                    tablero.añadeCasilla(impuesto);
+                case 4:     // Impuesto
+                    tablero.añadeCasilla(new Casilla (cantidad_impuesto, "Impuesto de ." + cantidad_impuesto));
                     break;
-                case 5:
-                    tablero.añadeCasilla (c2);
+                case 7:      // Sorpresa 2
+                    tablero.añadeCasilla (new Casilla (mazo, "Sorpresa 2"));
                     break;
-                case 6:
-                    tablero.añadeCasilla(parking);
-                    break;
-                case 7:
-                    tablero.añadeCasilla (s2);
-                    break;
-                case 8:
+                case 8:      // Juez
                     tablero.añadeJuez();
                     break;
-                case 9:
-                    tablero.añadeCasilla(c3);
+                case 10:
+                    tablero.añadeCasilla (new Casilla (mazo, "Sorpresa 3"));
+                    break;
+                case 12:     // Parking
+                    tablero.añadeCasilla(new Casilla ("Parking"));
                     break;
             }
     }

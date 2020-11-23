@@ -14,7 +14,7 @@ public class VistaTextual {
   CivitasJuego juegoModel; 
   int iGestion=-1;
   int iPropiedad=-1;
-  private static String separador = "=====================";
+  private static String separador = "=================================";
   
   private Scanner in;
   
@@ -107,17 +107,23 @@ public class VistaTextual {
     
   /** Muestra la siguiente operacion.  */
   void mostrarSiguienteOperacion(OperacionesJuego operacion) {
-      System.out.println("\n *** Siguiente operacion: " + operacion + "\n");
+      System.out.println("\n *** Siguiente operacion: " + operacion);
   }
 
   /** Muestra los eventos del diario. */
   void mostrarEventos() {
-      String evento = Diario.getInstance().leerEvento();
-      while (evento != "") {
-          System.out.println(evento);
-          evento = Diario.getInstance().leerEvento();
-      }
-      //System.out.println("\n");
+    String evento = Diario.getInstance().leerEvento();
+      
+    if (evento != "") {
+        System.out.println("\n ---------- ");
+        System.out.println(" | DIARIO |");
+        System.out.println(" ---------- ");
+      
+        while (evento != "") {
+            System.out.println(evento);
+            evento = Diario.getInstance().leerEvento();
+        }
+    }
   }
   
   public void setCivitasJuego(CivitasJuego civitas){ 
@@ -126,8 +132,9 @@ public class VistaTextual {
     }
   
   public void actualizarVista(){
-      System.out.println(juegoModel.getJugadorActual().toString() + "\n >> " + 
+      System.out.println("\n" + separador + juegoModel.getJugadorActual().toString() + "\n >> " + 
               juegoModel.getCasillaActual().toString());
+      System.out.println(separador);
   } 
 }
     

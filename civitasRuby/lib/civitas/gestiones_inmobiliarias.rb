@@ -6,8 +6,6 @@ Authors: Esther García Gallego
 
 module Civitas
   module GestionesInmobiliarias
-    attr_accessor :lista_Gestiones
-    
     VENDER = :vender
     HIPOTECAR = :hipotecar
     CANCELAR_HIPOTECA = :cancelar_hipoteca

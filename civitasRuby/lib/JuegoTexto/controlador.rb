@@ -34,11 +34,7 @@ module Civitas
         @vista.mostrarSiguienteOperacion(operacion)
           
         if operacion != Civitas::Operaciones_juego::PASAR_TURNO
-          puts " ----------- "
-          puts " | EVENTOS | "
-          puts " -----------"
           @vista.mostrarEventos
-          puts "\n"
         end
           
         if @juego.finalDelJuego
@@ -65,13 +61,14 @@ module Civitas
             @vista.gestionar
             
             lista = [GestionesInmobiliarias::VENDER, GestionesInmobiliarias::HIPOTECAR, GestionesInmobiliarias::CANCELAR_HIPOTECA, GestionesInmobiliarias::CONSTRUIR_CASA, GestionesInmobiliarias::CONSTRUIR_HOTEL, GestionesInmobiliarias::TERMINAR]
+            #gest = Civitas::GestionesInmobiliarias::lista_Gestiones[@vista.iGestion]
             gest = lista[@vista.iGestion]
             ip = @vista.iPropiedad
                   
             operacionInm = OperacionInmobiliaria.new(ip,gest)
                   
             case operacionInm.gestion
-            when Civitas::GestionesInmobiliarias::VENDER    #me lo asocia con el método vender de juego en vez de con el enum
+            when Civitas::GestionesInmobiliarias::VENDER
               @juego.vender(ip)
               
             when Civitas::GestionesInmobiliarias::HIPOTECAR

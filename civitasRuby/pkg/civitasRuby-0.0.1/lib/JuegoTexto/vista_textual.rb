@@ -106,10 +106,16 @@ module Civitas
 
     def mostrarEventos
       evento = Civitas::Diario.instance.leer_evento
-      while evento <=> ""
-        puts evento
-        evento = Civitas::Diario.instance.leer_evento
+      if evento <=> ""
+        puts "\n ----------- "
+        puts " | EVENTOS | "
+        puts " -----------"
+        while evento <=> ""
+          puts evento
+          evento = Civitas::Diario.instance.leer_evento
+        end
       end
+      puts
     end
 
     def setCivitasJuego(civitas)

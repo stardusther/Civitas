@@ -3,7 +3,7 @@ Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
-require_relative "../civitas/civitas_juego."
+require_relative "../civitas/civitas_juego.rb"
 require_relative "./vista_textual"
 require_relative '../civitas/Casilla'
 require_relative '../civitas/operacion_inmobiliaria'

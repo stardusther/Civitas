@@ -188,13 +188,6 @@ class Jugador
   
   
   def tieneSalvoconducto()
-    
-    if (@salvoconducto)
-      puts " NO TIENE #{@salvoconducto.inspect}"
-    else 
-      puts " SI TIENE  #{@salvoconducto.inspect}"
-    end
-    
     @salvoconducto
   end
   

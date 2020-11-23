@@ -215,7 +215,7 @@ module Civitas
         when 1
           @tablero.añadeCasilla(s1)
         when 2
-          @tablero.añadeCasilla(s2)
+          @tablero.añadeCasilla(c1)
         when 4
           @tablero.añadeCasilla(impuesto)
         when 5
@@ -234,7 +234,6 @@ module Civitas
       num_sorpresas = 6
       
       @mazo.alMazo(Sorpresa.newEvitaCarcel(TipoSorpresa::SALIRCARCEL, @mazo))
-      @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero))
       
       @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero))
       @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ). "))

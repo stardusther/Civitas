@@ -22,7 +22,8 @@ module Civitas
     @@NumCasillas = 7
     
     # Añadimos consultor de numero de jugadores para poder consultarlo en el controlador
-    attr_reader :NumJugadores
+    # Consultor de propiedades para acceder a el en vista textual.
+    attr_reader :NumJugadores, :propiedades
     
     def initialize(nombres)
       @jugadores = []

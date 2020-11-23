@@ -237,7 +237,7 @@ class Jugador
         if (titulo.comprar(self))
           result = true
           @propiedades.push(titulo)
-          Diario.instance.ocurre_evento("El jugador #{@nombre} compra la propiedad #{titulo.toString}")
+          Diario.instance.ocurre_evento("El jugador #{@nombre} compra la propiedad #{titulo.to_s}")
         end
         @puedeComprar = true
       end

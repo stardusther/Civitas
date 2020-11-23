@@ -61,7 +61,7 @@ module Civitas
       puts titulo
       index = 0
       lista.each { |l|
-        puts tab+index.to_s+"-"+l
+        puts tab+index.to_s+" - "+l
         index += 1
       }
 
@@ -93,10 +93,10 @@ module Civitas
       
       if (iGestion != 5)
         propiedades = []
-        propiedades.push("Calle 1")
-        propiedades.push("Calle 2")
-        propiedades.push("Calle 3")
-        @iPropiedad = menu(" Indique propiedad a la que desea aplicar la gestión:",propiedades)
+        for i in 0..@juegoModel.getJugadorActual.propiedades.length-1
+          propiedades.push(@juegoModel.getJugadorActual.propiedades[i].to_s)
+        end
+        @iPropiedad = menu(" Indique propiedad a la que desea aplicar la gestión:", propiedades)
       end
     end
 

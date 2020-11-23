@@ -159,8 +159,8 @@ class TituloPropiedad
     encarcelado = tienePropietario && @propietario.isEncarcelado
   end
   
-  def toString
-    str = "#{@nombre} \n " # ... 
+  def to_s
+    str = "#{@nombre}"
   end
   
   def tienePropietario

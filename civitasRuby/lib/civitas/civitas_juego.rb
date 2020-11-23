@@ -122,7 +122,7 @@ module Civitas
     end
     
     def compareTo(jugador)
-      @saldo <=> otro.get_saldo
+      @saldo <=> jugador.get_saldo
     end
     
     def ranking # El ranking debe ser público para poder acceder a él desde el controlador

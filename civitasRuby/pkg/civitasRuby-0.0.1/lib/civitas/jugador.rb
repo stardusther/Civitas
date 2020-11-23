@@ -21,17 +21,7 @@ class Jugador
   @@PrecioLibertad = 200
   @@SaldoInicial = 7500
   
-  #attr_reader :CasasMax, :CasasPorHotel, :HotelesMax , :PrecioLibertad, 
-  #            :PasoPorSalida ,  :SaldoInicial
-     
-  #attr_accessor :encarcelado, :nombre , :numCasillaActual, :puedeComprar,
-  #              :propiedades , :saldo , :salvoconducto 
-  
   attr_reader :numCasillaActual, :CasasMax, :CasasPorHotel, :HotelesMax , :PrecioLibertad, :PasoPorSalida , :SaldoInicial, :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida, :numCasillaActual
-
-  def get_num_casilla_actual
-    numero = @numCasillaActual
-  end
   
   def initialize (nombre)
     @nombre = nombre
@@ -313,7 +303,7 @@ class Jugador
   
   def to_s()
     
-    str = "\n >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{cantidadCasasHoteles}. "
+    str = " >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{cantidadCasasHoteles}. "
     str = str + "\n Casilla actual: #{@numCasillaActual}."
     
     if @puedeComprar

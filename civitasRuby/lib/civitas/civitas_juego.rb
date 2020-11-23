@@ -18,7 +18,7 @@ module Civitas
   class CivitasJuego
     
     @@NumJugadores = 2  # Todo lo que empiece con mayúsculas se considera constante
-    @@CasillaCarcel = 3 # Preguntar de todas formas
+    @@CasillaCarcel = 3 
     @@NumCasillas = 7
     
     # Añadimos consultor de numero de jugadores para poder consultarlo en el controlador
@@ -37,7 +37,7 @@ module Civitas
       #Dado.instance.set
       @indiceJugadorActual = Dado.instance().quienEmpieza(@@NumJugadores)
       
-      @mazo = MazoSorpresas.new(true)
+      @mazo = MazoSorpresas.new(true)  # Para depurar el juego
       @tablero = Tablero.new(@@CasillaCarcel)
       inicializaMazoSorpresas(@tablero)
       inicializaTablero(@mazo)
@@ -148,7 +148,7 @@ module Civitas
       return playersrank 
     end
     
-    private # -------------------------------------------------
+    private # ---------------------------------------------------------------- #
     
     def avanzaJugador()
       
@@ -208,13 +208,13 @@ module Civitas
       cantidad_impuesto = 50
       impuesto = Casilla.newImpuesto(cantidad_impuesto, "Impuesto (50€)")
       
-      for i in 1..@@NumCasillas  #corregir (-1)
+      for i in 1..@@NumCasillas-1  
         case i
         
         when 1
-          @tablero.añadeCasilla(s1)
-        when 2
           @tablero.añadeCasilla(c1)
+        when 2
+          @tablero.añadeCasilla(s1)
         when 4
           @tablero.añadeCasilla(impuesto)
         when 5
@@ -232,8 +232,8 @@ module Civitas
       ir_a_casilla = 6
       num_sorpresas = 6
       
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor, " POR JUGADOR. "))
       
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor, " POR CASA HOTEL. "))
       @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero))
       @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ). "))
       @mazo.alMazo(Sorpresa.newEvitaCarcel(TipoSorpresa::SALIRCARCEL, @mazo))

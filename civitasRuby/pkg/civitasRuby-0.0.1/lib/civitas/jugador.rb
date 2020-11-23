@@ -21,12 +21,6 @@ class Jugador
   @@PrecioLibertad = 200
   @@SaldoInicial = 7500
   
-  #attr_reader :CasasMax, :CasasPorHotel, :HotelesMax , :PrecioLibertad, 
-  #            :PasoPorSalida ,  :SaldoInicial
-     
-  #attr_accessor :encarcelado, :nombre , :numCasillaActual, :puedeComprar,
-  #              :propiedades , :saldo , :salvoconducto 
-  
   attr_reader :numCasillaActual, :CasasMax, :CasasPorHotel, :HotelesMax , :PrecioLibertad, :PasoPorSalida , :SaldoInicial, :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida, :numCasillaActual
 
   def get_num_casilla_actual
@@ -124,7 +118,7 @@ class Jugador
     else
       @numCasillaActual = numCasilla
       @puedeComprar = false
-      Diario.instance.ocurre_evento ("Se ha movido al jugador #{@nombre} a la casilla #{@numCasilla}")
+      Diario.instance.ocurre_evento ("Se ha movido al jugador #{@nombre} a la casilla #{numCasilla}")
       mover = true
     end
   end
@@ -314,7 +308,7 @@ class Jugador
   
   def to_s()
     
-    str = "\n >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{cantidadCasasHoteles}. "
+    str = " >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{cantidadCasasHoteles}. "
     str = str + "\n Casilla actual: #{@numCasillaActual}."
     
     if @puedeComprar

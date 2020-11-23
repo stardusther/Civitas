@@ -185,7 +185,8 @@ public class TituloPropiedad {
 
     float getImporteHipoteca () {
         //return hipotecaBase;
-        return (hipotecaBase * (1+(numCasas*0.5f)+(numHoteles*2.5f)));  // Cálculo según las reglas (pag 3 pdf CivitasElJuego.pdf)
+        // Cálculo según las reglas (pag 3 pdf CivitasElJuego.pdf)
+        return (hipotecaBase * (1+(numCasas*0.5f)+(numHoteles*2.5f)));  
     }
 
     String getNombre() {

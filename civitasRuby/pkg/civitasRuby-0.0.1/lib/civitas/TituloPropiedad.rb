@@ -27,7 +27,11 @@ class TituloPropiedad
   
   @propietario
   
-  public # --------------------------------------------------
+  #Añadimos este atributo para saber el importe de la hipoteca 
+  # otorgado al jugador cuando la pidió (para usar en getImporteCancelarHipoteca) 
+  @get_importeHipoteca
+  
+  public # ------------------------------------------------------------------- #
   
   def initialize (nombre, ab, fr, hb, pc, pe)
     @nombre = nombre
@@ -129,18 +133,22 @@ class TituloPropiedad
     result
   end
   
+  # Cálculo según las reglas (pag 3 pdf CivitasElJuego.pdf)
   def hipotecar(jugador)
     salida = false
+    hipoteca = @hipotecaBase * (1+@numCasas*0.5)+(@numHoteles*2.5)
     if !@hipotecado && esEsteElPropietario(jugador)
-      jugador.recibe(@hipotecaBase)
+      jugador.recibe(hipoteca)
+      @importeHipoteca = hipoteca
       @hipotecado = true
       salida = true
     end
     salida
   end
   
+  # Cálculo según las reglas (pag 3 pdf CivitasElJuego.pdf)
   def getImporteCancelarHipoteca
-    @factorInteresesHipoteca * @hipotecaBase
+    @factorInteresesHipoteca * @importeHipoteca
   end
   
   def getPrecioAlquiler

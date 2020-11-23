@@ -15,6 +15,8 @@ module Civitas
 
   class Vista_textual
     
+    @@Separador = "===================================="
+    
     attr_reader :iGestion, :iPropiedad
     
     public # -------------------------------------------------------------------
@@ -74,8 +76,8 @@ module Civitas
     
     def comprar  
       respuestas = []
-      respuestas.push("Si")
-      respuestas.push("No")
+      respuestas.push(" Si")
+      respuestas.push(" No")
       opcion = menu("¿Comprar calle?", respuestas);
       return Civitas::Respuestas::Lista_respuestas[opcion]
     end
@@ -107,9 +109,9 @@ module Civitas
     def mostrarEventos
       evento = Civitas::Diario.instance.leer_evento
       if evento <=> ""
-        puts "\n ----------- "
-        puts " | EVENTOS | "
-        puts " -----------"
+        puts "\n ---------- "
+        puts " | DIARIO | "
+        puts " ----------"
         while evento <=> ""
           puts evento
           evento = Civitas::Diario.instance.leer_evento
@@ -124,7 +126,9 @@ module Civitas
     end
 
     def actualizarVista
+      puts "\n #{@@Separador}"
       puts("#{@juegoModel.getJugadorActual.to_s} >> #{@juegoModel.getCasillaActual.to_s}");
+      puts @@Separador
     end
 
     

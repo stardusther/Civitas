@@ -11,24 +11,25 @@ module Civitas
 
     attr_reader :nombre, :tituloPropiedad
 
-    def self. newDescanso (n) 
-      Casilla.new(n, nil, -1, -1, nil, nil, Civitas::TipoCasilla::DESCANSO)    #n, titulo, cantidad, numCasillaCarcel, m, sorp
+    def self.newDescanso (n) 
+      Casilla.new(n, nil, -1, -1, nil, nil, TipoCasilla::DESCANSO)    #n, titulo, cantidad, numCasillaCarcel, m, sorp
     end
 
-    def self. newCalle (titulo)
+    def self.newCalle (titulo)
       new(titulo.nombre, titulo, -1, -1, nil, nil, Civitas::TipoCasilla::CALLE)
     end
 
-    def self. newImpuesto (cantidad, n)
+    def self.newImpuesto (cantidad, n)
       new(n, nil, cantidad, -1, nil, nil, Civitas::TipoCasilla::IMPUESTO)
     end
 
-    def self. newJuez (numCasillaCarcel, n)
+    def self.newJuez (numCasillaCarcel, n)
       new(n, nil, -1, numCasillaCarcel, nil, nil, Civitas::TipoCasilla::JUEZ)
     end
 
-    def self. newSorpresa (mazo, n)
+    def self.newSorpresa (mazo, n)
       new(n, nil, -1, -1, mazo, nil, Civitas::TipoCasilla::SORPRESA)
+      #puts " CONSTRUCTOR SORPRESA  #{@tipo}  #{@nombre}  #{n}  #{Civitas::TipoCasilla::SORPRESA}"
     end
 
     def jugadorCorrecto(actual, todos)
@@ -75,7 +76,10 @@ module Civitas
 
   
     def informe (actual, todos)
-      str = "El jugador #{todos[actual].nombre} ha caido en la casilla #{@tipo}"
+      puts
+      puts @tipo
+      puts @nombre
+      str = "El jugador #{todos[actual].nombre} ha caido en una casilla de #{@tipo}"
       Diario.instance.ocurre_evento(str)
     end
 

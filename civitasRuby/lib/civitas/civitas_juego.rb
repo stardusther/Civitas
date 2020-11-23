@@ -213,7 +213,7 @@ module Civitas
         case i
         
         when 1
-          @tablero.añadeCasilla(impuesto)
+          @tablero.añadeCasilla(c1)
         when 2
           @tablero.añadeCasilla(s1)
         when 4

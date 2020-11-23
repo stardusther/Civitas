@@ -313,7 +313,7 @@ class Jugador
   
   def to_s()
     
-    str = "\n >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{@cantidadCasasHoteles}. "
+    str = "\n >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{cantidadCasasHoteles}. "
     str = str + "\n Casilla actual: #{@numCasillaActual}."
     
     if @puedeComprar

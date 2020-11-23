@@ -34,17 +34,21 @@ module Civitas
         @vista.mostrarSiguienteOperacion(operacion)
           
         if operacion != Civitas::Operaciones_juego::PASAR_TURNO
+          puts " ----------- "
+          puts " | EVENTOS | "
+          puts " -----------"
           @vista.mostrarEventos
+          puts "\n"
         end
           
         if @juego.finalDelJuego
           final = true
           rank = Array.new(@juego.ranking.size) # Creamos el array
 
-          rank = @juego.ranking         # Copiamos el ranking del juego ?????
+          rank = @juego.ranking         
 
           for i in 0..1 # Mostramos los jugadores en orden
-            rank[i].to_s
+            puts rank[i].to_s
           end
             
         else

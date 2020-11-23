@@ -34,6 +34,7 @@ module Civitas
       @gestorEstados = Civitas::Gestor_estados.new()
       @estado = @gestorEstados.estado_inicial()
       
+      #Dado.instance.set
       @indiceJugadorActual = Dado.instance().quienEmpieza(@@NumJugadores)
       
       @mazo = MazoSorpresas.new(true)
@@ -211,9 +212,9 @@ module Civitas
         case i
         
         when 1
-          @tablero.añadeCasilla(c1)
-        when 2
           @tablero.añadeCasilla(s1)
+        when 2
+          @tablero.añadeCasilla(c1)
         when 4
           @tablero.añadeCasilla(impuesto)
         when 5
@@ -230,6 +231,8 @@ module Civitas
       valor = 100
       ir_a_casilla = 6
       num_sorpresas = 6
+      
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor, " POR JUGADOR. "))
       
       @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero))
       @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ). "))

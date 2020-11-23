@@ -16,7 +16,7 @@ module Civitas
       @debug = debug
 
       if (@debug)
-        Diario.instance.ocurre_evento ("Modo debug activo");
+        Diario.instance.ocurre_evento ("Modo debug activo en el mazo");
       end
 
     end

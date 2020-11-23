@@ -42,7 +42,7 @@ module Civitas
     def jugadorCorrecto (actual, todos)
       correcto = false
 
-      if actual < todos.length && actual>0
+      if actual < todos.length && actual>=0
         correcto = true
       end
     end
@@ -117,20 +117,18 @@ module Civitas
     def aplicarAJugador_porJugador (actual, todos)
       if jugadorCorrecto(actual, todos)
         informe(actual, todos)
-        _sorpresa = Sorpresa.new(TipoSorpresa::PAGARCOBRAR, @valor * -1, "")
-
+        
         i = 0
-        while i < todos.lenght
+        while i < todos.length
           if i != actual
-            todos[i].paga(_sorpresa.valor)
-            i += 1
+            todos[i].paga(@valor)
           end
+          i += 1
+        end
 
-          _sorpresaActual = Sorpresa.new(TipoSorpresa::PAGARCOBRAR, @valor * (todos.lenght - 1), "")  # ?????
-          todos[actual].recibe(_sorpresaActual.valor)
+          todos[actual].recibe(@valor)
 
         end
-      end
     end
 
     def aplicarAJugador_pagarCobrar (actual, todos)

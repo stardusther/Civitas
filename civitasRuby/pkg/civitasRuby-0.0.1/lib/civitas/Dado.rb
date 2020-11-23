@@ -48,16 +48,14 @@ module Civitas
     def setDebug (d)
       if d != @debug
         @debug = d
-        modo = "Debug off (dado)"
+        modo = "Debug desactivado en el dado"
       end
-    end
 
         if @debug
-          modo = "Debug on (dado)"
+          modo = "Debug activo en el dado"
         end
 
     Diario.instance.ocurre_evento(modo)
-    #    Civitas::Diario.instance.ocurreEvento(modo)
-
   end
+end
 end

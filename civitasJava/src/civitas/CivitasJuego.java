@@ -82,21 +82,19 @@ public class CivitasJuego {
     /** Inicializa el mazo. */
     private void inicializaMazoSorpresas (Tablero tablero){
         
-        int valor = 100;  // <-- Para sorpresas PAGARCOBRAR y PORJUGADOR
+        int valor = 100;  // <-- Para sorpresas PAGARCOBRAR, PORJUGADOR y PORCASAHOTEL
         int ir_casilla_juez = 8;  
-        int ir_a_calle2 = 5;
+        int ir_a_calle = 9;
         int ir_salida = 0;
         
-        mazo.alMazo (new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor, " ¡Cobras 100 civiMonedas!" ));
-        
         // Llevar a salida
-        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_salida, " Te ayudamos a ser tu propio jefe con este incentivo de 1000 civiMonedas."));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_salida, " ¡Vas a la casilla de salida!"));
         
         // Llevar a juez
-        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_casilla_juez, " Felicidades, es navidad."));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_casilla_juez, " Irás al juez..."));
         
-        // Llevar a calle 2 (MercaCivitas)
-        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_calle2, " Te llevamos al MercaCivitas para que puedas comprar tus creditos favoritos."));
+        // Llevar a calle 2 
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_calle, " Te llevamos a la calle 3 del tablero."));
         
         // Ir carcel
         mazo.alMazo (new Sorpresa (TipoSorpresa.IRCARCEL, tablero));
@@ -231,14 +229,6 @@ public class CivitasJuego {
     public ArrayList<Jugador> ranking() {
           Jugador max;
           ArrayList<Jugador> playersrank = new ArrayList();
-
-//        for (int i = 0; i < numJugadores; i++) {
-//            max = jugadores.get(i);
-//            for (int j = i + 1; j < numJugadores; j++) 
-//                if (max.compareTo(jugadores.get(j)) < 0) 
-//                    max = jugadores.get(j);
-//            playersrank.add(max);
-//        }
         
         ArrayList<Jugador> jugadores_aux = (ArrayList)jugadores.clone();
         

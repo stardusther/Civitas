@@ -17,8 +17,6 @@ module Civitas
     
     attr_reader :iGestion, :iPropiedad
     
-    @@Separador = "============================================"
-    
     public # -------------------------------------------------------------------
 
     def mostrar_estado(estado)
@@ -108,19 +106,10 @@ module Civitas
 
     def mostrarEventos
       evento = Civitas::Diario.instance.leer_evento
-      
-      if evento <=> "" 
-        puts "\n ---------- "
-        puts " | Diario | "
-        puts " ----------"
-      end
-      
       while evento <=> ""
         puts evento
         evento = Civitas::Diario.instance.leer_evento
       end
-      
-      puts # Imprime linea vacia
     end
 
     def setCivitasJuego(civitas)
@@ -129,9 +118,7 @@ module Civitas
     end
 
     def actualizarVista
-      puts @@Separador
       puts("#{@juegoModel.getJugadorActual.to_s} >> #{@juegoModel.getCasillaActual.to_s}");
-      puts @@Separador
     end
 
     

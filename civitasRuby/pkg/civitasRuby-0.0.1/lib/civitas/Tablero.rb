@@ -8,11 +8,6 @@ module Civitas
   class Tablero
 
     attr_reader :numCasillaCarcel
-    
-    public # -----------------------------------------------------------
-    def to_s
-      str = "#{@casillas.length}"
-    end
 
     def initialize (indice)
       if (indice >=1)

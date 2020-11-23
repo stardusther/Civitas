@@ -237,21 +237,22 @@ public class TituloPropiedad {
     
     @Override
     public String toString() {
-        String estado =  nombre + "\n"
-                        + " >> Alquiler base: " + alquilerBase + "\n"
-                        + " >> Hipoteca base: " + hipotecaBase + "\n"
-                        + " >> Factor de revalorizacion: " + factorRevalorizacion + "\n"
-                        + " >> Factor intereses hipoteca: " + factorInteresesHipoteca + "\n"
-                        + " >> Precio compra: " + precioCompra + "\n"
-                        + " >> Precio edificar: " + precioEdificar + "\n"
-                        + " >> Hipotecado: " + hipotecado + "\n"
-                        + " >> Nº de casas: " + numCasas + "\n"
-                        + " >> Nº de hoteles: " + numHoteles + "\n" ;
-        
-        if (propietario != null)
-            estado += " >> Propietario: " + propietario.getNombre() + "\n";
-        else
-            estado += " >> No tiene propietario. \n";
+        String estado =  nombre ;
+//                        + "\n"
+//                        + " >> Alquiler base: " + alquilerBase + "\n"
+//                        + " >> Hipoteca base: " + hipotecaBase + "\n"
+//                        + " >> Factor de revalorizacion: " + factorRevalorizacion + "\n"
+//                        + " >> Factor intereses hipoteca: " + factorInteresesHipoteca + "\n"
+//                        + " >> Precio compra: " + precioCompra + "\n"
+//                        + " >> Precio edificar: " + precioEdificar + "\n"
+//                        + " >> Hipotecado: " + hipotecado + "\n"
+//                        + " >> Nº de casas: " + numCasas + "\n"
+//                        + " >> Nº de hoteles: " + numHoteles + "\n" ;
+//        
+//        if (propietario != null)
+//            estado += " >> Propietario: " + propietario.getNombre() + "\n";
+//        else
+//            estado += " >> No tiene propietario. \n";
         return estado;
     }
 }

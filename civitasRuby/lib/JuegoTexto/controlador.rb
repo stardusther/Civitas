@@ -3,11 +3,11 @@ Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
-require_relative "../civitas/civitas_juego.rb"
-require_relative "./vista_textual.rb"
-require_relative '../civitas/Casilla.rb'
-require_relative '../civitas/operacion_inmobiliaria.rb'
-require_relative '../civitas/gestiones_inmobiliarias.rb'
+require_relative "../civitas/civitas_juego."
+require_relative "./vista_textual"
+require_relative '../civitas/Casilla'
+require_relative '../civitas/operacion_inmobiliaria'
+require_relative '../civitas/gestiones_inmobiliarias'
 require_relative '../civitas/salidas_carcel'
 
 module Civitas
@@ -34,7 +34,11 @@ module Civitas
         @vista.mostrarSiguienteOperacion(operacion)
           
         if operacion != Civitas::Operaciones_juego::PASAR_TURNO
+          puts " ----------- "
+          puts " | EVENTOS | "
+          puts " -----------"
           @vista.mostrarEventos
+          puts "\n"
         end
           
         if @juego.finalDelJuego

@@ -14,7 +14,7 @@ public class VistaTextual {
   CivitasJuego juegoModel; 
   int iGestion=-1;
   int iPropiedad=-1;
-  private static String separador = "=================================";
+  private static String separador = "===================================";
   
   private Scanner in;
   
@@ -91,10 +91,15 @@ public class VistaTextual {
     iGestion = menu ("\nIndique número de operación inmobiliaria: (0..5))",
                        new ArrayList<> (Arrays.asList("Vender","Hipotecar", "Cancelar hipoteca", 
                       "Constuir casa", "Construir hotel", "Terminar")));
-    // Si gestion = terminar, no tiene sentido presentar menu
-    if (iGestion != 5)
-        iPropiedad =  menu (" Indique propiedad a la que desea aplicar la gestión:)",
-                       new ArrayList<> (Arrays.asList("Calle 1","Calle 2")));  // Hay 2 calles --> max 2 propiedades
+    
+    // Si gestion = terminar --> no presentar menu
+    if (iGestion != 5) {
+        ArrayList<String> propiedadesJugador = new ArrayList();
+        for (int i=0 ; i < juegoModel.getJugadorActual().getPropiedades().size() ; i++) {
+            propiedadesJugador.add(juegoModel.getJugadorActual().getPropiedades().get(i).toString());
+        }
+        iPropiedad =  menu (" Indique propiedad a la que desea aplicar la gestión:)", propiedadesJugador);  
+    } 
   }
   
   public int getGestion(){

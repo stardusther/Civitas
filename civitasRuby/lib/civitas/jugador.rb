@@ -21,7 +21,17 @@ class Jugador
   @@PrecioLibertad = 200
   @@SaldoInicial = 7500
   
+  #attr_reader :CasasMax, :CasasPorHotel, :HotelesMax , :PrecioLibertad, 
+  #            :PasoPorSalida ,  :SaldoInicial
+     
+  #attr_accessor :encarcelado, :nombre , :numCasillaActual, :puedeComprar,
+  #              :propiedades , :saldo , :salvoconducto 
+  
   attr_reader :numCasillaActual, :CasasMax, :CasasPorHotel, :HotelesMax , :PrecioLibertad, :PasoPorSalida , :SaldoInicial, :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida, :numCasillaActual
+
+  def get_num_casilla_actual
+    numero = @numCasillaActual
+  end
   
   def initialize (nombre)
     @nombre = nombre
@@ -62,7 +72,7 @@ class Jugador
   def obtenerSalvoconducto (s)
     obtiene = !isEncarcelado()
     if obtiene
-        @salvoconducto = s
+        salvoconducto = s
     end
     obtiene
   end
@@ -181,14 +191,14 @@ class Jugador
     casasHoteles    
   end
   
-  # Añadimos este método para tener codigo más similar a Java y evitar algunos lios
+  
   def isEncarcelado()
     @encarcelado
   end
   
   
   def tieneSalvoconducto()
-    @salvoconducto
+    !@salconducto.nil?
   end
   
   
@@ -303,7 +313,7 @@ class Jugador
   
   def to_s()
     
-    str = " >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{cantidadCasasHoteles}. "
+    str = "\n >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{cantidadCasasHoteles}. "
     str = str + "\n Casilla actual: #{@numCasillaActual}."
     
     if @puedeComprar
@@ -312,8 +322,7 @@ class Jugador
     if @encarcelado
       str = str + " Encarcelado."
     end
-    
-    if @salvoconducto
+    if !@salvoconducto.nil?
       str = str + " Tiene salvoconducto."
     end
     

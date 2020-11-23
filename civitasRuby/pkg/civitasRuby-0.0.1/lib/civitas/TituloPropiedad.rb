@@ -10,6 +10,7 @@ class TituloPropiedad
   
   attr_reader :precioCompra, :hipotecado, :hipotecaBase, :nombre, :numCasas, :numHoteles,
               :precioEdificar, :propietario
+            
     
   @nombre
   

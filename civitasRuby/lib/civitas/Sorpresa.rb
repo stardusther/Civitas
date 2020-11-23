@@ -74,18 +74,6 @@ module Civitas
       end
     end
     
-    def salirDelMazo
-      if @sorpresa == TipoSorpresa::SALIRCARCEL
-        @mazo.inhabilitarCartaEspecial(self)
-      end
-    end
-
-    def usada
-      if @sorpresa == TipoSorpresa::SALIRCARCEL
-        @mazo.habilitarCartaEspecial(self)
-      end
-    end
-    
 
     def toString
       str = " Sorpresa: #{@texto}. >> Valor: #{@valor}"
@@ -151,6 +139,7 @@ module Civitas
     end
 
     def aplicarAJugador_salirCarcel (actual, todos)
+      if jugadorCorrecto(actual, todos)
         informe(actual, todos)
 
         tienen_salvoconducto = false
@@ -161,10 +150,11 @@ module Civitas
         end
 
         if !tienen_salvoconducto
-          todos[actual].obtenerSalvoconducto(self)
-          salirDelMazo
+          todos[actual].obtenerSalvoconducto(this)
+          salirDelMazo()
         end
-        
+
+      end
     end
 
     def aplicarAJugador_porCasaHotel (actual, todos)
@@ -173,6 +163,18 @@ module Civitas
         todos[actual].modificarSaldo(@valor * todos[actual].cantidadCasasHoteles)
       end
     end
-    
+
+    def self. salirDelMazo
+      if sorpresa == TipoSorpresa::SALIRCARCEL
+        mazo.inhabilitarCartaEspecial(self)
+      end
+    end
+
+    def self. usada
+      if sorpresa == TipoSorpresa::SALIRCARCEL
+        mazo.habilitarCartaEspecial(self)
+      end
+    end
+
   end
 end

@@ -28,10 +28,9 @@ public class Jugador implements Comparable<Jugador>{
     private Sorpresa salvoconducto;                     // Almacena el salvoconducto para salir de la cárcel
     private ArrayList<TituloPropiedad> propiedades;     // Conjunto de propiedades del jugador
 
-
-    /** Constructor básico de la clase Jugador.
-     * @param nombre El nombre del nuevo Jugador
-     */
+   
+    
+    /** Constructor básico de la clase Jugador. */
     Jugador (String _nombre){
       nombre = _nombre;
       saldo = SaldoInicial;
@@ -327,7 +326,10 @@ public class Jugador implements Comparable<Jugador>{
     /** Consultor protegido del atributo propiedades.
      * @return propiedades Array que contiene el conjunto de propiedades del jugador
      */
-    protected ArrayList <TituloPropiedad> getPropiedades(){
+//    protected ArrayList <TituloPropiedad> getPropiedades(){
+    // Añadimos este método para acceder a las propiedades desde VistaTextual
+    // y poder mostrar el menu correctamente
+    public ArrayList <TituloPropiedad> getPropiedades(){
       return propiedades;           
     }
 

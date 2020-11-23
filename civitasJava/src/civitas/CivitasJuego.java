@@ -45,21 +45,18 @@ public class CivitasJuego {
         TituloPropiedad t1, t2, t3;
 
         // Calles
-        int i = 1;
+        int cont = 1;
         final int alquiler = 100, hipBase = 50, precioCompra = 150, precioEdif = 200;
         final float factRev = 2.0f;
         final String calle = "Calle ";    
 
         // Casilla impuesto
         final float cantidad_impuesto = 50f; 
-
-        for ( i=1 ; i < numCasillas; i++)       // la carcel se añade automáticamente y la salida ya está en 0
+        
+        for (int i=1 ; i < numCasillas; i++)       // la carcel se añade automáticamente y la salida ya está en 0
             switch (i) {
-                default:    // Casillas 1, 5, 6, 9, 11-19
-                    tablero.añadeCasilla (new Casilla (new TituloPropiedad (calle + i++, alquiler, factRev, hipBase, precioCompra, precioEdif)));
-                    break;
                 case 2:     // Sorpresa 1
-                    tablero.añadeCasilla (new Casilla (mazo, "Sorpresa 1"));
+                    tablero.añadeCasilla ( new Casilla (mazo, "Sorpresa 1"));
                     break;
                 case 4:     // Impuesto
                     tablero.añadeCasilla(new Casilla (cantidad_impuesto, "Impuesto de ." + cantidad_impuesto));
@@ -76,6 +73,9 @@ public class CivitasJuego {
                 case 12:     // Parking
                     tablero.añadeCasilla(new Casilla ("Parking"));
                     break;
+                default:    // Casillas 1, 5, 6, 9, 11-19
+                    tablero.añadeCasilla (new Casilla (new TituloPropiedad (calle + cont++, alquiler, factRev, hipBase, precioCompra, precioEdif)));
+                    break;
             }
     }
     
@@ -86,6 +86,8 @@ public class CivitasJuego {
         int ir_casilla_juez = 8;  
         int ir_a_calle2 = 5;
         int ir_salida = 0;
+        
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor, " ¡Cobras 100 civiMonedas!" ));
         
         // Llevar a salida
         mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_salida, " Te ayudamos a ser tu propio jefe con este incentivo de 1000 civiMonedas."));
@@ -109,6 +111,10 @@ public class CivitasJuego {
         // Por casa hotel, positiva y negativa
         mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor, " ¡Recibes 100 civiMonedas por cada casa y hotel que tengas!"));
         mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor*-1, " Tienes que pagar por cada casa y hotel que tengas :( ..." ));
+        
+        // Pagar cobrar, positiva y negativa
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor, " ¡Cobras 100 civiMonedas!" ));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor*-1, " Tienes que pagar 100 civiMonedas :(..." ));
         
     }
 

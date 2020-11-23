@@ -231,9 +231,6 @@ module Civitas
     def inicializaMazoSorpresas(tablero)
       valor = 100
       ir_a_casilla = 6
-      num_sorpresas = 6
-      
-      @mazo.alMazo(Sorpresa.newEvitaCarcel(TipoSorpresa::SALIRCARCEL, @mazo))
       
       @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero))
       @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ). "))

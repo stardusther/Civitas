@@ -204,6 +204,7 @@ module Civitas
       c2 = Civitas::Casilla.newCalle(t2)
       
       s1 = Casilla.newSorpresa(@mazo, "Sorpresa 1")
+      s2 = Casilla.newSorpresa(@mazo, "Sorpresa 2")
       
       cantidad_impuesto = 50
       impuesto = Casilla.newImpuesto(cantidad_impuesto, "Impuesto (50€)")
@@ -212,9 +213,9 @@ module Civitas
         case i
         
         when 1
-          @tablero.añadeCasilla(c1)
-        when 2
           @tablero.añadeCasilla(s1)
+        when 2
+          @tablero.añadeCasilla(s2)
         when 4
           @tablero.añadeCasilla(impuesto)
         when 5
@@ -232,8 +233,9 @@ module Civitas
       ir_a_casilla = 6
       num_sorpresas = 6
       
+      @mazo.alMazo(Sorpresa.newEvitaCarcel(TipoSorpresa::SALIRCARCEL, @mazo))
+      @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero))
       
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor, " POR CASA HOTEL. "))
       @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero))
       @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ). "))
       @mazo.alMazo(Sorpresa.newEvitaCarcel(TipoSorpresa::SALIRCARCEL, @mazo))

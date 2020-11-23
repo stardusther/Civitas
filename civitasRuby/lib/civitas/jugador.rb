@@ -62,7 +62,7 @@ class Jugador
   def obtenerSalvoconducto (s)
     obtiene = !isEncarcelado()
     if obtiene
-        salvoconducto = s
+        @salvoconducto = s
     end
     obtiene
   end
@@ -181,14 +181,21 @@ class Jugador
     casasHoteles    
   end
   
-  
+  # Añadimos este método para tener codigo más similar a Java y evitar algunos lios
   def isEncarcelado()
     @encarcelado
   end
   
   
   def tieneSalvoconducto()
-    !@salconducto.nil?
+    
+    if (@salvoconducto)
+      puts " NO TIENE #{@salvoconducto.inspect}"
+    else 
+      puts " SI TIENE  #{@salvoconducto.inspect}"
+    end
+    
+    @salvoconducto
   end
   
   
@@ -312,7 +319,8 @@ class Jugador
     if @encarcelado
       str = str + " Encarcelado."
     end
-    if !@salvoconducto.nil?
+    
+    if @salvoconducto
       str = str + " Tiene salvoconducto."
     end
     

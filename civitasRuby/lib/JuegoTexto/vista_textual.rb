@@ -101,7 +101,7 @@ module Civitas
     end
 
     def mostrarSiguienteOperacion(operacion)
-      puts "\n *** Siguiente operacion: #{operacion}"
+      puts " ---> Siguiente: #{operacion}"
     end
 
     def mostrarEventos

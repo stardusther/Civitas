@@ -98,7 +98,7 @@ module Civitas
     def recibeJugador_impuesto(actual, todos)
       if (jugadorCorrecto(actual, todos))
         informe(actual, todos)
-        todos[actual].pagaImpuesto(importe)
+        todos[actual].pagaImpuesto(@importe)
       end
     end
 

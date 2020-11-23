@@ -112,7 +112,7 @@ public class VistaTextual {
     
   /** Muestra la siguiente operacion.  */
   void mostrarSiguienteOperacion(OperacionesJuego operacion) {
-      System.out.println("\n *** Siguiente operacion: " + operacion);
+      System.out.println(" ---> Siguiente: " + operacion);
   }
 
   /** Muestra los eventos del diario. */

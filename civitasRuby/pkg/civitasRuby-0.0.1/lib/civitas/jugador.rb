@@ -111,8 +111,9 @@ class Jugador
   
   
   def modificarSaldo (cantidad)
+    saldo_anterior = @saldo
     @saldo = @saldo + cantidad
-    Diario.instance.ocurre_evento ("Se ha modificado el saldo")
+    Diario.instance.ocurre_evento ("Se ha modificado el saldo (de #{saldo_anterior} a #{@saldo})")
     true
   end
   

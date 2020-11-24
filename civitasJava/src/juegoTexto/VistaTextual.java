@@ -121,7 +121,7 @@ public class VistaTextual {
       
     if (evento != "") {
         System.out.println("\n ---------- ");
-        System.out.println(" | DIARIO |");
+        System.out.println(" | Diario |");
         System.out.println(" ---------- ");
       
         while (evento != "") {

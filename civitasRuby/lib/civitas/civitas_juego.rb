@@ -178,7 +178,7 @@ module Civitas
     
     def contabilizarPasosPorSalida(jugadorActual)
       while @tablero.getPorSalida > 0
-        jugadorActual.pasarPorSalida
+        jugadorActual.pasaPorSalida
       end
     end
     
@@ -221,6 +221,7 @@ module Civitas
           
         else
           @tablero.añadeCasilla(Casilla.newCalle(TituloPropiedad.new("Calle #{cont}", alquiler, factorRev, hipBase, precioCompra, precioEdif)))
+          cont = cont+1
           
         end
         
@@ -235,11 +236,14 @@ module Civitas
       ir_a_calle = 9
       ir_a_calle2 = 12
       
+      #Juez
+      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_casilla_juez,  "Vas al juez #{ir_casilla_juez}..."))
+      
       # Ir calle 1
       @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_calle, " ¡Vas a la calle de la casilla #{ir_a_calle}!"))
       
       #Juez
-      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_casilla_juez,  "¡Vas a la calle de la casilla #{ir_casilla_juez}!"))
+      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_casilla_juez,  "Vas al juez #{ir_casilla_juez}..."))
       
       # Ir calle 2
       @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_calle, " ¡Vas a la calle de la casilla #{ir_a_calle}!"))

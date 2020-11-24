@@ -17,14 +17,13 @@ public class Sorpresa{
     private MazoSorpresas mazo;
 
     /** Constructor para sorpresa que envia a la carcel.
-     * @pre TipoSorpresa de tipo IRCARCEL
      * @note El valor no es aplicable en esta carta (valor=-1)
      */
     Sorpresa (TipoSorpresa tipo, Tablero tab) {
         init();
         sorpresa = tipo;
         tablero = tab;
-        texto =  " Te han pillado copiando...";
+        texto =  " Vas a la carcel...";
     }
 
     /** Constructor para sorpresa que envia al jugador a otra casilla.

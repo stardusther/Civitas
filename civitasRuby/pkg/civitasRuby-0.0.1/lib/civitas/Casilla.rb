@@ -9,7 +9,7 @@ require_relative "./Sorpresa.rb"
 module Civitas
   class Casilla
 
-    attr_reader :nombre, :tituloPropiedad
+    attr_reader :nombre, :tituloPropiedad, :carcel
 
     # Constructores ---------------------------------------------------------- #
     
@@ -26,7 +26,8 @@ module Civitas
     end
 
     def self.newJuez (numCasillaCarcel, n)
-      new(n, nil, -1, numCasillaCarcel, nil, nil, Civitas::TipoCasilla::JUEZ)
+      puts "carcel construcot #{numCasillaCarcel}"
+      Casilla.new(n, nil, -1, numCasillaCarcel, nil, nil, Civitas::TipoCasilla::JUEZ)
     end
 
     def self.newSorpresa (mazo, n)
@@ -71,10 +72,11 @@ module Civitas
       @nombre = n
       @tituloPropiedad = titulo
       @importe = cantidad
-      @@carcel = numCasillaCarcel
+      @Carcel = numCasillaCarcel
       @mazo = m
       @sorpresa = sorp
       @tipo = tipo
+      
     end
 
   
@@ -110,7 +112,7 @@ module Civitas
     def recibeJugador_juez(actual, todos)
       if(jugadorCorrecto(actual, todos))
         informe(actual, todos)
-        todos[actual].encarcelar(carcel)
+        todos[actual].encarcelar(@Carcel)
       end
     end
   

@@ -99,22 +99,21 @@ module Civitas
       if jugadorCorrecto(actual, todos)
         informe(actual, todos)
         todos[actual].encarcelar(@tablero.numCasillaCarcel)
+        puts @tablero.numCasillaCarcel
       end
     end
 
     def aplicarAJugador_irACasilla(actual, todos)
       if jugadorCorrecto(actual, todos)
         informe(actual, todos)
-        
-        puts 
-        puts @valor
-        puts
 
         casilla = todos[actual].numCasillaActual
         tirada = @tablero.calcularTirada(casilla, @valor)
         nuevaPos = @tablero.nuevaPosicion(casilla, tirada)
 
         todos[actual].moverACasilla(nuevaPos)
+        
+        @tablero.getCasilla(@valor).recibeJugador(actual, todos)
       end
     end
 

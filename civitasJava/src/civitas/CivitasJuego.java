@@ -79,6 +79,9 @@ public class CivitasJuego {
                     tablero.añadeCasilla(new Casilla ("Parking"));
                     break;
                     
+                case 3:      // Carcel (se añade automaticamente)
+                    break;
+                    
                 default:    // Calles: casillas 1, 5, 6, 9, 11-19
                     tablero.añadeCasilla (new Casilla (new TituloPropiedad (calle + cont++, alquiler, factRev, hipBase, precioCompra, precioEdif)));
                     break;
@@ -92,6 +95,9 @@ public class CivitasJuego {
         int ir_casilla_juez = 8;  
         int ir_a_calle = 9;
         int ir_a_calle2 = 12;
+        
+        // Llevar a juez
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_casilla_juez, " Irás al juez..."));
         
         // Llevar a calle
         mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_calle, " ¡Vas a la calle de la casilla " + ir_a_calle +"!"));

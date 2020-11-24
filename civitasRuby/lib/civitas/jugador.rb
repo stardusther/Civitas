@@ -337,7 +337,7 @@ class Jugador
     end
     
     def puedeSalirCarcelPagando()
-      getSaldo() >= getPrecioLibertad()
+      @saldo >= @@PrecioLibertad
     end
 
   protected # ---------------------------------------------------------------- #

@@ -76,8 +76,8 @@ module Civitas
     
     def comprar  
       respuestas = []
-      respuestas.push(" Si")
-      respuestas.push(" No")
+      respuestas.push("Si")
+      respuestas.push("No")
       opcion = menu("¿Comprar calle?", respuestas);
       return Civitas::Respuestas::Lista_respuestas[opcion]
     end
@@ -110,7 +110,7 @@ module Civitas
       evento = Civitas::Diario.instance.leer_evento
       if evento <=> ""
         puts "\n ---------- "
-        puts " | DIARIO | "
+        puts " | Diario | "
         puts " ----------"
         while evento <=> ""
           puts evento
@@ -126,7 +126,7 @@ module Civitas
     end
 
     def actualizarVista
-      puts "\n #{@@Separador}"
+      puts "\n#{@@Separador}"
       puts("#{@juegoModel.getJugadorActual.to_s} >> #{@juegoModel.getCasillaActual.to_s}");
       puts @@Separador
     end

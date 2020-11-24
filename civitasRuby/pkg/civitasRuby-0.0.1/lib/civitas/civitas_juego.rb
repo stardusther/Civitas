@@ -17,9 +17,9 @@ require_relative 'TituloPropiedad'
 module Civitas
   class CivitasJuego
     
-    @@NumJugadores = 2  # Todo lo que empiece con mayúsculas se considera constante
-    @@CasillaCarcel = 3 # Preguntar de todas formas
-    @@NumCasillas = 7
+    @@NumJugadores = 2  
+    @@CasillaCarcel = 3
+    @@NumCasillas = 20
     
     # Añadimos consultor de numero de jugadores para poder consultarlo en el controlador
     # Consultor de propiedades para acceder a el en vista textual.
@@ -185,43 +185,41 @@ module Civitas
     def inicializaTablero(mazo)
       #@tablero = Tablero.new(@@CasillaCarcel)
       
-      # Creamos calles
-      i = 1
+      # Calles
       alquiler = 100
-      hipotecaBase = 50
+      hipBase = 50
       precioCompra = 150
-      precioEdificar = 200
+      precioEdif = 200
       factorRev = 1.2
+      cont = 1   # Contador para el nombre de las calles
       
-      n1 = "Calle 1"
-      n2 = "Calle 2"
-     
-      t1 = TituloPropiedad.new(n1, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i)
-      i = i+1
-      t2 = TituloPropiedad.new(n2, alquiler*i, factorRev, hipotecaBase*i, precioCompra*i, precioEdificar*i)
+      cantidad_impuesto = 150
       
-      # Casillas
-      c1 = Civitas::Casilla.newCalle(t1)
-      c2 = Civitas::Casilla.newCalle(t2)
-      
-      s1 = Casilla.newSorpresa(@mazo, "Sorpresa 1")
-      
-      cantidad_impuesto = 50
-      impuesto = Casilla.newImpuesto(cantidad_impuesto, "Impuesto (50€)")
-      
+      # Tablero como en civitasJava
       for i in 1..@@NumCasillas-1 
         case i
+          
+        when 2 # Sorpresa 1
+          @tablero.añadeCasilla(Casilla.newSorpresa(@mazo, "Sorpresa 1"))
+          
+        when 4 # Impuesto
+          @tablero.añadeCasilla(Casilla.newImpuesto( cantidad_impuesto, "Impuesto #{cantidad_impuesto}"))
         
-        when 1
-          @tablero.añadeCasilla(c1)
-        when 2
-          @tablero.añadeCasilla(s1)
-        when 4
-          @tablero.añadeCasilla(impuesto)
-        when 5
-          @tablero.añadeCasilla(c2)
-        when 6
+        when 7 # Sorpresa 2
+          @tablero.añadeCasilla(Casilla.newSorpresa(@mazo, "Sorpresa 2"))
+          
+        when 8 # Juez
           @tablero.añadeJuez
+          
+        when 10 # Sorpresa 3
+          @tablero.añadeCasilla(Casilla.newSorpresa(@mazo, "Sorpresa 3"))
+          
+        when 12 # Parking
+          @tablero.añadeCasilla(Casilla.newDescanso("Parking"))
+          
+        else
+          @tablero.añadeCasilla(Casilla.newCalle(TituloPropiedad.new("Calle #{cont}", alquiler, factorRev, hipBase, precioCompra, precioEdif)))
+          
         end
         
       end

@@ -19,7 +19,7 @@ public class CivitasJuego {
 
     static final int numJugadores = 2;                          
     static final int casillaCarcel = 3;                                      
-    static final int numCasillas = 19;               
+    static final int numCasillas = 20;               
 
     /** Constructor. */
     public CivitasJuego (ArrayList<String> nombres){      
@@ -51,29 +51,35 @@ public class CivitasJuego {
         final String calle = "Calle ";    
 
         // Casilla impuesto
-        final float cantidad_impuesto = 50f; 
+        final float cantidad_impuesto = 150f; 
         
-        for (int i=1 ; i < numCasillas; i++)       // la carcel se añade automáticamente y la salida ya está en 0
+        for (int i=1 ; i < numCasillas; i++)       // Carcel se añade automáticamente (en c3), y la salida ya está en 0
             switch (i) {
                 case 2:     // Sorpresa 1
                     tablero.añadeCasilla ( new Casilla (mazo, "Sorpresa 1"));
                     break;
+                    
                 case 4:     // Impuesto
                     tablero.añadeCasilla(new Casilla (cantidad_impuesto, "Impuesto de ." + cantidad_impuesto));
                     break;
+                    
                 case 7:      // Sorpresa 2
                     tablero.añadeCasilla (new Casilla (mazo, "Sorpresa 2"));
                     break;
+                    
                 case 8:      // Juez
                     tablero.añadeJuez();
                     break;
-                case 10:
+                    
+                case 10:     // Sorpresa 3
                     tablero.añadeCasilla (new Casilla (mazo, "Sorpresa 3"));
                     break;
+                    
                 case 12:     // Parking
                     tablero.añadeCasilla(new Casilla ("Parking"));
                     break;
-                default:    // Casillas 1, 5, 6, 9, 11-19
+                    
+                default:    // Calles: casillas 1, 5, 6, 9, 11-19
                     tablero.añadeCasilla (new Casilla (new TituloPropiedad (calle + cont++, alquiler, factRev, hipBase, precioCompra, precioEdif)));
                     break;
             }

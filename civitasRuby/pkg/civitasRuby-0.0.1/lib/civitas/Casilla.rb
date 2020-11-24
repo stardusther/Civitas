@@ -11,8 +11,10 @@ module Civitas
 
     attr_reader :nombre, :tituloPropiedad
 
+    # Constructores ---------------------------------------------------------- #
+    
     def self.newDescanso (n) 
-      Casilla.new(n, nil, -1, -1, nil, nil, TipoCasilla::DESCANSO)    #n, titulo, cantidad, numCasillaCarcel, m, sorp
+      Casilla.new(n, nil, -1, -1, nil, nil, TipoCasilla::DESCANSO)    
     end
 
     def self.newCalle (titulo)
@@ -29,13 +31,14 @@ module Civitas
 
     def self.newSorpresa (mazo, n)
       new(n, nil, -1, -1, mazo, nil, Civitas::TipoCasilla::SORPRESA)
-      #puts " CONSTRUCTOR SORPRESA  #{@tipo}  #{@nombre}  #{n}  #{Civitas::TipoCasilla::SORPRESA}"
     end
 
     def jugadorCorrecto(actual, todos)
       actual < todos.length
     end
 
+    # Metodos ---------------------------------------------------------------- #
+    
     def recibeJugador(actual, todos)
       case @tipo
       
@@ -62,7 +65,7 @@ module Civitas
     end
 
 
-    private #------------------------------------------------------------------- #
+    private #----------------------------------------------------------------- #
   
     def initialize(n, titulo, cantidad, numCasillaCarcel, m, sorp, tipo)
       @nombre = n
@@ -76,9 +79,6 @@ module Civitas
 
   
     def informe (actual, todos)
-      puts
-      puts @tipo
-      puts @nombre
       str = "El jugador #{todos[actual].nombre} ha caido en una casilla de #{@tipo}"
       Diario.instance.ocurre_evento(str)
     end

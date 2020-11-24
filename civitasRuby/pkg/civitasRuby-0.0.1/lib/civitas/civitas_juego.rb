@@ -146,7 +146,7 @@ module Civitas
         
       end
       
-      return playersrank 
+      playersrank  
     end
     
     private # -------------------------------------------------
@@ -217,6 +217,8 @@ module Civitas
         when 12 # Parking
           @tablero.añadeCasilla(Casilla.newDescanso("Parking"))
           
+        when 3 # Carcel en 3, se añade automaticamente (si no lo ponemos se ejecuta añadir calle en else)
+          
         else
           @tablero.añadeCasilla(Casilla.newCalle(TituloPropiedad.new("Calle #{cont}", alquiler, factorRev, hipBase, precioCompra, precioEdif)))
           
@@ -224,18 +226,42 @@ module Civitas
         
       end
       
+      
     end
     
     def inicializaMazoSorpresas(tablero)
-      valor = 100
-      ir_a_casilla = 6
+      valor = 200
+      ir_casilla_juez = 8
+      ir_a_calle = 9
+      ir_a_calle2 = 12
       
-      @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero))
-      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_casilla, " Ir a casilla 6 (JUEZ). "))
+      # Ir calle 1
+      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_calle, " ¡Vas a la calle de la casilla #{ir_a_calle}!"))
+      
+      #Juez
+      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_casilla_juez,  "¡Vas a la calle de la casilla #{ir_casilla_juez}!"))
+      
+      # Ir calle 2
+      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_calle, " ¡Vas a la calle de la casilla #{ir_a_calle}!"))
+      
+      # Salir carcel
       @mazo.alMazo(Sorpresa.newEvitaCarcel(TipoSorpresa::SALIRCARCEL, @mazo))
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor, " POR JUGADOR. "))
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor, " POR CASA HOTEL. "))
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PAGARCOBRAR, valor, " PAGARCOBRAR. "))
+      
+      # Ir carcel
+      @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero))
+      
+      # Por jugador, positiva (rebibe) y negativa (paga)
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor, " ¡Recibes 200 civiMonedas de cada jugador!"))
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor*(-1), " Tienes que pagarle 200 civiMonedas a cada jugador ..."))
+      
+      # Por casa hotel positiva y negativa
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor, " ¡Recibes 200 civiMonedas por cada casa y hotel que tengas!"))
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor*(-1), " Tienes que pagar 200 civiMonedas por cada casa y hotel que tengas ..."))
+    
+      # Pagar cobrar positiva y negativa
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PAGARCOBRAR, valor, " ¡Cobras 200 civiMonedas!"))
+      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PAGARCOBRAR, valor*(-1), " Tienes que pagar 200 civiMonedas ..."))
+      
     end
     
     def pasarTurno

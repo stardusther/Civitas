@@ -105,6 +105,10 @@ module Civitas
     def aplicarAJugador_irACasilla(actual, todos)
       if jugadorCorrecto(actual, todos)
         informe(actual, todos)
+        
+        puts 
+        puts @valor
+        puts
 
         casilla = todos[actual].numCasillaActual
         tirada = @tablero.calcularTirada(casilla, @valor)

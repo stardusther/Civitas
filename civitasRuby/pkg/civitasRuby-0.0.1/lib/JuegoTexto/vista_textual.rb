@@ -91,7 +91,7 @@ module Civitas
       gestiones.push("Construir hotel")
       gestiones.push("Terminar")
       
-      @iGestion = menu(" Indique número de operación inmobiliaria: (0..5))", gestiones)
+      @iGestion = menu(" Indique operación inmobiliaria:", gestiones)
       
       if (iGestion != 5)
         propiedades = []

@@ -88,13 +88,13 @@ public class CivitasJuego {
     /** Inicializa el mazo. */
     private void inicializaMazoSorpresas (Tablero tablero){
         
-        int valor = 100;  // <-- Para sorpresas PAGARCOBRAR, PORJUGADOR y PORCASAHOTEL
+        int valor = 200;  // <-- Para sorpresas PAGARCOBRAR, PORJUGADOR y PORCASAHOTEL
         int ir_casilla_juez = 8;  
         int ir_a_calle = 9;
-        int ir_salida = 0;
+        int ir_a_calle2 = 12;
         
-        // Llevar a salida
-        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_salida, " ¡Vas a la casilla de salida!"));
+        // Llevar a calle
+        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_calle, " ¡Vas a la calle de la casilla " + ir_a_calle +"!"));
         
         // Llevar a juez
         mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_casilla_juez, " Irás al juez..."));
@@ -109,16 +109,16 @@ public class CivitasJuego {
         mazo.alMazo (new Sorpresa (TipoSorpresa.SALIRCARCEL, mazo));
         
         // Por jugador, positiva (recibe) y negativa (paga)
-        mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor, " ¡Recibes 100 civiMonedas de cada jugador!"));  
-        mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor*-1, " Tienes que pagarle 100 civiMonedas a cada jugador :( ..."));  
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor, " ¡Recibes 200 civiMonedas de cada jugador!"));  
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PORJUGADOR, valor*-1, " Tienes que pagarle 200 civiMonedas a cada jugador :( ..."));  
         
         // Por casa hotel, positiva y negativa
-        mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor, " ¡Recibes 100 civiMonedas por cada casa y hotel que tengas!"));
-        mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor*-1, " Tienes que pagar por cada casa y hotel que tengas :( ..." ));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor, " ¡Recibes 200 civiMonedas por cada casa y hotel que tengas!"));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PORCASAHOTEL, valor*-1, " Tienes que pagar 200 civiMonedas por cada casa y hotel que tengas :( ..." ));
         
         // Pagar cobrar, positiva y negativa
-        mazo.alMazo (new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor, " ¡Cobras 100 civiMonedas!" ));
-        mazo.alMazo (new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor*-1, " Tienes que pagar 100 civiMonedas :(..." ));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor, " ¡Cobras 200 civiMonedas!" ));
+        mazo.alMazo (new Sorpresa (TipoSorpresa.PAGARCOBRAR, valor*-1, " Tienes que pagar 200 civiMonedas :(..." ));
         
     }
 

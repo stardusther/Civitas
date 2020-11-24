@@ -107,7 +107,7 @@ class Jugador
   def modificarSaldo (cantidad)
     saldo_anterior = @saldo
     @saldo = @saldo + cantidad
-    Diario.instance.ocurre_evento ("Se ha modificado el saldo (de #{saldo_anterior} a #{@saldo})")
+    Diario.instance.ocurre_evento ("Se ha modificado el saldo de #{@nombre} (de #{saldo_anterior} a #{@saldo})")
     true
   end
   
@@ -127,7 +127,7 @@ class Jugador
   def vender (ip)
     if !isEncarcelado() and existeLaPropiedad(ip)
       
-      if (@propiedades.get(ip).vender(self))
+      if (@propiedades[ip].vender(self))
         @propiedades.delete_at(ip)
         Diario.instance.ocurre_evento ("Se ha vendido la propiedad de la casilla #{ip}")
         true;

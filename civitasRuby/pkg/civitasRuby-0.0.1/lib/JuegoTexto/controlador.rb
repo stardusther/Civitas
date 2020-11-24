@@ -39,14 +39,20 @@ module Civitas
           
         if @juego.finalDelJuego
           final = true
-          rank = Array.new(@juego.ranking.size) # Creamos el array
+          #rank = Array.new(@juego.ranking.size) # Creamos el array
 
           rank = @juego.ranking         
 
+          puts "\n ---------------------------- "
+          puts   "     RANKING DE JUGADORES    "
+          puts   " ----------------------------\n\n"
+          
           for i in 0..1 # Mostramos los jugadores en orden
             puts rank[i].to_s
           end
-            
+          
+          puts "\n ----- FIN DEL JUEGO -----\n"
+          
         else
           case operacion                                    
             

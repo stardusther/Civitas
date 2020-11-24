@@ -26,7 +26,6 @@ module Civitas
     end
 
     def self.newJuez (numCasillaCarcel, n)
-      puts "carcel construcot #{numCasillaCarcel}"
       Casilla.new(n, nil, -1, numCasillaCarcel, nil, nil, Civitas::TipoCasilla::JUEZ)
     end
 

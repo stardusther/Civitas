@@ -96,8 +96,6 @@ public class CivitasJuego {
         int ir_a_calle = 9;
         int ir_a_calle2 = 12;
         
-        // Llevar a juez
-        mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_casilla_juez, " Irás al juez..."));
         
         // Llevar a calle
         mazo.alMazo (new Sorpresa (TipoSorpresa.IRCASILLA, tablero, ir_a_calle, " ¡Vas a la calle de la casilla " + ir_a_calle +"!"));
@@ -239,8 +237,8 @@ public class CivitasJuego {
     }
 
     public ArrayList<Jugador> ranking() {
-          Jugador max;
-          ArrayList<Jugador> playersrank = new ArrayList();
+        Jugador max;
+        ArrayList<Jugador> playersrank = new ArrayList();
         
         ArrayList<Jugador> jugadores_aux = (ArrayList)jugadores.clone();
         

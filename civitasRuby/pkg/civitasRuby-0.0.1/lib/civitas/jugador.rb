@@ -279,7 +279,7 @@ class Jugador
   
   
   def enBancarrota()
-    en_bancarrota = saldo<0
+    en_bancarrota = @saldo<0
   end
   
   

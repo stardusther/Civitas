@@ -121,26 +121,27 @@ module Civitas
       final_juego
     end
     
-    def compareTo(jugador)
-      @saldo <=> otro.get_saldo
+    def compare_to(jugador)
+      @saldo <=> jugador.get_saldo
     end
     
     def ranking # El ranking debe ser público para poder acceder a él desde el controlador
       playersrank = []
-      
       jugadores_aux = @jugadores.clone
       
-      for i in 0..@@NumJugadores
-        max = jugadores_aux.at(0)
+      for i in 0..@@NumJugadores-1
+        #puts "leng #{jugadores_aux.length}"
+        max = jugadores_aux[0]
         pos = 0
         
-        for j in 1..jugadores_aux.size-1
+        for j in 1..jugadores_aux.length-2     # jugadores_aux mide 3 en lugar de 2 (verificar con el put de arriba)
           if max.compare_to(jugadores_aux[j]) < 0
-            max = jugadores_aux.at(j)
+            max = jugadores_aux[j].clone
             pos = j
           end
-        end
           
+        end
+        
         playersrank.push(max)
         jugadores_aux.delete_at(pos)
         
@@ -149,7 +150,7 @@ module Civitas
       playersrank  
     end
     
-    private # -------------------------------------------------
+    private # ---------------------------------------------------------------- #
     
     def avanzaJugador()
       
@@ -235,9 +236,6 @@ module Civitas
       ir_casilla_juez = 8
       ir_a_calle = 9
       ir_a_calle2 = 12
-      
-      #Juez
-      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_casilla_juez,  "Vas al juez #{ir_casilla_juez}..."))
       
       # Ir calle 1
       @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_calle, " ¡Vas a la calle de la casilla #{ir_a_calle}!"))

@@ -60,9 +60,9 @@ module Civitas
           when Civitas::Operaciones_juego::GESTIONAR   
             @vista.gestionar
             
-            lista = [GestionesInmobiliarias::VENDER, GestionesInmobiliarias::HIPOTECAR, GestionesInmobiliarias::CANCELAR_HIPOTECA, GestionesInmobiliarias::CONSTRUIR_CASA, GestionesInmobiliarias::CONSTRUIR_HOTEL, GestionesInmobiliarias::TERMINAR]
-            #gest = Civitas::GestionesInmobiliarias::lista_Gestiones[@vista.iGestion]
-            gest = lista[@vista.iGestion]
+            #lista = [GestionesInmobiliarias::VENDER, GestionesInmobiliarias::HIPOTECAR, GestionesInmobiliarias::CANCELAR_HIPOTECA, GestionesInmobiliarias::CONSTRUIR_CASA, GestionesInmobiliarias::CONSTRUIR_HOTEL, GestionesInmobiliarias::TERMINAR]
+            gest = Civitas::GestionesInmobiliarias::Lista_Gestiones[@vista.iGestion]
+            #gest = lista[@vista.iGestion]
             ip = @vista.iPropiedad
                   
             operacionInm = OperacionInmobiliaria.new(ip,gest)

@@ -137,7 +137,6 @@ module Civitas
       salir_carcel.push("Tirando")
       opcion = menu("Elige la forma para intentar salir de la carcel", salir_carcel);
     
-      #return Civitas::Respuestas::Lista_respuestas[opcion]
       return Civitas::SalidasCarcel::Lista_salidas[opcion]
     end
 

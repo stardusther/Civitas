@@ -60,7 +60,7 @@ public class Dado {
         //if (tirar() >= SalidaCarcel)                    //Mayor o igual a 5
         // Y: Se que es lo que pone en el pdf pero no le veo sentido para el juego ahhhhhh 
         // (y de paso es mas facil la tarea 3)
-        if (ultimoResultado >= SalidaCarcel)
+        if (tirar() >= SalidaCarcel)
           salgo = true;
 
         return salgo;

@@ -1,3 +1,4 @@
+#encoding:utf-8
 =begin
 Authors: Esther García Gallego
          Yesenia González Dávila
@@ -37,7 +38,7 @@ module Civitas
           if (jugador.puedeComprar)
             op = Operaciones_juego::COMPRAR
           else
-            if (jugador.tieneAlgoQueGestionar)  ##################################################3
+            if (jugador.tieneAlgoQueGestionar)  
               op = Operaciones_juego::GESTIONAR
             else
               op = Operaciones_juego::PASAR_TURNO

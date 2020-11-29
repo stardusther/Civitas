@@ -44,7 +44,7 @@ module Civitas
       inicializaTablero(@mazo)
       
     end
-           
+        
     def getJugadorActual
       jugador = @jugadores[@indiceJugadorActual]
     end
@@ -185,6 +185,8 @@ module Civitas
     
     def inicializaTablero(mazo)
       #@tablero = Tablero.new(@@CasillaCarcel)
+      
+      inicializarZona
       
       # Calles
       alquiler = 100

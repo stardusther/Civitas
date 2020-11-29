@@ -30,8 +30,7 @@ public class TituloPropiedad {
 
     
     /** Constructor de la clase.
-     * @post titulo no hipotecado, sin propietario, casas ni hoteles
-     */
+     * @note titulo no hipotecado, sin propietario, casas ni hoteles. */
     TituloPropiedad (String nombre, float ab, float fr, float hb, float pc, float pe) {
         this.nombre = nombre;
         alquilerBase = ab;
@@ -74,9 +73,7 @@ public class TituloPropiedad {
     }
     
     /** Si el jugador es el propietario y n es menor al num de casas, 
-     *  se decrementa el contador de casas en n unidades
-     * @param n numero a decrementar del contador
-     * @param jugador jugador al que aplicar el decremento de casas
+     *  se decrementa el contador de casas en n unidades. 
      * @return @retval true si se ha realizado la operacion @retval false si no ha sido el caso
      */
     boolean derruirCasas (int n, Jugador jugador) {
@@ -107,7 +104,7 @@ public class TituloPropiedad {
     /** Si el jugador pasado como parámetro es el propietario y este no está hipotecado,
      *  entonces se da al propietario el precio de venta, se desvincula al propietario de la 
      *  propiedad y se eliminan las casas y hoteles.
-     * @warning desvincular propietario !!
+     *  @warning desvincular propietario 
      */
     boolean vender (Jugador jugador) {
         boolean vendido = false;
@@ -115,7 +112,6 @@ public class TituloPropiedad {
             propietario.recibe(precioCompra);
             numCasas = 0;
             numHoteles = 0;
-            //desvincular propietario del jugador ? 
             propietario = null;
             vendido = true;
         }
@@ -169,15 +165,16 @@ public class TituloPropiedad {
     }
     
     
-    
-    // ---------------------------------------------------------------------- //
     // --------------------------- Consultores ------------------------------ //
-    // ---------------------------------------------------------------------- //
     
     public boolean getHipotecado () {
         return hipotecado;
     }
 
+    // COMENTARIO: Reglas del juego: se paga según la hipoteca recibida en su momento.
+    // Si al pedirla tenemos x edificaciones, y cuando queremos cancelarla ese numero
+    // cambia (por vender o construir más), ya no recibiríamos el importe adecuado. 
+    // Por ello usamos var aux importeHipoteca
     float getImporteCancelarHipoteca () {
         //return (factorInteresesHipoteca * hipotecaBase);
         return (factorInteresesHipoteca * importeHipoteca);
@@ -185,7 +182,7 @@ public class TituloPropiedad {
 
     float getImporteHipoteca () {
         //return hipotecaBase;
-        // Cálculo según las reglas (pag 3 pdf CivitasElJuego.pdf)
+        // COMENTARIO: Cálculo según las reglas (pag 3 pdf CivitasElJuego.pdf)
         return (hipotecaBase * (1+(numCasas*0.5f)+(numHoteles*2.5f)));  
     }
 

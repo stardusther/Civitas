@@ -1,3 +1,4 @@
+#encoding:utf-8
 =begin
 Authors: Esther García Gallego
          Yesenia González Dávila
@@ -47,7 +48,6 @@ module Civitas
       found = false
       i = 0
 
-      # No tengo claro si se puede hacer con for en ruby o como :(
       while i < @sorpresas.lenght && !found
 
         if sorpresa == @sorpresas[i]
@@ -59,8 +59,7 @@ module Civitas
           found = true
         end
 
-        # JA no existe el i++ o ++i en Ruby :_D E: lloremos
-        i += 1
+        i = i + 1
       end
 
     end

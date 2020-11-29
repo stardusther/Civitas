@@ -24,7 +24,6 @@ public class VistaTextual {
   }
   
   /** Muestra estado del juego. */
-  //void mostrarEstado(String estado) {
   void mostrarEstado(String estado) {
     System.out.println (estado);
   }

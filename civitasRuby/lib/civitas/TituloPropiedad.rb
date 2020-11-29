@@ -1,3 +1,4 @@
+#encoding:utf-8
 =begin
 Authors: Esther García Gallego
          Yesenia Glez Dávila
@@ -10,26 +11,6 @@ class TituloPropiedad
   
   attr_reader :precioCompra, :hipotecado, :hipotecaBase, :nombre, :numCasas, :numHoteles,
               :precioEdificar, :propietario
-            
-    
-  @nombre
-  
-  @alquilerBase
-  @hipotecaBase
-  @factorRevalorizacion
-  @precioCompra
-  @precioEdificar
-  
-  @hipotecado
-  
-  @numCasas
-  @numHoteles
-  
-  @propietario
-  
-  #Añadimos este atributo para saber el importe de la hipoteca 
-  # otorgado al jugador cuando la pidió (para usar en getImporteCancelarHipoteca) 
-  @get_importeHipoteca
   
   public # ------------------------------------------------------------------- #
   
@@ -46,6 +27,7 @@ class TituloPropiedad
     @numCasas = 0
     @numHoteles = 0
     @factorInteresesHipoteca = 1.1
+    @get_importeHipoteca = 0
   end
 
   def actualizaPropietarioPorConversion (jugador)
@@ -95,7 +77,7 @@ class TituloPropiedad
       @numCasas = 0
       @numHoteles = 0
       # Desvincular propietario del jugador
-      @propietario = nil  # warning
+      @propietario = nil  
       vendido = true
     end
     vendido
@@ -168,7 +150,20 @@ class TituloPropiedad
   end
   
   def to_s
-    str = "#{@nombre}"
+    str = "#{@nombre}
+      >> Alquiler: #{@alquilerBase}
+      >> Precio compra: #{@precioCompra}
+      >> Precio edificar: #{@precioEdificar}
+      >> Num casas: #{@numCasas}
+      >> Num hoteles: #{@numHoteles}"
+    
+    if (@propietario)
+      str = str + " >> Propietario: #{@propietario}"
+    else
+      str = str + " >> Titulo vacío. "
+    end
+    
+    str
   end
   
   def tienePropietario

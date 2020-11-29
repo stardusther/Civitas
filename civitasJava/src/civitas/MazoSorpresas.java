@@ -24,8 +24,7 @@ public class MazoSorpresas {
      private Sorpresa ultimaSorpresa;                     //Almacena la última carta de sorpresa que ha salido
 
     /** Inicializa los atributos de la clase MazoSorpresas,
-      *  deja barajada a false y usadas a 0.
-      */
+      *  deja barajada a false y usadas a 0. */
      private void init(){
        sorpresas = new ArrayList<> ();
        cartasEspeciales = new ArrayList<> ();
@@ -34,18 +33,13 @@ public class MazoSorpresas {
        usadas = 0;
      }
 
-    /** Constructor sin parámetros de la clase MazoSopresas.
-     * @post Llama a init() e inicializa debug a false.
-     */
+    /** Constructor sin parámetros de la clase MazoSopresas. */
      MazoSorpresas(){
        init();
        debug = false;
      }
 
-    /** Constructor con parámetros de la clase MazoSopresas.
-     * @param _debug Booleano que determina el valor de debug
-     * @post Llama a init() y si se activa el modo debug añade el evento al Diario.
-     */
+    /** Constructor con parámetros de la clase MazoSopresas. */
      MazoSorpresas(Boolean _debug){
        debug = _debug;
        init();

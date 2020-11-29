@@ -61,7 +61,7 @@ public class Sorpresa{
      * @note Todos los métodos aplicarJugador<...> revisan si en jugador indicado es correcto.
      * En caso contrario no se lleva a cabo ninguna acción.
      * @warnign Mejor quitar todas las comprobacines de los metodos privado y ponerla 
-     * solo en el uncio que se llama? = menos líneas de cógido asdfkjgfkds :/ 
+     * solo en el uncio que se llama? = menos líneas de cógido  (pendiente) 
      */
     void aplicarAJugador (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos)) {

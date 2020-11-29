@@ -4,6 +4,9 @@ Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
+
+require_relative './Casilla.rb'
+
 module Civitas
   class Tablero
 
@@ -27,7 +30,7 @@ module Civitas
       devuelve = @porSalida
 
       if @porSalida > 0
-        @porSalida -= 1
+        @porSalida = @porSalida - 1
       end
 
       devuelve

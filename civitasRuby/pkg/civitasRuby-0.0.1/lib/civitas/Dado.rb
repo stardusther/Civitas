@@ -1,3 +1,4 @@
+#encoding:utf-8
 =begin
 Authors: Esther García Gallego
          Yesenia González Dávila
@@ -12,7 +13,7 @@ module Civitas
   class Dado
     include Singleton
                                   #En ruby no se necesita la instancia
-    #@@SalidaCarcel               # Los atributos son privados por defecto
+    @@SalidaCarcel = 5               # Los atributos son privados por defecto
 
     attr_reader :ultimoResultado  #Consultor de ultimoResultado
 
@@ -33,7 +34,7 @@ module Civitas
     def salgoDeLaCarcel
       salgo = false                     #variable local
 
-      if (tirar >= @SalidaCarcel)       #E: esto devolverá la variable salgo o no pq es local?
+      if (tirar >= @@SalidaCarcel)       #E: esto devolverá la variable salgo o no pq es local?
         salgo = true
       else
         salgo = false

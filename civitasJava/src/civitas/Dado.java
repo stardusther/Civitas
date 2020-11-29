@@ -14,34 +14,27 @@ import java.util.Random;
 
 public class Dado {
 
-    private Random random;                              // Se utilizara para la generación de nº aleatorios
+    private Random random;                              
     private int ultimoResultado;
     private boolean debug;
 
     private static Dado instance = new Dado ();
     private static final int SalidaCarcel = 5;
 
-    /** Método de clase para obtener la instancia.
-     * @note Para acceder a ella: Dado.getInstance()
-     */
+    /** Método de clase para obtener la instancia. */
     static public Dado getInstance () {
         return instance;
     }
 
-    /** Constructor de la clase. 
-     * @post Deja debug a false e inicializa random
-     * @warning Y: ultimoResultado a -1 o tirada valida?
-     */
+    /** Constructor de la clase. */
     Dado () {
         debug = false;
         random = new Random ();                        
-        ultimoResultado = -1;                           // Y: llamar a tirar() para darle un valor válido ??
+        ultimoResultado = -1;                           
     }
 
     /** Genera un numero aleatorio entre 1 y 6 si el modo debug está desactivado,
-     *  o 1 si está activado.
-     * @return ultimoResultado
-     */
+     *  o 1 si está activado. */
     int tirar () {
         if (debug)
             ultimoResultado = 1;
@@ -56,26 +49,20 @@ public class Dado {
      */
     boolean salgoDeLaCarcel() {
         boolean salgo = false;
-
-        //if (tirar() >= SalidaCarcel)                    //Mayor o igual a 5
-        // Y: Se que es lo que pone en el pdf pero no le veo sentido para el juego ahhhhhh 
-        // (y de paso es mas facil la tarea 3)
-        if (tirar() >= SalidaCarcel)
+        
+        //if (ultimoResultado >= SalidaCarcel)
+        if (tirar() >= SalidaCarcel)     
           salgo = true;
 
         return salgo;
     }
 
-    /** Genera un numero aleatorio entre 0 y n-1 para decidir quien empieza.
-     * @param n numero de jugadores
-     * @return índice del jugador que empieza
-     */
+    /** Genera un numero aleatorio entre 0 y n-1 para decidir quien empieza. */
     int quienEmpieza (int n) {
         return random.nextInt(n);                       //Num aleatorio entre 0 y n-1
     }
 
-    /** Activa o desactiva el modo debug
-     */
+    /** Activa o desactiva el modo debug. */
     public void setDebug (boolean d) {
         if (d != debug) {                               // Si la configuracion no cambia no se añade el evento a diario
             debug = d;
@@ -88,9 +75,7 @@ public class Dado {
         }
     }
 
-    /** Consultor del atributo ultimoResultado
-     * @return ultimoResultado
-     */
+    /** Consultor del atributo ultimoResultado. */
     int getUltimoResultado () {
         return ultimoResultado;
     }

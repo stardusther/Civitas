@@ -21,9 +21,7 @@ public class Tablero {
     private boolean tieneJuez;                    // Determina si el tablero tiene juez
 
 
-    /** @brief Constructor de la clase trablero
-      * @param indice de la casilla en la que se encuentra la cárcel
-      */
+    /** Constructor de la clase trablero. */
     Tablero (int indice){
       if (indice >= 1)
         numCasillaCarcel = indice;
@@ -70,10 +68,7 @@ public class Tablero {
         return devuelve;
     }
     
-    /** Dada una casilla, la añade al tablero. 
-     * @warning La casilla carcel se añade automaticamente. 
-     * No añadir con este método.
-     */
+    /** Dada una casilla, la añade al tablero. */
     void añadeCasilla (Casilla casilla){
         añadeCarcel ();
         casillas.add (casilla);
@@ -105,11 +100,8 @@ public class Tablero {
         return null;
     }
     
-    /** Calcula la nueva posicion en el tablero
-    * @param actual casilla actual
-    * @param tirada número de casillas avanzadas
-    * @return @retval posicion La casilla final, @retval -1 si el tablero no es correcto
-    */
+    /** Calcula la nueva posicion en el tablero. 
+    * @return @retval posicion La casilla final, @retval -1 si el tablero no es correcto */
     int nuevaPosicion (int actual, int tirada){
       int posicion = -1;
 
@@ -123,11 +115,8 @@ public class Tablero {
       return posicion;
     }
     
-    /** Calcula lo que debería salir en el dado para ir desde el origen al destino
-    * @param origen Posición inicial
-    * @param destino Posición final
-    * @return devuelve la tirada necesaria para ir de origen a destino.
-    */
+    /** Calcula lo que debería salir en el dado para ir desde el origen al destino. 
+    * @return devuelve la tirada necesaria para ir de origen a destino. */
     int calcularTirada (int origen, int destino){
       int result = destino-origen;
 

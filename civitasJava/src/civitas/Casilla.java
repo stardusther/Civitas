@@ -7,7 +7,6 @@ import java.util.ArrayList;
  * @author Esther García Gallego
  * @class Casilla
  * @brief Crea las casillas del tablero.
- * @warning Not fully implemented. 
  * @note Grupo B.3
 */
 
@@ -21,8 +20,7 @@ public class Casilla {
     private Sorpresa sorpresa;                      // Sopresa
     private MazoSorpresas mazo;                     // Mazo si la casilla es una sorpresa
     private TituloPropiedad tituloPropiedad;        // Calle
-
-
+    
     /** Constructor descanso. */
     Casilla (String nombre) {
         init();
@@ -80,7 +78,7 @@ public class Casilla {
                 recibeJugador_sorpresa (iactual, todos);
                 break;
             default:
-                informe (iactual, todos);           // Y: por qué?
+                informe (iactual, todos);      
         }
         
     }
@@ -145,7 +143,6 @@ public class Casilla {
 
     private void recibeJugador_sorpresa (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos)) {
-            /////////////sorpresa = new Sorpresa (TipoSorpresa.IRCARCEL, mazo);
             sorpresa = mazo.siguiente();
             informe (actual, todos);
             sorpresa.aplicarAJugador(actual, todos);
@@ -154,7 +151,7 @@ public class Casilla {
 
 
     /** Este metodo hace una inicializacion de todos los atributos asumiendo que
-     *  no se proporciona al constructor un valor para estos atributos. */
+     *  no se proporciona al constructor un valor para estos. */
     private void init () {
         mazo = null;
         //sorpresa = null;

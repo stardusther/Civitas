@@ -27,8 +27,7 @@ public class Jugador implements Comparable<Jugador>{
     private static float SaldoInicial = 7500;           // Saldo con el que comienzan todos los jugadores
     private Sorpresa salvoconducto;                     // Almacena el salvoconducto para salir de la cárcel
     private ArrayList<TituloPropiedad> propiedades;     // Conjunto de propiedades del jugador
-
-   
+    
     
     /** Constructor básico de la clase Jugador. */
     Jugador (String _nombre){
@@ -55,9 +54,7 @@ public class Jugador implements Comparable<Jugador>{
     }
 
 
-    /** Determina si un jugador debe ser encarcelado y, en caso afirmativo, se comunica en el diario.
-     * @return @retval true si el jugador debe ser encarcelado o @retval false en caso contrario
-     */
+    /** Determina si un jugador debe ser encarcelado y, en caso afirmativo, se comunica en el diario. */
     protected boolean debeSerEncarcelado (){
       boolean carcel = false;
 
@@ -182,9 +179,7 @@ public class Jugador implements Comparable<Jugador>{
 
 
     /** Determina si el jugador tiene el saldo suficiente para pagar.
-     * @param precio Dinero a pagar
-     * @return @retval true si se lo puede permitir o @false en caso contrario
-     */
+     * @return @retval true si se lo puede permitir o @false en caso contrario */
     private boolean puedoGastar (float precio){
       return ( !isEncarcelado() && getSaldo() >= precio);
     }
@@ -192,8 +187,7 @@ public class Jugador implements Comparable<Jugador>{
 
     /** Vende una propiedad de un jugador.
      * @param ip Número de casilla de la propiedad que se va a vender
-     * @return @retval true si se ha realizado la acción con éxito o @false en caso contrario
-     */
+     * @return @retval true si se ha realizado la acción con éxito o @false en caso contrario. */
     boolean vender (int ip){
       boolean puedo = false;
 
@@ -208,9 +202,7 @@ public class Jugador implements Comparable<Jugador>{
     }
 
 
-    /** Determina si el jugador tiene propiedades.
-     * @return @retval true si el jugador posee propiedades o @false en caso contrario
-     */
+    /** Determina si el jugador tiene propiedades. */
     boolean tieneAlgoQueGestionar (){
         return ( !propiedades.isEmpty() );
     }
@@ -242,9 +234,7 @@ public class Jugador implements Comparable<Jugador>{
     }
 
 
-    /** Libera al jugador de la cárcel tras tirar.
-     * @return @retval true si el jugador ha sido liberado o @false en caso contrario
-     */
+    /** Libera al jugador de la cárcel tras tirar (si se cumplen las condiciones). */
     boolean salirCarcelTirando (){
       if(Dado.getInstance().salgoDeLaCarcel()){
         encarcelado = false;
@@ -264,12 +254,10 @@ public class Jugador implements Comparable<Jugador>{
 
 
 
-    // -------------------- Consultores -------------------- //
+    // ---------------------------- Consultores ----------------------------- //
 
 
-    /** Consultor privado del atributo CasasMax.
-     * @return CasasMax Número máximo de casas que se puede edificar por casilla
-     */
+    /** Consultor privado del atributo CasasMax. */
     private int getCasasMax (){
       return CasasMax;
     }
@@ -283,41 +271,31 @@ public class Jugador implements Comparable<Jugador>{
     }
 
 
-    /** Consultor privado del atributo HotelesMax.
-     * @return HotelesMax Número máximo de hoteles que se puede edificar por casilla
-     */
+    /** Consultor privado del atributo HotelesMax. */
     private int getHotelesMax () {
       return HotelesMax;
     }
 
 
-    /** Consultor protegido del atributo nombre.
-     * @return nombre El nombre del Jugador
-     */
+    /** Consultor protegido del atributo nombre.  */
     protected String getNombre (){
       return nombre;
     }
 
 
-    /** Consultor del atributo numCasillaActual.
-     * @return numCasillaActual Número de la casilla en la que se encuentra el Jugador
-     */
+    /** Consultor del atributo numCasillaActual.  */
     int getNumCasillaActual (){
       return numCasillaActual;
     }
 
 
-    /** Consultor privado del atributo PrecioLibertad.
-     * @return PrecioLibertad Precio a pagar por salir de la cárcel
-     */
+    /** Consultor privado del atributo PrecioLibertad.  */
     private float getPrecioLibertad (){
       return PrecioLibertad;
     }
 
 
-    /** Consultor privado del atributo PasoPorSalida.
-     * @return PasoPorSalida Precio a cobrar por pasar por la casilla de salida
-     */
+    /** Consultor privado del atributo PasoPorSalida.  */
     private float getPremioPasoSalida (){
       return PasoPorSalida;
     }
@@ -326,18 +304,15 @@ public class Jugador implements Comparable<Jugador>{
     /** Consultor protegido del atributo propiedades.
      * @return propiedades Array que contiene el conjunto de propiedades del jugador
      */
-//    protected ArrayList <TituloPropiedad> getPropiedades(){
-    // Añadimos este método para acceder a las propiedades desde VistaTextual
-    // y poder mostrar el menu correctamente
+    //protected ArrayList <TituloPropiedad> getPropiedades(){
+    // Cambiamos visibilidad método para acceder a las propiedades desde VistaTextual
+    // y poder mostrar el menu correctamente (para gestionar)
     public ArrayList <TituloPropiedad> getPropiedades(){
       return propiedades;           
     }
 
 
-    /** Conmuta la cantidad total de edificaciones en las propiedades del jugador.
-     * @return casasHoteles Número total de edificaciones que existen en el array propiedades
-     * @warning no sé si está correcto Y: po yo creo que si
-     */
+    /** Conmuta la cantidad total de edificaciones en las propiedades del jugador. */
     int cantidadCasasHoteles(){
       int casasHoteles = 0;
 
@@ -348,25 +323,19 @@ public class Jugador implements Comparable<Jugador>{
     }
 
 
-    /** Consultor del atributo puedeComprar.
-     * @return @retval true si el jugador puede comprar una propiedad o @retval false en caso contrario
-     */
+    /** Consultor del atributo puedeComprar. */
     boolean getPuedeComprar(){
       return puedeComprar;
     }
 
 
-    /** Consultor protegido del atributo saldo.
-     * @return saldo Cantidad de dinero del jugador
-     */
+    /** Consultor protegido del atributo saldo.  */
     protected float getSaldo(){
       return saldo;
     }
 
 
-    /** Consultor público del atributo encarcelado.
-     * @return @retval true si el jugador está encarcelado o @retval false en caso contrario
-     */
+    /** Consultor público del atributo encarcelado. */
     public boolean isEncarcelado(){
       return encarcelado;
     }
@@ -428,7 +397,6 @@ public class Jugador implements Comparable<Jugador>{
     }
 
     /** El jugador construye una casa si es posible. */
-    /** @warning terminar. */
     boolean construirCasa (int ip){
         boolean result = false;
         boolean puedoEdificarCasa = false;
@@ -468,9 +436,7 @@ public class Jugador implements Comparable<Jugador>{
         return result;
     }
 
-    /** Determina si el jugador está en bancarrota.
-     * @return @retval true si se el saldo del jugador ha llegado a 0 o inferior o @false en caso contrario
-     */
+    /** Determina si el jugador está en bancarrota (saldo menor a 0). */
     boolean enBancarrota (){
       boolean cero = false;
 
@@ -481,9 +447,7 @@ public class Jugador implements Comparable<Jugador>{
     }
 
     /** Determina si una propiedad dada existe.
-     * @param ip Número de la casilla en la que se encuentra la propiedad
-     * @return @retval true si se la propiedad existe o @false en caso contrario
-     */
+     * @param ip Número de la casilla en la que se encuentra la propiedad */
     private boolean existeLaPropiedad (int ip){
       boolean existe = false;
       if(propiedades.contains(propiedades.get(ip)))  //E: esto está mal. No entiendo el método
@@ -504,8 +468,8 @@ public class Jugador implements Comparable<Jugador>{
         float precio = propiedad.getPrecioEdificar();
 
         if (puedoGastar(precio) && propiedad.getNumHoteles()<getHotelesMax() &&
-                propiedad.getNumCasas()>=getCasasPorHotel())
-                    puedoEdificarHotel = true;
+            propiedad.getNumCasas()>=getCasasPorHotel())
+                puedoEdificarHotel = true;
 
       return puedoEdificarHotel;
 
@@ -514,9 +478,7 @@ public class Jugador implements Comparable<Jugador>{
 
     }
 
-    /** Imprime por pantalla las características del jugador
-     * @warning por implementar
-     */
+    /** Imprime por pantalla las características del jugador. */
     @Override
     public String toString(){
       String s;
@@ -537,7 +499,6 @@ public class Jugador implements Comparable<Jugador>{
     }
 
     /** Compara los saldos de dos Jugadores.
-     * @param otro El jugador con el que se compara
      * @return diferencia Diferencia entre ambos saldos
      * @note Si es positivo, el saldo de J1 es superior al saldo del otro jugador y negativo en caso contrario.
      */

@@ -56,15 +56,16 @@ public class CivitasJuego {
         for (int i=1 ; i < numCasillas; i++)       // Carcel se añade automáticamente (en c3), y la salida ya está en 0
             switch (i) {
                 case 2:     // Sorpresa 1
-                    tablero.añadeCasilla ( new Casilla (mazo, "Sorpresa 1"));
+                    tablero.añadeCasilla (new CasillaSorpresa ("Sorpresa 1", mazo));
+//                    tablero.añadeCasilla ( new Casilla (mazo, "Sorpresa 1"));
                     break;
                     
                 case 4:     // Impuesto
-                    tablero.añadeCasilla(new Casilla (cantidad_impuesto, "Impuesto de " + cantidad_impuesto + "."));
+                    tablero.añadeCasilla(new CasillaImpuesto ("Impuesto de " + cantidad_impuesto + ".", cantidad_impuesto));
                     break;
                     
                 case 7:      // Sorpresa 2
-                    tablero.añadeCasilla (new Casilla (mazo, "Sorpresa 2"));
+                    tablero.añadeCasilla (new CasillaSorpresa ("Sorpresa 2", mazo));
                     break;
                     
                 case 8:      // Juez
@@ -72,7 +73,7 @@ public class CivitasJuego {
                     break;
                     
                 case 10:     // Sorpresa 3
-                    tablero.añadeCasilla (new Casilla (mazo, "Sorpresa 3"));
+                    tablero.añadeCasilla (new CasillaSorpresa ("Sorpresa 3", mazo));
                     break;
                     
                 case 12:     // Parking
@@ -83,7 +84,7 @@ public class CivitasJuego {
                     break;
                     
                 default:    // Calles: casillas 1, 5, 6, 9, 11-19
-                    tablero.añadeCasilla (new Casilla 
+                    tablero.añadeCasilla (new CasillaCalle
                            (new TituloPropiedad (calle + cont++, alquiler, factRev, hipBase, precioCompra, precioEdif)));
                     break;
             }

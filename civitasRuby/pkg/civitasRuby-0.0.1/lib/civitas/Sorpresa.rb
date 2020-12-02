@@ -5,46 +5,25 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
-require_relative './TipoSorpresa.rb'
-
 module Civitas
   class Sorpresa
 
     attr_reader :valor
     
-    
     def initialize (tipo, tab, val, txt, m)
-      @tipo = tipo
+      @tipo = tipo     # string para indicar el tipo de sorpresa y usarlo en el metodo 'informe'.
       @tablero = tab
       @valor = val
       @texto = txt
       @mazo = m
     end
-    
-    # Constructores
-    def self.newIrCarcel (tipo, tab)
-      objeto = Sorpresa.new(tipo, tab, -1, "", nil)
-    end
 
-    def self.newIrCasilla (tipo, tab, val, txt)
-      Sorpresa.new(tipo, tab, val, txt, nil)
-    end
-
-    def self.newEvitaCarcel (tipo, m)
-      Sorpresa.new(tipo, nil, -1,"", m)
-    end
-
-    def self.newOtras (tipo, val, txt)
-      Sorpresa.new(tipo, nil, val, txt,nil)
-    end
-
-    # Metodos
     def jugadorCorrecto (actual, todos)
       correcto = false
-
       if actual < todos.length && actual>=0
         correcto = true
       end
+      correcto
     end
     
     def aplicarAJugador (actual, todos)
@@ -52,23 +31,8 @@ module Civitas
         
         case @tipo
           
-        when Civitas::TipoSorpresa::IRCARCEL
-          aplicarAJugador_irCarcel(actual, todos)
-          
-        when Civitas::TipoSorpresa::IRCASILLA
-          aplicarAJugador_irACasilla(actual, todos)
-          
-        when Civitas::TipoSorpresa::PAGARCOBRAR
-          aplicarAJugador_pagarCobrar(actual, todos)
-          
         when Civitas::TipoSorpresa::PORCASAHOTEL
           aplicarAJugador_porCasaHotel(actual, todos)
-          
-        when Civitas::TipoSorpresa::PORJUGADOR
-          aplicarAJugador_porJugador(actual, todos)
-          
-        when Civitas::TipoSorpresa::SALIRCARCEL
-          aplicarAJugador_salirCarcel(actual, todos)
           
         end
       end
@@ -81,13 +45,6 @@ module Civitas
 
     
     private # ---------------------------------------------------------------- #
-
-    def init()
-      @valor = -1
-      @texto = ""
-      @mazo = nil
-      @tablero = nil
-    end
     
     def informe (actual, todos)
       if jugadorCorrecto(actual, todos)
@@ -95,85 +52,13 @@ module Civitas
       end
     end
 
-    def aplicarAJugador_irCarcel (actual, todos)
-      if jugadorCorrecto(actual, todos)
-        informe(actual, todos)
-        todos[actual].encarcelar(@tablero.numCasillaCarcel)
-        puts @tablero.numCasillaCarcel
-      end
-    end
-
-    def aplicarAJugador_irACasilla(actual, todos)
-      if jugadorCorrecto(actual, todos)
-        informe(actual, todos)
-
-        casilla = todos[actual].numCasillaActual
-        tirada = @tablero.calcularTirada(casilla, @valor)
-        nuevaPos = @tablero.nuevaPosicion(casilla, tirada)
-
-        todos[actual].moverACasilla(nuevaPos)
-        
-        @tablero.getCasilla(@valor).recibeJugador(actual, todos)
-      end
-    end
-
-    def aplicarAJugador_porJugador (actual, todos)
-      if jugadorCorrecto(actual, todos)
-        informe(actual, todos)
-        
-        i = 0
-        while i < todos.length
-          if i != actual
-            todos[i].paga(@valor)
-          end
-          i += 1
-        end
-
-          todos[actual].recibe(@valor)
-
-        end
-    end
-
-    def aplicarAJugador_pagarCobrar (actual, todos)
-      if jugadorCorrecto(actual, todos)
-        informe(actual, todos)
-        todos[actual].modificarSaldo(@valor)
-      end
-    end
-
-    def aplicarAJugador_salirCarcel (actual, todos)
-      if jugadorCorrecto(actual, todos)
-        informe(actual, todos)
-
-        tienen_salvoconducto = false
-        i = 0
-        while i < todos.length && !tienen_salvoconducto
-          tienen_salvoconducto = todos[i].tieneSalvoconducto
-          i += 1
-        end
-
-        if !tienen_salvoconducto
-          todos[actual].obtenerSalvoconducto(this)
-          salirDelMazo()
-        end
-
-      end
-    end
-
-    def aplicarAJugador_porCasaHotel (actual, todos)
-      if jugadorCorrecto(actual, todos)
-        informe(actual, todos)
-        todos[actual].modificarSaldo(@valor * todos[actual].cantidadCasasHoteles)
-      end
-    end
-
-    def self. salirDelMazo
+    def salirDelMazo
       if sorpresa == TipoSorpresa::SALIRCARCEL
         mazo.inhabilitarCartaEspecial(self)
       end
     end
 
-    def self. usada
+    def usada
       if sorpresa == TipoSorpresa::SALIRCARCEL
         mazo.habilitarCartaEspecial(self)
       end

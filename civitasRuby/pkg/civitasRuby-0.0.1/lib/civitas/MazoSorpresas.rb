@@ -5,7 +5,12 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
-require_relative "./Sorpresa.rb"
+require_relative 'sorpresa_ir_casilla'
+require_relative 'sorpresa_ir_carcel'
+require_relative 'sorpresa_por_jugador'
+require_relative 'sorpresa_por_casa_hotel'
+require_relative 'sorpresa_salir_carcel'
+require_relative 'sorpresa_pagar_cobrar'
 
 module Civitas
   class MazoSorpresas

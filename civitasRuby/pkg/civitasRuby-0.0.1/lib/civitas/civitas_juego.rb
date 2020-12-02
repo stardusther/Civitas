@@ -184,9 +184,6 @@ module Civitas
     end
     
     def inicializaTablero(mazo)
-      #@tablero = Tablero.new(@@CasillaCarcel)
-      
-      inicializarZona
       
       # Calles
       alquiler = 100
@@ -240,31 +237,31 @@ module Civitas
       ir_a_calle2 = 12
       
       # Ir calle 1
-      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_calle, " ¡Vas a la calle de la casilla #{ir_a_calle}!"))
+      @mazo.alMazo( SorpresaIrCasilla.new( tablero, ir_a_calle, " ¡Vas a la calle de la casilla #{ir_a_calle}!") )
       
       #Juez
-      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_casilla_juez,  "Vas al juez #{ir_casilla_juez}..."))
+      @mazo.alMazo( SorpresaIrCasilla.new( tablero, ir_casilla_juez,  "Vas al juez #{ir_casilla_juez}...") )
       
       # Ir calle 2
-      @mazo.alMazo(Sorpresa.newIrCasilla(TipoSorpresa::IRCASILLA, tablero, ir_a_calle, " ¡Vas a la calle de la casilla #{ir_a_calle}!"))
+      @mazo.alMazo( SorpresaIrCasilla.new( tablero, ir_a_calle2, " ¡Vas a la calle de la casilla #{ir_a_calle2}!") )
       
       # Salir carcel
-      @mazo.alMazo(Sorpresa.newEvitaCarcel(TipoSorpresa::SALIRCARCEL, @mazo))
+      @mazo.alMazo( SorpresaSalirCarcel.new(@mazo))
       
       # Ir carcel
-      @mazo.alMazo(Sorpresa.newIrCarcel(TipoSorpresa::IRCARCEL, tablero))
+      @mazo.alMazo( SorpresaIrCarcel.new(tablero))
       
       # Por jugador, positiva (rebibe) y negativa (paga)
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor, " ¡Recibes 200 civiMonedas de cada jugador!"))
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORJUGADOR, valor*(-1), " Tienes que pagarle 200 civiMonedas a cada jugador ..."))
+      @mazo.alMazo( SorpresaPorJugador.new( valor, " ¡Recibes 200 civiMonedas de cada jugador!"))
+      @mazo.alMazo( SorpresaPorJugador.new( valor*(-1), " Tienes que pagarle 200 civiMonedas a cada jugador ..."))
       
       # Por casa hotel positiva y negativa
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor, " ¡Recibes 200 civiMonedas por cada casa y hotel que tengas!"))
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PORCASAHOTEL, valor*(-1), " Tienes que pagar 200 civiMonedas por cada casa y hotel que tengas ..."))
+      @mazo.alMazo( SorpresaPorCasaHotel.new( valor, " ¡Recibes 200 civiMonedas por cada casa y hotel que tengas!"))
+      @mazo.alMazo( SorpresaPorCasaHotel.new( valor*(-1), " Tienes que pagar 200 civiMonedas por cada casa y hotel que tengas ..."))
     
       # Pagar cobrar positiva y negativa
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PAGARCOBRAR, valor, " ¡Cobras 200 civiMonedas!"))
-      @mazo.alMazo(Sorpresa.newOtras(TipoSorpresa::PAGARCOBRAR, valor*(-1), " Tienes que pagar 200 civiMonedas ..."))
+      @mazo.alMazo( SorpresaPagarCobrar.new( valor, " ¡Cobras 200 civiMonedas!"))
+      @mazo.alMazo( SorpresaPagarCobrar.new( valor*(-1), " Tienes que pagar 200 civiMonedas ..."))
       
     end
     

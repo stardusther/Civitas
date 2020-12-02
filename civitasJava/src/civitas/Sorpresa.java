@@ -113,7 +113,9 @@ public class Sorpresa{
     private void aplicarAJugador_conversion (int actual, ArrayList<Jugador> todos) {
          if (jugadorCorrecto(actual, todos)) {
             informe (actual, todos);
-            //JugadorEspeculador 
+            JugadorEspeculador nuevoJugador(todos.get(actual));         // Averiguar cómo se pone
+            todos.remove(actual);                                       // Se quita el jugador de esa posición
+            todos.add(actual, nuevoJugador);                            // Se pone el jugador convertido (?)
          }
      }
     /** Se encarcela la jugador.  */

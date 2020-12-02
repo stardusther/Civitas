@@ -12,5 +12,6 @@ public enum TipoSorpresa {
     PAGARCOBRAR, 
     PORCASAHOTEL, 
     PORJUGADOR, 
-    SALIRCARCEL
+    SALIRCARCEL,
+    CONVERSION
 }

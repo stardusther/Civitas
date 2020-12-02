@@ -83,6 +83,8 @@ public class Sorpresa{
                     break;
                 case SALIRCARCEL:
                     aplicarAJugador_salirCarcel (actual, todos);
+                case CONVERSION:
+                    aplicarAJugador_conversion (actual, todos);
             }
         }
     }
@@ -108,6 +110,12 @@ public class Sorpresa{
         }
     }
 
+    private void aplicarAJugador_conversion (int actual, ArrayList<Jugador> todos) {
+         if (jugadorCorrecto(actual, todos)) {
+            informe (actual, todos);
+            //JugadorEspeculador 
+         }
+     }
     /** Se encarcela la jugador.  */
     private void aplicarAJugador_irCarcel (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto(actual, todos)) {

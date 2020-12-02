@@ -83,8 +83,6 @@ public class Sorpresa{
                     break;
                 case SALIRCARCEL:
                     aplicarAJugador_salirCarcel (actual, todos);
-                case CONVERSION:
-                    aplicarAJugador_conversion (actual, todos);
             }
         }
     }
@@ -110,14 +108,6 @@ public class Sorpresa{
         }
     }
 
-    private void aplicarAJugador_conversion (int actual, ArrayList<Jugador> todos) {
-         if (jugadorCorrecto(actual, todos)) {
-            informe (actual, todos);
-            JugadorEspeculador nuevoJugador(todos.get(actual));         // Averiguar cómo se pone
-            todos.remove(actual);                                       // Se quita el jugador de esa posición
-            todos.add(actual, nuevoJugador);                            // Se pone el jugador convertido (?)
-         }
-     }
     /** Se encarcela la jugador.  */
     private void aplicarAJugador_irCarcel (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto(actual, todos)) {

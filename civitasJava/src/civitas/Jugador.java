@@ -16,17 +16,17 @@ public class Jugador implements Comparable<Jugador>{
     protected static int CasasMax = 4;                  // Número de casas máximo que se puede edificar por casilla
     protected static int CasasPorHotel = 4;             // Número de casas que se deben tener para poder intercambiarse por un hotel
     protected boolean encarcelado;                      // Determina si el jugador está encarcelado o no
-    protected static int HotelesMax = 4;                // Número de hoteles máximo que se puede edificar por casilla
+    protected int HotelesMax = 4;                       // Número de hoteles máximo que se puede edificar por casilla
     protected static float PasoPorSalida = 1000;        // Precio a cobrar por pasar por la casilla de salida
     protected static float PrecioLibertad = 200;        // Precio a pagar por salir de la cárcel
 
-    protected String nombre;                            // Nombre del Jugador
-    protected int numCasillaActual;                     // Número de la casilla en la que se encuentra el Jugador
-    protected Boolean puedeComprar;                     // Determina si el jugador está en condiciones de comprar una propiedad
+    private String nombre;                              // Nombre del Jugador
+    private int numCasillaActual;                       // Número de la casilla en la que se encuentra el Jugador
+    private Boolean puedeComprar;                       // Determina si el jugador está en condiciones de comprar una propiedad
     private float saldo;                                // Saldo del jugador
     private static float SaldoInicial = 7500;           // Saldo con el que comienzan todos los jugadores
-    protected Sorpresa salvoconducto;                   // Almacena el salvoconducto para salir de la cárcel
-    protected ArrayList<TituloPropiedad> propiedades;     // Conjunto de propiedades del jugador
+    private Sorpresa salvoconducto;                     // Almacena el salvoconducto para salir de la cárcel
+    private ArrayList<TituloPropiedad> propiedades;     // Conjunto de propiedades del jugador
     
     
     /** Constructor básico de la clase Jugador. */
@@ -97,7 +97,7 @@ public class Jugador implements Comparable<Jugador>{
 
 
     /** Elimina la referencia al salvoconducto porque ha sido usado. */
-    protected void perderSalvoconducto(){
+    private void perderSalvoconducto(){
       salvoconducto.usada();
       salvoconducto = null;
     }
@@ -107,7 +107,7 @@ public class Jugador implements Comparable<Jugador>{
      * @param cantidad Dinero a pagar
      * @return @retval true si el jugador ha pagado y @retval false si no es el caso
      */
-    protected boolean paga (float cantidad){
+    boolean paga (float cantidad){
       return modificarSaldo(cantidad * -1);
     }
 
@@ -152,7 +152,7 @@ public class Jugador implements Comparable<Jugador>{
      * @param cantidad Dinero que incrementa/disminuye el saldo
      * @return @retval true siempre
      */
-    protected boolean modificarSaldo (float cantidad){
+    boolean modificarSaldo (float cantidad){
       saldo += cantidad;
       Diario.getInstance().ocurreEvento ("Se ha modificado el saldo del jugador " + nombre);
       return true;
@@ -180,7 +180,7 @@ public class Jugador implements Comparable<Jugador>{
 
     /** Determina si el jugador tiene el saldo suficiente para pagar.
      * @return @retval true si se lo puede permitir o @false en caso contrario */
-    protected boolean puedoGastar (float precio){
+    private boolean puedoGastar (float precio){
       return ( !isEncarcelado() && getSaldo() >= precio);
     }
 
@@ -258,7 +258,7 @@ public class Jugador implements Comparable<Jugador>{
 
 
     /** Consultor privado del atributo CasasMax. */
-    protected int getCasasMax (){
+    private int getCasasMax (){
       return CasasMax;
     }
 
@@ -272,7 +272,7 @@ public class Jugador implements Comparable<Jugador>{
 
 
     /** Consultor privado del atributo HotelesMax. */
-    protected int getHotelesMax () {
+    private int getHotelesMax () {
       return HotelesMax;
     }
 

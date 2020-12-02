@@ -12,75 +12,24 @@ import java.util.ArrayList;
 
 public class Casilla {
 
-    private TipoCasilla tipo;                       // Tipo de casilla
-    private String nombre;                          // Nombre casilla
-
-    private int carcel;                             // Juez
-    private float importe;                          // Impuesto
-    private Sorpresa sorpresa;                      // Sopresa
-    private MazoSorpresas mazo;                     // Mazo si la casilla es una sorpresa
-    private TituloPropiedad tituloPropiedad;        // Calle
+    /** Cambiamos las visibilidades a protected para que 
+        la subclase pueda acceder a ellas. */
+    protected String nombre;                      // Nombre casilla
+    protected int carcel;                         // Juez
+    protected float importe;                      // Impuesto
+    protected Sorpresa sorpresa;                  // Sopresa
+    protected MazoSorpresas mazo;                 // Mazo si la casilla es una sorpresa
+    protected TituloPropiedad tituloPropiedad;    // Calle
     
     /** Constructor descanso. */
     Casilla (String nombre) {
         init();
         this.nombre = nombre;
-        tipo = TipoCasilla.DESCANSO;
-    }
-
-    /** Constructor calle. */
-    Casilla (TituloPropiedad titulo) {
-        init();
-        nombre = titulo.getNombre();
-        tituloPropiedad = titulo;
-        tipo = TipoCasilla.CALLE;
-    }
-
-    /** Constructor impuesto. */
-    Casilla (float cantidad, String nombre) {
-        init();
-        this.nombre = nombre;
-        importe = cantidad;
-        tipo = TipoCasilla.IMPUESTO;
-    }
-
-    /** Constructor juez. */
-    Casilla (int numCasillaCarcel, String nombre) {
-        init();
-        this.nombre = nombre;
-        carcel = numCasillaCarcel;
-        tipo = TipoCasilla.JUEZ;
-    }
-
-    /** Constructor sorpresa. */
-    Casilla (MazoSorpresas mazo, String nombre) {
-        init();
-        this.nombre = nombre;
-        this.mazo = mazo;
-        
-        tipo = TipoCasilla.SORPRESA;
     }
 
     /** Recibe a un jugador en la casilla. */
     void recibeJugador (int iactual, ArrayList<Jugador> todos) {
-        
-        switch (tipo){
-            case CALLE:
-                recibeJugador_calle(iactual, todos);
-                break;
-            case IMPUESTO:
-                recibeJugador_impuesto (iactual, todos);
-                break;
-            case JUEZ:
-                recibeJugador_juez (iactual, todos);
-                break;
-            case SORPRESA:
-                recibeJugador_sorpresa (iactual, todos);
-                break;
-            default:
-                informe (iactual, todos);      
-        }
-        
+        informe (iactual, todos);
     }
 
     // ---------------------------------------------------------------------- //
@@ -106,53 +55,18 @@ public class Casilla {
     }
 
     // ---------------------------------------------------------------------- //
-    // -------------------------- Met. privados ----------------------------- //
+    // -------------------- Met. privados/protegidos ------------------------ //
     // ---------------------------------------------------------------------- //
 
-
-    private void informe (int actual, ArrayList<Jugador> todos) {
-        String str = "El jugador " + todos.get(actual).getNombre() + " cae en casilla " + tipo;
+    protected void informe (int actual, ArrayList<Jugador> todos) {
+        String str = "El jugador " + todos.get(actual).getNombre() + " cae en casilla DESCANSO";
         Diario.getInstance().ocurreEvento(str);
-    }
-    
-    private void recibeJugador_calle (int actual, ArrayList<Jugador> todos) {
-        if (jugadorCorrecto (actual, todos)) {
-            informe (actual, todos);
-            Jugador jugador = todos.get(actual);
-            
-            if (!tituloPropiedad.tienePropietario()) 
-                jugador.puedeComprarCasilla();
-            else if (!tituloPropiedad.getHipotecado())
-                tituloPropiedad.tramitarAlquiler(jugador);
-        }
-    }
-
-    private void recibeJugador_impuesto (int actual, ArrayList<Jugador> todos) {
-        if (jugadorCorrecto (actual, todos)) {
-            informe (actual, todos);
-            todos.get(actual).pagaImpuesto(importe);
-        }
-    }
-
-    private void recibeJugador_juez (int actual, ArrayList<Jugador> todos) {
-        if (jugadorCorrecto (actual, todos)) {
-            informe (actual, todos);
-            todos.get(actual).encarcelar(carcel);
-        }
-    }
-
-    private void recibeJugador_sorpresa (int actual, ArrayList<Jugador> todos) {
-        if (jugadorCorrecto (actual, todos)) {
-            sorpresa = mazo.siguiente();
-            informe (actual, todos);
-            sorpresa.aplicarAJugador(actual, todos);
-        }
     }
 
 
     /** Este metodo hace una inicializacion de todos los atributos asumiendo que
      *  no se proporciona al constructor un valor para estos. */
-    private void init () {
+    protected void init () {
         mazo = null;
         //sorpresa = null;
         tituloPropiedad = null;

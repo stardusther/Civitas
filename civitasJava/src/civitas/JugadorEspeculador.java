@@ -58,7 +58,7 @@ public class JugadorEspeculador extends Jugador {
     public String toString(){
         String s;
 
-      s = "\n >> Jugador " + getNombre() + ". Saldo " + getSaldo() + "€. Propiedades: " + propiedades.size() +". Edificaciones:" + cantidadCasasHoteles();
+      s = "\n >> Jugador especulador " + getNombre() + ". Saldo " + getSaldo() + "€. Propiedades: " + propiedades.size() +". Edificaciones:" + cantidadCasasHoteles();
 
       s += "\n Casilla actual: " + numCasillaActual;
       if (puedeComprar)

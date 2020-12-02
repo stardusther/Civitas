@@ -34,7 +34,7 @@ public class CivitasJuego {
         indiceJugadorActual = Dado.getInstance().quienEmpieza (numJugadores);
 
         tablero = new Tablero(casillaCarcel);   
-        mazo = new MazoSorpresas (true);       // Lo inicializamos con el debug activado para esta practica (P3)
+        mazo = new MazoSorpresas (true);       // Lo inicializamos con el debug activado 
         
         inicializaMazoSorpresas (tablero);
         inicializaTablero (mazo);

@@ -28,13 +28,8 @@ module Civitas
     
     def aplicarAJugador (actual, todos)
       if jugadorCorrecto(actual, todos)
+        Diario.instance.ocurre_evento("\n ¡...! Se aplica sorpresa indefinida. No ocurrirá nada... \n\n")
         
-        case @tipo
-          
-        when Civitas::TipoSorpresa::PORCASAHOTEL
-          aplicarAJugador_porCasaHotel(actual, todos)
-          
-        end
       end
     end
     
@@ -49,18 +44,6 @@ module Civitas
     def informe (actual, todos)
       if jugadorCorrecto(actual, todos)
         Diario.instance.ocurre_evento("\n ¡Sorpresa! #{@texto} Se aplica #{@tipo} al jugador #{todos[actual].nombre}\n\n")
-      end
-    end
-
-    def salirDelMazo
-      if sorpresa == TipoSorpresa::SALIRCARCEL
-        mazo.inhabilitarCartaEspecial(self)
-      end
-    end
-
-    def usada
-      if sorpresa == TipoSorpresa::SALIRCARCEL
-        mazo.habilitarCartaEspecial(self)
       end
     end
 

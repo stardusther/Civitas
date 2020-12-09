@@ -13,10 +13,10 @@ import java.util.ArrayList;
 
 public class Jugador implements Comparable<Jugador>{
 
-    private static int CasasMax = 4;                    // Número de casas máximo que se puede edificar por casilla
+    protected static int CasasMax = 4;                  // Número de casas máximo que se puede edificar por casilla
     protected static int CasasPorHotel = 4;             // Número de casas que se deben tener para poder intercambiarse por un hotel
     protected boolean encarcelado;                      // Determina si el jugador está encarcelado o no
-    private static int HotelesMax = 4;                  // Número de hoteles máximo que se puede edificar por casilla
+    protected static int HotelesMax = 4;                // Número de hoteles máximo que se puede edificar por casilla
     protected static float PasoPorSalida = 1000;        // Precio a cobrar por pasar por la casilla de salida
     private static float PrecioLibertad = 200;          // Precio a pagar por salir de la cárcel
 

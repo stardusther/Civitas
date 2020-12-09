@@ -19,8 +19,8 @@ public class JugadorEspeculador extends Jugador {
         super(otro);
         fianza =_fianza;
         
-        for(int i = 0; i < propiedades.size(); i++)
-            propiedades.get(i).ActualizaPropietarioPorConversion(otro);
+        for(int i = 0; i < getPropiedades().size(); i++)
+            getPropiedades().get(i).ActualizaPropietarioPorConversion(otro);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class JugadorEspeculador extends Jugador {
                 paga(fianza);
                 Diario.getInstance().ocurreEvento("El jugador especulador " + getNombre()
                         + " se ha librado de la cárcel pagando la fianza");
-            } else if (!tieneSalvoconducto() && !puedoGastar(PrecioLibertad)) {
+            } else if (!tieneSalvoconducto() && !puedoGastar(getPrecioLibertad())) {
                 carcel = true;
             } else {
                 perderSalvoconducto();
@@ -57,16 +57,16 @@ public class JugadorEspeculador extends Jugador {
     public String toString(){
         String s;
 
-      s = "\n >> Jugador especulador " + getNombre() + ". Saldo " + getSaldo() + "€. Propiedades: " + propiedades.size() +". Edificaciones:" + cantidadCasasHoteles();
+      s = "\n >> Jugador especulador " + getNombre() + ". Saldo " + getSaldo() + "€. Propiedades: " + getPropiedades().size() +". Edificaciones:" + cantidadCasasHoteles();
 
-      s += "\n Casilla actual: " + numCasillaActual;
-      if (puedeComprar)
+      s += "\n Casilla actual: " + getNumCasillaActual();
+      if (getPuedeComprar())
           s+= " Puede comprar.";
 
-      if (encarcelado)
+      if (isEncarcelado())
           s+= " Está encarcelado.";
 
-      if (salvoconducto != null)
+      if (tieneSalvoconducto())
           s+= " Tiene salvoconducto";
 
       return s;
@@ -74,11 +74,11 @@ public class JugadorEspeculador extends Jugador {
     
     @Override
     protected int getCasasMax(){
-        return CasasMax*FactorEspeculador;
+        return getCasasMax()*FactorEspeculador;
     }
     
     @Override
     protected int getHotelesMax () {
-      return HotelesMax*FactorEspeculador;
+      return getHotelesMax()*FactorEspeculador;
     }
 }

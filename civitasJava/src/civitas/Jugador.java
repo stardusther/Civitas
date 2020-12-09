@@ -13,20 +13,20 @@ import java.util.ArrayList;
 
 public class Jugador implements Comparable<Jugador>{
 
-    protected static int CasasMax = 4;                  // Número de casas máximo que se puede edificar por casilla
+    private static int CasasMax = 4;                    // Número de casas máximo que se puede edificar por casilla
     protected static int CasasPorHotel = 4;             // Número de casas que se deben tener para poder intercambiarse por un hotel
     protected boolean encarcelado;                      // Determina si el jugador está encarcelado o no
-    protected static int HotelesMax = 4;                // Número de hoteles máximo que se puede edificar por casilla
+    private static int HotelesMax = 4;                  // Número de hoteles máximo que se puede edificar por casilla
     protected static float PasoPorSalida = 1000;        // Precio a cobrar por pasar por la casilla de salida
-    protected static float PrecioLibertad = 200;        // Precio a pagar por salir de la cárcel
+    private static float PrecioLibertad = 200;          // Precio a pagar por salir de la cárcel
 
     private String nombre;                              // Nombre del Jugador
-    protected int numCasillaActual;                     // Número de la casilla en la que se encuentra el Jugador
-    protected Boolean puedeComprar;                     // Determina si el jugador está en condiciones de comprar una propiedad
+    private int numCasillaActual;                       // Número de la casilla en la que se encuentra el Jugador
+    private Boolean puedeComprar;                       // Determina si el jugador está en condiciones de comprar una propiedad
     private float saldo;                                // Saldo del jugador
     private static float SaldoInicial = 7500;           // Saldo con el que comienzan todos los jugadores
-    protected SorpresaSalirCarcel salvoconducto;        // Almacena el salvoconducto para salir de la cárcel
-    protected ArrayList<TituloPropiedad> propiedades;   // Conjunto de propiedades del jugador
+    private SorpresaSalirCarcel salvoconducto;          // Almacena el salvoconducto para salir de la cárcel
+    private ArrayList<TituloPropiedad> propiedades;     // Conjunto de propiedades del jugador
     
     
     /** Constructor básico de la clase Jugador. */
@@ -284,13 +284,13 @@ public class Jugador implements Comparable<Jugador>{
 
 
     /** Consultor del atributo numCasillaActual.  */
-    int getNumCasillaActual (){
+    protected int getNumCasillaActual (){
       return numCasillaActual;
     }
 
 
     /** Consultor privado del atributo PrecioLibertad.  */
-    private float getPrecioLibertad (){
+    protected float getPrecioLibertad (){
       return PrecioLibertad;
     }
 
@@ -324,7 +324,7 @@ public class Jugador implements Comparable<Jugador>{
 
 
     /** Consultor del atributo puedeComprar. */
-    boolean getPuedeComprar(){
+    protected boolean getPuedeComprar(){
       return puedeComprar;
     }
 

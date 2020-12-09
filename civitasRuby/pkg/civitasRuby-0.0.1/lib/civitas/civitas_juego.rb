@@ -199,7 +199,7 @@ module Civitas
       for i in 1..@@NumCasillas-1 
         case i
           
-        when 2 # Sorpresa 1
+        when 1 # Sorpresa 1
           @tablero.añadeCasilla(Casilla.newSorpresa(@mazo, "Sorpresa 1"))
           
         when 4 # Impuesto
@@ -235,6 +235,9 @@ module Civitas
       ir_casilla_juez = 8
       ir_a_calle = 9
       ir_a_calle2 = 12
+      
+      #Sorpresa especulador
+      @mazo.alMazo( SorpresaEspeculador.new(200))
       
       # Ir calle 1
       @mazo.alMazo( SorpresaIrCasilla.new( tablero, ir_a_calle, " ¡Vas a la calle de la casilla #{ir_a_calle}!") )

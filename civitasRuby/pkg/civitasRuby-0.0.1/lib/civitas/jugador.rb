@@ -14,12 +14,14 @@ module Civitas
 
 class Jugador
   
-  @@CasasMax = 4
   @@CasasPorHotel = 4
-  @@HotelesMax = 4
   @@PasoPorSalida = 1000
   @@PrecioLibertad = 200
-  @@SaldoInicial = 7500
+  
+  # Atributos de instancia de clase (JugadorEspeculador)
+  @SaldoInicial = 7500
+  @CasasMax = 4
+  @HotelesMax = 4
   
   attr_reader :numCasillaActual, :CasasMax, :CasasPorHotel, :HotelesMax , :PrecioLibertad, :PasoPorSalida , :SaldoInicial, :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida, :numCasillaActual
 
@@ -28,8 +30,12 @@ class Jugador
   end
   
   def initialize (nombre)
+    @SaldoInicial = 7500 # Arriba la iniacializacion no funcaaAaAAaA
+    @CasasMax = 4
+    @HotelesMax = 4
+    
     @nombre = nombre
-    @saldo = @@SaldoInicial
+    @saldo = @SaldoInicial
     @puedeComprar = true
     @encarcelado = false
     @numCasillaActual = 0
@@ -39,13 +45,15 @@ class Jugador
   end
   
   def self. new_por_copia (otro)
-    @nombre = otro.getNombre()
-    @saldo = otro.getSaldo()
-    @encarcelado = otro.isEncarcelado()
-    @puedeComprar = otro.getPuedeComprar()
+    Jugador.new(otro.nombre)
+    #@nombre = otro.getNombre()
+    @saldo = otro.saldo
+    @encarcelado = otro.isEncarcelado
+    @puedeComprar = otro.puedeComprar
     @numCasillaActual = otro.numCasillaActual
     
-    @propiedades = otro.getPropiedades()
+    @propiedades = otro.propiedades
+    self
   end
   
   def compare_to(otro)
@@ -309,7 +317,7 @@ class Jugador
   def to_s()
     
     str = " >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{cantidadCasasHoteles}. "
-    str = str + "\n Casilla actual: #{@numCasillaActual}."
+    str = str + "\n    Casilla actual: #{@numCasillaActual}."
     
     if @puedeComprar
       str = str + " Puede comprar."

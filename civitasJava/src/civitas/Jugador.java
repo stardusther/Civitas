@@ -16,17 +16,17 @@ public class Jugador implements Comparable<Jugador>{
     protected static int CasasMax = 4;                  // Número de casas máximo que se puede edificar por casilla
     protected static int CasasPorHotel = 4;             // Número de casas que se deben tener para poder intercambiarse por un hotel
     protected boolean encarcelado;                      // Determina si el jugador está encarcelado o no
-    protected int HotelesMax = 4;                       // Número de hoteles máximo que se puede edificar por casilla
+    protected static int HotelesMax = 4;                // Número de hoteles máximo que se puede edificar por casilla
     protected static float PasoPorSalida = 1000;        // Precio a cobrar por pasar por la casilla de salida
     protected static float PrecioLibertad = 200;        // Precio a pagar por salir de la cárcel
 
     private String nombre;                              // Nombre del Jugador
-    private int numCasillaActual;                       // Número de la casilla en la que se encuentra el Jugador
-    private Boolean puedeComprar;                       // Determina si el jugador está en condiciones de comprar una propiedad
+    protected int numCasillaActual;                     // Número de la casilla en la que se encuentra el Jugador
+    protected Boolean puedeComprar;                     // Determina si el jugador está en condiciones de comprar una propiedad
     private float saldo;                                // Saldo del jugador
     private static float SaldoInicial = 7500;           // Saldo con el que comienzan todos los jugadores
-    private SorpresaSalirCarcel salvoconducto;          // Almacena el salvoconducto para salir de la cárcel
-    private ArrayList<TituloPropiedad> propiedades;     // Conjunto de propiedades del jugador
+    protected SorpresaSalirCarcel salvoconducto;        // Almacena el salvoconducto para salir de la cárcel
+    protected ArrayList<TituloPropiedad> propiedades;   // Conjunto de propiedades del jugador
     
     
     /** Constructor básico de la clase Jugador. */
@@ -97,7 +97,7 @@ public class Jugador implements Comparable<Jugador>{
 
 
     /** Elimina la referencia al salvoconducto porque ha sido usado. */
-    private void perderSalvoconducto(){
+    protected void perderSalvoconducto(){
       salvoconducto.usada();
       salvoconducto = null;
     }
@@ -180,7 +180,7 @@ public class Jugador implements Comparable<Jugador>{
 
     /** Determina si el jugador tiene el saldo suficiente para pagar.
      * @return @retval true si se lo puede permitir o @false en caso contrario */
-    private boolean puedoGastar (float precio){
+    protected boolean puedoGastar (float precio){
       return ( !isEncarcelado() && getSaldo() >= precio);
     }
 
@@ -257,8 +257,8 @@ public class Jugador implements Comparable<Jugador>{
     // ---------------------------- Consultores ----------------------------- //
 
 
-    /** Consultor privado del atributo CasasMax. */
-    private int getCasasMax (){
+    /** Consultor protegido del atributo CasasMax. */
+    protected int getCasasMax (){
       return CasasMax;
     }
 
@@ -271,8 +271,8 @@ public class Jugador implements Comparable<Jugador>{
     }
 
 
-    /** Consultor privado del atributo HotelesMax. */
-    private int getHotelesMax () {
+    /** Consultor protegido del atributo HotelesMax. */
+    protected int getHotelesMax () {
       return HotelesMax;
     }
 

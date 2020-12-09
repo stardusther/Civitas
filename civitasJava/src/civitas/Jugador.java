@@ -25,7 +25,7 @@ public class Jugador implements Comparable<Jugador>{
     private Boolean puedeComprar;                       // Determina si el jugador está en condiciones de comprar una propiedad
     private float saldo;                                // Saldo del jugador
     private static float SaldoInicial = 7500;           // Saldo con el que comienzan todos los jugadores
-    private Sorpresa salvoconducto;                     // Almacena el salvoconducto para salir de la cárcel
+    private SorpresaSalirCarcel salvoconducto;          // Almacena el salvoconducto para salir de la cárcel
     private ArrayList<TituloPropiedad> propiedades;     // Conjunto de propiedades del jugador
     
     
@@ -87,7 +87,7 @@ public class Jugador implements Comparable<Jugador>{
     /** Guarda la referencia al parámetro en el atributo salvoconducto si el jugador no está en la cárcel.
      * @return @retval true si el jugador ha obtenido el salvoconducto y @retval false si no es el caso
      */
-    boolean obtenerSalvoconducto (Sorpresa s){
+    boolean obtenerSalvoconducto (SorpresaSalirCarcel s){
       boolean obtiene = !isEncarcelado();
       if (obtiene)
           salvoconducto = s;

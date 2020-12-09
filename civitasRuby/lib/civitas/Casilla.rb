@@ -33,13 +33,13 @@ module Civitas
     def self.newSorpresa (mazo, n)
       new(n, nil, -1, -1, mazo, nil, Civitas::TipoCasilla::SORPRESA)
     end
+    
+    # Metodos ---------------------------------------------------------------- #
 
     def jugadorCorrecto(actual, todos)
       actual < todos.length
     end
 
-    # Metodos ---------------------------------------------------------------- #
-    
     def recibeJugador(actual, todos)
       case @tipo
       

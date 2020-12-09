@@ -170,7 +170,7 @@ class TituloPropiedad
     @propietario != nil
   end
   
-  private # --------------------------------------------------------
+  private # ------------------------------------------------------------------ #
   
   def esEsteElPropietario (jugador)
     @propietario == jugador

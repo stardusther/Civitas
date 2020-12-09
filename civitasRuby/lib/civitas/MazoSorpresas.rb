@@ -15,6 +15,7 @@ require_relative 'sorpresa_pagar_cobrar'
 module Civitas
   class MazoSorpresas
 
+    # wat porque el constructor en privado ??
     private # -----------------------------------------------------------
     # Constructor
     def initialize (debug=false)

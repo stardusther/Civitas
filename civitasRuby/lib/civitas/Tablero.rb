@@ -82,7 +82,8 @@ module Civitas
       result
     end
 
-    private
+    private # ---------------------------------------------------------------- #
+    
     def correcto_tablero()
       if @casillas.length > @numCasillaCarcel && @tieneJuez
         correct = true

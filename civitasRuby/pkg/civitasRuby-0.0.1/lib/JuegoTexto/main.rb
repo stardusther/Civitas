@@ -3,7 +3,6 @@
 require_relative "./controlador.rb"
 
 # require "pry"
-
 #binding.pry
 
 

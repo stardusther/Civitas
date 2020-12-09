@@ -6,7 +6,6 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
-#encoding:utf-8
 require_relative '../civitas/Operaciones_juego.rb'
 require_relative '../civitas/respuestas.rb'
 require 'io/console'

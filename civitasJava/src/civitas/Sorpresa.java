@@ -25,15 +25,6 @@ public class Sorpresa{
         init();
     }
 
-    /** Constructor para el resto de sorpresas (PORJUGADOR, PORCASAHOTEL, PAGARCOBRAR). */
-    Sorpresa (TipoSorpresa tipo, int valor, String texto) {
-        init();
-        sorpresa = tipo;
-        this.texto = texto;
-        this.valor = valor;
-    }
-
-
     /** Llama a aplicarJugador<tipo_de_sorpresa> en funcion del tipo de atributo sorpresa que se trate.
      * @note Todos los métodos aplicarJugador<...> revisan si en jugador indicado es correcto.
      * En caso contrario no se lleva a cabo ninguna acción.
@@ -73,7 +64,7 @@ public class Sorpresa{
 
     @Override
     public String toString () {
-        String str = " >> Sorpresa: " + sorpresa + ". Valor: " + valor + ". ";
+        String str = " >> Sorpresa: " + tipo + ". Valor: " + valor + ". ";
         if (texto != "")
             str += texto + ". " ;
         if (tablero != null)

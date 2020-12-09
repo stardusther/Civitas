@@ -57,7 +57,6 @@ public class CivitasJuego {
             switch (i) {
                 case 2:     // Sorpresa 1
                     tablero.añadeCasilla (new CasillaSorpresa ("Sorpresa 1", mazo));
-//                    tablero.añadeCasilla ( new Casilla (mazo, "Sorpresa 1"));
                     break;
                     
                 case 4:     // Impuesto
@@ -97,7 +96,6 @@ public class CivitasJuego {
         int ir_casilla_juez = 8;  
         int ir_a_calle = 9;
         int ir_a_calle2 = 12;
-        
         
         // Llevar a calle
         mazo.alMazo (new SorpresaIrCasilla (tablero, ir_a_calle, " ¡Vas a la calle de la casilla " + ir_a_calle +"!"));

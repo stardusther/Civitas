@@ -12,7 +12,7 @@ public class SorpresaIrCasilla extends Sorpresa {
     /** Constructor, el valor corresponde a la casilla
      *  a la que se envía al jugador. */
     SorpresaIrCasilla (Tablero tab, int valor, String texto) {
-        super("* Ir casilla *");
+        super("*Ir casilla*");
         tablero = tab;
         this.valor = valor;
         this.texto = texto;

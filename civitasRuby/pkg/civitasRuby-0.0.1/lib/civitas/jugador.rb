@@ -14,22 +14,32 @@ module Civitas
 
 class Jugador
   
-  @@CasasMax = 4
   @@CasasPorHotel = 4
-  @@HotelesMax = 4
   @@PasoPorSalida = 1000
   @@PrecioLibertad = 200
-  @@SaldoInicial = 7500
   
-  attr_reader :numCasillaActual, :CasasMax, :CasasPorHotel, :HotelesMax , :PrecioLibertad, :PasoPorSalida , :SaldoInicial, :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida, :numCasillaActual
+  # Atributos de instancia de clase (JugadorEspeculador)
+  @SaldoInicial = 7500
+  @CasasMax = 4
+  @HotelesMax = 4
+  
+  attr_reader :numCasillaActual, :PrecioLibertad, :PasoPorSalida , :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida, :numCasillaActual
 
   def get_num_casilla_actual
     numero = @numCasillaActual
   end
   
+  def CasasPorHotel
+    @@CasasPorHotel
+  end
+  
+  public
+  
   def initialize (nombre)
+    @SaldoInicial = 7500 # Arriba la iniacializacion no funcaaAaAAaA
+    
     @nombre = nombre
-    @saldo = @@SaldoInicial
+    @saldo = @SaldoInicial
     @puedeComprar = true
     @encarcelado = false
     @numCasillaActual = 0
@@ -39,13 +49,15 @@ class Jugador
   end
   
   def self. new_por_copia (otro)
-    @nombre = otro.getNombre()
-    @saldo = otro.getSaldo()
-    @encarcelado = otro.isEncarcelado()
-    @puedeComprar = otro.getPuedeComprar()
+    Jugador.new(otro.nombre)
+    @nombre = otro.nombre
+    @saldo = otro.saldo
+    @encarcelado = otro.isEncarcelado
+    @puedeComprar = otro.puedeComprar
     @numCasillaActual = otro.numCasillaActual
     
-    @propiedades = otro.getPropiedades()
+    @propiedades = otro.propiedades
+    self
   end
   
   def compare_to(otro)
@@ -107,7 +119,7 @@ class Jugador
   def modificarSaldo (cantidad)
     saldo_anterior = @saldo
     @saldo = @saldo + cantidad
-    Diario.instance.ocurre_evento ("Se ha modificado el saldo de #{@nombre} (de #{saldo_anterior} a #{@saldo})")
+    Diario.instance.ocurre_evento ("Se ha modificado el saldo de #{@nombre} (#{cantidad}, de #{saldo_anterior} a #{@saldo})")
     true
   end
   
@@ -289,7 +301,7 @@ class Jugador
   
   
   def puedoEdificarCasa (propiedad)
-    puedo = puedoGastar(propiedad.precioEdificar) && propiedad.numCasas<@@CasasMax
+    puedo = puedoGastar(propiedad.precioEdificar) && propiedad.numCasas<Jugador.CasasMax
   end
   
   
@@ -297,7 +309,7 @@ class Jugador
     puedo = false
     precio = propiedad.precioEdificar
     
-    if puedoGastar(precio) && propiedad.numHoteles<@@HotelesMax &&
+    if puedoGastar(precio) && propiedad.numHoteles<Jugador.HotelesMax &&
        propiedad.numCasas>=@@CasasPorHotel
      puedo = true
     end
@@ -309,7 +321,7 @@ class Jugador
   def to_s()
     
     str = " >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{cantidadCasasHoteles}. "
-    str = str + "\n Casilla actual: #{@numCasillaActual}."
+    str = str + "\n    Casilla actual: #{@numCasillaActual}."
     
     if @puedeComprar
       str = str + " Puede comprar."
@@ -321,7 +333,10 @@ class Jugador
       str = str + " Tiene salvoconducto."
     end
     
-    puts str
+    str = str + "\n"
+    
+    str
+    #puts str
   end
   
   
@@ -339,7 +354,15 @@ class Jugador
     def puedeSalirCarcelPagando()
       @saldo >= @@PrecioLibertad
     end
-
+    
+    def self. CasasMax
+      @CasasMax
+    end
+  
+    def self. HotelesMax
+      @HotelesMax
+    end
+    
   protected # ---------------------------------------------------------------- #
   
   def debeSerEncarcelado ()

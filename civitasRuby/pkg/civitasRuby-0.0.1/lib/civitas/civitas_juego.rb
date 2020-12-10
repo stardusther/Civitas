@@ -236,6 +236,9 @@ module Civitas
       ir_a_calle = 9
       ir_a_calle2 = 12
       
+      #Sorpresa especulador
+      @mazo.alMazo( SorpresaEspeculador.new(200))
+      
       # Ir calle 1
       @mazo.alMazo( SorpresaIrCasilla.new( tablero, ir_a_calle, " ¡Vas a la calle de la casilla #{ir_a_calle}!") )
       

@@ -27,7 +27,7 @@ class TituloPropiedad
     @numCasas = 0
     @numHoteles = 0
     @factorInteresesHipoteca = 1.1
-    @get_importeHipoteca = 0
+    @importeHipoteca = 0
   end
 
   def actualizaPropietarioPorConversion (jugador)
@@ -42,6 +42,7 @@ class TituloPropiedad
       jugador.paga(getImporteCancelarHipoteca)
       @hipotecado = false
       result = true
+      @importeHipoteca = 0
     end
     
     result
@@ -54,7 +55,7 @@ class TituloPropiedad
   def derruirCasas (n, jugador)
     correcto = true
     
-    if n>= @numCasas && esEsteElPropietario(jugador)
+    if n<= @numCasas && esEsteElPropietario(jugador)
       @numCasas = @numCasas - n
     else
       correcto = false
@@ -129,8 +130,10 @@ class TituloPropiedad
   end
   
   # Cálculo según las reglas (pag 3 pdf CivitasElJuego.pdf)
+  # Si se ha hipotecado, importeHipoteca != nil, si no se da el
+  # caso, el importe a pagar 0 porque no se ha hipotecado
   def getImporteCancelarHipoteca
-    @factorInteresesHipoteca * @importeHipoteca
+      @factorInteresesHipoteca * @importeHipoteca  
   end
   
   def getPrecioAlquiler
@@ -155,12 +158,12 @@ class TituloPropiedad
       >> Precio compra: #{@precioCompra}
       >> Precio edificar: #{@precioEdificar}
       >> Num casas: #{@numCasas}
-      >> Num hoteles: #{@numHoteles}"
+      >> Num hoteles: #{@numHoteles}\n"
     
     if (@propietario)
-      str = str + " >> Propietario: #{@propietario}"
+      str = str + "\t>> Propietario: #{@propietario.nombre}\n"
     else
-      str = str + " >> Titulo vacío. "
+      str = str + " >> Titulo vacío. \n"
     end
     
     str

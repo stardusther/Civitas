@@ -14,7 +14,7 @@ module Civitas
 
   class Vista_textual
     
-    @@Separador = "===================================="
+    @@Separador = "========================================"
     
     attr_reader :iGestion, :iPropiedad
     

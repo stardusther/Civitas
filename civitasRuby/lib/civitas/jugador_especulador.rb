@@ -12,19 +12,17 @@ class JugadorEspeculador < Jugador
   
   @@FactorEspeculador = 2 # Atributo de clase
   
+  @CasasMax = 8
+  @HotelesMax = 8
   
     
   def initialize (jugador, fianza)
     super(jugador.nombre)
     @fianza = fianza
-    nuevoEspeculador(jugador, fianza)
+    nuevoEspeculador(jugador)
   end
   
-  
-  def nuevoEspeculador (jugador, fianza) 
-    @CasasMax = 8
-    @HotelesMax = 8
-    
+  def nuevoEspeculador (jugador) 
     @saldo = jugador.saldo
     @encarcelado = jugador.isEncarcelado
     @puedeComprar = jugador.puedeComprar
@@ -35,12 +33,30 @@ class JugadorEspeculador < Jugador
     @propiedades.each do |propiedad| 
       propiedad.actualizaPropietarioPorConversion(self)
     end
+    
+  end
+  
+  def puedoEdificarCasa (propiedad)
+    puedo = puedoGastar(propiedad.precioEdificar) && propiedad.numCasas<JugadorEspeculador.CasasMax
+  end
+  
+  
+  def puedoEdificarHotel (propiedad)
+    puedo = false
+    precio = propiedad.precioEdificar
+    
+    if puedoGastar(precio) && propiedad.numHoteles<JugadorEspeculador.HotelesMax &&
+       propiedad.numCasas>=@@CasasPorHotel
+     puedo = true
+    end
+    
+    puedo
   end
   
   def to_s
      str = " >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{cantidadCasasHoteles}. "
     str = str + "\n    Casilla actual: #{@numCasillaActual}."
-    str = str + "\n    Especulador"
+    str = str + "\n    Especulador."
     
     if @puedeComprar
       str = str + " Puede comprar."

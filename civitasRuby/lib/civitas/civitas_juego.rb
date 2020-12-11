@@ -199,9 +199,6 @@ module Civitas
       for i in 1..@@NumCasillas-1 
         case i
           
-        when 1 # Sorpresa 1
-          @tablero.añadeCasilla(Casilla.newSorpresa(@mazo, "Sorpresa 1"))
-          
         when 2
           @tablero.añadeCasilla(Casilla.newSorpresa(@mazo, "Sorpresa 1"))
           

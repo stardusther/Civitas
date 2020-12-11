@@ -200,27 +200,27 @@ module Civitas
         case i
           
         when 2
-          @tablero.añadeCasilla(Casilla.newSorpresa(@mazo, "Sorpresa 1"))
+          @tablero.añadeCasilla(CasillaSorpresa.new(@mazo, "Sorpresa 1"))
           
         when 4 # Impuesto
-          @tablero.añadeCasilla(Casilla.newImpuesto( cantidad_impuesto, "Impuesto #{cantidad_impuesto}"))
+          @tablero.añadeCasilla(CasillaImpuesto.new( cantidad_impuesto, "Impuesto #{cantidad_impuesto}"))
         
         when 7 # Sorpresa 2
-          @tablero.añadeCasilla(Casilla.newSorpresa(@mazo, "Sorpresa 2"))
+          @tablero.añadeCasilla(CasillaSorpresa.new(@mazo, "Sorpresa 2"))
           
         when 8 # Juez
           @tablero.añadeJuez
           
         when 10 # Sorpresa 3
-          @tablero.añadeCasilla(Casilla.newSorpresa(@mazo, "Sorpresa 3"))
+          @tablero.añadeCasilla(CasillaSorpresa.new(@mazo, "Sorpresa 3"))
           
         when 12 # Parking
-          @tablero.añadeCasilla(Casilla.newDescanso("Parking"))
+          @tablero.añadeCasilla(Casilla.new("Parking"))
           
         when 3 # Carcel en 3, se añade automaticamente (si no lo ponemos se ejecuta añadir calle en else)
           
         else
-          @tablero.añadeCasilla(Casilla.newCalle(TituloPropiedad.new("Calle #{cont}", alquiler, factorRev, hipBase, precioCompra, precioEdif)))
+          @tablero.añadeCasilla(CasillaCalle.new(TituloPropiedad.new("Calle #{cont}", alquiler, factorRev, hipBase, precioCompra, precioEdif)))
           cont = cont+1
           
         end

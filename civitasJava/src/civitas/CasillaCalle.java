@@ -14,9 +14,9 @@ public class CasillaCalle extends Casilla {
     
     /** Constructor calle. */
     CasillaCalle (TituloPropiedad titulo) {
-        super (titulo.getNombre());  // Nombre de la casilla
-        //cImpuesto.nombre = nombre;     // Nombre de la casilla
-        tituloPropiedad = titulo;  // Impuesto a aplicar
+        super (titulo.getNombre());         // Nombre de la casilla
+        //cImpuesto.nombre = nombre;        // Nombre de la casilla
+        tituloPropiedad = titulo;           // Impuesto a aplicar
     }
     
     /** Recibe a un jugador en la casilla, gestionando la operación 

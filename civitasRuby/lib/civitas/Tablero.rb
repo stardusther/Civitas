@@ -81,6 +81,16 @@ module Civitas
       
       result
     end
+    
+    def to_s
+      str = ""
+      
+      for i in 0..@casillas.length-1
+        str = str + "#{@casillas[i].to_s} | "
+      end
+      
+      str
+    end
 
     private # ---------------------------------------------------------------- #
     

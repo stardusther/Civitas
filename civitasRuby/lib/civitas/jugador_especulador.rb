@@ -11,16 +11,14 @@ module Civitas
 class JugadorEspeculador < Jugador
   
   @@FactorEspeculador = 2 # Atributo de clase
-  
-  @CasasMax = 8
-  @HotelesMax = 8
-  
     
+  
   def initialize (jugador, fianza)
     super(jugador.nombre)
     @fianza = fianza
     nuevoEspeculador(jugador)
   end
+  
   
   def nuevoEspeculador (jugador) 
     @saldo = jugador.saldo
@@ -33,25 +31,17 @@ class JugadorEspeculador < Jugador
     @propiedades.each do |propiedad| 
       propiedad.actualizaPropietarioPorConversion(self)
     end
-    
-  end
-  
-  def puedoEdificarCasa (propiedad)
-    puedo = puedoGastar(propiedad.precioEdificar) && propiedad.numCasas<JugadorEspeculador.CasasMax
   end
   
   
-  def puedoEdificarHotel (propiedad)
-    puedo = false
-    precio = propiedad.precioEdificar
-    
-    if puedoGastar(precio) && propiedad.numHoteles<JugadorEspeculador.HotelesMax &&
-       propiedad.numCasas>=@@CasasPorHotel
-     puedo = true
+  def pagaImpuesto(cantidad)
+    if (isEncarcelado)
+      false
+    else
+      paga(cantidad/@@FactorEspeculador)
     end
-    
-    puedo
   end
+  
   
   def to_s
      str = " >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{cantidadCasasHoteles}. "
@@ -68,7 +58,44 @@ class JugadorEspeculador < Jugador
       str = str + " Tiene salvoconducto."
     end
     
-    puts str
+    str = str + "\n"
+    
+    str
+  end
+  
+  private # ------------------------------------------------------------------ #
+  
+  def casasMax
+    @CasasMax*@@FactorEspeculador
+  end
+  
+  def hotelesMax
+    @HotelesMax*@@FactorEspeculador
+  end
+  
+  protected # ---------------------------------------------------------------- #
+  
+   def debeSerEncarcelado ()
+    carcel = false
+    
+      if !isEncarcelado()
+        
+        if !tieneSalvoconducto       # 1. Si no tiene salvoconducto
+          
+          if puedoGastar(@fianza)    #     1.2 Puede pagar fianza y no es encarcelado
+            paga(@fianza)
+            Diario.instance.ocurre_evento ("El jugador especulador #{@nombre} se ha librado de la carcel pagando la fianza (#{@fianza}€)")
+          else                       #     1.3. Se encarcela
+            carcel = true
+          end
+          
+         else                        # 2. Pierde el salvoconducto y no es encarcelado
+          perderSalvoconducto()
+          Diario.instance.ocurre_evento ("El jugador #{@nombre} se ha librado de la cárcel por tener un salvoconducto")
+        end
+      end
+      
+    carcel
   end
   
 end

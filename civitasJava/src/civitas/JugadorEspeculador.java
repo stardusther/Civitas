@@ -28,13 +28,18 @@ public class JugadorEspeculador extends Jugador {
         boolean carcel = false;
 
         if (!isEncarcelado()) {
-            if (!tieneSalvoconducto() && puedoGastar(fianza)) {
-                paga(fianza);
-                Diario.getInstance().ocurreEvento("El jugador especulador " + getNombre()
-                        + " se ha librado de la cárcel pagando la fianza");
-            } else if (!tieneSalvoconducto() && !puedoGastar(getPrecioLibertad())) {
-                carcel = true;
-            } else {
+            
+            if (!tieneSalvoconducto())      // 1. Si no tiene salvoconducto
+                
+                if (puedoGastar(fianza)){   // 1.2. Puede pagar fianza
+                    paga(fianza);
+                    Diario.getInstance().ocurreEvento("El jugador especulador " + getNombre()
+                            + " se ha librado de la cárcel pagando la fianza");
+                    
+                } else carcel = true;       // 1.3. Si no puede pagar fianza, se encarcela
+                    
+                
+            else {                          // 2. Si tiene salvoconducto, lo pierde y no es encarcelado
                 perderSalvoconducto();
                 Diario.getInstance().ocurreEvento("El jugador especulador " + getNombre()
                         + " se ha librado de la cárcel por tener un salvoconducto");

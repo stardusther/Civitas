@@ -20,23 +20,25 @@ class Jugador
   
   # Atributos de instancia de clase (JugadorEspeculador)
   @SaldoInicial = 7500
-  @CasasMax = 4
-  @HotelesMax = 4
+  @CasasMax
+  @HotelesMax
   
   attr_reader :numCasillaActual, :PrecioLibertad, :PasoPorSalida , :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida, :numCasillaActual
 
+  # Revisar para quitarlo (creo que no se usa, revisar)
   def get_num_casilla_actual
     numero = @numCasillaActual
   end
   
+  # Revisar para quitarlo (creo que no se usa, revisar)
   def CasasPorHotel
     @@CasasPorHotel
   end
   
-  public
-  
   def initialize (nombre)
     @SaldoInicial = 7500 # Arriba la iniacializacion no funcaaAaAAaA
+    @CasasMax = 4
+    @HotelesMax = 4
     
     @nombre = nombre
     @saldo = @SaldoInicial
@@ -301,7 +303,7 @@ class Jugador
   
   
   def puedoEdificarCasa (propiedad)
-    puedo = puedoGastar(propiedad.precioEdificar) && propiedad.numCasas<Jugador.CasasMax
+    puedo = puedoGastar(propiedad.precioEdificar) && propiedad.numCasas<casasMax
   end
   
   
@@ -309,7 +311,7 @@ class Jugador
     puedo = false
     precio = propiedad.precioEdificar
     
-    if puedoGastar(precio) && propiedad.numHoteles<Jugador.HotelesMax &&
+    if puedoGastar(precio) && propiedad.numHoteles<hotelesMax &&
        propiedad.numCasas>=@@CasasPorHotel
      puedo = true
     end
@@ -355,11 +357,11 @@ class Jugador
       @saldo >= @@PrecioLibertad
     end
     
-    def self. CasasMax
+    def casasMax
       @CasasMax
     end
-  
-    def self. HotelesMax
+
+    def hotelesMax
       @HotelesMax
     end
     

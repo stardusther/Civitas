@@ -10,7 +10,10 @@ module Civitas
 class SorpresaIrCasilla < Sorpresa
   
   def initialize (tab, valor, texto)
-    super("*Ir casilla*", tab, -1, texto, nil)
+    if valor < 0
+      valor = 1
+    end
+    super("*Ir casilla*", tab, valor, texto, nil)
   end
   
   def aplicarAJugador (actual, todos)

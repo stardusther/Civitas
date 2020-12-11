@@ -5,9 +5,8 @@
 module Civitas
   class CasillaImpuesto < Casilla
     
-    def initialize(nombre, cantidad)
-      super(nombre)
-      @importe = cantidad
+    def initialize(cantidad, nombre)
+      super(nombre, nil, cantidad, -1, nil, nil)
     end
     
     def recibeJugador(actual, todos)

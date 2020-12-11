@@ -4,7 +4,6 @@ Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
-require_relative "./TipoCasilla.rb"
 require_relative "./Sorpresa.rb"
 
 module Civitas

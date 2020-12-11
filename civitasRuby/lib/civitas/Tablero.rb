@@ -20,7 +20,7 @@ module Civitas
       end
 
       @casillas = []                            # Creamos vector de casillas
-      @casillas.push(Casilla.new("Salida"))     # Se añade la salida al inicio
+      @casillas.push(Casilla.newDescanso("Salida"))     # Se añade la salida al inicio
 
       @porSalida = 0
       @tieneJuez = false
@@ -112,7 +112,7 @@ module Civitas
 
     def añadeCarcel ()
       if @casillas.length == @numCasillaCarcel
-        carcel = Casilla.new("Cárcel")
+        carcel = Casilla.newDescanso("Cárcel")
         @casillas.push(carcel)
       end
     end

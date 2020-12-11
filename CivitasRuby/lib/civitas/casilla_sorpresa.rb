@@ -5,9 +5,8 @@
 module Civitas
   class CasillaSorpresa < Casilla
     
-    def initialize(nombre, mazo)
-      super(nombre)
-      @mazo = mazo
+    def initialize(mazo, nombre)
+      super(nombre, nil, -1, -1, mazo, nil)
     end
     
     def recibeJugador(actual, todos)

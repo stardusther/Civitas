@@ -13,6 +13,11 @@ require_relative 'Tablero'
 require_relative 'MazoSorpresas'
 require_relative 'TituloPropiedad'
 
+require_relative 'casilla_calle'
+require_relative 'casilla_impuesto'
+require_relative 'casilla_juez'
+require_relative 'casilla_sorpresa'
+
 
 module Civitas
   class CivitasJuego
@@ -155,7 +160,7 @@ module Civitas
     def avanzaJugador()
       
       # Declaramos al jugador actual y su posicion
-      jugadorActual = getJugadorActual()
+      jugadorActual = getJugadorActual
       posicionActual = jugadorActual.numCasillaActual
       
       # Calculamos su nueva posicion tirando el dado  
@@ -200,27 +205,28 @@ module Civitas
         case i
           
         when 2
-          @tablero.añadeCasilla(Casilla.newSorpresa(@mazo, "Sorpresa 1"))
+          @tablero.añadeCasilla(CasillaSorpresa.new(mazo, "Sorpresa 1"))
           
         when 4 # Impuesto
-          @tablero.añadeCasilla(Casilla.newImpuesto( cantidad_impuesto, "Impuesto #{cantidad_impuesto}"))
+          @tablero.añadeCasilla(CasillaImpuesto.new( cantidad_impuesto, "Impuesto #{cantidad_impuesto}"))
         
         when 7 # Sorpresa 2
-          @tablero.añadeCasilla(Casilla.newSorpresa(@mazo, "Sorpresa 2"))
+          @tablero.añadeCasilla(CasillaSorpresa.new(mazo, "Sorpresa 2"))
           
         when 8 # Juez
           @tablero.añadeJuez
           
         when 10 # Sorpresa 3
-          @tablero.añadeCasilla(Casilla.newSorpresa(@mazo, "Sorpresa 3"))
+          @tablero.añadeCasilla(CasillaSorpresa.new(mazo, "Sorpresa 3"))
           
         when 12 # Parking
-          @tablero.añadeCasilla(Casilla.newDescanso("Parking"))
+          @tablero.añadeCasilla(Casilla.new("Parking"))
           
         when 3 # Carcel en 3, se añade automaticamente (si no lo ponemos se ejecuta añadir calle en else)
           
         else
-          @tablero.añadeCasilla(Casilla.newCalle(TituloPropiedad.new("Calle #{cont}", alquiler, factorRev, hipBase, precioCompra, precioEdif)))
+          titulo = TituloPropiedad.new("Calle #{cont}", alquiler, factorRev, hipBase, precioCompra, precioEdif) #para ver si me lo pilla
+          @tablero.añadeCasilla(CasillaCalle.new(titulo))
           cont = cont+1
           
         end
@@ -257,7 +263,7 @@ module Civitas
       # Ir carcel
       @mazo.alMazo( SorpresaIrCarcel.new(tablero))
       
-      # Por jugador, positiva (rebibe) y negativa (paga)
+      # Por jugador, positiva (recibe) y negativa (paga)
       @mazo.alMazo( SorpresaPorJugador.new( valor, " ¡Recibes 200 civiMonedas de cada jugador!"))
       @mazo.alMazo( SorpresaPorJugador.new( valor*(-1), " Tienes que pagarle 200 civiMonedas a cada jugador ..."))
       

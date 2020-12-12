@@ -4,34 +4,19 @@ Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
-require_relative "./TipoCasilla.rb"
-require_relative "./Sorpresa.rb"
 
 module Civitas
   class Casilla
 
     attr_reader :nombre, :tituloPropiedad, :carcel
-
-    # Constructores ---------------------------------------------------------- #
     
-    def self.newDescanso (n) 
-      Casilla.new(n, nil, -1, -1, nil, nil, TipoCasilla::DESCANSO)    
-    end
-
-    def self.newCalle (titulo)
-      new(titulo.nombre, titulo, -1, -1, nil, nil, Civitas::TipoCasilla::CALLE)
-    end
-
-    def self.newImpuesto (cantidad, n)
-      new(n, nil, cantidad, -1, nil, nil, Civitas::TipoCasilla::IMPUESTO)
-    end
-
-    def self.newJuez (numCasillaCarcel, n)
-      Casilla.new(n, nil, -1, numCasillaCarcel, nil, nil, Civitas::TipoCasilla::JUEZ)
-    end
-
-    def self.newSorpresa (mazo, n)
-      new(n, nil, -1, -1, mazo, nil, Civitas::TipoCasilla::SORPRESA)
+    def initialize(nombre)
+      @nombre = nombre
+      @tituloPropiedad = nil
+      @importe = nil
+      @Carcel = nil
+      @mazo = nil
+      @sorpresa = nil
     end
     
     # Metodos ---------------------------------------------------------------- #
@@ -39,92 +24,24 @@ module Civitas
     def jugadorCorrecto(actual, todos)
       actual < todos.length
     end
-
-    def recibeJugador(actual, todos)
-      case @tipo
-      
-      when Civitas::TipoCasilla::CALLE
-        recibeJugador_calle(actual, todos)
-      
-      when Civitas::TipoCasilla::IMPUESTO
-        recibeJugador_impuesto(actual, todos)
-      
-      when Civitas::TipoCasilla::JUEZ
-        recibeJugador_juez(actual, todos)
-      
-      when Civitas::TipoCasilla::SORPRESA
-        recibeJugador_sorpresa(actual, todos)
-      
-      else
-        informe(actual, todos)
-      end
-    
-    end
-    
+   
     def to_s
       @nombre
     end
-
-
-    private #----------------------------------------------------------------- #
-  
-    def initialize(n, titulo, cantidad, numCasillaCarcel, m, sorp, tipo)
-      @nombre = n
-      @tituloPropiedad = titulo
-      @importe = cantidad
-      @Carcel = numCasillaCarcel
-      @mazo = m
-      @sorpresa = sorp
-      @tipo = tipo
-      
+    
+    def recibeJugador(actual, todos)
+      if (jugadorCorrecto(actual, todos))
+        informe(actual, todos)
+      end
     end
 
-  
+
+    protected #--------------------------------------------------------------- #
+
     def informe (actual, todos)
-      str = "El jugador #{todos[actual].nombre} ha caido en una casilla de #{@tipo}"
+      str = "El jugador #{todos[actual].nombre} ha caido en una casilla de DESCANSO"
       Diario.instance.ocurre_evento(str)
     end
-
-  
-    def recibeJugador_calle(actual, todos)
-      if(jugadorCorrecto(actual, todos))
-        informe(actual,todos)
-        jugador = todos[actual]
-      
-        if (!@tituloPropiedad.tienePropietario)
-          jugador.puedeComprarCasilla
-        else
-          @tituloPropiedad.tramitarAlquiler(jugador)
-        end
-      
-      end
-    end
-
-  
-    def recibeJugador_impuesto(actual, todos)
-      if (jugadorCorrecto(actual, todos))
-        informe(actual, todos)
-        todos[actual].pagaImpuesto(@importe)
-      end
-    end
-
-  
-    def recibeJugador_juez(actual, todos)
-      if(jugadorCorrecto(actual, todos))
-        informe(actual, todos)
-        todos[actual].encarcelar(@Carcel)
-      end
-    end
-  
-
-    def recibeJugador_sorpresa(actual, todos)
-      if (jugadorCorrecto(actual, todos))
-        informe(actual, todos)
-        @sorpresa = @mazo.siguiente
-        @sorpresa.aplicarAJugador(actual, todos)
-      end
-    end
-
   
   end
 end

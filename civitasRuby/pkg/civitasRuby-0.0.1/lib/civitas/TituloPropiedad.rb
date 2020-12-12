@@ -161,7 +161,7 @@ class TituloPropiedad
       >> Num hoteles: #{@numHoteles}\n"
     
     if (@propietario)
-      str = str + "\t>> Propietario: #{@propietario.nombre}\n"
+      str = str + "      >> Propietario: #{@propietario.nombre}\n"
     else
       str = str + " >> Titulo vacío. \n"
     end

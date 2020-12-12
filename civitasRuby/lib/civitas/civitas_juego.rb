@@ -13,6 +13,11 @@ require_relative 'Tablero'
 require_relative 'MazoSorpresas'
 require_relative 'TituloPropiedad'
 
+require_relative 'casilla_calle'
+require_relative 'casilla_impuesto'
+require_relative 'casilla_juez'
+require_relative 'casilla_sorpresa'
+
 
 module Civitas
   class CivitasJuego
@@ -155,7 +160,7 @@ module Civitas
     def avanzaJugador()
       
       # Declaramos al jugador actual y su posicion
-      jugadorActual = getJugadorActual()
+      jugadorActual = getJugadorActual
       posicionActual = jugadorActual.numCasillaActual
       
       # Calculamos su nueva posicion tirando el dado  

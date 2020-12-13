@@ -15,6 +15,7 @@ public class CasillaJuez extends Casilla {
     CasillaJuez (String nombre, int numCasillaCarcel) {
         super (nombre);
         carcel = numCasillaCarcel;
+        tipoCasilla = "JUEZ";
     }
     
     @Override
@@ -23,11 +24,5 @@ public class CasillaJuez extends Casilla {
             informe (actual, todos);
             todos.get(actual).encarcelar(carcel);
         }
-    }
-    
-    @Override
-    protected void informe (int actual, ArrayList<Jugador> todos) {
-        String str = "El jugador " + todos.get(actual).getNombre() + " cae en casilla JUEZ. ";
-        Diario.getInstance().ocurreEvento(str);
     }
 }

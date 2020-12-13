@@ -34,7 +34,7 @@ public class CivitasJuego {
         indiceJugadorActual = Dado.getInstance().quienEmpieza (numJugadores);
 
         tablero = new Tablero(casillaCarcel);   
-        mazo = new MazoSorpresas (true);       // Lo inicializamos con el debug activado 
+        mazo = new MazoSorpresas ();       // Lo inicializamos con el debug activado 
         
         inicializaMazoSorpresas (tablero);
         inicializaTablero (mazo);
@@ -42,11 +42,10 @@ public class CivitasJuego {
 
     /** Inicializa el tablero. */
     private void inicializaTablero (MazoSorpresas mazo){
-        TituloPropiedad t1, t2, t3;
 
         // Calles
         int cont = 1;
-        final int alquiler = 100, hipBase = 50, precioCompra = 150, precioEdif = 200;
+        final int alquiler = 200, hipBase = 100, precioCompra = 250, precioEdif = 300;
         final float factRev = 2.0f;
         final String calle = "Calle ";    
 

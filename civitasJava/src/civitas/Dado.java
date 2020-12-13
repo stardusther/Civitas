@@ -1,7 +1,6 @@
 package civitas;
 import java.util.Random;
 
-
 /**
  * @file Dado.java
  * @author Yesenia González Dávila

@@ -15,8 +15,8 @@ public class CasillaCalle extends Casilla {
     /** Constructor calle. */
     CasillaCalle (TituloPropiedad titulo) {
         super (titulo.getNombre());         // Nombre de la casilla
-        //cImpuesto.nombre = nombre;        // Nombre de la casilla
         tituloPropiedad = titulo;           // Impuesto a aplicar
+        tipoCasilla = "CALLE";
     }
     
     /** Recibe a un jugador en la casilla, gestionando la operación 
@@ -32,12 +32,5 @@ public class CasillaCalle extends Casilla {
             else if (!tituloPropiedad.getHipotecado())
                 tituloPropiedad.tramitarAlquiler(jugador);
         }
-    }
-    
-    @Override
-    protected void informe (int actual, ArrayList<Jugador> todos) {
-        String str = "El jugador " + todos.get(actual).getNombre() + " cae en casilla CALLE (" +
-                      tituloPropiedad.getNombre() + "). ";
-        Diario.getInstance().ocurreEvento(str);
     }
 }

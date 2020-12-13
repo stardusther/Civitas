@@ -61,6 +61,7 @@ public class TituloPropiedad {
         if (hipotecado && esEsteElPropietario(jugador)) {
                 jugador.paga(getImporteCancelarHipoteca());
                 hipotecado = false;
+                importeHipoteca=0;
                 result = true;
             }
         
@@ -212,6 +213,7 @@ public class TituloPropiedad {
     float getPrecioCompra () {
         return precioCompra;
     }
+    
 
     float getPrecioEdificar () {
         return precioEdificar;
@@ -235,22 +237,25 @@ public class TituloPropiedad {
     
     @Override
     public String toString() {
-        String estado =  nombre ;
-//                        + "\n"
-//                        + " >> Alquiler base: " + alquilerBase + "\n"
-//                        + " >> Hipoteca base: " + hipotecaBase + "\n"
-//                        + " >> Factor de revalorizacion: " + factorRevalorizacion + "\n"
-//                        + " >> Factor intereses hipoteca: " + factorInteresesHipoteca + "\n"
-//                        + " >> Precio compra: " + precioCompra + "\n"
-//                        + " >> Precio edificar: " + precioEdificar + "\n"
-//                        + " >> Hipotecado: " + hipotecado + "\n"
-//                        + " >> Nº de casas: " + numCasas + "\n"
-//                        + " >> Nº de hoteles: " + numHoteles + "\n" ;
-//        
-//        if (propietario != null)
-//            estado += " >> Propietario: " + propietario.getNombre() + "\n";
-//        else
-//            estado += " >> No tiene propietario. \n";
+        String tab = "      × ";
+        String estado =  nombre + "\n" +
+                        tab + "Alquiler base: " + alquilerBase + "\n" +
+                        tab + "Hipoteca base: " + hipotecaBase + "\n" + 
+                        tab + "Factor de revalorizacion: " + factorRevalorizacion + "\n" + 
+                        tab + "Factor intereses hipoteca: " + factorInteresesHipoteca + "\n" + 
+                        tab + "Precio compra: " + precioCompra + "\n" +
+                        tab + "Precio edificar: " + precioEdificar + "\n" +
+                        tab + "Nº de casas: " + numCasas + "\n" +
+                        tab + "Nº de hoteles: " + numHoteles + "\n" +
+                        tab + "Hipotecado: " + hipotecado + "\n" ;
+                        
+        if (hipotecado)
+            estado += tab + "Importe de la hipoteca: " + importeHipoteca + "\n";
+        
+        if (propietario != null)
+            estado += tab + "Propietario: " + propietario.getNombre() + "\n";
+        else
+            estado += tab + "No tiene propietario. \n";
         return estado;
     }
 }

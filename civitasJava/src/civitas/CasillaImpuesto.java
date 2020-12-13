@@ -12,13 +12,11 @@ import java.util.ArrayList;
 
 public class CasillaImpuesto extends Casilla {
     
-    //Casilla cImpuesto = new Casilla();
-    
     /** Constructor impuesto. */
     CasillaImpuesto (String nombre, float cantidad) {
         super (nombre);
-        //cImpuesto.nombre = nombre;     // Nombre de la casilla
-        importe = cantidad;  // Impuesto a aplicar
+        importe = cantidad;  
+        tipoCasilla = "IMPUESTO";
     }
     
     /** Recibe a un jugador en la casilla y le aplica el pago del impuesto. */
@@ -29,11 +27,4 @@ public class CasillaImpuesto extends Casilla {
             todos.get(actual).pagaImpuesto(importe);
         }
     }
-    
-    @Override
-    protected void informe (int actual, ArrayList<Jugador> todos) {
-        String str = "El jugador " + todos.get(actual).getNombre() + " cae en casilla IMPUESTO. ";
-        Diario.getInstance().ocurreEvento(str);
-    }
-    
 }

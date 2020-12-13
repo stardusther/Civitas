@@ -21,9 +21,19 @@ public class Casilla {
     protected MazoSorpresas mazo;                 // Mazo si la casilla es una sorpresa
     protected TituloPropiedad tituloPropiedad;    // Calle
     
+    protected String tipoCasilla;                 // String para indicar el tipo de casilla
+                                                  // (ahorrará redefinir el informe en todas las 
+                                                  // subclases)
+    
     /** Constructor descanso. */
     Casilla (String nombre) {
-        init();
+        mazo = null;
+        tituloPropiedad = null;
+        importe = -1f;
+        carcel = -1;
+        sorpresa = null;
+        tipoCasilla = "DESCANSO";
+        
         this.nombre = nombre;
     }
 
@@ -31,10 +41,6 @@ public class Casilla {
     void recibeJugador (int iactual, ArrayList<Jugador> todos) {
         informe (iactual, todos);
     }
-
-    // ---------------------------------------------------------------------- //
-    // --------------------------- Consultores ------------------------------ //
-    // ---------------------------------------------------------------------- //
 
     public String getNombre () {
         return nombre;
@@ -51,27 +57,11 @@ public class Casilla {
     @Override
     public String toString() {
         String str = nombre ;
-       return str;
+        return str;
     }
-
-    // ---------------------------------------------------------------------- //
-    // -------------------- Met. privados/protegidos ------------------------ //
-    // ---------------------------------------------------------------------- //
 
     protected void informe (int actual, ArrayList<Jugador> todos) {
-        String str = "El jugador " + todos.get(actual).getNombre() + " cae en casilla DESCANSO";
+        String str = "El jugador " + todos.get(actual).getNombre() + " cae en casilla " + tipoCasilla;
         Diario.getInstance().ocurreEvento(str);
-    }
-
-
-    /** Este metodo hace una inicializacion de todos los atributos asumiendo que
-     *  no se proporciona al constructor un valor para estos. */
-    protected void init () {
-        mazo = null;
-        //sorpresa = null;
-        tituloPropiedad = null;
-        importe = -1f;
-        carcel = -1;
-        nombre = "";
     }
 }

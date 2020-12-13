@@ -14,7 +14,7 @@ public class VistaTextual {
   CivitasJuego juegoModel; 
   int iGestion=-1;
   int iPropiedad=-1;
-  private static String separador = "===================================";
+  private static String separador = "========================================";
   
   private Scanner in;
   
@@ -60,28 +60,30 @@ public class VistaTextual {
 
   /** Muestra menú. */
   int menu (String titulo, ArrayList<String> lista) {
-    String tab = "  ";
+    String tab = "   ";
     int opcion;
     System.out.println (titulo);
-    for (int i = 0; i < lista.size(); i++) {
-      System.out.println (tab+i+"-"+lista.get(i));
-    }
+    
+    for (int i = 0; i < lista.size(); i++) 
+      System.out.println (tab + i + " ➤ " + lista.get(i));
 
     opcion = leeEntero(lista.size(),
-                          tab+"Elige una opción: ",
-                          tab+"Valor erróneo");
+                          "\n⮕ Elige una opción: ",
+                                 tab + "Valor erróneo");
     return opcion;
   }
 
+  // ➤ ➣ ➢ ⇒ ➨ ⮕ ×
+  
   /** Preguna forma de salir de la carcel. */
   SalidasCarcel salirCarcel() {
-    int opcion = menu ("Elige la forma para intentar salir de la carcel",
+    int opcion = menu (" ⮕ Elige la forma para intentar salir de la carcel",
                         new ArrayList<> (Arrays.asList("Pagando","Tirando el dado")));
     return (SalidasCarcel.values()[opcion]);
   }
 
   Respuestas comprar() {
-    int opcion = menu ("¿Comprar calle?",
+    int opcion = menu ("\n¿Comprar calle?",
                         new ArrayList<> (Arrays.asList("Si","No")));
     return (Respuestas.values()[opcion]);
   }
@@ -97,7 +99,7 @@ public class VistaTextual {
         for (int i=0 ; i < juegoModel.getJugadorActual().getPropiedades().size() ; i++) {
             propiedadesJugador.add(juegoModel.getJugadorActual().getPropiedades().get(i).toString());
         }
-        iPropiedad =  menu (" Indique propiedad a la que desea aplicar la gestión:)", propiedadesJugador);  
+        iPropiedad =  menu ("\n Indique propiedad a la que desea aplicar la gestión", propiedadesJugador);  
     } 
   }
   
@@ -111,7 +113,7 @@ public class VistaTextual {
     
   /** Muestra la siguiente operacion.  */
   void mostrarSiguienteOperacion(OperacionesJuego operacion) {
-      System.out.println("\n ---> Siguiente: " + operacion);
+      System.out.println("\n × Siguiente: " + operacion);
   }
 
   /** Muestra los eventos del diario. */

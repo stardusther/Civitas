@@ -6,7 +6,12 @@ module Civitas
   class CasillaJuez < Casilla
     
     def initialize(numCasillaCarcel, nombre)
-      super(nombre, nil, -1, numCasillaCarcel, nil, nil)
+      super(nombre)
+      @tituloPropiedad = nil
+      @importe = -1
+      @Carcel = numCasillaCarcel
+      @mazo = nil
+      @sorpresa = nil
     end
     
     # Override del método recibeJugador

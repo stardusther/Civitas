@@ -2,11 +2,18 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+require_relative "./Sorpresa.rb"
+
 module Civitas
   class CasillaSorpresa < Casilla
     
     def initialize(mazo, nombre)
-      super(nombre, nil, -1, -1, mazo, nil)
+      super(nombre)
+      @tituloPropiedad = nil
+      @importe = -1
+      @Carcel = -1
+      @mazo = mazo
+      @sorpresa = nil
     end
     
     def recibeJugador(actual, todos)

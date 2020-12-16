@@ -1,15 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package civitas;
-
-
 /**
- * @author Yesenia Gonzáles Dávila
+ * @file JugadorEspeculador.java
+ * @author Yesenia González Dávila
  * @author Esther García Gallego
- */
+ * @note Grupo B.3
+ * @class JugadorEspeculador
+ * @brief Representa a un tipo de jugador especial
+*/
+
+
+package civitas;
 public class JugadorEspeculador extends Jugador {
 
     private final int FactorEspeculador = 2;
@@ -51,11 +50,10 @@ public class JugadorEspeculador extends Jugador {
 
     @Override
     boolean pagaImpuesto(float cantidad) {
-        if (isEncarcelado()) {
+        if (isEncarcelado()) 
             return false;
-        } else {
+        else 
             return paga(cantidad / FactorEspeculador);
-        }
     }
    
     @Override 

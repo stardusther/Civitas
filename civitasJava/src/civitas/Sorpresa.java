@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @note Grupo B.3
 */
 
-public class Sorpresa{
+abstract class Sorpresa{
     
     // Cambiamos visibilidades a protected:
     protected String texto;
@@ -31,11 +31,7 @@ public class Sorpresa{
      * @warnign Mejor quitar todas las comprobacines de los metodos privado y ponerla 
      * solo en el uncio que se llama? = menos líneas de cógido  (pendiente) 
      */
-    void aplicarAJugador (int actual, ArrayList<Jugador> todos) {
-        if (jugadorCorrecto (actual, todos)) {
-            Diario.getInstance().ocurreEvento("\n¡...! Se aplica sorpresa indefinida. No ocurrirá nada... \n");
-        }
-    }
+    abstract void aplicarAJugador (int actual, ArrayList<Jugador> todos) ;
     
     /** Informa al diario de que se está aplicando una sorpresa a un jugador (se indica su nombre). */
     protected void informe (int actual, ArrayList<Jugador> todos) {

@@ -10,29 +10,30 @@ module Civitas
 
 class JugadorEspeculador < Jugador
   
+  attr_reader :nombre, :saldo
+  
   @@FactorEspeculador = 2 # Atributo de clase
     
+  @SaldoInicial = 7500
+  @CasasMax = 8
+  @HotelesMax = 8
   
-  def initialize (jugador, fianza)
-    super(jugador.nombre)
+  def initialize (fianza)
     @fianza = fianza
-    nuevoEspeculador(jugador)
   end
   
+  def self.nuevoEspeculador (jugador, fianza) 
+    nuevo = JugadorEspeculador.new(fianza)
+    nuevo.copia(jugador)
+    nuevo.actualizaPropiedades
+    nuevo
+  end
   
-  def nuevoEspeculador (jugador) 
-    @saldo = jugador.saldo
-    @encarcelado = jugador.isEncarcelado
-    @puedeComprar = jugador.puedeComprar
-    @numCasillaActual = jugador.numCasillaActual
-    
-    @propiedades = jugador.propiedades
-    
+  def actualizaPropiedades 
     @propiedades.each do |propiedad| 
       propiedad.actualizaPropietarioPorConversion(self)
     end
   end
-  
   
   def pagaImpuesto(cantidad)
     if (isEncarcelado)
@@ -41,7 +42,6 @@ class JugadorEspeculador < Jugador
       paga(cantidad/@@FactorEspeculador)
     end
   end
-  
   
   def to_s
      str = " >> Jugador #{@nombre}. #{@saldo} €. Propiedades: #{@propiedades.length}. Edificaciones #{cantidadCasasHoteles}. "
@@ -65,20 +65,28 @@ class JugadorEspeculador < Jugador
   
   private # ------------------------------------------------------------------ #
   
+  def self.casasMax
+    @CasasMax
+  end
+    
+  def self.hotelesMax
+    @HotelesMax
+  end
+  
   def casasMax
-    @CasasMax*@@FactorEspeculador
+    JugadorEspeculador.casasMax
   end
   
   def hotelesMax
-    @HotelesMax*@@FactorEspeculador
+    JugadorEspeculador.hotelesMax
   end
   
   protected # ---------------------------------------------------------------- #
   
-   def debeSerEncarcelado ()
+   def debeSerEncarcelado 
     carcel = false
     
-      if !isEncarcelado()
+      if !isEncarcelado
         
         if !tieneSalvoconducto       # 1. Si no tiene salvoconducto
           

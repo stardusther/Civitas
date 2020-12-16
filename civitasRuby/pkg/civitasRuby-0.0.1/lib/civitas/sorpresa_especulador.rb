@@ -19,7 +19,7 @@ class SorpresaEspeculador < Sorpresa
   def aplicarAJugador (actual, todos)
     if jugadorCorrecto(actual, todos)
       informe(actual, todos)
-      jugadorEspeculador = JugadorEspeculador.new(todos[actual], @valor)
+      jugadorEspeculador = JugadorEspeculador.nuevoEspeculador(todos[actual], @valor)
       todos[actual] = jugadorEspeculador
     end
   end

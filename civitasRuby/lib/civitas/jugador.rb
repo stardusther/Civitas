@@ -18,12 +18,15 @@ class Jugador
   @@PasoPorSalida = 1000
   @@PrecioLibertad = 200
   
+  
+  ## Yesenia --> Tngo que revisar cosas srry AAaaAaaaaAaAAA
   # Atributos de instancia de clase (JugadorEspeculador)
   @SaldoInicial = 7500
-  @CasasMax
-  @HotelesMax
+  @CasasMax = 4
+  @HotelesMax = 4
   
-  attr_reader :numCasillaActual, :PrecioLibertad, :PasoPorSalida , :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida, :numCasillaActual
+  attr_reader :numCasillaActual, :PrecioLibertad, :PasoPorSalida , 
+              :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida, :numCasillaActual
 
   # Revisar para quitarlo (creo que no se usa, revisar)
   def get_num_casilla_actual
@@ -37,8 +40,6 @@ class Jugador
   
   def initialize (nombre)
     @SaldoInicial = 7500 # Arriba la iniacializacion no funcaaAaAAaA
-    @CasasMax = 4
-    @HotelesMax = 4
     
     @nombre = nombre
     @saldo = @SaldoInicial
@@ -50,16 +51,20 @@ class Jugador
     @propiedades = []
   end
   
-  def self. new_por_copia (otro)
-    Jugador.new(otro.nombre)
+  # Probar
+  def self.new_por_copia (otro)
+    jugador = Jugador.new(otro.nombre)
+    jugador.copia(otro)
+    jugador
+  end
+  
+  def copia(otro)
     @nombre = otro.nombre
     @saldo = otro.saldo
     @encarcelado = otro.isEncarcelado
     @puedeComprar = otro.puedeComprar
     @numCasillaActual = otro.numCasillaActual
-    
     @propiedades = otro.propiedades
-    self
   end
   
   def compare_to(otro)
@@ -357,12 +362,20 @@ class Jugador
       @saldo >= @@PrecioLibertad
     end
     
-    def casasMax
+    def self.casasMax
       @CasasMax
+    end
+    
+    def self.hotelesMax
+      @HotelesMax
+    end
+    
+    def casasMax
+      Jugador.casasMax
     end
 
     def hotelesMax
-      @HotelesMax
+      Jugador.hotelesMax
     end
     
   protected # ---------------------------------------------------------------- #

@@ -1,6 +1,10 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
+#encoding:utf-8
+
+=begin
+Authors: Esther García Gallego
+         Yesenia González Dávila
+         Grupo B3
+=end
 
 require_relative './TituloPropiedad.rb'
 
@@ -18,14 +22,17 @@ module Civitas
     end
     
     def recibeJugador(actual, todos)
+      
       if(jugadorCorrecto(actual, todos))
         informe(actual,todos)
         jugador = todos[actual]
       
-        if (!@tituloPropiedad.tienePropietario)
+        if !@tituloPropiedad.tienePropietario
           jugador.puedeComprarCasilla
-        else
+        elsif !@tituloPropiedad.hipotecado
           @tituloPropiedad.tramitarAlquiler(jugador)
+        else
+            Diario.instance.ocurre_evento("El jugador #{jugador.nombre} se libra de pagar el alquiler porque la calle está hipotecada.")
         end
       
       end

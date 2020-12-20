@@ -8,7 +8,7 @@ package civitas;
  * @class Jugador
  * @brief Representa a cada uno de los jugadores del juego.
 */
-import java.util.Collection;    //Para hacer el isEmpty()
+import java.util.Collection;    
 import java.util.ArrayList;
 
 public class Jugador implements Comparable<Jugador>{

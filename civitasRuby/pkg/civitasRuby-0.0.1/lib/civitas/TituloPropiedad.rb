@@ -153,12 +153,21 @@ class TituloPropiedad
   end
   
   def to_s
+    tab = "      × "
     str = "#{@nombre}
-      >> Alquiler: #{@alquilerBase}
-      >> Precio compra: #{@precioCompra}
-      >> Precio edificar: #{@precioEdificar}
-      >> Num casas: #{@numCasas}
-      >> Num hoteles: #{@numHoteles}\n"
+        × Alquiler: #{@alquilerBase}
+        × Hipoteca base: #{@hipotecaBase}
+        × Factor de revalorizacion: #{@factorRevalorizacion}
+        × Factor intereses hipoteca: #{@factorInteresesHipoteca}
+        × Precio compra: #{@precioCompra}
+        × Precio edificar: #{@precioEdificar}
+        × Num. casas: #{@numCasas}
+        × Num. hoteles: #{@numHoteles}
+        × Hipotecado: #{@hipotecado}"
+    
+    if @hipotecado
+      str = str + "    × Importe de la hipoteca: #{@importeHipoteca}"
+    end
     
     if (@propietario)
       str = str + "      >> Propietario: #{@propietario.nombre}\n"

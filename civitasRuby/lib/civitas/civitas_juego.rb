@@ -191,11 +191,11 @@ module Civitas
     def inicializaTablero(mazo)
       
       # Calles
-      alquiler = 100
-      hipBase = 50
-      precioCompra = 150
-      precioEdif = 200
-      factorRev = 1.2
+      alquiler = 200
+      hipBase = 100
+      precioCompra = 250
+      precioEdif = 300
+      factorRev = 2 # 1.2 ?
       cont = 1   # Contador para el nombre de las calles
       
       cantidad_impuesto = 150

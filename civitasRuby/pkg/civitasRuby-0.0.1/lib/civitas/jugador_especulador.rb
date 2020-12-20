@@ -35,6 +35,8 @@ class JugadorEspeculador < Jugador
     end
   end
   
+  # Metodos Override: -------------------------------------------------------- #
+  
   def pagaImpuesto(cantidad)
     if (isEncarcelado)
       false
@@ -83,7 +85,7 @@ class JugadorEspeculador < Jugador
   
   protected # ---------------------------------------------------------------- #
   
-   def debeSerEncarcelado 
+  def debeSerEncarcelado 
     carcel = false
     
       if !isEncarcelado

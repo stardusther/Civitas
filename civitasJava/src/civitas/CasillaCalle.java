@@ -27,10 +27,13 @@ public class CasillaCalle extends Casilla {
             informe (actual, todos);
             Jugador jugador = todos.get(actual);
 
-            if (!tituloPropiedad.tienePropietario()) 
-                jugador.puedeComprarCasilla();
-            else if (!tituloPropiedad.getHipotecado())
-                tituloPropiedad.tramitarAlquiler(jugador);
+            if (!tituloPropiedad.tienePropietario())        // Si no tiene propietario
+                jugador.puedeComprarCasilla();              //    > Comprar casilla
+            else if (!tituloPropiedad.getHipotecado())      // Si el prop. no tiene la calle hipotecada
+                tituloPropiedad.tramitarAlquiler(jugador);  //    > Pagar el alquiler 
+            else
+                Diario.getInstance().ocurreEvento("El jugador " + jugador.getNombre() + 
+                        " se libra de pagar el alquiler porque la calle está hipotecada.");
         }
     }
 }

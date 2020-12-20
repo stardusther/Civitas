@@ -18,9 +18,6 @@ class Jugador
   @@PasoPorSalida = 1000
   @@PrecioLibertad = 200
   
-  
-  ## Yesenia --> Tngo que revisar cosas srry AAaaAaaaaAaAAA
-  # Atributos de instancia de clase (JugadorEspeculador)
   @SaldoInicial = 7500
   @CasasMax = 4
   @HotelesMax = 4
@@ -28,10 +25,6 @@ class Jugador
   attr_reader :numCasillaActual, :PrecioLibertad, :PasoPorSalida , 
               :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida, :numCasillaActual
 
-  # Revisar para quitarlo (creo que no se usa, revisar)
-  def get_num_casilla_actual
-    numero = @numCasillaActual
-  end
   
   # Revisar para quitarlo (creo que no se usa, revisar)
   def CasasPorHotel

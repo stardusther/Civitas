@@ -58,7 +58,7 @@ module Civitas
 
 
     def menu(titulo,lista)
-      tab = "  "
+      tab = "   "
       puts titulo
       index = 0
       lista.each { |l|
@@ -67,7 +67,7 @@ module Civitas
       }
 
       opcion = lee_entero(lista.length,
-                          "\n"+tab+"Elige una opción: ",
+                          "\n⮕ Elige una opción: ",
                           tab+"Valor erróneo")
       return opcion
     end
@@ -90,19 +90,19 @@ module Civitas
       gestiones.push("Construir hotel")
       gestiones.push("Terminar")
       
-      @iGestion = menu(" Indique operación inmobiliaria:", gestiones)
+      @iGestion = menu("\n Indique operación inmobiliaria:", gestiones)
       
       if (iGestion != 5)
         propiedades = []
         for i in 0..@juegoModel.getJugadorActual.propiedades.length-1
           propiedades.push(@juegoModel.getJugadorActual.propiedades[i].to_s)
         end
-        @iPropiedad = menu(" Indique propiedad a la que desea aplicar la gestión:", propiedades)
+        @iPropiedad = menu("\n Indique propiedad a la que desea aplicar la gestión:", propiedades)
       end
     end
 
     def mostrarSiguienteOperacion(operacion)
-      puts " ---> Siguiente: #{operacion}"
+      puts "\n × Siguiente: #{operacion}"
     end
 
     def mostrarEventos
@@ -134,7 +134,7 @@ module Civitas
       salir_carcel = []
       salir_carcel.push("Pagando")
       salir_carcel.push("Tirando")
-      opcion = menu("Elige la forma para intentar salir de la carcel", salir_carcel);
+      opcion = menu(" ⮕ Elige la forma para intentar salir de la carcel", salir_carcel);
     
       return Civitas::SalidasCarcel::Lista_salidas[opcion]
     end

@@ -200,12 +200,13 @@ module Civitas
       
       cantidad_impuesto = 150
       
-      # Tablero como en civitasJava
       for i in 1..@@NumCasillas-1 
         case i
           
         when 2
           @tablero.añadeCasilla(CasillaSorpresa.new(mazo, "Sorpresa 1"))
+          
+        when 3 # Carcel en 3 (no hacer nada, se añade automaticamente) 
           
         when 4 # Impuesto
           @tablero.añadeCasilla(CasillaImpuesto.new( cantidad_impuesto, "Impuesto #{cantidad_impuesto}"))
@@ -221,8 +222,6 @@ module Civitas
           
         when 12 # Parking
           @tablero.añadeCasilla(Casilla.new("Parking"))
-          
-        when 3 # Carcel en 3, se añade automaticamente (si no lo ponemos se ejecuta añadir calle en else)
           
         else
           titulo = TituloPropiedad.new("Calle #{cont}", alquiler, factorRev, hipBase, precioCompra, precioEdif) #para ver si me lo pilla

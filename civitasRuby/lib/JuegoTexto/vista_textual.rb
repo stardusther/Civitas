@@ -62,7 +62,7 @@ module Civitas
       puts titulo
       index = 0
       lista.each { |l|
-        puts tab+index.to_s+" - "+l
+        puts tab+index.to_s+" ➤ "+l
         index += 1
       }
 

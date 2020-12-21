@@ -5,6 +5,9 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
+
+# require_relative 'titulo_propiedad_social'
+
 module Civitas
 
 class TituloPropiedad  
@@ -12,7 +15,58 @@ class TituloPropiedad
   attr_reader :precioCompra, :hipotecado, :hipotecaBase, :nombre, :numCasas, :numHoteles,
               :precioEdificar, :propietario
   
-  public # ------------------------------------------------------------------- #
+  def hacermeSocial(jugador)
+    propiedadSocial = nil
+   
+    # 2
+    esElPropietario = esEsteElPropietario(jugador)
+    
+    if esElPropietario
+      
+      # 3
+      nuevoFactor = @factorRevalorizacion - calcularDecrementoRevalorarizacionAlSocializar
+      
+      # 4
+      nuevoNombre = "#{@nombre} >> SOCIAL <<"
+      if @numCasas < 3
+        mc = 1
+      else
+        mc = 2
+      end
+      
+      if @numHoteles < 3
+        mh = 1
+      else
+        mh = 2
+      end
+      
+      propiedadSocial = TituloPropiedadSocial.new(nuevoNombre, @alquilerBase, @hipotecaBase, @factorRevalorizacion, @precioCompra, @precioEdificar,
+                        mc, mh, @propietario)
+      
+    end
+    
+    propiedadSocial
+    
+  end
+  
+  def calcularDecrementoRevalorarizacionAlSocializar
+    
+    if @numCasas < 3
+      maxC = 1
+    else
+      maxC = 2
+    end
+      
+    if @numHoteles < 3
+      maxH = 1
+    else
+      maxH = 2
+    end
+    
+    decremento = @factorRevalorizacion - ( (maxC + maxH) * 0.2 )
+    
+    decremento
+  end
   
   def initialize (nombre, ab, fr, hb, pc, pe)
     @nombre = nombre

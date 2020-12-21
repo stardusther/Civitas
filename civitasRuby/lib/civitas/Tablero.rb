@@ -10,7 +10,7 @@ require_relative './Casilla.rb'
 module Civitas
   class Tablero
 
-    attr_reader :numCasillaCarcel
+    attr_reader :numCasillaCarcel, :casillas
 
     def initialize (indice)
       if (indice >=1)

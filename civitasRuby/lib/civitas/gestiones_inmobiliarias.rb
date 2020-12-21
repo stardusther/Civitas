@@ -12,9 +12,16 @@ module Civitas
     CANCELAR_HIPOTECA = :cancelar_hipoteca
     CONSTRUIR_CASA = :construir_casa
     CONSTRUIR_HOTEL = :construir_hotel
+    HACER_SOCIAL = :hacer_social
     TERMINAR = :terminar
     
-    Lista_Gestiones = [GestionesInmobiliarias::VENDER, GestionesInmobiliarias::HIPOTECAR, GestionesInmobiliarias::CANCELAR_HIPOTECA, GestionesInmobiliarias::CONSTRUIR_CASA, GestionesInmobiliarias::CONSTRUIR_HOTEL, GestionesInmobiliarias::TERMINAR]
+    Lista_Gestiones = [GestionesInmobiliarias::VENDER, 
+                       GestionesInmobiliarias::HIPOTECAR,
+                       GestionesInmobiliarias::CANCELAR_HIPOTECA, 
+                       GestionesInmobiliarias::CONSTRUIR_CASA, 
+                       GestionesInmobiliarias::CONSTRUIR_HOTEL, 
+                       GestionesInmobiliarias::HACER_SOCIAL, 
+                       GestionesInmobiliarias::TERMINAR]
 
   end
 end

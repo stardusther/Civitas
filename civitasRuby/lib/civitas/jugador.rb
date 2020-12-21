@@ -23,8 +23,45 @@ class Jugador
   @HotelesMax = 4
   
   attr_reader :numCasillaActual, :PrecioLibertad, :PasoPorSalida , 
-              :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida, :numCasillaActual
+              :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, 
+              :salvoconducto, :PasoPorSalida, :numCasillaActual
 
+  
+  # Examen
+  
+  def hacerPropiedadSocial (ip)
+    
+    propiedadSocial = nil
+    
+   
+    if !isEncarcelado && existeLaPropiedad(ip)
+      
+      # 2.1
+      propiedad = @propiedades[ip]
+      
+      # 2.2
+      propiedadSocial = @propiedades[ip].hacermeSocial(self)
+      
+      puts " =============== "
+      puts propiedadSocial.inspect
+      puts " =============== "
+      
+      if propiedadSocial
+        
+        # 2.3
+        @propiedades[ip] = propiedadSocial
+        
+        # 2.4
+        Diario.instance.ocurre_evento(" El jugador #{@nombre} tiene ahora la propiedad social #{propiedadSocial.nombre}. ")
+        
+      end
+      
+    end
+    
+    propiedadSocial
+    
+  end
+  
   
   # Revisar para quitarlo (creo que no se usa, revisar)
   def CasasPorHotel

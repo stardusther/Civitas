@@ -6,9 +6,9 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
-require_relative "Dado.rb" 
-require_relative "Diario.rb"
-require_relative "Sorpresa.rb"
+require_relative "dado.rb" 
+require_relative "diario.rb"
+require_relative "sorpresa.rb"
 
 module Civitas
 
@@ -17,34 +17,32 @@ class Jugador
   @@CasasPorHotel = 4
   @@PasoPorSalida = 1000
   @@PrecioLibertad = 200
+  @@SaldoInicial = 7500
   
-  @SaldoInicial = 7500
+  # No es necesario hacerlo atributo de instancia de clase 
+  # ya que no se se ve modificado en Especulador -->
+  # @SaldoInicial = 7500 
+  
   @CasasMax = 4
   @HotelesMax = 4
   
-  attr_reader :numCasillaActual, :PrecioLibertad, :PasoPorSalida , 
-              :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida, :numCasillaActual
+  attr_reader :numCasillaActual, :PrecioLibertad , 
+              :encarcelado, :nombre, :puedeComprar, :propiedades, 
+              :saldo, :salvoconducto, :numCasillaActual
 
   
-  # Revisar para quitarlo (creo que no se usa, revisar)
-  def CasasPorHotel
-    @@CasasPorHotel
-  end
-  
   def initialize (nombre)
-    @SaldoInicial = 7500 # Arriba la iniacializacion no funcaaAaAAaA
-    
     @nombre = nombre
-    @saldo = @SaldoInicial
+    @saldo = @@SaldoInicial
     @puedeComprar = true
     @encarcelado = false
     @numCasillaActual = 0
     @salvoconducto = nil
     
     @propiedades = []
+    
   end
   
-  # Probar
   def self.new_por_copia (otro)
     jugador = Jugador.new(otro.nombre)
     jugador.copia(otro)
@@ -140,8 +138,9 @@ class Jugador
     if !isEncarcelado() and existeLaPropiedad(ip)
       
       if (@propiedades[ip].vender(self))
+        nombre = @propiedades[ip].nombre
         @propiedades.delete_at(ip)
-        Diario.instance.ocurre_evento ("Se ha vendido la propiedad de la casilla #{ip}")
+        Diario.instance.ocurre_evento ("El jugador #{@nombre} ha vendido la propiedad de la casilla #{ip} (#{nombre})")
         true;
       else
         false

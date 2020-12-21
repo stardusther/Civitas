@@ -5,9 +5,9 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
-require_relative 'Diario'
-require_relative './Operaciones_juego.rb'
-require_relative './EstadoJuego.rb'
+require_relative 'diario'
+require_relative 'Operaciones_juego'
+require_relative 'EstadoJuego'
 
 module Civitas
   class Gestor_estados

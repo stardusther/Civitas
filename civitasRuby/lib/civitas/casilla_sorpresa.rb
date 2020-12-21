@@ -1,8 +1,12 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
+#encoding:utf-8
 
-require_relative "./Sorpresa.rb"
+=begin
+Authors: Esther García Gallego
+         Yesenia González Dávila
+         Grupo B3
+=end
+
+require_relative "sorpresa"
 
 module Civitas
   class CasillaSorpresa < Casilla
@@ -16,17 +20,13 @@ module Civitas
       @sorpresa = nil
     end
     
+    # Override
     def recibeJugador(actual, todos)
       if (jugadorCorrecto(actual, todos))
         informe(actual, todos)
         @sorpresa = @mazo.siguiente
         @sorpresa.aplicarAJugador(actual, todos)
       end
-    end
-    
-    def informe (actual, todos)
-      str = "El jugador #{todos[actual].nombre} ha caido en una casilla de SORPRESA"
-      Diario.instance.ocurre_evento(str)
     end
     
   end

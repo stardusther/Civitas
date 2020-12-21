@@ -6,7 +6,7 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
-require_relative './TituloPropiedad.rb'
+require_relative 'titulo_propiedad.rb'
 
 
 module Civitas
@@ -19,6 +19,8 @@ module Civitas
       @Carcel = -1
       @mazo = nil
       @sorpresa = nil
+     
+      @tipo = "CALLE"
     end
     
     def recibeJugador(actual, todos)
@@ -36,11 +38,6 @@ module Civitas
         end
       
       end
-    end
-    
-    def informe (actual, todos)
-      str = "El jugador #{todos[actual].nombre} ha caido en una casilla de tipo CALLE"
-      Diario.instance.ocurre_evento(str)
     end
     
   end

@@ -17,6 +17,10 @@ module Civitas
       @Carcel = nil
       @mazo = nil
       @sorpresa = nil
+      
+      # Atributo extra para ahorrar la redefinicion
+      # del metodo informe en todas las clases hijas
+      @tipo = "DESCANSO"
     end
     
     # Metodos ---------------------------------------------------------------- #
@@ -39,7 +43,7 @@ module Civitas
     protected #--------------------------------------------------------------- #
 
     def informe (actual, todos)
-      str = "El jugador #{todos[actual].nombre} ha caido en una casilla de DESCANSO"
+      str = "El jugador #{todos[actual].nombre} ha caido en una casilla de #{@tipo}"
       Diario.instance.ocurre_evento(str)
     end
   

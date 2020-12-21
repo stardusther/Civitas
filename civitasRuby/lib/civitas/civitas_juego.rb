@@ -8,16 +8,15 @@ Authors: Esther García Gallego
 
 require_relative 'jugador.rb'
 require_relative 'gestor_estados.rb'
-require_relative 'Dado'
-require_relative 'Tablero'
-require_relative 'MazoSorpresas'
-require_relative 'TituloPropiedad'
+require_relative 'dado'
+require_relative 'tablero'
+require_relative 'mazo_sorpresas'
+require_relative 'titulo_propiedad'
 
 require_relative 'casilla_calle'
 require_relative 'casilla_impuesto'
 require_relative 'casilla_juez'
 require_relative 'casilla_sorpresa'
-
 
 module Civitas
   class CivitasJuego
@@ -195,7 +194,7 @@ module Civitas
       hipBase = 100
       precioCompra = 250
       precioEdif = 300
-      factorRev = 2 # 1.2 ?
+      factorRev = 1.2 
       cont = 1   # Contador para el nombre de las calles
       
       cantidad_impuesto = 150
@@ -240,6 +239,7 @@ module Civitas
       ir_casilla_juez = 8
       ir_a_calle = 9
       ir_a_calle2 = 12
+      
       
       #Sorpresa especulador
       @mazo.alMazo( SorpresaEspeculador.new(200))

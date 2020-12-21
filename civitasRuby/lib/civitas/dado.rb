@@ -5,7 +5,7 @@ Authors: Esther García Gallego
          Grupo B3
 =end
 
-require_relative "Diario.rb"
+require_relative "diario.rb"
 
 require 'singleton'
 

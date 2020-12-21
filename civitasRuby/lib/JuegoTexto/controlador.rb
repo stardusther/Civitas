@@ -1,20 +1,20 @@
 #encoding:utf-8
+
 =begin
 Authors: Esther García Gallego
          Yesenia González Dávila
          Grupo B3
 =end
+
 require_relative "../civitas/civitas_juego.rb"
 require_relative "./vista_textual"
-require_relative '../civitas/Casilla'
+require_relative '../civitas/casilla'
 require_relative '../civitas/operacion_inmobiliaria'
 require_relative '../civitas/gestiones_inmobiliarias'
 require_relative '../civitas/salidas_carcel'
 
 module Civitas
   class Controlador
-    
-    public # -----------------------------------------------------------
     
     def initialize(_juego, _vista)
       @juego = _juego
@@ -24,7 +24,10 @@ module Civitas
     def juega
       final = false
       
-      puts "\n"
+      puts "\n ~~~~~~~~ CIVITAS ~~~~~~~~"
+      puts "   INICIO DE LA PARTIDA   "
+      puts " ~~~~~~~~~~~~~~~~~~~~~~~~~"
+      
       @vista.setCivitasJuego(@juego)
       
       while (!final)
@@ -38,62 +41,69 @@ module Civitas
           @vista.mostrarEventos
         end
           
+        # Final del juego --> mostrar ranking
         if @juego.finalDelJuego
           final = true
-          #rank = Array.new(@juego.ranking.size) # Creamos el array
 
           rank = @juego.ranking         
 
-          puts "\n ---------------------------- "
-          puts   "     RANKING DE JUGADORES    "
-          puts   " ----------------------------\n\n"
+          puts "\n ~~~~~~~~ CIVITAS ~~~~~~~~"
+            puts "   RANKING DE JUGADORES   "
+            puts " ~~~~~~~~~~~~~~~~~~~~~~~~~"
           
-          for i in 0..1 # Mostramos los jugadores en orden
+          for i in 0..1
             puts rank[i].to_s
           end
           
-          puts "\n ----- FIN DEL JUEGO -----\n"
+          puts "\n ~~~~~~~~ CIVITAS ~~~~~~~~"
+            puts "     FIN DE LA PARTIDA    "
+            puts " ~~~~~~~~~~~~~~~~~~~~~~~~~"
           
         else
-          case operacion                                    
+          
+          # Operacion en la partida (comprar, gestionar etc)
+          case operacion      
             
-          when Civitas::Operaciones_juego::COMPRAR
-            respuesta = @vista.comprar
-            if respuesta == Civitas::Respuestas::SI
-              @juego.comprar
-            end
-            @juego.siguientePasoCompletado(operacion)
-                  
-          when Civitas::Operaciones_juego::GESTIONAR   
-            @vista.gestionar
-            
-            #lista = [GestionesInmobiliarias::VENDER, GestionesInmobiliarias::HIPOTECAR, GestionesInmobiliarias::CANCELAR_HIPOTECA, GestionesInmobiliarias::CONSTRUIR_CASA, GestionesInmobiliarias::CONSTRUIR_HOTEL, GestionesInmobiliarias::TERMINAR]
-            gest = Civitas::GestionesInmobiliarias::Lista_Gestiones[@vista.iGestion]
-            #gest = lista[@vista.iGestion]
-            ip = @vista.iPropiedad
-                  
-            operacionInm = OperacionInmobiliaria.new(ip,gest)
-                  
-            case operacionInm.gestion
-            when Civitas::GestionesInmobiliarias::VENDER
-              @juego.vender(ip)
-              
-            when Civitas::GestionesInmobiliarias::HIPOTECAR
-              @juego.hipotecar(ip)
-              
-            when Civitas::GestionesInmobiliarias::CANCELAR_HIPOTECA
-              @juego.cancelarHipoteca(ip)
-              
-            when Civitas::GestionesInmobiliarias::CONSTRUIR_CASA
-              @juego.construirCasa(ip)
-              
-            when Civitas::GestionesInmobiliarias::CONSTRUIR_HOTEL
-              @juego.construirHotel(ip)
-              
-            when Civitas::GestionesInmobiliarias::TERMINAR
+            # Comprar
+            when Civitas::Operaciones_juego::COMPRAR
+              respuesta = @vista.comprar
+              if respuesta == Civitas::Respuestas::SI
+                @juego.comprar
+              end
               @juego.siguientePasoCompletado(operacion)
-            end
+
+            # Gestionar
+            when Civitas::Operaciones_juego::GESTIONAR   
+              @vista.gestionar
+
+              gest = Civitas::GestionesInmobiliarias::Lista_Gestiones[@vista.iGestion]
+              ip = @vista.iPropiedad
+
+              operacionInm = OperacionInmobiliaria.new(ip,gest)
+
+              case operacionInm.gestion
+                
+                when Civitas::GestionesInmobiliarias::VENDER
+                  @juego.vender(ip)
+
+                when Civitas::GestionesInmobiliarias::HIPOTECAR
+                  @juego.hipotecar(ip)
+
+                when Civitas::GestionesInmobiliarias::CANCELAR_HIPOTECA
+                  @juego.cancelarHipoteca(ip)
+
+                when Civitas::GestionesInmobiliarias::CONSTRUIR_CASA
+                  @juego.construirCasa(ip)
+
+                when Civitas::GestionesInmobiliarias::CONSTRUIR_HOTEL
+                  @juego.construirHotel(ip)
+
+                when Civitas::GestionesInmobiliarias::TERMINAR
+                  @juego.siguientePasoCompletado(operacion)
                   
+              end
+                  
+          # Salir de la carcel
           when Civitas::Operaciones_juego::SALIR_CARCEL
             salida = @vista.salirCarcel
             

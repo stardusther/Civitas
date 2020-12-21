@@ -18,6 +18,8 @@ require_relative 'casilla_impuesto'
 require_relative 'casilla_juez'
 require_relative 'casilla_sorpresa'
 
+require_relative 'titulo_propiedad_sostenible'
+
 
 module Civitas
   class CivitasJuego
@@ -29,6 +31,42 @@ module Civitas
     # Añadimos consultor de numero de jugadores para poder consultarlo en el controlador
     # Consultor de propiedades para acceder a el en vista textual.
     attr_reader :NumJugadores, :propiedades
+    
+    #Examen
+    def hacerSostenible(ip)
+      result = false
+      
+      # 1
+      jugador = getJugadorActual
+      
+      # 2
+      propiedadSostenible = jugador.hacerSostenible(ip)
+      
+      puts " -------------- "
+      puts propiedadSostenible.inspect
+      puts " ------------------- "
+      
+      if propiedadSostenible
+        # 3
+        numCasillaActual = jugador.numCasillaActual
+        casillaActual = @tablero.getCasilla(numCasillaActual)
+        
+        casillaActual = CasillaCalle.new(propiedadSostenible)
+        
+        aux = @tablero.getCasillas
+        aux[numCasillaActual] = casillaActual
+        
+        puts " --------------- "
+        puts aux[numCasillaActual] = casillaActual
+        puts " --------------- "
+        
+        # 7
+        result = true
+      end
+      
+      result
+    end
+    
     
     def initialize(nombres)
       @jugadores = []
@@ -200,11 +238,21 @@ module Civitas
       
       cantidad_impuesto = 150
       
+      porcentaje = 5
+      
       for i in 1..@@NumCasillas-1 
         case i
           
-        when 2
-          @tablero.añadeCasilla(CasillaSorpresa.new(mazo, "Sorpresa 1"))
+        when 1 
+          titulo = TituloPropiedad.new("Calle #{cont}", alquiler, factorRev, hipBase, precioCompra, precioEdif) 
+          @tablero.añadeCasilla(CasillaCalle.new(titulo))
+          
+        when 2 # Calle sostenible 2
+          titSostenible = TituloPropiedadSostenible.new( "Sostenible", alquiler, factorRev, hipBase, precioCompra, precioEdif, porcentaje)
+          @tablero.añadeCasilla(CasillaCalle.new(titSostenible))
+          
+        #when 2
+        #  @tablero.añadeCasilla(CasillaSorpresa.new(mazo, "Sorpresa 1"))
           
         when 3 # Carcel en 3 (no hacer nada, se añade automaticamente) 
           
@@ -224,7 +272,7 @@ module Civitas
           @tablero.añadeCasilla(Casilla.new("Parking"))
           
         else
-          titulo = TituloPropiedad.new("Calle #{cont}", alquiler, factorRev, hipBase, precioCompra, precioEdif) #para ver si me lo pilla
+          titulo = TituloPropiedad.new("Calle #{cont}", alquiler, factorRev, hipBase, precioCompra, precioEdif) 
           @tablero.añadeCasilla(CasillaCalle.new(titulo))
           cont = cont+1
           

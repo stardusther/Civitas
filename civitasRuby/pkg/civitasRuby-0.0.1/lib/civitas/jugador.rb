@@ -25,6 +25,38 @@ class Jugador
   attr_reader :numCasillaActual, :PrecioLibertad, :PasoPorSalida , 
               :encarcelado, :nombre, :puedeComprar, :propiedades, :saldo, :salvoconducto, :PasoPorSalida, :numCasillaActual
 
+  #Examen
+  def hacerSostenible (ip)
+    propiedadSostenible = nil
+    
+    # 2.1
+    propiedad = @propiedades[ip]
+    
+    # 2.2
+    cantidad = propiedad.getImporteHacermeSostenible
+    
+    # 2.3
+    puedoGastar = puedoGastar(cantidad)
+    
+    # 2.4
+    if puedoGastar
+      propiedadSostenible = propiedad.hacermeSostenible(self)
+      
+      # 2.5
+      if propiedadSostenible
+        # reemplazar(propiedad, propiedadSostenible)
+        propiedad = propiedadSostenible
+        @propiedades[ip] = propiedadSostenible
+        
+        # 2.6
+        Diario.instance.ocurre_evento(" El jugador #{self.nombre} tiene ahora la propiedad sostenible #{propiedadSostenible.nombre}")
+      end
+    end
+    
+    propiedadSostenible
+    
+  end
+  
   
   # Revisar para quitarlo (creo que no se usa, revisar)
   def CasasPorHotel

@@ -10,20 +10,25 @@ require_relative '../civitas/Operaciones_juego.rb'
 require_relative '../civitas/respuestas.rb'
 require 'io/console'
 
+require 'singleton'
+
 module Civitas
 
   class Vista_textual
     
-    @@Separador = "========================================"
+    include Singleton
+    
+    @@Separador = "============================================"
     
     attr_reader :iGestion, :iPropiedad
     
-    public # -------------------------------------------------------------------
+    def initialize
+      
+    end
 
     def mostrar_estado(estado)
       puts estado
     end
-
     
     def pausa
       print "\nPulsa una tecla"
@@ -88,11 +93,12 @@ module Civitas
       gestiones.push("Cancelar hipoteca")
       gestiones.push("Constuir casa")
       gestiones.push("Construir hotel")
+      gestiones.push("Hacer sostenible << EXAMEN")
       gestiones.push("Terminar")
       
       @iGestion = menu("\n Indique operación inmobiliaria:", gestiones)
       
-      if (iGestion != 5)
+      if (iGestion != 6)
         propiedades = []
         for i in 0..@juegoModel.getJugadorActual.propiedades.length-1
           propiedades.push(@juegoModel.getJugadorActual.propiedades[i].to_s)

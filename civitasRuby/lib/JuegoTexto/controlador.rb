@@ -14,8 +14,6 @@ require_relative '../civitas/salidas_carcel'
 module Civitas
   class Controlador
     
-    public # -----------------------------------------------------------
-    
     def initialize(_juego, _vista)
       @juego = _juego
       @vista = _vista
@@ -67,31 +65,35 @@ module Civitas
           when Civitas::Operaciones_juego::GESTIONAR   
             @vista.gestionar
             
-            #lista = [GestionesInmobiliarias::VENDER, GestionesInmobiliarias::HIPOTECAR, GestionesInmobiliarias::CANCELAR_HIPOTECA, GestionesInmobiliarias::CONSTRUIR_CASA, GestionesInmobiliarias::CONSTRUIR_HOTEL, GestionesInmobiliarias::TERMINAR]
             gest = Civitas::GestionesInmobiliarias::Lista_Gestiones[@vista.iGestion]
-            #gest = lista[@vista.iGestion]
+            
             ip = @vista.iPropiedad
                   
             operacionInm = OperacionInmobiliaria.new(ip,gest)
                   
             case operacionInm.gestion
-            when Civitas::GestionesInmobiliarias::VENDER
-              @juego.vender(ip)
               
-            when Civitas::GestionesInmobiliarias::HIPOTECAR
-              @juego.hipotecar(ip)
-              
-            when Civitas::GestionesInmobiliarias::CANCELAR_HIPOTECA
-              @juego.cancelarHipoteca(ip)
-              
-            when Civitas::GestionesInmobiliarias::CONSTRUIR_CASA
-              @juego.construirCasa(ip)
-              
-            when Civitas::GestionesInmobiliarias::CONSTRUIR_HOTEL
-              @juego.construirHotel(ip)
-              
-            when Civitas::GestionesInmobiliarias::TERMINAR
-              @juego.siguientePasoCompletado(operacion)
+              when Civitas::GestionesInmobiliarias::VENDER
+                @juego.vender(ip)
+
+              when Civitas::GestionesInmobiliarias::HIPOTECAR
+                @juego.hipotecar(ip)
+
+              when Civitas::GestionesInmobiliarias::CANCELAR_HIPOTECA
+                @juego.cancelarHipoteca(ip)
+
+              when Civitas::GestionesInmobiliarias::CONSTRUIR_CASA
+                @juego.construirCasa(ip)
+
+              when Civitas::GestionesInmobiliarias::CONSTRUIR_HOTEL
+                @juego.construirHotel(ip)
+
+              when Civitas::GestionesInmobiliarias::HACER_SOSTENIBLE
+                @juego.hacerSostenible(ip)
+
+              when Civitas::GestionesInmobiliarias::TERMINAR
+                @juego.siguientePasoCompletado(operacion)
+                
             end
                   
           when Civitas::Operaciones_juego::SALIR_CARCEL

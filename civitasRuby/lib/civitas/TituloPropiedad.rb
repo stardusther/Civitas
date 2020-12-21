@@ -11,8 +11,46 @@ class TituloPropiedad
   
   attr_reader :precioCompra, :hipotecado, :hipotecaBase, :nombre, :numCasas, :numHoteles,
               :precioEdificar, :propietario
+            
   
-  public # ------------------------------------------------------------------- #
+  public
+  
+  def getImporteHacermeSostenible
+    importe = getPrecioVenta*(calcularPorcentajeInversionPorSostenibilidad/100)
+  end
+
+  protected
+  def calcularPorcentajeInversionPorSostenibilidad
+    if @numCasas == 0 && @numHoteles == 0
+      porcentaje = 5
+    else
+      porcentaje = 2
+    end
+    
+    porcentaje
+  end
+  
+  public
+  
+  def hacermeSostenible (jugador)
+    
+    # 1
+    propiedadSostenible = nil
+    
+    # 2
+    esElPropietario = esEsteElPropietario(jugador)
+    
+    # 3 y 4
+    if esElPropietario
+      percent = calcularPorcentajeInversionPorSostenibilidad
+      importe = getImporteHacermeSostenible
+      jugador.paga(importe)
+      nuevoNombre = "#{@nombre} >> Sostenible <<"
+      propiedadSostenible = TituloPropiedadSostenible.new(nuevoNombre, @alquilerBase, @hipotecaBase, @factorRevalorizacion, @precioCompra, @precioEdificar, percent)
+    end
+    
+    propiedadSostenible
+  end
   
   def initialize (nombre, ab, fr, hb, pc, pe)
     @nombre = nombre
@@ -144,10 +182,12 @@ class TituloPropiedad
     end
   end
   
+  protected
   def getPrecioVenta
     @precioCompra + @precioEdificar*(@numCasas+(5*@numHoteles))*@factorRevalorizacion
   end
   
+  public
   def propietarioEncarcelado
     encarcelado = tienePropietario && @propietario.isEncarcelado
   end

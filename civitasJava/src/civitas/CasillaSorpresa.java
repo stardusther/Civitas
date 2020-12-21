@@ -1,8 +1,14 @@
+/**
+ * @file CasillaImpuesto.java
+ * @author Yesenia González Dávila
+ * @author Esther García Gallego
+ * @brief Casilla de tipo sorpresa. Subclase de Casilla.
+ * @note Grupo B.3
+*/
 
 package civitas;
 
 import java.util.ArrayList;
-
 
 public class CasillaSorpresa extends Casilla {
     

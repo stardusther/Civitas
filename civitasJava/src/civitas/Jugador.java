@@ -487,7 +487,7 @@ public class Jugador implements Comparable<Jugador>{
 
       s = "\n >> Jugador " + getNombre() + ". Saldo " + getSaldo() + "€. Propiedades: " + propiedades.size() +". Edificaciones:" + cantidadCasasHoteles();
 
-      s += "\n Casilla actual: " + numCasillaActual;
+      s += "\n    Casilla actual: " + numCasillaActual + ".";
       if (puedeComprar)
           s+= " Puede comprar.";
 

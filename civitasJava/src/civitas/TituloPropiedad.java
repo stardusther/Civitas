@@ -80,7 +80,7 @@ public class TituloPropiedad {
     boolean derruirCasas (int n, Jugador jugador) {
         boolean correcto = true;
         
-        if (n >= numCasas && esEsteElPropietario(jugador)) 
+        if (n <= numCasas && esEsteElPropietario(jugador)) 
             numCasas -= n;
         else
             correcto = false;

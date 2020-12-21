@@ -2,7 +2,7 @@
  * @file CasillaImpuesto.java
  * @author Yesenia González Dávila
  * @author Esther García Gallego
- * @brief Casilla de tipo calle. Subclase de Casilla.
+ * @brief Casilla de tipo juez. Subclase de Casilla.
  * @note Grupo B.3
 */
 

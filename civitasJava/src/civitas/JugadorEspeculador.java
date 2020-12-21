@@ -19,7 +19,7 @@ public class JugadorEspeculador extends Jugador {
         fianza =_fianza;
         
         for(int i = 0; i < getPropiedades().size(); i++)
-            getPropiedades().get(i).ActualizaPropietarioPorConversion(otro);
+            getPropiedades().get(i).ActualizaPropietarioPorConversion(this);
     }
 
     @Override
@@ -64,11 +64,11 @@ public class JugadorEspeculador extends Jugador {
     
     @Override
     protected int getCasasMax(){
-        return getCasasMax()*FactorEspeculador;
+        return super.getCasasMax()*FactorEspeculador;
     }
     
     @Override
     protected int getHotelesMax () {
-      return getHotelesMax()*FactorEspeculador;
+      return super.getHotelesMax()*FactorEspeculador;
     }
 }

@@ -34,7 +34,7 @@ public class CivitasJuego {
         indiceJugadorActual = Dado.getInstance().quienEmpieza (numJugadores);
 
         tablero = new Tablero(casillaCarcel);   
-        mazo = new MazoSorpresas ();       // Lo inicializamos con el debug activado 
+        mazo = new MazoSorpresas (true);       // Lo inicializamos con el debug activado 
         
         inicializaMazoSorpresas (tablero);
         inicializaTablero (mazo);
@@ -52,7 +52,7 @@ public class CivitasJuego {
         // Casilla impuesto
         final float cantidad_impuesto = 150f; 
         
-        for (int i=1 ; i < numCasillas; i++)       // Carcel se añade automáticamente (en c3), y la salida ya está en 0
+        for (int i=1 ; i < numCasillas; i++)       // Carcel y salida se añaden automáticamente
             switch (i) {
                 case 2:     // Sorpresa 1
                     tablero.añadeCasilla (new CasillaSorpresa ("Sorpresa 1", mazo));
@@ -81,7 +81,7 @@ public class CivitasJuego {
                 case 3:      // Carcel (se añade automaticamente) --> si no se pone el case entra en default y crea calle
                     break;
                     
-                default:    // Calles: casillas 1, 5, 6, 9, 11-19
+                default:    // Calles: 1, 5, 6, 9, 11-19
                     tablero.añadeCasilla (new CasillaCalle
                            (new TituloPropiedad (calle + cont++, alquiler, factRev, hipBase, precioCompra, precioEdif)));
                     break;
@@ -95,6 +95,9 @@ public class CivitasJuego {
         int ir_casilla_juez = 8;  
         int ir_a_calle = 9;
         int ir_a_calle2 = 12;
+        
+        // Sorpresa especulador
+        mazo.alMazo(new SorpresaEspeculador (valor));
         
         // Llevar a calle
         mazo.alMazo (new SorpresaIrCasilla (tablero, ir_a_calle, " ¡Vas a la calle de la casilla " + ir_a_calle +"!"));

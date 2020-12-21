@@ -18,6 +18,8 @@ module Civitas
       @Carcel = -1
       @mazo = mazo
       @sorpresa = nil
+      
+      @tipo = "SORPRESA"
     end
     
     # Override

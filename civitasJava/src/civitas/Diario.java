@@ -14,8 +14,7 @@ public class Diario {
   private ArrayList<String> eventos;
   
   /** Metodo de calse para obtener la instancia
-   * @note Para acceder a la única instancia del diario: Diario.getInstance()
-   */
+   * @note Para acceder a la única instancia del diario: Diario.getInstance() */
   static public Diario getInstance() {
     return instance;
   }
@@ -25,8 +24,7 @@ public class Diario {
   }
 
   /** Añade un evento al diario
-   * @param e nombre del evento a añadir
-   */
+   * @param e nombre del evento a añadir. */
   void ocurreEvento (String e) {
     eventos.add (e);
   }

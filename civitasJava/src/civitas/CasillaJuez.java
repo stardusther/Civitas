@@ -18,6 +18,8 @@ public class CasillaJuez extends Casilla {
         tipoCasilla = "JUEZ";
     }
     
+    /** Recibe al jugador en la casilla aplicando el proceso ç 
+     *  correspondiente al juez. */
     @Override
     void recibeJugador (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos)) {

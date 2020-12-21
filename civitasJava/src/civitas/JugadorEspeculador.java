@@ -14,7 +14,7 @@ public class JugadorEspeculador extends Jugador {
     private final int FactorEspeculador = 2;
     private float fianza;
 
-    JugadorEspeculador(JugadorEspeculador otro, float _fianza) {   // Constructor de copia
+    JugadorEspeculador(Jugador otro, float _fianza) {   
         super(otro);
         fianza =_fianza;
         
@@ -58,21 +58,8 @@ public class JugadorEspeculador extends Jugador {
    
     @Override 
     public String toString(){
-        String s;
-
-      s = "\n >> Jugador especulador " + getNombre() + ". Saldo " + getSaldo() + "€. Propiedades: " + getPropiedades().size() +". Edificaciones:" + cantidadCasasHoteles();
-
-      s += "\n Casilla actual: " + getNumCasillaActual();
-      if (getPuedeComprar())
-          s+= " Puede comprar.";
-
-      if (isEncarcelado())
-          s+= " Está encarcelado.";
-
-      if (tieneSalvoconducto())
-          s+= " Tiene salvoconducto";
-
-      return s;
+        String s = super.toString() + " Especulador";
+        return s;
     }
     
     @Override

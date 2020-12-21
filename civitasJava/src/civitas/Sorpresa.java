@@ -17,7 +17,7 @@ abstract class Sorpresa{
     protected Tablero tablero;
     protected MazoSorpresas mazo;
     
-    protected String tipo;  // Para no sobrecargar el metodo informe en todas las subclases
+    protected String tipo;  // Para no redefinir el metodo informe en todas las subclases
 
     /** Constructor para sorpresa. */
     Sorpresa (String tipo) {

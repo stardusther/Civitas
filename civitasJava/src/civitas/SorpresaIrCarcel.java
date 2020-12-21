@@ -11,7 +11,7 @@ public class SorpresaIrCarcel extends Sorpresa {
         texto = " Vas a la carcel... ";
     }
     
-    /** Se encarcela la jugador.  */
+    /** Se encarcela al jugador.  */
     @Override
     void aplicarAJugador (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto(actual, todos)) {

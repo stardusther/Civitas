@@ -13,6 +13,8 @@ public class CasillaSorpresa extends Casilla {
         tipoCasilla = "SORPRESA";
     }
     
+    /** Recibe al jugador en la casilla, aplicando la sorpresa
+     * correspondiente segun el mazo. */
     @Override
     void recibeJugador (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos)) {

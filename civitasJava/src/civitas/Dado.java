@@ -57,9 +57,14 @@ public class Dado {
     }
 
     /** Genera un numero aleatorio entre 0 y n-1 para decidir quien empieza. */
+    //EXAMEN
     int quienEmpieza (int n) {
-        return random.nextInt(n);                       //Num aleatorio entre 0 y n-1
+        if(!debug)
+            return random.nextInt(n);                       //Num aleatorio entre 0 y n-1
+        else
+            return n;
     }
+    //FIN DE EXAMEN
 
     /** Activa o desactiva el modo debug. */
     public void setDebug (boolean d) {

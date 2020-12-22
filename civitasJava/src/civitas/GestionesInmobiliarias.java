@@ -14,5 +14,8 @@ public enum GestionesInmobiliarias {
     CANCELAR_HIPOTECA,
     CONSTRUIR_CASA,
     CONSTRUIR_HOTEL,
-    TERMINAR
+    TERMINAR,
+    //EXAMEN
+    EXAMEN
+    //FIN DE EXAMEN
 }

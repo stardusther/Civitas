@@ -100,6 +100,11 @@ public class Controlador {
                             case TERMINAR:
                                 juego.siguientePasoCompletado(operacion);
                                 break;
+                            // EXAMEN
+                            case EXAMEN:
+                                juego.nuevoExamen();
+                                break;
+                            // FIN DE EXAMEN    
                         }
                         break;
 

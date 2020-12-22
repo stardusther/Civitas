@@ -87,14 +87,15 @@ public class VistaTextual {
                         new ArrayList<> (Arrays.asList("Si","No")));
     return (Respuestas.values()[opcion]);
   }
-
+  
+  // EXAMEN
   void gestionar () {
     iGestion = menu ("\nIndique número de operación inmobiliaria: (0..5))",
                        new ArrayList<> (Arrays.asList("Vender","Hipotecar", "Cancelar hipoteca", 
-                      "Constuir casa", "Construir hotel", "Terminar")));
+                      "Constuir casa", "Construir hotel", "Terminar", "Examen")));
     
     // Si gestion = terminar --> no presentar menu
-    if (iGestion != 5) {
+    if (iGestion != 5 && iGestion != 6) {
         ArrayList<String> propiedadesJugador = new ArrayList();
         for (int i=0 ; i < juegoModel.getJugadorActual().getPropiedades().size() ; i++) {
             propiedadesJugador.add(juegoModel.getJugadorActual().getPropiedades().get(i).toString());
@@ -102,6 +103,7 @@ public class VistaTextual {
         iPropiedad =  menu ("\n Indique propiedad a la que desea aplicar la gestión", propiedadesJugador);  
     } 
   }
+   //FIN DE EXAMEN
   
   public int getGestion(){
       return iGestion;

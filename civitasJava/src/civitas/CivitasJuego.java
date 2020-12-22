@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * Grupo B.3
  */
 
+
 public class CivitasJuego {
 
     private Tablero tablero;
@@ -39,7 +40,17 @@ public class CivitasJuego {
         inicializaMazoSorpresas (tablero);
         inicializaTablero (mazo);
     }
-
+    //EXAMEN
+    public void nuevoExamen(){
+        Jugador jugadorActual = jugadores.get(indiceJugadorActual);
+        TituloPropiedad propiedad;
+        for(int i = 0; i < jugadorActual.getPropiedades().size(); i++){
+            propiedad = jugadorActual.getPropiedades().get(i);
+            System.out.println(propiedad.toString());
+        }
+    }
+    //FIN DE EXAMEN
+    
     /** Inicializa el tablero. */
     private void inicializaTablero (MazoSorpresas mazo){
 
@@ -52,40 +63,43 @@ public class CivitasJuego {
         // Casilla impuesto
         final float cantidad_impuesto = 150f; 
         
-        for (int i=1 ; i < numCasillas; i++)       // Carcel y salida se añaden automáticamente
-            switch (i) {
-                case 2:     // Sorpresa 1
-                    tablero.añadeCasilla (new CasillaSorpresa ("Sorpresa 1", mazo));
-                    break;
-                    
-                case 4:     // Impuesto
-                    tablero.añadeCasilla(new CasillaImpuesto ("Impuesto de " + cantidad_impuesto + ".", cantidad_impuesto));
-                    break;
-                    
-                case 7:      // Sorpresa 2
-                    tablero.añadeCasilla (new CasillaSorpresa ("Sorpresa 2", mazo));
-                    break;
-                    
-                case 8:      // Juez
-                    tablero.añadeJuez();
-                    break;
-                    
-                case 10:     // Sorpresa 3
-                    tablero.añadeCasilla (new CasillaSorpresa ("Sorpresa 3", mazo));
-                    break;
-                    
-                case 12:     // Parking
-                    tablero.añadeCasilla(new Casilla ("Parking"));
-                    break;
-                    
-                case 3:      // Carcel (se añade automaticamente) --> si no se pone el case entra en default y crea calle
-                    break;
-                    
-                default:    // Calles: 1, 5, 6, 9, 11-19
-                    tablero.añadeCasilla (new CasillaCalle
+                
+        //1
+        tablero.añadeCasilla (new CasillaCalle
+                           (new TituloExamen (calle + cont++, alquiler, factRev, hipBase, precioCompra, precioEdif)));
+        //2 
+        tablero.añadeCasilla (new CasillaCalle
+                           (new TituloExamen (calle + cont++, alquiler, factRev, hipBase, precioCompra, precioEdif)));
+        
+        //3 CARCEL
+        
+        //4 SORPRESA 1
+        tablero.añadeCasilla (new CasillaSorpresa ("Sorpresa 1", mazo));
+        
+        //5
+        tablero.añadeCasilla (new CasillaCalle
                            (new TituloPropiedad (calle + cont++, alquiler, factRev, hipBase, precioCompra, precioEdif)));
-                    break;
-            }
+        //6
+        tablero.añadeCasilla (new CasillaCalle
+                           (new TituloPropiedad (calle + cont++, alquiler, factRev, hipBase, precioCompra, precioEdif)));
+        //7 SORPRESA 2
+        tablero.añadeCasilla (new CasillaSorpresa ("Sorpresa 2", mazo));
+        
+        //8 JUEZ
+        tablero.añadeJuez();
+        //9
+        tablero.añadeCasilla (new CasillaCalle
+                           (new TituloPropiedad (calle + cont++, alquiler, factRev, hipBase, precioCompra, precioEdif)));
+        //10 SORPRESA 3
+        tablero.añadeCasilla (new CasillaSorpresa ("Sorpresa 3", mazo));
+        //11
+        tablero.añadeCasilla (new CasillaCalle
+                           (new TituloPropiedad (calle + cont++, alquiler, factRev, hipBase, precioCompra, precioEdif)));
+        //12
+        tablero.añadeCasilla(new Casilla ("Parking"));
+               
+
+        
     }
     
     /** Inicializa el mazo. */

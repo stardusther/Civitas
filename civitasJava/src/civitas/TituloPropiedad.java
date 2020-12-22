@@ -15,7 +15,7 @@ public class TituloPropiedad {
     private float factorRevalorizacion;
     private float factorInteresesHipoteca;
     private float precioCompra;
-    private float precioEdificar;
+    protected float precioEdificar;
 
     private boolean hipotecado;
 
@@ -142,7 +142,7 @@ public class TituloPropiedad {
         return result;
     }
     
-    boolean construirCasa (Jugador jugador) {
+    protected boolean construirCasa (Jugador jugador) {
         boolean result = false;
         if (esEsteElPropietario(jugador)) {
             jugador.paga(precioEdificar);

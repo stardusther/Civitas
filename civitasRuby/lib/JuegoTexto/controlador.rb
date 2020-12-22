@@ -101,6 +101,9 @@ module Civitas
                 when Civitas::GestionesInmobiliarias::TERMINAR
                   @juego.siguientePasoCompletado(operacion)
                   
+                when Civitas::GestionesInmobiliarias::EXAMEN
+                  @juego.Examen
+                  
               end
                   
           # Salir de la carcel

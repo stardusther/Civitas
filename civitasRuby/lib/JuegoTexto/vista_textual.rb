@@ -89,16 +89,21 @@ module Civitas
       gestiones.push("Constuir casa")
       gestiones.push("Construir hotel")
       gestiones.push("Terminar")
+      gestiones.push(" >> EXAMEN <<")
       
       @iGestion = menu("\n Indique operación inmobiliaria:", gestiones)
       
       if (iGestion != 5)
-        propiedades = []
-        for i in 0..@juegoModel.getJugadorActual.propiedades.length-1
-          propiedades.push(@juegoModel.getJugadorActual.propiedades[i].to_s)
+        if iGestion != 6 # Examen
+          
+          propiedades = []
+          for i in 0..@juegoModel.getJugadorActual.propiedades.length-1
+            propiedades.push(@juegoModel.getJugadorActual.propiedades[i].to_s)
+          end
+          @iPropiedad = menu("\n Indique propiedad a la que desea aplicar la gestión:", propiedades)
         end
-        @iPropiedad = menu("\n Indique propiedad a la que desea aplicar la gestión:", propiedades)
       end
+      
     end
 
     def mostrarSiguienteOperacion(operacion)

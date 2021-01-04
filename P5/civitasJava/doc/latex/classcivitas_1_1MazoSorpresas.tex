@@ -1,0 +1,204 @@
+\hypertarget{classcivitas_1_1MazoSorpresas}{}\section{Referencia de la Clase civitas.\+Mazo\+Sorpresas}
+\label{classcivitas_1_1MazoSorpresas}\index{civitas.\+Mazo\+Sorpresas@{civitas.\+Mazo\+Sorpresas}}
+
+
+Además de almacenar las cartas, las instancias de esta clase velan por que el mazo se mantenga consistente a lo largo del juego y para que se produzcan las operaciones de barajado cuando se han usado todas las cartas.  
+
+
+
+
+Diagrama de colaboración para civitas.\+Mazo\+Sorpresas\+:
+% FIG 0
+\subsection*{Funciones del \textquotesingle{}package\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcivitas_1_1MazoSorpresas_a2a54e95d3d74c8f73f922dc23554af9e}{Mazo\+Sorpresas} ()
+\begin{DoxyCompactList}\small\item\em Constructor sin parámetros de la clase Mazo\+Sopresas. \end{DoxyCompactList}\item 
+\hyperlink{classcivitas_1_1MazoSorpresas_a2768aba34debb139a79b22c6593e9acf}{Mazo\+Sorpresas} (Boolean \+\_\+debug)
+\begin{DoxyCompactList}\small\item\em Constructor con parámetros de la clase Mazo\+Sopresas. \end{DoxyCompactList}\item 
+void \hyperlink{classcivitas_1_1MazoSorpresas_a36fbdb305c6555817f1078dec430eddb}{al\+Mazo} (\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} s)
+\begin{DoxyCompactList}\small\item\em Añade al mazo de sorpresas una carta. \end{DoxyCompactList}\item 
+\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} \hyperlink{classcivitas_1_1MazoSorpresas_a667df8429be1bc4efa89b2d80ec92fa6}{siguiente} ()
+\begin{DoxyCompactList}\small\item\em Descarta la sorpresa actual y pasa a la siguiente. \end{DoxyCompactList}\item 
+void \hyperlink{classcivitas_1_1MazoSorpresas_a2f19b2fb1d7697611f22fd44dc81eed3}{inhabilitar\+Carta\+Especial} (\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} sorpresa)
+\begin{DoxyCompactList}\small\item\em Inhabilita la carta pasada como parámetro. \end{DoxyCompactList}\item 
+void \hyperlink{classcivitas_1_1MazoSorpresas_a285260ff3aab3eb49c41d4d274b9dcc1}{habilitar\+Carta\+Especial} (\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} sorpresa)
+\begin{DoxyCompactList}\small\item\em Habilita la carta pasada como parámetro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcivitas_1_1MazoSorpresas_a8a5c58c8a162c9da0088678f3803c7dd}{init} ()
+\begin{DoxyCompactList}\small\item\em Inicializa los atributos de la clase \hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+Array\+List$<$ \hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} $>$ \hyperlink{classcivitas_1_1MazoSorpresas_a7b0f0b1ab8df542e09240e6e9a4e8f01}{sorpresas}
+\item 
+Boolean \hyperlink{classcivitas_1_1MazoSorpresas_aec96b369692f1dd8bdffbf76c333ad5f}{barajada}
+\item 
+int \hyperlink{classcivitas_1_1MazoSorpresas_a49a7af66f4c621ce6b5475bfb6b9090c}{usadas}
+\item 
+Boolean \hyperlink{classcivitas_1_1MazoSorpresas_a159fe6df17b11fb2f61f9c7e8633a2a8}{debug}
+\item 
+Array\+List$<$ \hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} $>$ \hyperlink{classcivitas_1_1MazoSorpresas_acd15c95f30ce89bff5b581430f6683ce}{cartas\+Especiales}
+\item 
+\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} \hyperlink{classcivitas_1_1MazoSorpresas_a0dd98bd2e61ebb5c4dba17e551c2ceac}{ultima\+Sorpresa}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Además de almacenar las cartas, las instancias de esta clase velan por que el mazo se mantenga consistente a lo largo del juego y para que se produzcan las operaciones de barajado cuando se han usado todas las cartas. 
+
+\subsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classcivitas_1_1MazoSorpresas_a2a54e95d3d74c8f73f922dc23554af9e}\label{classcivitas_1_1MazoSorpresas_a2a54e95d3d74c8f73f922dc23554af9e}} 
+\index{civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}!Mazo\+Sorpresas@{Mazo\+Sorpresas}}
+\index{Mazo\+Sorpresas@{Mazo\+Sorpresas}!civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}}
+\subsubsection{\texorpdfstring{Mazo\+Sorpresas()}{MazoSorpresas()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily civitas.\+Mazo\+Sorpresas.\+Mazo\+Sorpresas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+
+
+Constructor sin parámetros de la clase Mazo\+Sopresas. 
+
+\begin{DoxyPostcond}{Postcondición}
+Llama a \hyperlink{classcivitas_1_1MazoSorpresas_a8a5c58c8a162c9da0088678f3803c7dd}{init()} e inicializa debug a false. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classcivitas_1_1MazoSorpresas_a2768aba34debb139a79b22c6593e9acf}\label{classcivitas_1_1MazoSorpresas_a2768aba34debb139a79b22c6593e9acf}} 
+\index{civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}!Mazo\+Sorpresas@{Mazo\+Sorpresas}}
+\index{Mazo\+Sorpresas@{Mazo\+Sorpresas}!civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}}
+\subsubsection{\texorpdfstring{Mazo\+Sorpresas()}{MazoSorpresas()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily civitas.\+Mazo\+Sorpresas.\+Mazo\+Sorpresas (\begin{DoxyParamCaption}\item[{Boolean}]{\+\_\+debug }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+
+
+Constructor con parámetros de la clase Mazo\+Sopresas. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em \+\_\+debug} & Booleano que determina el valor de debug \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondición}
+Llama a \hyperlink{classcivitas_1_1MazoSorpresas_a8a5c58c8a162c9da0088678f3803c7dd}{init()} y si se activa el modo debug añade el evento al \hyperlink{classcivitas_1_1Diario}{Diario}. 
+\end{DoxyPostcond}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classcivitas_1_1MazoSorpresas_a36fbdb305c6555817f1078dec430eddb}\label{classcivitas_1_1MazoSorpresas_a36fbdb305c6555817f1078dec430eddb}} 
+\index{civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}!al\+Mazo@{al\+Mazo}}
+\index{al\+Mazo@{al\+Mazo}!civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}}
+\subsubsection{\texorpdfstring{al\+Mazo()}{alMazo()}}
+{\footnotesize\ttfamily void civitas.\+Mazo\+Sorpresas.\+al\+Mazo (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa}}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+
+
+Añade al mazo de sorpresas una carta. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em s} & Una carta de sorpresa \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcivitas_1_1MazoSorpresas_a285260ff3aab3eb49c41d4d274b9dcc1}\label{classcivitas_1_1MazoSorpresas_a285260ff3aab3eb49c41d4d274b9dcc1}} 
+\index{civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}!habilitar\+Carta\+Especial@{habilitar\+Carta\+Especial}}
+\index{habilitar\+Carta\+Especial@{habilitar\+Carta\+Especial}!civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}}
+\subsubsection{\texorpdfstring{habilitar\+Carta\+Especial()}{habilitarCartaEspecial()}}
+{\footnotesize\ttfamily void civitas.\+Mazo\+Sorpresas.\+habilitar\+Carta\+Especial (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa}}]{sorpresa }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+
+
+Habilita la carta pasada como parámetro. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em sorpresa} & Carta de sorpresa \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcivitas_1_1MazoSorpresas_a2f19b2fb1d7697611f22fd44dc81eed3}\label{classcivitas_1_1MazoSorpresas_a2f19b2fb1d7697611f22fd44dc81eed3}} 
+\index{civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}!inhabilitar\+Carta\+Especial@{inhabilitar\+Carta\+Especial}}
+\index{inhabilitar\+Carta\+Especial@{inhabilitar\+Carta\+Especial}!civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}}
+\subsubsection{\texorpdfstring{inhabilitar\+Carta\+Especial()}{inhabilitarCartaEspecial()}}
+{\footnotesize\ttfamily void civitas.\+Mazo\+Sorpresas.\+inhabilitar\+Carta\+Especial (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa}}]{sorpresa }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+
+
+Inhabilita la carta pasada como parámetro. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em sorpresa} & Carta de sorpresa \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Atención}
+E\+: comprobar si es una carta especial? 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classcivitas_1_1MazoSorpresas_a8a5c58c8a162c9da0088678f3803c7dd}\label{classcivitas_1_1MazoSorpresas_a8a5c58c8a162c9da0088678f3803c7dd}} 
+\index{civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}!init@{init}}
+\index{init@{init}!civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void civitas.\+Mazo\+Sorpresas.\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Inicializa los atributos de la clase \hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas}. 
+
+\begin{DoxyPostcond}{Postcondición}
+inicializa los vectores sorpresas y cartas\+Especiales, deja barajada a false y usadas a 0 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classcivitas_1_1MazoSorpresas_a667df8429be1bc4efa89b2d80ec92fa6}\label{classcivitas_1_1MazoSorpresas_a667df8429be1bc4efa89b2d80ec92fa6}} 
+\index{civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}!siguiente@{siguiente}}
+\index{siguiente@{siguiente}!civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}}
+\subsubsection{\texorpdfstring{siguiente()}{siguiente()}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} civitas.\+Mazo\+Sorpresas.\+siguiente (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+
+
+Descarta la sorpresa actual y pasa a la siguiente. 
+
+\begin{DoxyReturn}{Devuelve}
+ultima\+Sorpresa La última carta de sorpresa usada 
+\end{DoxyReturn}
+
+
+\subsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classcivitas_1_1MazoSorpresas_aec96b369692f1dd8bdffbf76c333ad5f}\label{classcivitas_1_1MazoSorpresas_aec96b369692f1dd8bdffbf76c333ad5f}} 
+\index{civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}!barajada@{barajada}}
+\index{barajada@{barajada}!civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}}
+\subsubsection{\texorpdfstring{barajada}{barajada}}
+{\footnotesize\ttfamily Boolean civitas.\+Mazo\+Sorpresas.\+barajada\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1MazoSorpresas_acd15c95f30ce89bff5b581430f6683ce}\label{classcivitas_1_1MazoSorpresas_acd15c95f30ce89bff5b581430f6683ce}} 
+\index{civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}!cartas\+Especiales@{cartas\+Especiales}}
+\index{cartas\+Especiales@{cartas\+Especiales}!civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}}
+\subsubsection{\texorpdfstring{cartas\+Especiales}{cartasEspeciales}}
+{\footnotesize\ttfamily Array\+List$<$\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa}$>$ civitas.\+Mazo\+Sorpresas.\+cartas\+Especiales\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1MazoSorpresas_a159fe6df17b11fb2f61f9c7e8633a2a8}\label{classcivitas_1_1MazoSorpresas_a159fe6df17b11fb2f61f9c7e8633a2a8}} 
+\index{civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}!debug@{debug}}
+\index{debug@{debug}!civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}}
+\subsubsection{\texorpdfstring{debug}{debug}}
+{\footnotesize\ttfamily Boolean civitas.\+Mazo\+Sorpresas.\+debug\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1MazoSorpresas_a7b0f0b1ab8df542e09240e6e9a4e8f01}\label{classcivitas_1_1MazoSorpresas_a7b0f0b1ab8df542e09240e6e9a4e8f01}} 
+\index{civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}!sorpresas@{sorpresas}}
+\index{sorpresas@{sorpresas}!civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}}
+\subsubsection{\texorpdfstring{sorpresas}{sorpresas}}
+{\footnotesize\ttfamily Array\+List$<$\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa}$>$ civitas.\+Mazo\+Sorpresas.\+sorpresas\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1MazoSorpresas_a0dd98bd2e61ebb5c4dba17e551c2ceac}\label{classcivitas_1_1MazoSorpresas_a0dd98bd2e61ebb5c4dba17e551c2ceac}} 
+\index{civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}!ultima\+Sorpresa@{ultima\+Sorpresa}}
+\index{ultima\+Sorpresa@{ultima\+Sorpresa}!civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}}
+\subsubsection{\texorpdfstring{ultima\+Sorpresa}{ultimaSorpresa}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} civitas.\+Mazo\+Sorpresas.\+ultima\+Sorpresa\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1MazoSorpresas_a49a7af66f4c621ce6b5475bfb6b9090c}\label{classcivitas_1_1MazoSorpresas_a49a7af66f4c621ce6b5475bfb6b9090c}} 
+\index{civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}!usadas@{usadas}}
+\index{usadas@{usadas}!civitas\+::\+Mazo\+Sorpresas@{civitas\+::\+Mazo\+Sorpresas}}
+\subsubsection{\texorpdfstring{usadas}{usadas}}
+{\footnotesize\ttfamily int civitas.\+Mazo\+Sorpresas.\+usadas\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+src/civitas/\hyperlink{MazoSorpresas_8java}{Mazo\+Sorpresas.\+java}\end{DoxyCompactItemize}

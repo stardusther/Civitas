@@ -1,0 +1,256 @@
+\hypertarget{classcivitas_1_1CivitasJuego}{}\section{Referencia de la Clase civitas.\+Civitas\+Juego}
+\label{classcivitas_1_1CivitasJuego}\index{civitas.\+Civitas\+Juego@{civitas.\+Civitas\+Juego}}
+
+
+Diagrama de colaboración para civitas.\+Civitas\+Juego\+:
+% FIG 0
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcivitas_1_1CivitasJuego_a4b26ce50375c0e4e4df6754c6f96fbbb}{Civitas\+Juego} (String j1, String j2, String j3, String j4)
+\item 
+\hyperlink{classcivitas_1_1Jugador}{Jugador} \hyperlink{classcivitas_1_1CivitasJuego_a5ddcdfd9eadc3ca5a1f9f139c57bc833}{get\+Jugador\+Actual} ()
+\item 
+\hyperlink{classcivitas_1_1Casilla}{Casilla} \hyperlink{classcivitas_1_1CivitasJuego_ac362b49d8a30d194dfb94c02dd808e1c}{get\+Casilla\+Actual} ()
+\item 
+void \hyperlink{classcivitas_1_1CivitasJuego_af55452b18c52846930fbcf1eef45d99a}{siguiente\+Paso\+Completado} (\hyperlink{enumcivitas_1_1OperacionesJuego}{Operaciones\+Juego} operacion)
+\item 
+boolean \hyperlink{classcivitas_1_1CivitasJuego_af8f7715fd9484a2744f784dfdbfb7259}{construir\+Casa} (int ip)
+\item 
+boolean \hyperlink{classcivitas_1_1CivitasJuego_ab22afced1a84c653073193eab94fceab}{construir\+Hotel} (int ip)
+\item 
+boolean \hyperlink{classcivitas_1_1CivitasJuego_a6ea7e8e9ad8411842dcc463ad4f4a707}{vender} (int ip)
+\item 
+boolean \hyperlink{classcivitas_1_1CivitasJuego_ad03c8d1b5a9b5553d586304f9b98b1bc}{hipotecar} (int ip)
+\item 
+boolean \hyperlink{classcivitas_1_1CivitasJuego_aa991dc2d67076fc05b84d28e69734ced}{cancelar\+Hipoteca} (int ip)
+\item 
+boolean \hyperlink{classcivitas_1_1CivitasJuego_a92689751fb840140186e0bdf1168a906}{salir\+Carcel\+Pagando} (int ip)
+\item 
+boolean \hyperlink{classcivitas_1_1CivitasJuego_a4490190bb9c0a51638d3867d67bb3693}{salir\+Carcel\+Tirando} (int ip)
+\item 
+boolean \hyperlink{classcivitas_1_1CivitasJuego_acd93386478ef23fee7cd1c4ca59c6acf}{final\+Del\+Juego} ()
+\item 
+String \hyperlink{classcivitas_1_1CivitasJuego_a83d2384c9f9a461637faa98ed00da8fd}{info\+Jugador\+Texto} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos Estáticos del \textquotesingle{}package\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classcivitas_1_1CivitasJuego_a033144c8099bb68aef8cc77268d3bbd9}{num\+Jugadores} = 4
+\item 
+static final int \hyperlink{classcivitas_1_1CivitasJuego_a4cbc0506f7a7d9c8409cafc230989258}{casilla\+Carcel} = 5
+\item 
+static final int \hyperlink{classcivitas_1_1CivitasJuego_a749d70a3b81aaff78b75f52c74b08f41}{num\+Casillas} = 20
+\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcivitas_1_1CivitasJuego_aae21b4f5cf5310530254baeac9540c39}{inicializa\+Tablero} (\hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas} \hyperlink{classcivitas_1_1CivitasJuego_a5e4c8b521eaa77f8b3ee7a011292bf44}{mazo})
+\item 
+void \hyperlink{classcivitas_1_1CivitasJuego_a876416b4d7cebecbb8ee9edda4343fd3}{inicializa\+Mazo\+Sorpresas} (\hyperlink{classcivitas_1_1Tablero}{Tablero} \hyperlink{classcivitas_1_1CivitasJuego_a826db446a6b18c2d6b5dc12a97aeed5f}{tablero})
+\item 
+void \hyperlink{classcivitas_1_1CivitasJuego_a557d212169fb3a5a44a6ddef88f2f95c}{contabilizar\+Pasos\+Por\+Salida} (\hyperlink{classcivitas_1_1Jugador}{Jugador} jugador\+Actual)
+\item 
+void \hyperlink{classcivitas_1_1CivitasJuego_ab693e9b502a23abfc60fdf90232018fe}{pasar\+Turno} ()
+\item 
+\hyperlink{classcivitas_1_1Jugador}{Jugador} \hyperlink{classcivitas_1_1CivitasJuego_a2f4592014f096ff1b251a6102f2455d9}{ranking} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcivitas_1_1Tablero}{Tablero} \hyperlink{classcivitas_1_1CivitasJuego_a826db446a6b18c2d6b5dc12a97aeed5f}{tablero}
+\item 
+\hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas} \hyperlink{classcivitas_1_1CivitasJuego_a5e4c8b521eaa77f8b3ee7a011292bf44}{mazo}
+\item 
+Array\+List$<$ \hyperlink{classcivitas_1_1Jugador}{Jugador} $>$ \hyperlink{classcivitas_1_1CivitasJuego_a144695f2b0b3bcaa51834b185ac7f967}{jugadores}
+\item 
+\hyperlink{enumcivitas_1_1EstadosJuego}{Estados\+Juego} \hyperlink{classcivitas_1_1CivitasJuego_a3a4c238acfdb2b2dd9018e8dccbde067}{estado}
+\item 
+\hyperlink{classcivitas_1_1GestorEstados}{Gestor\+Estados} \hyperlink{classcivitas_1_1CivitasJuego_af6232f29a5d1bf21e614adb7d81e89c9}{gestor\+Estados}
+\item 
+int \hyperlink{classcivitas_1_1CivitasJuego_a02802c9e7dcf8c52631fac46005c7080}{indice\+Jugador\+Actual}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Yesenia González Dávila 
+
+Esther García Gallego Grupo B.\+3 
+\end{DoxyAuthor}
+
+
+\subsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a4b26ce50375c0e4e4df6754c6f96fbbb}\label{classcivitas_1_1CivitasJuego_a4b26ce50375c0e4e4df6754c6f96fbbb}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!Civitas\+Juego@{Civitas\+Juego}}
+\index{Civitas\+Juego@{Civitas\+Juego}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{Civitas\+Juego()}{CivitasJuego()}}
+{\footnotesize\ttfamily civitas.\+Civitas\+Juego.\+Civitas\+Juego (\begin{DoxyParamCaption}\item[{String}]{j1,  }\item[{String}]{j2,  }\item[{String}]{j3,  }\item[{String}]{j4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_aa991dc2d67076fc05b84d28e69734ced}\label{classcivitas_1_1CivitasJuego_aa991dc2d67076fc05b84d28e69734ced}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!cancelar\+Hipoteca@{cancelar\+Hipoteca}}
+\index{cancelar\+Hipoteca@{cancelar\+Hipoteca}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{cancelar\+Hipoteca()}{cancelarHipoteca()}}
+{\footnotesize\ttfamily boolean civitas.\+Civitas\+Juego.\+cancelar\+Hipoteca (\begin{DoxyParamCaption}\item[{int}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_af8f7715fd9484a2744f784dfdbfb7259}\label{classcivitas_1_1CivitasJuego_af8f7715fd9484a2744f784dfdbfb7259}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!construir\+Casa@{construir\+Casa}}
+\index{construir\+Casa@{construir\+Casa}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{construir\+Casa()}{construirCasa()}}
+{\footnotesize\ttfamily boolean civitas.\+Civitas\+Juego.\+construir\+Casa (\begin{DoxyParamCaption}\item[{int}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_ab22afced1a84c653073193eab94fceab}\label{classcivitas_1_1CivitasJuego_ab22afced1a84c653073193eab94fceab}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!construir\+Hotel@{construir\+Hotel}}
+\index{construir\+Hotel@{construir\+Hotel}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{construir\+Hotel()}{construirHotel()}}
+{\footnotesize\ttfamily boolean civitas.\+Civitas\+Juego.\+construir\+Hotel (\begin{DoxyParamCaption}\item[{int}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a557d212169fb3a5a44a6ddef88f2f95c}\label{classcivitas_1_1CivitasJuego_a557d212169fb3a5a44a6ddef88f2f95c}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!contabilizar\+Pasos\+Por\+Salida@{contabilizar\+Pasos\+Por\+Salida}}
+\index{contabilizar\+Pasos\+Por\+Salida@{contabilizar\+Pasos\+Por\+Salida}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{contabilizar\+Pasos\+Por\+Salida()}{contabilizarPasosPorSalida()}}
+{\footnotesize\ttfamily void civitas.\+Civitas\+Juego.\+contabilizar\+Pasos\+Por\+Salida (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{jugador\+Actual }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_acd93386478ef23fee7cd1c4ca59c6acf}\label{classcivitas_1_1CivitasJuego_acd93386478ef23fee7cd1c4ca59c6acf}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!final\+Del\+Juego@{final\+Del\+Juego}}
+\index{final\+Del\+Juego@{final\+Del\+Juego}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{final\+Del\+Juego()}{finalDelJuego()}}
+{\footnotesize\ttfamily boolean civitas.\+Civitas\+Juego.\+final\+Del\+Juego (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_ac362b49d8a30d194dfb94c02dd808e1c}\label{classcivitas_1_1CivitasJuego_ac362b49d8a30d194dfb94c02dd808e1c}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!get\+Casilla\+Actual@{get\+Casilla\+Actual}}
+\index{get\+Casilla\+Actual@{get\+Casilla\+Actual}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{get\+Casilla\+Actual()}{getCasillaActual()}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1Casilla}{Casilla} civitas.\+Civitas\+Juego.\+get\+Casilla\+Actual (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a5ddcdfd9eadc3ca5a1f9f139c57bc833}\label{classcivitas_1_1CivitasJuego_a5ddcdfd9eadc3ca5a1f9f139c57bc833}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!get\+Jugador\+Actual@{get\+Jugador\+Actual}}
+\index{get\+Jugador\+Actual@{get\+Jugador\+Actual}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{get\+Jugador\+Actual()}{getJugadorActual()}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1Jugador}{Jugador} civitas.\+Civitas\+Juego.\+get\+Jugador\+Actual (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_ad03c8d1b5a9b5553d586304f9b98b1bc}\label{classcivitas_1_1CivitasJuego_ad03c8d1b5a9b5553d586304f9b98b1bc}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!hipotecar@{hipotecar}}
+\index{hipotecar@{hipotecar}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{hipotecar()}{hipotecar()}}
+{\footnotesize\ttfamily boolean civitas.\+Civitas\+Juego.\+hipotecar (\begin{DoxyParamCaption}\item[{int}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a83d2384c9f9a461637faa98ed00da8fd}\label{classcivitas_1_1CivitasJuego_a83d2384c9f9a461637faa98ed00da8fd}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!info\+Jugador\+Texto@{info\+Jugador\+Texto}}
+\index{info\+Jugador\+Texto@{info\+Jugador\+Texto}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{info\+Jugador\+Texto()}{infoJugadorTexto()}}
+{\footnotesize\ttfamily String civitas.\+Civitas\+Juego.\+info\+Jugador\+Texto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a876416b4d7cebecbb8ee9edda4343fd3}\label{classcivitas_1_1CivitasJuego_a876416b4d7cebecbb8ee9edda4343fd3}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!inicializa\+Mazo\+Sorpresas@{inicializa\+Mazo\+Sorpresas}}
+\index{inicializa\+Mazo\+Sorpresas@{inicializa\+Mazo\+Sorpresas}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{inicializa\+Mazo\+Sorpresas()}{inicializaMazoSorpresas()}}
+{\footnotesize\ttfamily void civitas.\+Civitas\+Juego.\+inicializa\+Mazo\+Sorpresas (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1Tablero}{Tablero}}]{tablero }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_aae21b4f5cf5310530254baeac9540c39}\label{classcivitas_1_1CivitasJuego_aae21b4f5cf5310530254baeac9540c39}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!inicializa\+Tablero@{inicializa\+Tablero}}
+\index{inicializa\+Tablero@{inicializa\+Tablero}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{inicializa\+Tablero()}{inicializaTablero()}}
+{\footnotesize\ttfamily void civitas.\+Civitas\+Juego.\+inicializa\+Tablero (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas}}]{mazo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_ab693e9b502a23abfc60fdf90232018fe}\label{classcivitas_1_1CivitasJuego_ab693e9b502a23abfc60fdf90232018fe}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!pasar\+Turno@{pasar\+Turno}}
+\index{pasar\+Turno@{pasar\+Turno}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{pasar\+Turno()}{pasarTurno()}}
+{\footnotesize\ttfamily void civitas.\+Civitas\+Juego.\+pasar\+Turno (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a2f4592014f096ff1b251a6102f2455d9}\label{classcivitas_1_1CivitasJuego_a2f4592014f096ff1b251a6102f2455d9}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!ranking@{ranking}}
+\index{ranking@{ranking}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{ranking()}{ranking()}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1Jugador}{Jugador} civitas.\+Civitas\+Juego.\+ranking (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a92689751fb840140186e0bdf1168a906}\label{classcivitas_1_1CivitasJuego_a92689751fb840140186e0bdf1168a906}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!salir\+Carcel\+Pagando@{salir\+Carcel\+Pagando}}
+\index{salir\+Carcel\+Pagando@{salir\+Carcel\+Pagando}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{salir\+Carcel\+Pagando()}{salirCarcelPagando()}}
+{\footnotesize\ttfamily boolean civitas.\+Civitas\+Juego.\+salir\+Carcel\+Pagando (\begin{DoxyParamCaption}\item[{int}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a4490190bb9c0a51638d3867d67bb3693}\label{classcivitas_1_1CivitasJuego_a4490190bb9c0a51638d3867d67bb3693}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!salir\+Carcel\+Tirando@{salir\+Carcel\+Tirando}}
+\index{salir\+Carcel\+Tirando@{salir\+Carcel\+Tirando}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{salir\+Carcel\+Tirando()}{salirCarcelTirando()}}
+{\footnotesize\ttfamily boolean civitas.\+Civitas\+Juego.\+salir\+Carcel\+Tirando (\begin{DoxyParamCaption}\item[{int}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_af55452b18c52846930fbcf1eef45d99a}\label{classcivitas_1_1CivitasJuego_af55452b18c52846930fbcf1eef45d99a}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!siguiente\+Paso\+Completado@{siguiente\+Paso\+Completado}}
+\index{siguiente\+Paso\+Completado@{siguiente\+Paso\+Completado}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{siguiente\+Paso\+Completado()}{siguientePasoCompletado()}}
+{\footnotesize\ttfamily void civitas.\+Civitas\+Juego.\+siguiente\+Paso\+Completado (\begin{DoxyParamCaption}\item[{\hyperlink{enumcivitas_1_1OperacionesJuego}{Operaciones\+Juego}}]{operacion }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a6ea7e8e9ad8411842dcc463ad4f4a707}\label{classcivitas_1_1CivitasJuego_a6ea7e8e9ad8411842dcc463ad4f4a707}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!vender@{vender}}
+\index{vender@{vender}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{vender()}{vender()}}
+{\footnotesize\ttfamily boolean civitas.\+Civitas\+Juego.\+vender (\begin{DoxyParamCaption}\item[{int}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a4cbc0506f7a7d9c8409cafc230989258}\label{classcivitas_1_1CivitasJuego_a4cbc0506f7a7d9c8409cafc230989258}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!casilla\+Carcel@{casilla\+Carcel}}
+\index{casilla\+Carcel@{casilla\+Carcel}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{casilla\+Carcel}{casillaCarcel}}
+{\footnotesize\ttfamily final int civitas.\+Civitas\+Juego.\+casilla\+Carcel = 5\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a3a4c238acfdb2b2dd9018e8dccbde067}\label{classcivitas_1_1CivitasJuego_a3a4c238acfdb2b2dd9018e8dccbde067}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!estado@{estado}}
+\index{estado@{estado}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{estado}{estado}}
+{\footnotesize\ttfamily \hyperlink{enumcivitas_1_1EstadosJuego}{Estados\+Juego} civitas.\+Civitas\+Juego.\+estado\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_af6232f29a5d1bf21e614adb7d81e89c9}\label{classcivitas_1_1CivitasJuego_af6232f29a5d1bf21e614adb7d81e89c9}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!gestor\+Estados@{gestor\+Estados}}
+\index{gestor\+Estados@{gestor\+Estados}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{gestor\+Estados}{gestorEstados}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1GestorEstados}{Gestor\+Estados} civitas.\+Civitas\+Juego.\+gestor\+Estados\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a02802c9e7dcf8c52631fac46005c7080}\label{classcivitas_1_1CivitasJuego_a02802c9e7dcf8c52631fac46005c7080}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!indice\+Jugador\+Actual@{indice\+Jugador\+Actual}}
+\index{indice\+Jugador\+Actual@{indice\+Jugador\+Actual}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{indice\+Jugador\+Actual}{indiceJugadorActual}}
+{\footnotesize\ttfamily int civitas.\+Civitas\+Juego.\+indice\+Jugador\+Actual\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a144695f2b0b3bcaa51834b185ac7f967}\label{classcivitas_1_1CivitasJuego_a144695f2b0b3bcaa51834b185ac7f967}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!jugadores@{jugadores}}
+\index{jugadores@{jugadores}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{jugadores}{jugadores}}
+{\footnotesize\ttfamily Array\+List$<$\hyperlink{classcivitas_1_1Jugador}{Jugador}$>$ civitas.\+Civitas\+Juego.\+jugadores\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a5e4c8b521eaa77f8b3ee7a011292bf44}\label{classcivitas_1_1CivitasJuego_a5e4c8b521eaa77f8b3ee7a011292bf44}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!mazo@{mazo}}
+\index{mazo@{mazo}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{mazo}{mazo}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1MazoSorpresas}{Mazo\+Sorpresas} civitas.\+Civitas\+Juego.\+mazo\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a749d70a3b81aaff78b75f52c74b08f41}\label{classcivitas_1_1CivitasJuego_a749d70a3b81aaff78b75f52c74b08f41}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!num\+Casillas@{num\+Casillas}}
+\index{num\+Casillas@{num\+Casillas}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{num\+Casillas}{numCasillas}}
+{\footnotesize\ttfamily final int civitas.\+Civitas\+Juego.\+num\+Casillas = 20\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a033144c8099bb68aef8cc77268d3bbd9}\label{classcivitas_1_1CivitasJuego_a033144c8099bb68aef8cc77268d3bbd9}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!num\+Jugadores@{num\+Jugadores}}
+\index{num\+Jugadores@{num\+Jugadores}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{num\+Jugadores}{numJugadores}}
+{\footnotesize\ttfamily final int civitas.\+Civitas\+Juego.\+num\+Jugadores = 4\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcivitas_1_1CivitasJuego_a826db446a6b18c2d6b5dc12a97aeed5f}\label{classcivitas_1_1CivitasJuego_a826db446a6b18c2d6b5dc12a97aeed5f}} 
+\index{civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}!tablero@{tablero}}
+\index{tablero@{tablero}!civitas\+::\+Civitas\+Juego@{civitas\+::\+Civitas\+Juego}}
+\subsubsection{\texorpdfstring{tablero}{tablero}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1Tablero}{Tablero} civitas.\+Civitas\+Juego.\+tablero\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+src/civitas/\hyperlink{CivitasJuego_8java}{Civitas\+Juego.\+java}\end{DoxyCompactItemize}

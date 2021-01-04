@@ -1,0 +1,241 @@
+\hypertarget{classcivitas_1_1Tablero}{}\section{Referencia de la Clase civitas.\+Tablero}
+\label{classcivitas_1_1Tablero}\index{civitas.\+Tablero@{civitas.\+Tablero}}
+
+
+Representa el tablero de juego imponiendo las restricciones existentes.  
+
+
+
+
+Diagrama de colaboración para civitas.\+Tablero\+:
+% FIG 0
+\subsection*{Funciones del \textquotesingle{}package\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcivitas_1_1Tablero_af249aaa71ddb9e7565ffc2852a26303d}{Tablero} (int indice)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase trablero. \end{DoxyCompactList}\item 
+int \hyperlink{classcivitas_1_1Tablero_a82417628c739720b0528cd70165fb0c1}{get\+Carcel} ()
+\item 
+int \hyperlink{classcivitas_1_1Tablero_a9df67a69c40715a9ddee0341fd1aeaff}{get\+Por\+Salida} ()
+\item 
+void \hyperlink{classcivitas_1_1Tablero_a31d74deef3494a34660c1f397c8c8c5c}{añade\+Casilla} (\hyperlink{classcivitas_1_1Casilla}{Casilla} casilla)
+\item 
+void \hyperlink{classcivitas_1_1Tablero_aa24e01bfb4a1067c045fd3a31d46b44b}{añade\+Juez} ()
+\item 
+\hyperlink{classcivitas_1_1Casilla}{Casilla} \hyperlink{classcivitas_1_1Tablero_a3e8d442ecab08ad5735bb82ed191cebb}{get\+Casilla} (int num\+Casilla)
+\item 
+int \hyperlink{classcivitas_1_1Tablero_a7eb232ed041b08dcbf44ce53ae0acc64}{nueva\+Posicion} (int actual, int tirada)
+\item 
+int \hyperlink{classcivitas_1_1Tablero_a3951d29981cfc2117153df6908d98ad8}{calcular\+Tirada} (int origen, int destino)
+\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classcivitas_1_1Tablero_a894ba149d31edaec5b8e1917931b831c}{correcto} ()
+\begin{DoxyCompactList}\small\item\em Comprueba si el tablero es correcto. \end{DoxyCompactList}\item 
+boolean \hyperlink{classcivitas_1_1Tablero_abe88bfd23851da8b2fb4fac8c21214b7}{correcto} (int num\+Casilla)
+\item 
+void \hyperlink{classcivitas_1_1Tablero_a569f2c5e62ff14c894253af2cb359b62}{añade\+Carcel} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classcivitas_1_1Tablero_ae9a072a205d5134cfb298661fc7a9ef5}{num\+Casilla\+Carcel}
+\item 
+Array\+List$<$ \hyperlink{classcivitas_1_1Casilla}{Casilla} $>$ \hyperlink{classcivitas_1_1Tablero_a0eaa56ffea83ac62b4004782b3fdaa2f}{casillas}
+\item 
+int \hyperlink{classcivitas_1_1Tablero_a797f295af2f15be3c67aeecad07c985b}{por\+Salida}
+\item 
+boolean \hyperlink{classcivitas_1_1Tablero_aa9ac9b3f6d7c278a02dd45bcbf8795ab}{tiene\+Juez}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Representa el tablero de juego imponiendo las restricciones existentes. 
+
+\subsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classcivitas_1_1Tablero_af249aaa71ddb9e7565ffc2852a26303d}\label{classcivitas_1_1Tablero_af249aaa71ddb9e7565ffc2852a26303d}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!Tablero@{Tablero}}
+\index{Tablero@{Tablero}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{Tablero()}{Tablero()}}
+{\footnotesize\ttfamily civitas.\+Tablero.\+Tablero (\begin{DoxyParamCaption}\item[{int}]{indice }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+
+
+Constructor de la clase trablero. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em indice} & de la casilla en la que se encuentra la cárcel \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classcivitas_1_1Tablero_a569f2c5e62ff14c894253af2cb359b62}\label{classcivitas_1_1Tablero_a569f2c5e62ff14c894253af2cb359b62}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!añade\+Carcel@{añade\+Carcel}}
+\index{añade\+Carcel@{añade\+Carcel}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{añade\+Carcel()}{añadeCarcel()}}
+{\footnotesize\ttfamily void civitas.\+Tablero.\+añade\+Carcel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Añade al tablero la casilla de cárcel \begin{DoxyNote}{Nota}
+Método auxiliar propio para no repetir código 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcivitas_1_1Tablero_a31d74deef3494a34660c1f397c8c8c5c}\label{classcivitas_1_1Tablero_a31d74deef3494a34660c1f397c8c8c5c}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!añade\+Casilla@{añade\+Casilla}}
+\index{añade\+Casilla@{añade\+Casilla}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{añade\+Casilla()}{añadeCasilla()}}
+{\footnotesize\ttfamily void civitas.\+Tablero.\+añade\+Casilla (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1Casilla}{Casilla}}]{casilla }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Dada una casilla, la añade al tablero 
+\begin{DoxyParams}{Parámetros}
+{\em casilla} & objeto de la clase casilla \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcivitas_1_1Tablero_aa24e01bfb4a1067c045fd3a31d46b44b}\label{classcivitas_1_1Tablero_aa24e01bfb4a1067c045fd3a31d46b44b}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!añade\+Juez@{añade\+Juez}}
+\index{añade\+Juez@{añade\+Juez}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{añade\+Juez()}{añadeJuez()}}
+{\footnotesize\ttfamily void civitas.\+Tablero.\+añade\+Juez (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Añade al tablero una casilla de juez y actualiza el atributo tiene\+Juez \mbox{\Hypertarget{classcivitas_1_1Tablero_a3951d29981cfc2117153df6908d98ad8}\label{classcivitas_1_1Tablero_a3951d29981cfc2117153df6908d98ad8}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!calcular\+Tirada@{calcular\+Tirada}}
+\index{calcular\+Tirada@{calcular\+Tirada}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{calcular\+Tirada()}{calcularTirada()}}
+{\footnotesize\ttfamily int civitas.\+Tablero.\+calcular\+Tirada (\begin{DoxyParamCaption}\item[{int}]{origen,  }\item[{int}]{destino }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Calcula lo que debería salir en el dado para ir desde el origen al destino 
+\begin{DoxyParams}{Parámetros}
+{\em origen} & Posición inicial \\
+\hline
+{\em destino} & Posición final \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+devuelve la tirada necesaria para ir de origen a destino. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Tablero_a894ba149d31edaec5b8e1917931b831c}\label{classcivitas_1_1Tablero_a894ba149d31edaec5b8e1917931b831c}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!correcto@{correcto}}
+\index{correcto@{correcto}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{correcto()}{correcto()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boolean civitas.\+Tablero.\+correcto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Comprueba si el tablero es correcto. 
+
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el tablero es correcto, \\
+\hline
+{\em false} & si no lo es \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Tablero_abe88bfd23851da8b2fb4fac8c21214b7}\label{classcivitas_1_1Tablero_abe88bfd23851da8b2fb4fac8c21214b7}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!correcto@{correcto}}
+\index{correcto@{correcto}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{correcto()}{correcto()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily boolean civitas.\+Tablero.\+correcto (\begin{DoxyParamCaption}\item[{int}]{num\+Casilla }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Comprueba si el tablero es correcto y si su parametro es un indice valido 
+\begin{DoxyParams}{Parámetros}
+{\em num\+Casilla} & índice para acceder a elementos de casillas \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el tablero e indice son correctos, \\
+\hline
+{\em false} & si no es el caso \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Tablero_a82417628c739720b0528cd70165fb0c1}\label{classcivitas_1_1Tablero_a82417628c739720b0528cd70165fb0c1}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!get\+Carcel@{get\+Carcel}}
+\index{get\+Carcel@{get\+Carcel}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{get\+Carcel()}{getCarcel()}}
+{\footnotesize\ttfamily int civitas.\+Tablero.\+get\+Carcel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Consultor del atributo num\+Casilla\+Carcel. \begin{DoxyReturn}{Devuelve}
+la casilla en la que se encuentra la cárcel 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Tablero_a3e8d442ecab08ad5735bb82ed191cebb}\label{classcivitas_1_1Tablero_a3e8d442ecab08ad5735bb82ed191cebb}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!get\+Casilla@{get\+Casilla}}
+\index{get\+Casilla@{get\+Casilla}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{get\+Casilla()}{getCasilla()}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1Casilla}{Casilla} civitas.\+Tablero.\+get\+Casilla (\begin{DoxyParamCaption}\item[{int}]{num\+Casilla }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Consultor con parámetro del array casillas 
+\begin{DoxyParams}{Parámetros}
+{\em num\+Casilla} & índice de una casilla \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcivitas_1_1Tablero_a9df67a69c40715a9ddee0341fd1aeaff}\label{classcivitas_1_1Tablero_a9df67a69c40715a9ddee0341fd1aeaff}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!get\+Por\+Salida@{get\+Por\+Salida}}
+\index{get\+Por\+Salida@{get\+Por\+Salida}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{get\+Por\+Salida()}{getPorSalida()}}
+{\footnotesize\ttfamily int civitas.\+Tablero.\+get\+Por\+Salida (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Consultor del atributo por\+Salida. \begin{DoxyReturn}{Devuelve}
+número de veces que se ha pasado por la casilla de salida 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Tablero_a7eb232ed041b08dcbf44ce53ae0acc64}\label{classcivitas_1_1Tablero_a7eb232ed041b08dcbf44ce53ae0acc64}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!nueva\+Posicion@{nueva\+Posicion}}
+\index{nueva\+Posicion@{nueva\+Posicion}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{nueva\+Posicion()}{nuevaPosicion()}}
+{\footnotesize\ttfamily int civitas.\+Tablero.\+nueva\+Posicion (\begin{DoxyParamCaption}\item[{int}]{actual,  }\item[{int}]{tirada }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Calcula la nueva posicion en el tablero 
+\begin{DoxyParams}{Parámetros}
+{\em actual} & casilla actual \\
+\hline
+{\em tirada} & número de casillas avanzadas \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em posicion} & La casilla final, \\
+\hline
+{\em -\/1} & si el tablero no es correcto \\
+\hline
+\end{DoxyRetVals}
+
+
+\subsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classcivitas_1_1Tablero_a0eaa56ffea83ac62b4004782b3fdaa2f}\label{classcivitas_1_1Tablero_a0eaa56ffea83ac62b4004782b3fdaa2f}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!casillas@{casillas}}
+\index{casillas@{casillas}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{casillas}{casillas}}
+{\footnotesize\ttfamily Array\+List$<$\hyperlink{classcivitas_1_1Casilla}{Casilla}$>$ civitas.\+Tablero.\+casillas\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Tablero_ae9a072a205d5134cfb298661fc7a9ef5}\label{classcivitas_1_1Tablero_ae9a072a205d5134cfb298661fc7a9ef5}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!num\+Casilla\+Carcel@{num\+Casilla\+Carcel}}
+\index{num\+Casilla\+Carcel@{num\+Casilla\+Carcel}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{num\+Casilla\+Carcel}{numCasillaCarcel}}
+{\footnotesize\ttfamily int civitas.\+Tablero.\+num\+Casilla\+Carcel\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Tablero_a797f295af2f15be3c67aeecad07c985b}\label{classcivitas_1_1Tablero_a797f295af2f15be3c67aeecad07c985b}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!por\+Salida@{por\+Salida}}
+\index{por\+Salida@{por\+Salida}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{por\+Salida}{porSalida}}
+{\footnotesize\ttfamily int civitas.\+Tablero.\+por\+Salida\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Tablero_aa9ac9b3f6d7c278a02dd45bcbf8795ab}\label{classcivitas_1_1Tablero_aa9ac9b3f6d7c278a02dd45bcbf8795ab}} 
+\index{civitas\+::\+Tablero@{civitas\+::\+Tablero}!tiene\+Juez@{tiene\+Juez}}
+\index{tiene\+Juez@{tiene\+Juez}!civitas\+::\+Tablero@{civitas\+::\+Tablero}}
+\subsubsection{\texorpdfstring{tiene\+Juez}{tieneJuez}}
+{\footnotesize\ttfamily boolean civitas.\+Tablero.\+tiene\+Juez\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+src/civitas/\hyperlink{Tablero_8java}{Tablero.\+java}\end{DoxyCompactItemize}

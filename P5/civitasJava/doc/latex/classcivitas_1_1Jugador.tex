@@ -1,0 +1,848 @@
+\hypertarget{classcivitas_1_1Jugador}{}\section{Referencia de la Clase civitas.\+Jugador}
+\label{classcivitas_1_1Jugador}\index{civitas.\+Jugador@{civitas.\+Jugador}}
+
+
+Representa a cada uno de los jugadores del juego.  
+
+
+
+
+Diagrama de herencias de civitas.\+Jugador
+% FIG 0
+
+
+Diagrama de colaboración para civitas.\+Jugador\+:
+% FIG 1
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a05547894205ba819363c25f40addecae}{is\+Encarcelado} ()
+\item 
+String \hyperlink{classcivitas_1_1Jugador_a102b4070dfc271c865fcd6ebe92d9c06}{to\+String} ()
+\item 
+int \hyperlink{classcivitas_1_1Jugador_ad18fdf2b46d7146b458a77a919d66b58}{compare\+To} (\hyperlink{classcivitas_1_1Jugador}{Jugador} otro)
+\end{DoxyCompactItemize}
+\subsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classcivitas_1_1Jugador_a5ffd1393041fb0afa52d8d4a9572cdf2}{main} (String\mbox{[}$\,$\mbox{]} args)
+\end{DoxyCompactItemize}
+\subsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcivitas_1_1Jugador_ab6d7fb12843896b100653b7ad9d9bab8}{Jugador} (\hyperlink{classcivitas_1_1Jugador}{Jugador} otro)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_af79b45017fa40c343ea072a30e9578d4}{debe\+Ser\+Encarcelado} ()
+\item 
+String \hyperlink{classcivitas_1_1Jugador_a798c1fffaaf1dd8d12f36dd3d09b4f1b}{get\+Nombre} ()
+\item 
+Array\+List$<$ \hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad} $>$ \hyperlink{classcivitas_1_1Jugador_a2927df4695696abd841c71f6c3eba318}{get\+Propiedades} ()
+\item 
+float \hyperlink{classcivitas_1_1Jugador_a3c9d02f7974457585c0e2a58ccad6c76}{get\+Saldo} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a122f45dd187677cdb7b4367f4a8c8e31}{encarcelado}
+\item 
+int \hyperlink{classcivitas_1_1Jugador_a58a742df083ab5154311eb24a9f336f7}{Hoteles\+Max} = 4
+\end{DoxyCompactItemize}
+\subsection*{Atributos protegidos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classcivitas_1_1Jugador_accf59fcd81d2ef278ff30ec2d94459f7}{Casas\+Max} = 4
+\item 
+static int \hyperlink{classcivitas_1_1Jugador_a784c20415185896630b61dc4e32c2ad4}{Casas\+Por\+Hotel} = 4
+\item 
+static float \hyperlink{classcivitas_1_1Jugador_a7bf24661b9223d34e9e0b8640183de67}{Paso\+Por\+Salida} = 1000
+\item 
+static float \hyperlink{classcivitas_1_1Jugador_a2903b8379dc2dfcccab28821a41c7afc}{Precio\+Libertad} = 200
+\end{DoxyCompactItemize}
+\subsection*{Funciones del \textquotesingle{}package\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcivitas_1_1Jugador_a493ce0ae2a6589460ff693b7c53fbd1e}{Jugador} (String \+\_\+nombre)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_acc3fb8fdf45c820102c69472605abd3f}{encarcelar} (int num\+Casilla\+Carcel)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a0e052cf2f305003ab8a2084b643ff9bb}{obtener\+Salvoconducto} (\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} s)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a5a7a0ba48bd151a808fa2f3edeecf75f}{paga} (float cantidad)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a5d3aa6cc2657a3f7e5b31c947e9035ca}{paga\+Impuesto} (float cantidad)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_af63b04e25bc75ac3857bf0d6766cfc72}{paga\+Alquiler} (float cantidad)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_aeadc08e13f894f3b86f004bfede49b8a}{recibe} (float cantidad)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_ae091c2f1256a809aab42c1478056a861}{modificar\+Saldo} (float cantidad)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_af227e8b7b1b41f042f24e7f65062aa7c}{mover\+A\+Casilla} (int num\+Casilla)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_aa9a90b759adaccfd58e322c5518bb0f9}{vender} (int ip)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a076d9059f63b0176becea3c15dc98493}{tiene\+Algo\+Que\+Gestionar} ()
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_ac084bcf2599582f25908cc4214cb6937}{salir\+Carcel\+Pagando} ()
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a2c4106981ddfb43872df3303685739c1}{salir\+Carcel\+Tirando} ()
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_ac876d67da8365c7a97767a2930113c72}{pasa\+Por\+Salida} ()
+\item 
+int \hyperlink{classcivitas_1_1Jugador_a0fd044d8f7c6d61718b389124f93ec17}{get\+Casas\+Por\+Hotel} ()
+\item 
+int \hyperlink{classcivitas_1_1Jugador_ae60e7e2b72553535a3100e11a89e6948}{get\+Num\+Casilla\+Actual} ()
+\item 
+int \hyperlink{classcivitas_1_1Jugador_af26359708ca0a967152c3e38ef0e0c6b}{cantidad\+Casas\+Hoteles} ()
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a1b548df1bff7883664b0848408ed0232}{get\+Puede\+Comprar} ()
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a378e9a4405d9c44defeddd7488f5a9f9}{tiene\+Salvoconducto} ()
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_acfcfe8a5b5d26b2293cc727cd27acfac}{puede\+Comprar\+Casilla} ()
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a3258e1efe659b753aae45e38d6d7a6e2}{cancelar\+Hipoteca} (int ip)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a8f31f1a403355a68600c591ddf6d5418}{comprar} (\hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad} titulo)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_ab98bd17b404c3b4eeb28657012ff99ff}{construir\+Casa} (int ip)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_ab842fbff55eb5609c8b2f3a6a211d4eb}{construir\+Hotel} (int ip)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_aad3e438212a101326c99e79c3c314f4b}{hipotecar} (int ip)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a00dffd4d41a489e824816f7fece988fc}{en\+Bancarrota} ()
+\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcivitas_1_1Jugador_a121e27109e4f746fd129175b1622c154}{perder\+Salvoconducto} ()
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a459494b841c3ac2c9d93b00307292d89}{puedo\+Gastar} (float precio)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a4a001e328396bc37afa704a71a0f236f}{puede\+Salir\+Carcel\+Pagando} ()
+\item 
+int \hyperlink{classcivitas_1_1Jugador_a53bb212c80e5478ee456aac4e80c3aca}{get\+Casas\+Max} ()
+\item 
+int \hyperlink{classcivitas_1_1Jugador_adcb057e3337f0c727184071a8b8374f8}{get\+Hoteles\+Max} ()
+\item 
+float \hyperlink{classcivitas_1_1Jugador_a7efefdcbd0fc0d10e113a605c0251e2b}{get\+Precio\+Libertad} ()
+\item 
+float \hyperlink{classcivitas_1_1Jugador_a2640c1b6ddf6f07a2d11012b51f05910}{get\+Premio\+Paso\+Salida} ()
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a5ae51ea0cc7dd26a7db41fe6cd96dd87}{existe\+La\+Propiedad} (int ip)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_a471ecc3440579578a91e2eb5cf3a7acc}{puedo\+Edificar\+Casa} (\hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad} propiedad)
+\item 
+boolean \hyperlink{classcivitas_1_1Jugador_ab5a6f51daa7036633cfba1f68b653228}{puedo\+Edificar\+Hotel} (\hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad} propiedad)
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+String \hyperlink{classcivitas_1_1Jugador_a15303963c4d14ce30464ed4fd4d89e01}{nombre}
+\item 
+int \hyperlink{classcivitas_1_1Jugador_ae8c1f9b2e7645e174f1e774ae0322528}{num\+Casilla\+Actual}
+\item 
+Boolean \hyperlink{classcivitas_1_1Jugador_a0623b0de7503538559075f1b89e8c2d7}{puede\+Comprar}
+\item 
+float \hyperlink{classcivitas_1_1Jugador_a5af09f8e331ff80dd432f89a3024c5ec}{saldo}
+\item 
+\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} \hyperlink{classcivitas_1_1Jugador_ad5cc928f36c930703bec36ee0be85132}{salvoconducto}
+\item 
+Array\+List$<$ \hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad} $>$ \hyperlink{classcivitas_1_1Jugador_a037fa4dda1033ad869d6a9b61feb00af}{propiedades}
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static float \hyperlink{classcivitas_1_1Jugador_ae890734fd30e96b1fb670afa076b99dd}{Saldo\+Inicial} = 7500
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Representa a cada uno de los jugadores del juego. 
+
+\subsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a493ce0ae2a6589460ff693b7c53fbd1e}\label{classcivitas_1_1Jugador_a493ce0ae2a6589460ff693b7c53fbd1e}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!Jugador@{Jugador}}
+\index{Jugador@{Jugador}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{Jugador()}{Jugador()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily civitas.\+Jugador.\+Jugador (\begin{DoxyParamCaption}\item[{String}]{\+\_\+nombre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Constructor básico de la clase \hyperlink{classcivitas_1_1Jugador}{Jugador}. 
+\begin{DoxyParams}{Parámetros}
+{\em nombre} & El nombre del nuevo \hyperlink{classcivitas_1_1Jugador}{Jugador} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_ab6d7fb12843896b100653b7ad9d9bab8}\label{classcivitas_1_1Jugador_ab6d7fb12843896b100653b7ad9d9bab8}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!Jugador@{Jugador}}
+\index{Jugador@{Jugador}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{Jugador()}{Jugador()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily civitas.\+Jugador.\+Jugador (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{otro }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Constructor de copia de la clase \hyperlink{classcivitas_1_1Jugador}{Jugador}. 
+\begin{DoxyParams}{Parámetros}
+{\em otro} & El otro jugador que queremos copiar \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a3258e1efe659b753aae45e38d6d7a6e2}\label{classcivitas_1_1Jugador_a3258e1efe659b753aae45e38d6d7a6e2}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!cancelar\+Hipoteca@{cancelar\+Hipoteca}}
+\index{cancelar\+Hipoteca@{cancelar\+Hipoteca}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{cancelar\+Hipoteca()}{cancelarHipoteca()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+cancelar\+Hipoteca (\begin{DoxyParamCaption}\item[{int}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+\begin{DoxyWarning}{Atención}
+por implementar 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_af26359708ca0a967152c3e38ef0e0c6b}\label{classcivitas_1_1Jugador_af26359708ca0a967152c3e38ef0e0c6b}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!cantidad\+Casas\+Hoteles@{cantidad\+Casas\+Hoteles}}
+\index{cantidad\+Casas\+Hoteles@{cantidad\+Casas\+Hoteles}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{cantidad\+Casas\+Hoteles()}{cantidadCasasHoteles()}}
+{\footnotesize\ttfamily int civitas.\+Jugador.\+cantidad\+Casas\+Hoteles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Conmuta la cantidad total de edificaciones en las propiedades del jugador. \begin{DoxyReturn}{Devuelve}
+casas\+Hoteles Número total de edificaciones que existen en el array propiedades 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Atención}
+no sé si está correcto Y\+: po yo creo que si 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_ad18fdf2b46d7146b458a77a919d66b58}\label{classcivitas_1_1Jugador_ad18fdf2b46d7146b458a77a919d66b58}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!compare\+To@{compare\+To}}
+\index{compare\+To@{compare\+To}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{compare\+To()}{compareTo()}}
+{\footnotesize\ttfamily int civitas.\+Jugador.\+compare\+To (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1Jugador}{Jugador}}]{otro }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compara los saldos de dos Jugadores. 
+\begin{DoxyParams}{Parámetros}
+{\em otro} & El jugador con el que se compara \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+diferencia Diferencia entre ambos saldos 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+Si es positivo, el saldo de J1 es superior al saldo del otro jugador y negativo en caso contrario. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a8f31f1a403355a68600c591ddf6d5418}\label{classcivitas_1_1Jugador_a8f31f1a403355a68600c591ddf6d5418}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!comprar@{comprar}}
+\index{comprar@{comprar}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{comprar()}{comprar()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+comprar (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad}}]{titulo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+\begin{DoxyWarning}{Atención}
+por implementar 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_ab98bd17b404c3b4eeb28657012ff99ff}\label{classcivitas_1_1Jugador_ab98bd17b404c3b4eeb28657012ff99ff}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!construir\+Casa@{construir\+Casa}}
+\index{construir\+Casa@{construir\+Casa}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{construir\+Casa()}{construirCasa()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+construir\+Casa (\begin{DoxyParamCaption}\item[{int}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+\begin{DoxyWarning}{Atención}
+por implementar 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_ab842fbff55eb5609c8b2f3a6a211d4eb}\label{classcivitas_1_1Jugador_ab842fbff55eb5609c8b2f3a6a211d4eb}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!construir\+Hotel@{construir\+Hotel}}
+\index{construir\+Hotel@{construir\+Hotel}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{construir\+Hotel()}{construirHotel()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+construir\+Hotel (\begin{DoxyParamCaption}\item[{int}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+\begin{DoxyWarning}{Atención}
+por implementar 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_af79b45017fa40c343ea072a30e9578d4}\label{classcivitas_1_1Jugador_af79b45017fa40c343ea072a30e9578d4}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!debe\+Ser\+Encarcelado@{debe\+Ser\+Encarcelado}}
+\index{debe\+Ser\+Encarcelado@{debe\+Ser\+Encarcelado}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{debe\+Ser\+Encarcelado()}{debeSerEncarcelado()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+debe\+Ser\+Encarcelado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Determina si un jugador debe ser encarcelado y, en caso afirmativo, se comunica en el diario. \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador debe ser encarcelado o \\
+\hline
+{\em false} & en caso contrario \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a00dffd4d41a489e824816f7fece988fc}\label{classcivitas_1_1Jugador_a00dffd4d41a489e824816f7fece988fc}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!en\+Bancarrota@{en\+Bancarrota}}
+\index{en\+Bancarrota@{en\+Bancarrota}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{en\+Bancarrota()}{enBancarrota()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+en\+Bancarrota (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Determina si el jugador está en bancarrota. \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si se el saldo del jugador ha llegado a 0 o inferior o  en caso contrario \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_acc3fb8fdf45c820102c69472605abd3f}\label{classcivitas_1_1Jugador_acc3fb8fdf45c820102c69472605abd3f}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!encarcelar@{encarcelar}}
+\index{encarcelar@{encarcelar}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{encarcelar()}{encarcelar()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+encarcelar (\begin{DoxyParamCaption}\item[{int}]{num\+Casilla\+Carcel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Encarcela al jugador que llame a la función si es necesario e informa al diario. \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador ha sido encarcelado y \\
+\hline
+{\em false} & si no es el caso \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a5ae51ea0cc7dd26a7db41fe6cd96dd87}\label{classcivitas_1_1Jugador_a5ae51ea0cc7dd26a7db41fe6cd96dd87}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!existe\+La\+Propiedad@{existe\+La\+Propiedad}}
+\index{existe\+La\+Propiedad@{existe\+La\+Propiedad}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{existe\+La\+Propiedad()}{existeLaPropiedad()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+existe\+La\+Propiedad (\begin{DoxyParamCaption}\item[{int}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Determina si una propiedad dada existe. 
+\begin{DoxyParams}{Parámetros}
+{\em ip} & Número de la casilla en la que se encuentra la propiedad \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si se la propiedad existe o  en caso contrario \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a53bb212c80e5478ee456aac4e80c3aca}\label{classcivitas_1_1Jugador_a53bb212c80e5478ee456aac4e80c3aca}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!get\+Casas\+Max@{get\+Casas\+Max}}
+\index{get\+Casas\+Max@{get\+Casas\+Max}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{get\+Casas\+Max()}{getCasasMax()}}
+{\footnotesize\ttfamily int civitas.\+Jugador.\+get\+Casas\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Consultor privado del atributo Casas\+Max. \begin{DoxyReturn}{Devuelve}
+Casas\+Max Número máximo de casas que se puede edificar por casilla 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a0fd044d8f7c6d61718b389124f93ec17}\label{classcivitas_1_1Jugador_a0fd044d8f7c6d61718b389124f93ec17}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!get\+Casas\+Por\+Hotel@{get\+Casas\+Por\+Hotel}}
+\index{get\+Casas\+Por\+Hotel@{get\+Casas\+Por\+Hotel}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{get\+Casas\+Por\+Hotel()}{getCasasPorHotel()}}
+{\footnotesize\ttfamily int civitas.\+Jugador.\+get\+Casas\+Por\+Hotel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Consultor del atributo Casas\+Por\+Hotel. \begin{DoxyReturn}{Devuelve}
+Casas\+Por\+Hotel Número de casas que se deben tener para poder intercambiarse por un hotel 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_adcb057e3337f0c727184071a8b8374f8}\label{classcivitas_1_1Jugador_adcb057e3337f0c727184071a8b8374f8}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!get\+Hoteles\+Max@{get\+Hoteles\+Max}}
+\index{get\+Hoteles\+Max@{get\+Hoteles\+Max}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{get\+Hoteles\+Max()}{getHotelesMax()}}
+{\footnotesize\ttfamily int civitas.\+Jugador.\+get\+Hoteles\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Consultor privado del atributo Hoteles\+Max. \begin{DoxyReturn}{Devuelve}
+Hoteles\+Max Número máximo de hoteles que se puede edificar por casilla 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a798c1fffaaf1dd8d12f36dd3d09b4f1b}\label{classcivitas_1_1Jugador_a798c1fffaaf1dd8d12f36dd3d09b4f1b}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!get\+Nombre@{get\+Nombre}}
+\index{get\+Nombre@{get\+Nombre}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{get\+Nombre()}{getNombre()}}
+{\footnotesize\ttfamily String civitas.\+Jugador.\+get\+Nombre (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Consultor protegido del atributo nombre. \begin{DoxyReturn}{Devuelve}
+nombre El nombre del \hyperlink{classcivitas_1_1Jugador}{Jugador} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_ae60e7e2b72553535a3100e11a89e6948}\label{classcivitas_1_1Jugador_ae60e7e2b72553535a3100e11a89e6948}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!get\+Num\+Casilla\+Actual@{get\+Num\+Casilla\+Actual}}
+\index{get\+Num\+Casilla\+Actual@{get\+Num\+Casilla\+Actual}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{get\+Num\+Casilla\+Actual()}{getNumCasillaActual()}}
+{\footnotesize\ttfamily int civitas.\+Jugador.\+get\+Num\+Casilla\+Actual (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Consultor del atributo num\+Casilla\+Actual. \begin{DoxyReturn}{Devuelve}
+num\+Casilla\+Actual Número de la casilla en la que se encuentra el \hyperlink{classcivitas_1_1Jugador}{Jugador} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a7efefdcbd0fc0d10e113a605c0251e2b}\label{classcivitas_1_1Jugador_a7efefdcbd0fc0d10e113a605c0251e2b}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!get\+Precio\+Libertad@{get\+Precio\+Libertad}}
+\index{get\+Precio\+Libertad@{get\+Precio\+Libertad}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{get\+Precio\+Libertad()}{getPrecioLibertad()}}
+{\footnotesize\ttfamily float civitas.\+Jugador.\+get\+Precio\+Libertad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Consultor privado del atributo Precio\+Libertad. \begin{DoxyReturn}{Devuelve}
+Precio\+Libertad Precio a pagar por salir de la cárcel 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a2640c1b6ddf6f07a2d11012b51f05910}\label{classcivitas_1_1Jugador_a2640c1b6ddf6f07a2d11012b51f05910}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!get\+Premio\+Paso\+Salida@{get\+Premio\+Paso\+Salida}}
+\index{get\+Premio\+Paso\+Salida@{get\+Premio\+Paso\+Salida}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{get\+Premio\+Paso\+Salida()}{getPremioPasoSalida()}}
+{\footnotesize\ttfamily float civitas.\+Jugador.\+get\+Premio\+Paso\+Salida (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Consultor privado del atributo Paso\+Por\+Salida. \begin{DoxyReturn}{Devuelve}
+Paso\+Por\+Salida Precio a cobrar por pasar por la casilla de salida 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a2927df4695696abd841c71f6c3eba318}\label{classcivitas_1_1Jugador_a2927df4695696abd841c71f6c3eba318}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!get\+Propiedades@{get\+Propiedades}}
+\index{get\+Propiedades@{get\+Propiedades}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{get\+Propiedades()}{getPropiedades()}}
+{\footnotesize\ttfamily Array\+List$<$\hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad}$>$ civitas.\+Jugador.\+get\+Propiedades (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Consultor protegido del atributo propiedades. \begin{DoxyReturn}{Devuelve}
+propiedades Array que contiene el conjunto de propiedades del jugador 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a1b548df1bff7883664b0848408ed0232}\label{classcivitas_1_1Jugador_a1b548df1bff7883664b0848408ed0232}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!get\+Puede\+Comprar@{get\+Puede\+Comprar}}
+\index{get\+Puede\+Comprar@{get\+Puede\+Comprar}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{get\+Puede\+Comprar()}{getPuedeComprar()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+get\+Puede\+Comprar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Consultor del atributo puede\+Comprar. \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador puede comprar una propiedad o \\
+\hline
+{\em false} & en caso contrario \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a3c9d02f7974457585c0e2a58ccad6c76}\label{classcivitas_1_1Jugador_a3c9d02f7974457585c0e2a58ccad6c76}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!get\+Saldo@{get\+Saldo}}
+\index{get\+Saldo@{get\+Saldo}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{get\+Saldo()}{getSaldo()}}
+{\footnotesize\ttfamily float civitas.\+Jugador.\+get\+Saldo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Consultor protegido del atributo saldo. \begin{DoxyReturn}{Devuelve}
+saldo Cantidad de dinero del jugador 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_aad3e438212a101326c99e79c3c314f4b}\label{classcivitas_1_1Jugador_aad3e438212a101326c99e79c3c314f4b}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!hipotecar@{hipotecar}}
+\index{hipotecar@{hipotecar}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{hipotecar()}{hipotecar()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+hipotecar (\begin{DoxyParamCaption}\item[{int}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+\begin{DoxyWarning}{Atención}
+por implementar 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a05547894205ba819363c25f40addecae}\label{classcivitas_1_1Jugador_a05547894205ba819363c25f40addecae}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!is\+Encarcelado@{is\+Encarcelado}}
+\index{is\+Encarcelado@{is\+Encarcelado}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{is\+Encarcelado()}{isEncarcelado()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+is\+Encarcelado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Consultor público del atributo encarcelado. \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador está encarcelado o \\
+\hline
+{\em false} & en caso contrario \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a5ffd1393041fb0afa52d8d4a9572cdf2}\label{classcivitas_1_1Jugador_a5ffd1393041fb0afa52d8d4a9572cdf2}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!main@{main}}
+\index{main@{main}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily static void civitas.\+Jugador.\+main (\begin{DoxyParamCaption}\item[{String \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Jugador_ae091c2f1256a809aab42c1478056a861}\label{classcivitas_1_1Jugador_ae091c2f1256a809aab42c1478056a861}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!modificar\+Saldo@{modificar\+Saldo}}
+\index{modificar\+Saldo@{modificar\+Saldo}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{modificar\+Saldo()}{modificarSaldo()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+modificar\+Saldo (\begin{DoxyParamCaption}\item[{float}]{cantidad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Modifica el saldo en el juego. 
+\begin{DoxyParams}{Parámetros}
+{\em cantidad} & Dinero que incrementa/disminuye el saldo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & siempre \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_af227e8b7b1b41f042f24e7f65062aa7c}\label{classcivitas_1_1Jugador_af227e8b7b1b41f042f24e7f65062aa7c}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!mover\+A\+Casilla@{mover\+A\+Casilla}}
+\index{mover\+A\+Casilla@{mover\+A\+Casilla}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{mover\+A\+Casilla()}{moverACasilla()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+mover\+A\+Casilla (\begin{DoxyParamCaption}\item[{int}]{num\+Casilla }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Modifica la posición de un jugador. 
+\begin{DoxyParams}{Parámetros}
+{\em num\+Casilla} & \hyperlink{classcivitas_1_1Casilla}{Casilla} a la que se va a mover al jugador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si se ha realizado la acción con éxito o  en caso contrario \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a0e052cf2f305003ab8a2084b643ff9bb}\label{classcivitas_1_1Jugador_a0e052cf2f305003ab8a2084b643ff9bb}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!obtener\+Salvoconducto@{obtener\+Salvoconducto}}
+\index{obtener\+Salvoconducto@{obtener\+Salvoconducto}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{obtener\+Salvoconducto()}{obtenerSalvoconducto()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+obtener\+Salvoconducto (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1Sorpresa}{Sorpresa}}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Guarda la referencia al parámetro en el atributo salvoconducto si el jugador no está en la cárcel. \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador ha obtenido el salvoconducto y \\
+\hline
+{\em false} & si no es el caso \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a5a7a0ba48bd151a808fa2f3edeecf75f}\label{classcivitas_1_1Jugador_a5a7a0ba48bd151a808fa2f3edeecf75f}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!paga@{paga}}
+\index{paga@{paga}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{paga()}{paga()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+paga (\begin{DoxyParamCaption}\item[{float}]{cantidad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Realiza la acción de pagar en el juego. 
+\begin{DoxyParams}{Parámetros}
+{\em cantidad} & Dinero a pagar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador ha pagado y \\
+\hline
+{\em false} & si no es el caso \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_af63b04e25bc75ac3857bf0d6766cfc72}\label{classcivitas_1_1Jugador_af63b04e25bc75ac3857bf0d6766cfc72}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!paga\+Alquiler@{paga\+Alquiler}}
+\index{paga\+Alquiler@{paga\+Alquiler}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{paga\+Alquiler()}{pagaAlquiler()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+paga\+Alquiler (\begin{DoxyParamCaption}\item[{float}]{cantidad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Realiza la acción de pagar por caer en una propiedad de otro jugador. 
+\begin{DoxyParams}{Parámetros}
+{\em cantidad} & Dinero a pagar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador ha pagado y \\
+\hline
+{\em false} & si no es el caso \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a5d3aa6cc2657a3f7e5b31c947e9035ca}\label{classcivitas_1_1Jugador_a5d3aa6cc2657a3f7e5b31c947e9035ca}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!paga\+Impuesto@{paga\+Impuesto}}
+\index{paga\+Impuesto@{paga\+Impuesto}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{paga\+Impuesto()}{pagaImpuesto()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+paga\+Impuesto (\begin{DoxyParamCaption}\item[{float}]{cantidad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Realiza la acción de pagar por sacar una sopresa que te obliga a pagar un impuesto. 
+\begin{DoxyParams}{Parámetros}
+{\em cantidad} & Dinero a pagar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador ha pagado y \\
+\hline
+{\em false} & si no es el caso \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_ac876d67da8365c7a97767a2930113c72}\label{classcivitas_1_1Jugador_ac876d67da8365c7a97767a2930113c72}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!pasa\+Por\+Salida@{pasa\+Por\+Salida}}
+\index{pasa\+Por\+Salida@{pasa\+Por\+Salida}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{pasa\+Por\+Salida()}{pasaPorSalida()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+pasa\+Por\+Salida (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Modifica el saldo por haber pasado por la casilla de salida. \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si se ha realizado la acción con éxito o  en caso contrario \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a121e27109e4f746fd129175b1622c154}\label{classcivitas_1_1Jugador_a121e27109e4f746fd129175b1622c154}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!perder\+Salvoconducto@{perder\+Salvoconducto}}
+\index{perder\+Salvoconducto@{perder\+Salvoconducto}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{perder\+Salvoconducto()}{perderSalvoconducto()}}
+{\footnotesize\ttfamily void civitas.\+Jugador.\+perder\+Salvoconducto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Elimina la referencia al salvoconducto porque ha sido usado. \mbox{\Hypertarget{classcivitas_1_1Jugador_acfcfe8a5b5d26b2293cc727cd27acfac}\label{classcivitas_1_1Jugador_acfcfe8a5b5d26b2293cc727cd27acfac}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!puede\+Comprar\+Casilla@{puede\+Comprar\+Casilla}}
+\index{puede\+Comprar\+Casilla@{puede\+Comprar\+Casilla}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{puede\+Comprar\+Casilla()}{puedeComprarCasilla()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+puede\+Comprar\+Casilla (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Determina si el jugador puede comprar una propiedad. \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador puede comprar la casilla y \\
+\hline
+{\em false} & si no es el caso \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a4a001e328396bc37afa704a71a0f236f}\label{classcivitas_1_1Jugador_a4a001e328396bc37afa704a71a0f236f}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!puede\+Salir\+Carcel\+Pagando@{puede\+Salir\+Carcel\+Pagando}}
+\index{puede\+Salir\+Carcel\+Pagando@{puede\+Salir\+Carcel\+Pagando}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{puede\+Salir\+Carcel\+Pagando()}{puedeSalirCarcelPagando()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+puede\+Salir\+Carcel\+Pagando (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Determina si el jugador puede salir de la cárcel pagando. \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador puede pagar el precio por su libertad o  en caso contrario \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a471ecc3440579578a91e2eb5cf3a7acc}\label{classcivitas_1_1Jugador_a471ecc3440579578a91e2eb5cf3a7acc}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!puedo\+Edificar\+Casa@{puedo\+Edificar\+Casa}}
+\index{puedo\+Edificar\+Casa@{puedo\+Edificar\+Casa}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{puedo\+Edificar\+Casa()}{puedoEdificarCasa()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+puedo\+Edificar\+Casa (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad}}]{propiedad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Determina si el jugador puede edificar una casa en una determinada propiedad 
+\begin{DoxyParams}{Parámetros}
+{\em propiedad} & La propiedad en la que queremos edificar la casa \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_ab5a6f51daa7036633cfba1f68b653228}\label{classcivitas_1_1Jugador_ab5a6f51daa7036633cfba1f68b653228}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!puedo\+Edificar\+Hotel@{puedo\+Edificar\+Hotel}}
+\index{puedo\+Edificar\+Hotel@{puedo\+Edificar\+Hotel}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{puedo\+Edificar\+Hotel()}{puedoEdificarHotel()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+puedo\+Edificar\+Hotel (\begin{DoxyParamCaption}\item[{\hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad}}]{propiedad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Determina si el jugador puede edificar un hotel en una determinada propiedad 
+\begin{DoxyParams}{Parámetros}
+{\em propiedad} & La propiedad en la que queremos edificar el hotel \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a459494b841c3ac2c9d93b00307292d89}\label{classcivitas_1_1Jugador_a459494b841c3ac2c9d93b00307292d89}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!puedo\+Gastar@{puedo\+Gastar}}
+\index{puedo\+Gastar@{puedo\+Gastar}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{puedo\+Gastar()}{puedoGastar()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+puedo\+Gastar (\begin{DoxyParamCaption}\item[{float}]{precio }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Determina si el jugador tiene el saldo suficiente para pagar. 
+\begin{DoxyParams}{Parámetros}
+{\em precio} & Dinero a pagar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si se lo puede permitir o  en caso contrario \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_aeadc08e13f894f3b86f004bfede49b8a}\label{classcivitas_1_1Jugador_aeadc08e13f894f3b86f004bfede49b8a}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!recibe@{recibe}}
+\index{recibe@{recibe}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{recibe()}{recibe()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+recibe (\begin{DoxyParamCaption}\item[{float}]{cantidad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Incrementa el saldo en el juego. 
+\begin{DoxyParams}{Parámetros}
+{\em cantidad} & Dinero a pagar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador ha recibido el dinero y \\
+\hline
+{\em false} & si no es el caso \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_ac084bcf2599582f25908cc4214cb6937}\label{classcivitas_1_1Jugador_ac084bcf2599582f25908cc4214cb6937}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!salir\+Carcel\+Pagando@{salir\+Carcel\+Pagando}}
+\index{salir\+Carcel\+Pagando@{salir\+Carcel\+Pagando}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{salir\+Carcel\+Pagando()}{salirCarcelPagando()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+salir\+Carcel\+Pagando (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Libera al jugador de la cárcel tras pagar. \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador ha sido liberado o  en caso contrario \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a2c4106981ddfb43872df3303685739c1}\label{classcivitas_1_1Jugador_a2c4106981ddfb43872df3303685739c1}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!salir\+Carcel\+Tirando@{salir\+Carcel\+Tirando}}
+\index{salir\+Carcel\+Tirando@{salir\+Carcel\+Tirando}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{salir\+Carcel\+Tirando()}{salirCarcelTirando()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+salir\+Carcel\+Tirando (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Libera al jugador de la cárcel tras tirar. \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador ha sido liberado o  en caso contrario \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a076d9059f63b0176becea3c15dc98493}\label{classcivitas_1_1Jugador_a076d9059f63b0176becea3c15dc98493}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!tiene\+Algo\+Que\+Gestionar@{tiene\+Algo\+Que\+Gestionar}}
+\index{tiene\+Algo\+Que\+Gestionar@{tiene\+Algo\+Que\+Gestionar}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{tiene\+Algo\+Que\+Gestionar()}{tieneAlgoQueGestionar()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+tiene\+Algo\+Que\+Gestionar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Determina si el jugador tiene propiedades. \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador posee propiedades o  en caso contrario \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a378e9a4405d9c44defeddd7488f5a9f9}\label{classcivitas_1_1Jugador_a378e9a4405d9c44defeddd7488f5a9f9}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!tiene\+Salvoconducto@{tiene\+Salvoconducto}}
+\index{tiene\+Salvoconducto@{tiene\+Salvoconducto}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{tiene\+Salvoconducto()}{tieneSalvoconducto()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+tiene\+Salvoconducto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Determina si el jugador tiene salvoconducto. \begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si el jugador tiene salvoconducto y \\
+\hline
+{\em false} & si no es el caso \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a102b4070dfc271c865fcd6ebe92d9c06}\label{classcivitas_1_1Jugador_a102b4070dfc271c865fcd6ebe92d9c06}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily String civitas.\+Jugador.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Imprime por pantalla las características del jugador \begin{DoxyWarning}{Atención}
+por implementar 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_aa9a90b759adaccfd58e322c5518bb0f9}\label{classcivitas_1_1Jugador_aa9a90b759adaccfd58e322c5518bb0f9}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!vender@{vender}}
+\index{vender@{vender}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{vender()}{vender()}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+vender (\begin{DoxyParamCaption}\item[{int}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [package]}}
+
+Vende una propiedad de un jugador. 
+\begin{DoxyParams}{Parámetros}
+{\em ip} & Número de casilla de la propiedad que se va a vender \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & si se ha realizado la acción con éxito o  en caso contrario \\
+\hline
+\end{DoxyRetVals}
+
+
+\subsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classcivitas_1_1Jugador_accf59fcd81d2ef278ff30ec2d94459f7}\label{classcivitas_1_1Jugador_accf59fcd81d2ef278ff30ec2d94459f7}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!Casas\+Max@{Casas\+Max}}
+\index{Casas\+Max@{Casas\+Max}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{Casas\+Max}{CasasMax}}
+{\footnotesize\ttfamily int civitas.\+Jugador.\+Casas\+Max = 4\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a784c20415185896630b61dc4e32c2ad4}\label{classcivitas_1_1Jugador_a784c20415185896630b61dc4e32c2ad4}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!Casas\+Por\+Hotel@{Casas\+Por\+Hotel}}
+\index{Casas\+Por\+Hotel@{Casas\+Por\+Hotel}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{Casas\+Por\+Hotel}{CasasPorHotel}}
+{\footnotesize\ttfamily int civitas.\+Jugador.\+Casas\+Por\+Hotel = 4\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a122f45dd187677cdb7b4367f4a8c8e31}\label{classcivitas_1_1Jugador_a122f45dd187677cdb7b4367f4a8c8e31}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!encarcelado@{encarcelado}}
+\index{encarcelado@{encarcelado}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{encarcelado}{encarcelado}}
+{\footnotesize\ttfamily boolean civitas.\+Jugador.\+encarcelado\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a58a742df083ab5154311eb24a9f336f7}\label{classcivitas_1_1Jugador_a58a742df083ab5154311eb24a9f336f7}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!Hoteles\+Max@{Hoteles\+Max}}
+\index{Hoteles\+Max@{Hoteles\+Max}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{Hoteles\+Max}{HotelesMax}}
+{\footnotesize\ttfamily int civitas.\+Jugador.\+Hoteles\+Max = 4\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a15303963c4d14ce30464ed4fd4d89e01}\label{classcivitas_1_1Jugador_a15303963c4d14ce30464ed4fd4d89e01}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!nombre@{nombre}}
+\index{nombre@{nombre}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{nombre}{nombre}}
+{\footnotesize\ttfamily String civitas.\+Jugador.\+nombre\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Jugador_ae8c1f9b2e7645e174f1e774ae0322528}\label{classcivitas_1_1Jugador_ae8c1f9b2e7645e174f1e774ae0322528}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!num\+Casilla\+Actual@{num\+Casilla\+Actual}}
+\index{num\+Casilla\+Actual@{num\+Casilla\+Actual}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{num\+Casilla\+Actual}{numCasillaActual}}
+{\footnotesize\ttfamily int civitas.\+Jugador.\+num\+Casilla\+Actual\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a7bf24661b9223d34e9e0b8640183de67}\label{classcivitas_1_1Jugador_a7bf24661b9223d34e9e0b8640183de67}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!Paso\+Por\+Salida@{Paso\+Por\+Salida}}
+\index{Paso\+Por\+Salida@{Paso\+Por\+Salida}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{Paso\+Por\+Salida}{PasoPorSalida}}
+{\footnotesize\ttfamily float civitas.\+Jugador.\+Paso\+Por\+Salida = 1000\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a2903b8379dc2dfcccab28821a41c7afc}\label{classcivitas_1_1Jugador_a2903b8379dc2dfcccab28821a41c7afc}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!Precio\+Libertad@{Precio\+Libertad}}
+\index{Precio\+Libertad@{Precio\+Libertad}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{Precio\+Libertad}{PrecioLibertad}}
+{\footnotesize\ttfamily float civitas.\+Jugador.\+Precio\+Libertad = 200\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a037fa4dda1033ad869d6a9b61feb00af}\label{classcivitas_1_1Jugador_a037fa4dda1033ad869d6a9b61feb00af}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!propiedades@{propiedades}}
+\index{propiedades@{propiedades}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{propiedades}{propiedades}}
+{\footnotesize\ttfamily Array\+List$<$\hyperlink{classcivitas_1_1TituloPropiedad}{Titulo\+Propiedad}$>$ civitas.\+Jugador.\+propiedades\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a0623b0de7503538559075f1b89e8c2d7}\label{classcivitas_1_1Jugador_a0623b0de7503538559075f1b89e8c2d7}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!puede\+Comprar@{puede\+Comprar}}
+\index{puede\+Comprar@{puede\+Comprar}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{puede\+Comprar}{puedeComprar}}
+{\footnotesize\ttfamily Boolean civitas.\+Jugador.\+puede\+Comprar\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Jugador_a5af09f8e331ff80dd432f89a3024c5ec}\label{classcivitas_1_1Jugador_a5af09f8e331ff80dd432f89a3024c5ec}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!saldo@{saldo}}
+\index{saldo@{saldo}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{saldo}{saldo}}
+{\footnotesize\ttfamily float civitas.\+Jugador.\+saldo\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Jugador_ae890734fd30e96b1fb670afa076b99dd}\label{classcivitas_1_1Jugador_ae890734fd30e96b1fb670afa076b99dd}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!Saldo\+Inicial@{Saldo\+Inicial}}
+\index{Saldo\+Inicial@{Saldo\+Inicial}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{Saldo\+Inicial}{SaldoInicial}}
+{\footnotesize\ttfamily float civitas.\+Jugador.\+Saldo\+Inicial = 7500\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcivitas_1_1Jugador_ad5cc928f36c930703bec36ee0be85132}\label{classcivitas_1_1Jugador_ad5cc928f36c930703bec36ee0be85132}} 
+\index{civitas\+::\+Jugador@{civitas\+::\+Jugador}!salvoconducto@{salvoconducto}}
+\index{salvoconducto@{salvoconducto}!civitas\+::\+Jugador@{civitas\+::\+Jugador}}
+\subsubsection{\texorpdfstring{salvoconducto}{salvoconducto}}
+{\footnotesize\ttfamily \hyperlink{classcivitas_1_1Sorpresa}{Sorpresa} civitas.\+Jugador.\+salvoconducto\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+src/civitas/\hyperlink{Jugador_8java}{Jugador.\+java}\end{DoxyCompactItemize}

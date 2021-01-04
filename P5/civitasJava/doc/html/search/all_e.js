@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['paga',['paga',['../classcivitas_1_1Jugador.html#a5a7a0ba48bd151a808fa2f3edeecf75f',1,'civitas::Jugador']]],
+  ['pagaalquiler',['pagaAlquiler',['../classcivitas_1_1Jugador.html#af63b04e25bc75ac3857bf0d6766cfc72',1,'civitas::Jugador']]],
+  ['pagaimpuesto',['pagaImpuesto',['../classcivitas_1_1Jugador.html#a5d3aa6cc2657a3f7e5b31c947e9035ca',1,'civitas::Jugador']]],
+  ['pagarcobrar',['PAGARCOBRAR',['../enumcivitas_1_1TipoSorpresa.html#a3d24bb84c0bc6661c90e10ae01990847',1,'civitas::TipoSorpresa']]],
+  ['pasaporsalida',['pasaPorSalida',['../classcivitas_1_1Jugador.html#ac876d67da8365c7a97767a2930113c72',1,'civitas::Jugador']]],
+  ['pasar_5fturno',['PASAR_TURNO',['../enumcivitas_1_1OperacionesJuego.html#a73c4377f4f9bb11eb0bd01c0212cf0ed',1,'civitas::OperacionesJuego']]],
+  ['pasarturno',['pasarTurno',['../classcivitas_1_1CivitasJuego.html#ab693e9b502a23abfc60fdf90232018fe',1,'civitas::CivitasJuego']]],
+  ['pasoporsalida',['PasoPorSalida',['../classcivitas_1_1Jugador.html#a7bf24661b9223d34e9e0b8640183de67',1,'civitas::Jugador']]],
+  ['perdersalvoconducto',['perderSalvoconducto',['../classcivitas_1_1Jugador.html#a121e27109e4f746fd129175b1622c154',1,'civitas::Jugador']]],
+  ['porcasahotel',['PORCASAHOTEL',['../enumcivitas_1_1TipoSorpresa.html#ad1e0eb521781b69d241bf56e6c3b7b8a',1,'civitas::TipoSorpresa']]],
+  ['porjugador',['PORJUGADOR',['../enumcivitas_1_1TipoSorpresa.html#ae11ec14f289080778747cedef3c96b07',1,'civitas::TipoSorpresa']]],
+  ['porsalida',['porSalida',['../classcivitas_1_1Tablero.html#a797f295af2f15be3c67aeecad07c985b',1,'civitas::Tablero']]],
+  ['preciocompra',['precioCompra',['../classcivitas_1_1TituloPropiedad.html#acdc775162906323868c955a513a34848',1,'civitas::TituloPropiedad']]],
+  ['precioedificar',['precioEdificar',['../classcivitas_1_1TituloPropiedad.html#a6f7132689ac8d0d38d265549b6077d69',1,'civitas::TituloPropiedad']]],
+  ['preciolibertad',['PrecioLibertad',['../classcivitas_1_1Jugador.html#a2903b8379dc2dfcccab28821a41c7afc',1,'civitas::Jugador']]],
+  ['propiedades',['propiedades',['../classcivitas_1_1Jugador.html#a037fa4dda1033ad869d6a9b61feb00af',1,'civitas::Jugador']]],
+  ['propietario',['propietario',['../classcivitas_1_1TituloPropiedad.html#a6731d7d3651671b0d385724c209e25b7',1,'civitas::TituloPropiedad']]],
+  ['propietarioencarcelado',['propietarioEncarcelado',['../classcivitas_1_1TituloPropiedad.html#ad46ff96f913a38c805c938a15f307cf7',1,'civitas::TituloPropiedad']]],
+  ['puedecomprar',['puedeComprar',['../classcivitas_1_1Jugador.html#a0623b0de7503538559075f1b89e8c2d7',1,'civitas::Jugador']]],
+  ['puedecomprarcasilla',['puedeComprarCasilla',['../classcivitas_1_1Jugador.html#acfcfe8a5b5d26b2293cc727cd27acfac',1,'civitas::Jugador']]],
+  ['puedesalircarcelpagando',['puedeSalirCarcelPagando',['../classcivitas_1_1Jugador.html#a4a001e328396bc37afa704a71a0f236f',1,'civitas::Jugador']]],
+  ['puedoedificarcasa',['puedoEdificarCasa',['../classcivitas_1_1Jugador.html#a471ecc3440579578a91e2eb5cf3a7acc',1,'civitas::Jugador']]],
+  ['puedoedificarhotel',['puedoEdificarHotel',['../classcivitas_1_1Jugador.html#ab5a6f51daa7036633cfba1f68b653228',1,'civitas::Jugador']]],
+  ['puedogastar',['puedoGastar',['../classcivitas_1_1Jugador.html#a459494b841c3ac2c9d93b00307292d89',1,'civitas::Jugador']]]
+];

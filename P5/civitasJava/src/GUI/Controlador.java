@@ -15,6 +15,8 @@ import civitas.OperacionInmobiliaria;
 import civitas.GestionesInmobiliarias;
 import civitas.SalidasCarcel;
 
+import juegoTexto.VistaTextual;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -24,13 +26,14 @@ import java.util.ArrayList;
 public class Controlador {
 
     private CivitasJuego juego;
-    private VistaTextual vista;
+    private CivitasView vista;
 
-    Controlador(CivitasJuego _juego, VistaTextual _vista) {
+    Controlador(CivitasJuego _juego, CivitasView _vista) {
         juego = _juego;
         vista = _vista;
     }
 
+    /*
     void juega() {
         boolean end = false;
         OperacionesJuego operacion;
@@ -119,4 +122,5 @@ public class Controlador {
 
         }
     }
+    */
 }

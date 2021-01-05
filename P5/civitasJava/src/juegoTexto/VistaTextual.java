@@ -29,7 +29,7 @@ public class VistaTextual {
   }
            
   /** Pausa el juego. */
-  void pausa() {
+  public void pausa() {
     System.out.print ("\nPulsa una tecla");
     in.nextLine();
   }
@@ -82,13 +82,13 @@ public class VistaTextual {
     return (SalidasCarcel.values()[opcion]);
   }
 
-  Respuestas comprar() {
+  public Respuestas comprar() {
     int opcion = menu ("\n¿Comprar calle?",
                         new ArrayList<> (Arrays.asList("Si","No")));
     return (Respuestas.values()[opcion]);
   }
 
-  void gestionar () {
+  public void gestionar () {
     iGestion = menu ("\nIndique número de operación inmobiliaria: (0..5))",
                        new ArrayList<> (Arrays.asList("Vender","Hipotecar", "Cancelar hipoteca", 
                       "Constuir casa", "Construir hotel", "Terminar")));
@@ -112,12 +112,12 @@ public class VistaTextual {
   }
     
   /** Muestra la siguiente operacion.  */
-  void mostrarSiguienteOperacion(OperacionesJuego operacion) {
+  public void mostrarSiguienteOperacion(OperacionesJuego operacion) {
       System.out.println("\n × Siguiente: " + operacion);
   }
 
   /** Muestra los eventos del diario. */
-  void mostrarEventos() {
+  public void mostrarEventos() {
     String evento = Diario.getInstance().leerEvento();
       
     if (evento != "") {

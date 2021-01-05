@@ -1,6 +1,8 @@
 package civitas;
 import java.util.ArrayList;
 
+import GUI.Dado;
+
 /**
  * @author Yesenia González Dávila
  * @author Esther García Gallego

@@ -1,5 +1,7 @@
 package civitas;
 
+import GUI.Dado;
+
 /**
  * @file Jugador.java
  * @author Yesenia González Dávila

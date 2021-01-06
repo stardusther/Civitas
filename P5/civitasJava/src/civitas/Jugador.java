@@ -280,8 +280,8 @@ public class Jugador implements Comparable<Jugador>{
     }
 
 
-    /** Consultor protegido del atributo nombre.  */
-    protected String getNombre (){
+    /** Consultor protegido del atributo nombre. (public para clase JugadorPanel) */
+    public String getNombre (){
       return nombre;
     }
 
@@ -332,8 +332,8 @@ public class Jugador implements Comparable<Jugador>{
     }
 
 
-    /** Consultor protegido del atributo saldo.  */
-    protected float getSaldo(){
+    /** Consultor protegido del atributo saldo. (public para JugadorPanel)  */
+    public float getSaldo(){
       return saldo;
     }
 
@@ -509,4 +509,7 @@ public class Jugador implements Comparable<Jugador>{
     public int compareTo (Jugador otro){
       return (int)(getSaldo() - otro.getSaldo()) ;
     }
+    
+    
+    
 }

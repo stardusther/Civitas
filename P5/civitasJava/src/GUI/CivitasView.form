@@ -23,19 +23,24 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="contenedorVistaJugador" min="-2" pref="378" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
               <Component id="que_es_esto" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="82" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="que_es_esto" min="-2" pref="27" max="-2" attributes="0"/>
-              <EmptySpace pref="242" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="que_es_esto" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="contenedorVistaJugador" min="-2" pref="64" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="291" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,11 +48,15 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="que_es_esto">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Titulo no se que estoy haciendo por favor ayuda"/>
+        <Property name="text" type="java.lang.String" value="CivitasView"/>
       </Properties>
       <BindingProperties>
         <BindingProperty name="enabled" source="que_es_esto" sourcePath="${enabled}" target="que_es_esto" targetPath="enabled" updateStrategy="0" immediately="false"/>
       </BindingProperties>
     </Component>
+    <Container class="javax.swing.JPanel" name="contenedorVistaJugador">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+    </Container>
   </SubComponents>
 </Form>

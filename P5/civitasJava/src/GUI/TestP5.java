@@ -23,6 +23,7 @@ public class TestP5 {
         
         vista.setCivitasJuego(juego);
         
+        vista.actualizarVista();
     }
     
 }

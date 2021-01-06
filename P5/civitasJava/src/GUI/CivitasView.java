@@ -7,6 +7,7 @@ import civitas.CivitasJuego;
 public class CivitasView extends javax.swing.JFrame {
 
     CivitasJuego juego;
+    JugadorPanel jugadorPanel;
     
     public void setCivitasJuego(CivitasJuego j) {
         juego = j;
@@ -15,6 +16,16 @@ public class CivitasView extends javax.swing.JFrame {
     
     public CivitasView() {
         initComponents();
+        
+        jugadorPanel = new JugadorPanel();
+        contenedorVistaJugador.add(jugadorPanel);
+        
+        repaint();
+        revalidate();
+    }
+    
+    void actualizarVista() {
+        jugadorPanel.setJugador(juego.getJugadorActual());
     }
 
     /**
@@ -28,10 +39,11 @@ public class CivitasView extends javax.swing.JFrame {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         que_es_esto = new javax.swing.JLabel();
+        contenedorVistaJugador = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        que_es_esto.setText("Titulo no se que estoy haciendo por favor ayuda");
+        que_es_esto.setText("CivitasView");
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, que_es_esto, org.jdesktop.beansbinding.ELProperty.create("${enabled}"), que_es_esto, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
@@ -41,16 +53,20 @@ public class CivitasView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(contenedorVistaJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76)
                 .addComponent(que_es_esto)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(que_es_esto, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(que_es_esto, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contenedorVistaJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(291, Short.MAX_VALUE))
         );
 
         bindingGroup.bind();
@@ -94,6 +110,7 @@ public class CivitasView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel contenedorVistaJugador;
     private javax.swing.JLabel que_es_esto;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables

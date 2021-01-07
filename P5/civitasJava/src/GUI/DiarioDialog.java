@@ -14,14 +14,6 @@ public class DiarioDialog extends javax.swing.JDialog {
     
     static final private Diario instance = new Diario();
     
-    public DiarioDialog(CivitasView vista){
-        super(vista,true);
-        initComponents();
-        setLocationRelativeTo(null);
-
-        mostrarEventos();
-    }
-
     void mostrarEventos(){
         if(Diario.getInstance().eventosPendientes()){   // se muestra la ventana sólo si hay eventos pendientes 
             String evento = Diario.getInstance().leerEvento();
@@ -37,12 +29,16 @@ public class DiarioDialog extends javax.swing.JDialog {
             revalidate();
         }
     }
+    
     /**
      * Creates new form DiarioDialog
      */
-    public DiarioDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public DiarioDialog(java.awt.Frame parent) {
+        super(parent,true);
         initComponents();
+        setLocationRelativeTo(null);
+
+        mostrarEventos();
     }
 
     /**

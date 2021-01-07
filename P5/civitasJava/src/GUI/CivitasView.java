@@ -1,54 +1,91 @@
-
 package GUI;
 
 import civitas.CivitasJuego;
 import civitas.GestorEstados;
+import javax.swing.JOptionPane;
+import civitas.Respuestas;
+import GUI.GestionarDialog;
+import civitas.Jugador;
 
 
 public class CivitasView extends javax.swing.JFrame {
 
     CivitasJuego juego;
     JugadorPanel jugadorPanel;
-    
+    GestionarDialog gestionarD;
+
+    int gestionElegida;     // not sure
+    int propiedadElegida;   // not sure
+
     public void setCivitasJuego(CivitasJuego j) {
         juego = j;
         setVisible(true);
     }
-    
+
     public CivitasView() {
         initComponents();
-        
+
         jugadorPanel = new JugadorPanel();
         contenedorVistaJugador.add(jugadorPanel);
-        
+
         repaint();
         revalidate();
     }
-    
+
     void actualizarVista() {
         jugadorPanel.setJugador(juego.getJugadorActual());
         rankinglabel.setVisible(false);
         ranking.setVisible(false);
-        
-        if(juego.finalDelJuego()){                              // Si es el final del juego
+
+        if (juego.finalDelJuego()) {                              // Si es el final del juego
             ranking.setText(String.valueOf(juego.ranking()));   // E: a lo mejor deberíamos hacer un to_string de ranking porque no sé cómo saldrá en el valueOf
             rankinglabel.setVisible(true);
             ranking.setVisible(true);
-            
+
             repaint();
             revalidate();
         }
     }
-    
+
     void mostrarSiguienteOPeracion(GestorEstados op) {
         siguienteop.setText(String.valueOf(op));
         actualizarVista();
     }
-    
+
     void mostrarEventos() {
-        DiarioDialog diarioD= new DiarioDialog(this); //crea la ventana del diario
+        DiarioDialog diarioD = new DiarioDialog(this); //crea la ventana del diario
         diarioD.repaint();
         diarioD.revalidate();
+    }
+
+    Respuestas comprar() {
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres comprar la calle actual?", "Compra", JOptionPane.YES_NO_OPTION);
+        Respuestas res;
+
+        if (opcion == 0) {
+            res = Respuestas.SI;
+        } else {
+            res = Respuestas.NO;
+        }
+
+        return res;
+    }
+
+    public int getGestionElegida() {
+        return gestionarD.getGestionElegida();
+    }
+
+    public int getPropiedadElegida() {
+        return gestionarD.getPropiedadElegida();
+    }
+    
+    public void gestionar() {
+        gestionarD.gestionar(juego.getJugadorActual());
+        gestionarD.pack();
+        gestionarD.repaint();
+        gestionarD.revalidate();
+        
+        gestionarD.setVisible(true);
     }
 
     /**

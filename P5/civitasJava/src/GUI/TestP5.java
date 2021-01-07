@@ -23,7 +23,10 @@ public class TestP5 {
         
         vista.setCivitasJuego(juego);
         
-        vista.actualizarVista();
+        // En la clase TestP5, añade al final una última línea de código para enviar el mensaje
+        // juega al controlador, eliminando la que invocaba a actualizarVista.
+        
+        // vista.actualizarVista();
     }
     
 }

@@ -1,6 +1,6 @@
 package civitas;
 
-class GestorEstados {
+public class GestorEstados {
   EstadosJuego estadoInicial() {
     return (EstadosJuego.INICIO_TURNO);
   }

@@ -58,15 +58,15 @@ public class GestionarDialog extends javax.swing.JDialog {
         listaGestiones.setModel(gestiones); //se le dice a la lista cuáles son esos datos
     }
     
-    public void setPropiedades(Jugador jugador) {   // <-------- repasar
+    public void setPropiedades(Jugador jugador) {   
         DefaultListModel propiedades = new DefaultListModel<>(); // datos para la lista
-        //ArrayList<String> lista = new ArrayList<>();
+        //ArrayList<String> opciones = new ArrayList<>();
         
         //añadir propiedades
         for(TituloPropiedad t : jugador.getPropiedades())
             propiedades.addElement(t.getNombre());
         //se completan los datos
-        listaGestiones.setModel(propiedades); //se le dice a la lista cuáles son esos datos
+        listaPropiedades.setModel(propiedades); //se le dice a la lista cuáles son esos datos
     }
 
     /**
@@ -78,10 +78,10 @@ public class GestionarDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        gestioneslabel = new javax.swing.JLabel();
+        label_gestionesInm = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        propiedadeslabel = new javax.swing.JLabel();
-        oplabel = new javax.swing.JLabel();
+        label_propiedades = new javax.swing.JLabel();
+        label_gestiones = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaGestiones = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -90,15 +90,15 @@ public class GestionarDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        gestioneslabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        gestioneslabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        gestioneslabel.setText("Gestiones Inmobiliarias");
+        label_gestionesInm.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_gestionesInm.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_gestionesInm.setText("Gestiones Inmobiliarias");
 
-        propiedadeslabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        propiedadeslabel.setText("Propiedades");
+        label_propiedades.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_propiedades.setText("Propiedades");
 
-        oplabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        oplabel.setText("Operaciones");
+        label_gestiones.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_gestiones.setText("Gestiones");
 
         listaGestiones.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -140,41 +140,41 @@ public class GestionarDialog extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(gestioneslabel, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+                            .addComponent(label_gestionesInm, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                             .addComponent(jSeparator1)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1)
-                            .addComponent(oplabel, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                            .addComponent(label_gestiones, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2)
-                            .addComponent(propiedadeslabel, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))))
+                            .addComponent(label_propiedades, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))))
                 .addGap(21, 21, 21))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(163, 163, 163)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 166, Short.MAX_VALUE)
                 .addComponent(realizar)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addGap(163, 163, 163))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(gestioneslabel)
+                .addComponent(label_gestionesInm)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(propiedadeslabel)
-                    .addComponent(oplabel))
+                    .addComponent(label_propiedades)
+                    .addComponent(label_gestiones))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(realizar)
-                .addGap(42, 42, 42))
+                .addGap(40, 40, 40))
         );
 
         pack();
@@ -241,14 +241,14 @@ public class GestionarDialog extends javax.swing.JDialog {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel gestioneslabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel label_gestiones;
+    private javax.swing.JLabel label_gestionesInm;
+    private javax.swing.JLabel label_propiedades;
     private javax.swing.JList<String> listaGestiones;
     private javax.swing.JList<String> listaPropiedades;
-    private javax.swing.JLabel oplabel;
-    private javax.swing.JLabel propiedadeslabel;
     private javax.swing.JButton realizar;
     // End of variables declaration//GEN-END:variables
 }

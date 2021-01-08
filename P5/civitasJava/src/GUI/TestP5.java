@@ -27,6 +27,7 @@ public class TestP5 {
         // juega al controlador, eliminando la que invocaba a actualizarVista.
         
         // vista.actualizarVista();
+        controlador.juega();
     }
     
 }

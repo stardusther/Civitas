@@ -33,7 +33,7 @@ public class Controlador {
         vista = _vista;
     }
 
-    /*
+    
     void juega() {
         boolean end = false;
         OperacionesJuego operacion;
@@ -45,15 +45,17 @@ public class Controlador {
 
         while (!end) {
             vista.actualizarVista();
-            vista.pausa();
+            //vista.pausa();
 
             operacion = juego.siguientePaso();
             vista.mostrarSiguienteOperacion(operacion);
+            vista.mostrarEventos();
 
             if (operacion != OperacionesJuego.PASAR_TURNO) 
                 vista.mostrarEventos();
 
             if (juego.finalDelJuego()) {
+                
                 end = true;
                 ArrayList<Jugador> rank = new ArrayList(juego.ranking());
 
@@ -79,8 +81,8 @@ public class Controlador {
 
                     case GESTIONAR:
                         vista.gestionar();
-                        GestionesInmobiliarias gest = GestionesInmobiliarias.values()[vista.getGestion()];
-                        int ip = vista.getPropiedad();
+                        GestionesInmobiliarias gest = GestionesInmobiliarias.values()[vista.getGestionElegida()];
+                        int ip = vista.getPropiedadElegida();
 
                         OperacionInmobiliaria operacionInm = new OperacionInmobiliaria(ip, gest);
 
@@ -117,10 +119,11 @@ public class Controlador {
 
                         juego.siguientePasoCompletado(operacion);
                         break;
+                        
                 }
             }
 
         }
     }
-    */
+    
 }

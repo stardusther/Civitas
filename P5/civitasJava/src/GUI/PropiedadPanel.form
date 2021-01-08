@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -18,16 +18,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="A3" min="-2" max="-2" attributes="0"/>
-                  <Component id="A5" min="-2" max="-2" attributes="0"/>
-                  <Component id="A4" min="-2" max="-2" attributes="0"/>
-                  <Component id="A2" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="A8" min="-2" max="-2" attributes="0"/>
-                  <Component id="A1" min="-2" max="-2" attributes="0"/>
-                  <Component id="A9" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="A7" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="A6" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="A1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="A2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="A3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="A4" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="A5" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="A6" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="A7" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="A9" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -118,6 +118,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="T&#xed;tulo"/>
       </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="tpropiedad" sourcePath="${enabled}" target="tpropiedad" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tpropiedadActionPerformed"/>
       </Events>
@@ -131,6 +134,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="N&#xfa;mero de casas"/>
       </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="ncasas" sourcePath="${enabled}" target="ncasas" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ncasasActionPerformed"/>
       </Events>
@@ -139,6 +145,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="N&#xfa;mero de hoteles"/>
       </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="nhoteles" sourcePath="${enabled}" target="nhoteles" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nhotelesActionPerformed"/>
       </Events>
@@ -147,6 +156,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Hipotecada"/>
       </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="hipotecada" sourcePath="${enabled}" target="hipotecada" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hipotecadaActionPerformed"/>
       </Events>
@@ -160,6 +172,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Propietario"/>
       </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="propietario" sourcePath="${enabled}" target="propietario" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="propietarioActionPerformed"/>
       </Events>
@@ -173,6 +188,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Hipoteca base"/>
       </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="hipotecabase" sourcePath="${enabled}" target="hipotecabase" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hipotecabaseActionPerformed"/>
       </Events>
@@ -186,6 +204,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Precio de compra"/>
       </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="pcompra" sourcePath="${enabled}" target="pcompra" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pcompraActionPerformed"/>
       </Events>
@@ -199,6 +220,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Alquiler base"/>
       </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="alquilerbase" sourcePath="${enabled}" target="alquilerbase" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
     </Component>
     <Component class="javax.swing.JLabel" name="A6">
       <Properties>
@@ -209,6 +233,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Precio edificar"/>
       </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="pedificar" sourcePath="${enabled}" target="pedificar" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pedificarActionPerformed"/>
       </Events>

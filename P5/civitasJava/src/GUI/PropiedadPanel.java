@@ -15,14 +15,14 @@ public class PropiedadPanel extends javax.swing.JPanel {
     
     void setPropiedad(TituloPropiedad t){
         titulo = t;
-        tpropiedad.setText(titulo.getNombre());
-        propietario.setText(titulo.getPropietario().getNombre());
-        alquilerbase.setText(String.valueOf(titulo.getAlquilerBase()));
-        hipotecabase.setText(String.valueOf(titulo.getHipotecaBase()));
-        ncasas.setText(String.valueOf(titulo.getNumCasas()));
-        nhoteles.setText(String.valueOf(titulo.getNumHoteles()));
-        pcompra.setText(String.valueOf(titulo.getPrecioCompra()));
-        pedificar.setText(String.valueOf(titulo.getPrecioEdificar()));
+        tpropiedad.setText (titulo.getNombre());
+        propietario.setText (titulo.getPropietario().getNombre());
+        alquilerbase.setText (String.valueOf(titulo.getAlquilerBase()));
+        hipotecabase.setText (String.valueOf(titulo.getHipotecaBase()));
+        ncasas.setText (String.valueOf(titulo.getNumCasas()));
+        nhoteles.setText (String.valueOf(titulo.getNumHoteles()));
+        pcompra.setText (String.valueOf(titulo.getPrecioCompra()));
+        pedificar.setText (String.valueOf(titulo.getPrecioEdificar()));
         
         if(titulo.getHipotecado())
             hipotecada.setText("Si");
@@ -47,6 +47,7 @@ public class PropiedadPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         A1 = new javax.swing.JLabel();
         A7 = new javax.swing.JLabel();
@@ -74,6 +75,10 @@ public class PropiedadPanel extends javax.swing.JPanel {
         A8.setText("Numero de hoteles:");
 
         tpropiedad.setText("Título");
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tpropiedad, org.jdesktop.beansbinding.ELProperty.create("${enabled}"), tpropiedad, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         tpropiedad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tpropiedadActionPerformed(evt);
@@ -83,6 +88,10 @@ public class PropiedadPanel extends javax.swing.JPanel {
         A9.setText("Hipotecada:");
 
         ncasas.setText("Número de casas");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, ncasas, org.jdesktop.beansbinding.ELProperty.create("${enabled}"), ncasas, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         ncasas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ncasasActionPerformed(evt);
@@ -90,6 +99,10 @@ public class PropiedadPanel extends javax.swing.JPanel {
         });
 
         nhoteles.setText("Número de hoteles");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, nhoteles, org.jdesktop.beansbinding.ELProperty.create("${enabled}"), nhoteles, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         nhoteles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nhotelesActionPerformed(evt);
@@ -97,6 +110,10 @@ public class PropiedadPanel extends javax.swing.JPanel {
         });
 
         hipotecada.setText("Hipotecada");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, hipotecada, org.jdesktop.beansbinding.ELProperty.create("${enabled}"), hipotecada, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         hipotecada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hipotecadaActionPerformed(evt);
@@ -106,6 +123,10 @@ public class PropiedadPanel extends javax.swing.JPanel {
         A2.setText("Propietario:");
 
         propietario.setText("Propietario");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, propietario, org.jdesktop.beansbinding.ELProperty.create("${enabled}"), propietario, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         propietario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 propietarioActionPerformed(evt);
@@ -115,6 +136,10 @@ public class PropiedadPanel extends javax.swing.JPanel {
         A4.setText("Hipoteca base:");
 
         hipotecabase.setText("Hipoteca base");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, hipotecabase, org.jdesktop.beansbinding.ELProperty.create("${enabled}"), hipotecabase, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         hipotecabase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hipotecabaseActionPerformed(evt);
@@ -124,6 +149,10 @@ public class PropiedadPanel extends javax.swing.JPanel {
         A5.setText("Precio de compra:");
 
         pcompra.setText("Precio de compra");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, pcompra, org.jdesktop.beansbinding.ELProperty.create("${enabled}"), pcompra, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         pcompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pcompraActionPerformed(evt);
@@ -134,9 +163,16 @@ public class PropiedadPanel extends javax.swing.JPanel {
 
         alquilerbase.setText("Alquiler base");
 
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, alquilerbase, org.jdesktop.beansbinding.ELProperty.create("${enabled}"), alquilerbase, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         A6.setText("Precio edificar:");
 
         pedificar.setText("Precio edificar");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, pedificar, org.jdesktop.beansbinding.ELProperty.create("${enabled}"), pedificar, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         pedificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pedificarActionPerformed(evt);
@@ -149,16 +185,16 @@ public class PropiedadPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(A3)
-                    .addComponent(A5)
-                    .addComponent(A4)
-                    .addComponent(A2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(A8)
                     .addComponent(A1)
-                    .addComponent(A9)
+                    .addComponent(A2)
+                    .addComponent(A3)
+                    .addComponent(A4)
+                    .addComponent(A5)
+                    .addComponent(A6)
                     .addComponent(A7)
-                    .addComponent(A6))
+                    .addComponent(A9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tpropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -213,6 +249,8 @@ public class PropiedadPanel extends javax.swing.JPanel {
                     .addComponent(hipotecada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
 
     private void tpropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tpropiedadActionPerformed
@@ -267,5 +305,6 @@ public class PropiedadPanel extends javax.swing.JPanel {
     private javax.swing.JTextField pedificar;
     private javax.swing.JTextField propietario;
     private javax.swing.JTextField tpropiedad;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

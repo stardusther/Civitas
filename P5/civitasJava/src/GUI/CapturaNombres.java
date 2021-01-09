@@ -18,6 +18,7 @@ public class CapturaNombres extends javax.swing.JDialog {
     public CapturaNombres(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
         this.addWindowListener (new WindowAdapter() {
         @Override
         public void windowClosing (WindowEvent e) {

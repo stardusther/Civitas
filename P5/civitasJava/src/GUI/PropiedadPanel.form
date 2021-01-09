@@ -17,83 +17,119 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="A8" min="-2" max="-2" attributes="0"/>
-                  <Component id="A1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="A2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="A3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="A4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="A5" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="A6" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="A7" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="A9" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="A2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="propietario" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="A6" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="pedificar" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="A9" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="hipotecada" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="A7" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ncasas" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="A5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="pcompra" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="A3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="alquilerbase" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="A4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="hipotecabase" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="149" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="A8" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="nhoteles" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="A1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="tpropiedad" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="tpropiedad" min="-2" max="-2" attributes="0"/>
-                  <Component id="ncasas" min="-2" max="-2" attributes="0"/>
-                  <Component id="nhoteles" min="-2" max="-2" attributes="0"/>
-                  <Component id="hipotecada" min="-2" max="-2" attributes="0"/>
-                  <Component id="hipotecabase" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="pcompra" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="alquilerbase" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="propietario" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="pedificar" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="A1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tpropiedad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="A2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="propietario" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="A2" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                          <Component id="propietario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="A5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pcompra" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="hipotecabase" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="A4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="A6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pedificar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="A9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="hipotecada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="A8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nhoteles" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="A3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="alquilerbase" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="A3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="alquilerbase" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="A4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="hipotecabase" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="A5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pcompra" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="A6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pedificar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="A7" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ncasas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="A8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nhoteles" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="A9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="hipotecada" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -101,21 +137,17 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="A1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="18" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Titulo:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="A7">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Numero de casas:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="A8">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Numero de hoteles:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tpropiedad">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="18" style="3"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="T&#xed;tulo"/>
       </Properties>
       <BindingProperties>
@@ -125,51 +157,19 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tpropiedadActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="A9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Hipotecada:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="ncasas">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="N&#xfa;mero de casas"/>
-      </Properties>
-      <BindingProperties>
-        <BindingProperty name="enabled" source="ncasas" sourcePath="${enabled}" target="ncasas" targetPath="enabled" updateStrategy="0" immediately="false"/>
-      </BindingProperties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ncasasActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="nhoteles">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="N&#xfa;mero de hoteles"/>
-      </Properties>
-      <BindingProperties>
-        <BindingProperty name="enabled" source="nhoteles" sourcePath="${enabled}" target="nhoteles" targetPath="enabled" updateStrategy="0" immediately="false"/>
-      </BindingProperties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nhotelesActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="hipotecada">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Hipotecada"/>
-      </Properties>
-      <BindingProperties>
-        <BindingProperty name="enabled" source="hipotecada" sourcePath="${enabled}" target="hipotecada" targetPath="enabled" updateStrategy="0" immediately="false"/>
-      </BindingProperties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hipotecadaActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="A2">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Propietario:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="propietario">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Propietario"/>
       </Properties>
       <BindingProperties>
@@ -181,11 +181,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="A4">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Hipoteca base:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="hipotecabase">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Hipoteca base"/>
       </Properties>
       <BindingProperties>
@@ -197,11 +203,50 @@
     </Component>
     <Component class="javax.swing.JLabel" name="A5">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Precio de compra:"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JTextField" name="alquilerbase">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Alquiler base"/>
+      </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="alquilerbase" sourcePath="${enabled}" target="alquilerbase" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="A6">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Precio edificar:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="pedificar">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Precio edificar"/>
+      </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="pedificar" sourcePath="${enabled}" target="pedificar" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pedificarActionPerformed"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JTextField" name="pcompra">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Precio de compra"/>
       </Properties>
       <BindingProperties>
@@ -213,32 +258,77 @@
     </Component>
     <Component class="javax.swing.JLabel" name="A3">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Alquiler base:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="alquilerbase">
+    <Component class="javax.swing.JTextField" name="ncasas">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Alquiler base"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="N&#xfa;mero de casas"/>
       </Properties>
       <BindingProperties>
-        <BindingProperty name="enabled" source="alquilerbase" sourcePath="${enabled}" target="alquilerbase" targetPath="enabled" updateStrategy="0" immediately="false"/>
-      </BindingProperties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="A6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Precio edificar:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="pedificar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Precio edificar"/>
-      </Properties>
-      <BindingProperties>
-        <BindingProperty name="enabled" source="pedificar" sourcePath="${enabled}" target="pedificar" targetPath="enabled" updateStrategy="0" immediately="false"/>
+        <BindingProperty name="enabled" source="ncasas" sourcePath="${enabled}" target="ncasas" targetPath="enabled" updateStrategy="0" immediately="false"/>
       </BindingProperties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pedificarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ncasasActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nhoteles">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="N&#xfa;mero de hoteles"/>
+      </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="nhoteles" sourcePath="${enabled}" target="nhoteles" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nhotelesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="hipotecada">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Hipotecada"/>
+      </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="hipotecada" sourcePath="${enabled}" target="hipotecada" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hipotecadaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="A9">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Hipotecada:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="A7">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Numero de casas:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="A8">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Numero de hoteles:"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

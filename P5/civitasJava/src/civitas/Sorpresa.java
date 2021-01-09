@@ -36,7 +36,7 @@ abstract class Sorpresa{
     /** Informa al diario de que se está aplicando una sorpresa a un jugador (se indica su nombre). */
     protected void informe (int actual, ArrayList<Jugador> todos) {
         if (jugadorCorrecto (actual, todos))
-            Diario.getInstance().ocurreEvento("\n¡Sorpresa!" + texto + " Se aplica " + tipo + " al jugador " + todos.get(actual).getNombre() + "\n");
+            Diario.getInstance().ocurreEvento("¡Sorpresa!" + texto + " Se aplica " + tipo + " al jugador " + todos.get(actual).getNombre());
     }
 
     /** Comprueba si el primer parámetro es un indice valido para acceder al array de Jugadores. */

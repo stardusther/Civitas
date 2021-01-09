@@ -49,7 +49,6 @@ public class Controlador {
 
             operacion = juego.siguientePaso();
             vista.mostrarSiguienteOperacion(operacion);
-            vista.mostrarEventos();
 
             if (operacion != OperacionesJuego.PASAR_TURNO) 
                 vista.mostrarEventos();

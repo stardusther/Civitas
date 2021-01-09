@@ -6,7 +6,7 @@ import GUI.Dado;
 /**
  * @author Yesenia González Dávila
  * @author Esther García Gallego
- * Grupo B.3
+* Grupo B.3
  */
 
 public class CivitasJuego {
@@ -19,7 +19,7 @@ public class CivitasJuego {
 
     private int indiceJugadorActual;
 
-    static final int numJugadores = 4;                          
+    static final int numJugadores = 2;                          
     static final int casillaCarcel = 3;                                      
     static final int numCasillas = 20;               
 

@@ -70,9 +70,11 @@ public class PropiedadPanel extends javax.swing.JPanel {
 
         A1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         A1.setText("Titulo:");
+        A1.setEnabled(false);
 
         tpropiedad.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         tpropiedad.setText("Título");
+        tpropiedad.setEnabled(false);
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tpropiedad, org.jdesktop.beansbinding.ELProperty.create("${enabled}"), tpropiedad, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);

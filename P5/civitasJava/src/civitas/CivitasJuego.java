@@ -19,7 +19,7 @@ public class CivitasJuego {
 
     private int indiceJugadorActual;
 
-    static final int numJugadores = 2;                          
+    static final int numJugadores = 4;                          
     static final int casillaCarcel = 3;                                      
     static final int numCasillas = 20;               
 
@@ -56,9 +56,9 @@ public class CivitasJuego {
         
         for (int i=1 ; i < numCasillas; i++)       // Carcel y salida se añaden automáticamente
             switch (i) {
-                case 2:     // Sorpresa 1
-                    tablero.añadeCasilla (new CasillaSorpresa ("Sorpresa 1", mazo));
-                    break;
+//                case 2:     // Sorpresa 1
+//                    tablero.añadeCasilla (new CasillaSorpresa ("Sorpresa 1", mazo));
+//                    break;
                     
                 case 4:     // Impuesto
                     tablero.añadeCasilla(new CasillaImpuesto ("Impuesto de " + cantidad_impuesto + ".", cantidad_impuesto));

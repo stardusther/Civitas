@@ -25,6 +25,11 @@ public class Casilla {
                                                   // (ahorrará redefinir el informe en todas las 
                                                   // subclases)
     
+    /** Para P5. Devuelve el tipo de casilla */
+    public String getTipo() {
+        return tipoCasilla;
+    }
+    
     /** Constructor descanso. */
     Casilla (String nombre) {
         mazo = null;

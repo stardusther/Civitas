@@ -186,7 +186,7 @@ public class GestionarDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         gestionElegida = listaGestiones.getSelectedIndex();     //?
         propiedadElegida = listaPropiedades.getSelectedIndex(); //?
-        if( (gestionElegida != -1 && propiedadElegida != -1) || gestionElegida == 5) // Si la gestion es terminar no es necesario seleccionar calle.
+        if( (gestionElegida != -1 && propiedadElegida != -1) || gestionElegida == 5)  // Si la gestión es terminar no hace falta seleccionar calle
             dispose();
     }//GEN-LAST:event_realizarActionPerformed
 

@@ -27,4 +27,9 @@ public class CasillaImpuesto extends Casilla {
             todos.get(actual).pagaImpuesto(importe);
         }
     }
+    
+    /** Para P5. Devuelve el importe */
+    public float getImporte() {
+        return importe;
+    }
 }

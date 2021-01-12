@@ -11,11 +11,13 @@ import civitas.Respuestas;
 import GUI.GestionarDialog;
 import civitas.Jugador;
 import civitas.OperacionesJuego;
+import java.util.ArrayList;
 
 public class CivitasView extends javax.swing.JFrame {
 
     CivitasJuego juego;
     JugadorPanel jugadorPanel;
+    CasillaPanel casillaPanel;
     GestionarDialog gestionarD;
 
     int gestionElegida;     // not sure
@@ -31,8 +33,12 @@ public class CivitasView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
         jugadorPanel = new JugadorPanel();
+        casillaPanel = new CasillaPanel();
+        
         gestionarD = new GestionarDialog(this, rootPaneCheckingEnabled);
+        
         contenedorVistaJugador.add(jugadorPanel);
+        contenedorVistaCasilla.add(casillaPanel);
 
         repaint();
         revalidate();
@@ -40,14 +46,23 @@ public class CivitasView extends javax.swing.JFrame {
 
     void actualizarVista() {
         jugadorPanel.setJugador(juego.getJugadorActual());
+        casillaPanel.setCasilla(juego.getCasillaActual());
         label_ranking.setVisible(false);
         ranking.setVisible(false);
         
-        // Y: get nombre o to string?
-        casillaActual.setText(juego.getCasillaActual().getNombre());
+        // Sin casillaPanel;
+        //casillaActual.setText(juego.getCasillaActual().getNombre());
 
         if (juego.finalDelJuego()) {                              // Si es el final del juego
-            ranking.setText(String.valueOf(juego.ranking()));   // E: a lo mejor deberíamos hacer un to_string de ranking porque no sé cómo saldrá en el valueOf
+            
+            ArrayList<Jugador> rank = new ArrayList(juego.ranking());
+
+                for (int i = 0; i < rank.size(); i++) 
+                    ranking.append( i+1 + ". " + rank.get(i).toString() + "\n");
+            
+            // Tambien vale pero no pondriamos el puesto de cada jugador
+            //ranking.setText( String.valueOf(juego.ranking()) );
+                
             label_ranking.setVisible(true);
             ranking.setVisible(true);
 
@@ -128,9 +143,8 @@ public class CivitasView extends javax.swing.JFrame {
         label_ranking = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ranking = new javax.swing.JTextArea();
-        casillaActual = new javax.swing.JTextField();
-        label_casillaActual = new javax.swing.JLabel();
         que_es_esto = new javax.swing.JLabel();
+        contenedorVistaCasilla = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,12 +167,6 @@ public class CivitasView extends javax.swing.JFrame {
         ranking.setRows(5);
         jScrollPane1.setViewportView(ranking);
 
-        casillaActual.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        casillaActual.setText("CasillaActual");
-
-        label_casillaActual.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        label_casillaActual.setText("CasillaActual:");
-
         que_es_esto.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         que_es_esto.setText("CivitasView");
 
@@ -172,11 +180,7 @@ public class CivitasView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(label_casillaActual)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(casillaActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(contenedorVistaCasilla, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(label_siguienteop)
@@ -184,10 +188,13 @@ public class CivitasView extends javax.swing.JFrame {
                             .addComponent(siguienteop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(label_ranking, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(que_es_esto)
-                            .addComponent(contenedorVistaJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(436, 436, 436)
+                                .addComponent(que_es_esto)))
+                        .addComponent(contenedorVistaJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,19 +202,17 @@ public class CivitasView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(que_es_esto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contenedorVistaJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_casillaActual)
-                    .addComponent(casillaActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(contenedorVistaJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(contenedorVistaCasilla, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_siguienteop)
                     .addComponent(siguienteop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_ranking))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         bindingGroup.bind();
@@ -255,10 +260,9 @@ public class CivitasView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField casillaActual;
+    private javax.swing.JPanel contenedorVistaCasilla;
     private javax.swing.JPanel contenedorVistaJugador;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel label_casillaActual;
     private javax.swing.JLabel label_ranking;
     private javax.swing.JLabel label_siguienteop;
     private javax.swing.JLabel que_es_esto;

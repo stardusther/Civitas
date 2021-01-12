@@ -15,8 +15,6 @@ import civitas.OperacionInmobiliaria;
 import civitas.GestionesInmobiliarias;
 import civitas.SalidasCarcel;
 
-import juegoTexto.VistaTextual;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -56,6 +54,9 @@ public class Controlador {
             if (juego.finalDelJuego()) {
                 
                 end = true;
+                vista.actualizarVista(); // Si termina por pagar impuesto, alquiler ...
+                
+                /*
                 ArrayList<Jugador> rank = new ArrayList(juego.ranking());
 
                 System.out.println("\n ----------------------------- ");
@@ -63,6 +64,7 @@ public class Controlador {
                 System.out.println(" ----------------------------- ");
                 for (int i = 0; i < rank.size(); i++) 
                     System.out.println( i+1 + ". " + rank.get(i).toString() + "\n");
+                */
                 System.out.println("\n ----- FIN DEL JUEGO ----- \n\n");
                 
                 
